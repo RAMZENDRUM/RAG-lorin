@@ -1,0 +1,33 @@
+{
+  "name": "lorin-rag",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "collect": "tsx scripts/collector.ts",
+    "ingest": "tsx scripts/ingest.ts",
+    "bot": "tsx scripts/telegram-bot.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^3.0.64",
+    "@ai-sdk/openai": "latest",
+    "@llamaindex/llama-cloud": "^2.4.1",
+    "@qdrant/js-client-rest": "^1.7.0",
+    "ai": "^6.0.168",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cohere-ai": "^7.21.0",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.2.0",
+    "llama-parse": "^0.1.0",
+    "nodemailer": "^8.0.5",
+    "openai": "^6.34.0",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.10.0",
+    "@types/nodemailer": "^8.0.0",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3"
+  }
+}
