@@ -6,7 +6,7 @@
     "collect": "tsx scripts/collector.ts",
     "ingest": "tsx scripts/ingest.ts",
     "bot": "tsx scripts/telegram-bot.ts",
-    "build": "tsc"
+    "build": "echo 'Vercel builds via @vercel/node'"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.64",
