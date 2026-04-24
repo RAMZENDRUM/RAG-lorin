@@ -201,7 +201,7 @@ KNOWLEDGE GUIDELINES:
 }
 
 // ─────────────────────────────────────────────
-// STAGE 8 — Post-Processor (Precision Link Control)
+// STAGE 8 — Post-Processor (Smarter Link Control)
 // ─────────────────────────────────────────────
 export function postProcess(
     answer: string,
@@ -211,20 +211,20 @@ export function postProcess(
 ): string {
     let finalAnswer = answer;
     
-    // Only inject link if the LLM actually used the [Official Page] placeholder
-    if (retrievedChunks.length > 0) {
+    // Only inject link if user ASKED for it or if the LLM thinks it's critical
+    if (finalAnswer.includes('[Official Page]') && retrievedChunks.length > 0) {
         const bestChunk = retrievedChunks.find(c => {
             const low = c.content.toLowerCase();
             const ans = finalAnswer.toLowerCase();
             return (ans.includes('yogesh') && low.includes('yogesh')) || (ans.includes('bus') && low.includes('bus'));
         }) || retrievedChunks[0];
 
-        if (finalAnswer.includes('[Official Page]')) {
-            finalAnswer = finalAnswer.replace('[Official Page]', `[Official Page](${bestChunk.url})`);
-        }
+        finalAnswer = finalAnswer.replace('[Official Page]', `[Official Page](${bestChunk.url})`);
     }
 
-    if (agentFlags.showForm && !finalAnswer.includes('forms.gle')) {
+    // Only show form if it's an ADMISSION or ADAPTIVE intent (not every message)
+    const isEnquiry = agentFlags.dominantIntent === 'admission' || agentFlags.dominantIntent === 'enquiry';
+    if (agentFlags.showForm && isEnquiry && !finalAnswer.includes('forms.gle')) {
         finalAnswer += `\n\n📝 Enquiry: ${googleFormUrl}`;
     }
 
