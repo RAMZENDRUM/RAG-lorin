@@ -49,7 +49,7 @@ async function hydraRetrieve(text: string, openai: any) {
     return "No specific data found.";
 }
 
-const GOOGLE_FORM_URL = "https://forms.gle/CTuZcJpQsPsLn7nu8";
+const GOOGLE_FORM_URL = "https://forms.gle/Fto1EWFofwQdnjoz7";
 
 bot.command('start', (ctx) => {
     ctx.reply(`👋 Hey! I'm Lorin, your Mohamed Sathak A.J. (Chennai) campus buddy! 🎓✨\n\nI can help you with:\n🏢 **Departments**\n📝 **Admissions**\n🏠 **Hostels**\n👩‍🏫 **Faculty**\n\nWhat are you looking for today?`, { parse_mode: 'Markdown' });
