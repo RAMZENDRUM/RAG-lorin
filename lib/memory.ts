@@ -1,27 +1,37 @@
 import postgres from 'postgres';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
-const sql = postgres(process.env.DATABASE_URL!);
+let sql: any = null;
 
 export interface ChatMessage {
     role: 'user' | 'assistant';
     content: string;
 }
 
+function getSql() {
+    if (sql) return sql;
+    if (!process.env.DATABASE_URL) {
+        console.error('❌ DATABASE_URL is missing in Vercel environment variables!');
+        return null;
+    }
+    sql = postgres(process.env.DATABASE_URL);
+    return sql;
+}
+
 export async function getChatHistory(userId: number, limit: number = 10): Promise<ChatMessage[]> {
     try {
-        const history = await sql`
+        const db = getSql();
+        if (!db) return [];
+        
+        const history = await db`
             SELECT role, content 
             FROM chat_history 
             WHERE user_id = ${userId}
             ORDER BY created_at DESC 
             LIMIT ${limit}
         `;
-        
-        // Return in chronological order
-        return history.reverse().map(row => ({
+        return history.reverse().map((row: any) => ({
             role: row.role as 'user' | 'assistant',
             content: row.content
         }));
@@ -33,7 +43,10 @@ export async function getChatHistory(userId: number, limit: number = 10): Promis
 
 export async function saveChatMessage(userId: number, role: 'user' | 'assistant', content: string, sessionId?: string) {
     try {
-        await sql`
+        const db = getSql();
+        if (!db) return;
+        
+        await db`
             INSERT INTO chat_history (user_id, role, content, session_id)
             VALUES (${userId}, ${role}, ${content}, ${sessionId || null})
         `;
@@ -44,7 +57,9 @@ export async function saveChatMessage(userId: number, role: 'user' | 'assistant'
 
 export async function clearChatHistory(userId: number) {
     try {
-        await sql`DELETE FROM chat_history WHERE user_id = ${userId}`;
+        const db = getSql();
+        if (!db) return;
+        await db`DELETE FROM chat_history WHERE user_id = ${userId}`;
     } catch (err) {
         console.error('Failed to clear chat history:', err);
     }
