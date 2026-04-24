@@ -14,32 +14,54 @@ const openai = createOpenAI({
 });
 const model = openai('gpt-4o-mini');
 
-// NOTE: LlamaParse integration using LlamaCloud SDK
-// Since the environment might have specific SDK constraints, we'll implement a clean parser logic.
-// We'll use the provided text for now and simulate the LlamaParse "Layout-Aware" cleanup via LLM if SDK is tricky.
-// Actually, the user wants EXACT LlamaParse usage if possible.
-
+// --- HIGH-QUALITY REFINER (Skill: Semantic Enrichment) ---
 async function refineContent(rawText: string, filename: string) {
-    console.log(`Refining ${filename}...`);
+    console.log(`🚀 Deep Refining: ${filename}...`);
     
     const { text } = await generateText({
         model,
-        system: `You are a data processing expert for Lorin, a university RAG assistant.
-Your task is to transform raw scraped content into a "RAG-ready" narrative format.
-
-RULES:
-1. TABLES TO SENTENCES: Convert any table data into natural language. 
-   Example: [Name: Ram | Dept: IT] -> "Ram is in the IT department."
-2. LISTS TO NARRATIVE: Convert lists into readable sentences.
-3. REMOVE FLUFF: Delete navigation, headers, footers, and legal boilerplate.
-4. METADATA: Infer the category (e.g., Admission, Transport, Faculty, Dept).
-5. CHUNKS: Ensure each paragraph is self-contained and meaningful.
-
-FILENAME CONTEXT: ${filename}`,
-        prompt: rawText.substring(0, 8000) // Truncate if extreme, but usually college pages are small
+        system: `You are an Elite Data Engineer for a University RAG system.
+        
+        GOAL: Transform raw web-scraped content into high-fidelity "RAG-ready" blocks.
+        
+        INSTRUCTIONS:
+        1. CONTEXTUAL HEADERS: Prepend a summary header to the text if the file is about a specific person or department.
+        2. DATA RECONSTRUCTION: Convert all tables and list-based contact details into descriptive sentences. 
+           - Bad: "Name: Ram | Dept: IT"
+           - Good: "Ramanathan S (Ram) is a student in the IT department at MSAJCE."
+        3. DENSITY: Preserve all phone numbers and emails EXACTLY.
+        4. CLEANING: Strip out navigation menus, footers, and redundant web boilerplate.
+        5. TONE: Professional, objective, and informative.`,
+        prompt: `FILENAME: ${filename}\n\nRAW CONTENT:\n${rawText.substring(0, 10000)}`
     });
     
     return text;
+}
+
+// --- RECURSIVE CHUNKER (Skill: Overlap & Context) ---
+function createHighQualityChunks(text: string, filename: string, category: string) {
+    const CHUNK_SIZE = 600;
+    const OVERLAP = 100;
+    const chunks = [];
+    
+    // Prefix for every chunk to preserve "Subject Knowledge"
+    const prefix = `[Entity: MSAJCE | Category: ${category} | Source: ${filename}] `;
+    
+    let start = 0;
+    while (start < text.length) {
+        let end = start + CHUNK_SIZE;
+        let chunk = text.substring(start, end);
+        
+        // Enrich and Store
+        chunks.push({
+            content: prefix + chunk.trim(),
+            length: chunk.length
+        });
+        
+        start += (CHUNK_SIZE - OVERLAP);
+    }
+    
+    return chunks;
 }
 
 async function main() {
@@ -47,54 +69,45 @@ async function main() {
     const processedDir = path.join(process.cwd(), 'data', 'processed');
     const unifiedPath = path.join(process.cwd(), 'data', 'unified_cleaned_data.json');
     
-    if (!fs.existsSync(processedDir)) {
-        fs.mkdirSync(processedDir, { recursive: true });
-    }
+    if (!fs.existsSync(processedDir)) fs.mkdirSync(processedDir, { recursive: true });
     
     const files = fs.readdirSync(rawDir).filter(f => f.endsWith('.txt'));
     const allChunks = [];
 
     for (const file of files) {
         const filePath = path.join(rawDir, file);
-        const processedPath = path.join(processedDir, `${file.replace('.txt', '')}.processed.txt`);
+        const processedPath = path.join(processedDir, `${file.replace('.txt', '')}.hq.txt`);
         const rawContent = fs.readFileSync(filePath, 'utf-8');
         
-        let refined = '';
-        const isTransport = file.toLowerCase().includes('transport') || file.toLowerCase().includes('bus');
+        let hqContent = '';
+        
+        // Always Deep-Refine to ensure high-fidelity context (Ignore cache for now for total quality)
+        console.log(`Processing ${file}...`);
+        hqContent = await refineContent(rawContent, file);
+        fs.writeFileSync(processedPath, hqContent);
 
-        if (isTransport) {
-            // NEVER refine transport files - keep raw fidelity
-            refined = rawContent;
-        } else if (fs.existsSync(processedPath)) {
-            // CACHE HIT: Use already refined version to save memory/credits
-            console.log(`Using cached version for: ${file}`);
-            refined = fs.readFileSync(processedPath, 'utf-8');
-        } else {
-            // REFRESH: Only refine if missing
-            refined = await refineContent(rawContent, file);
-            fs.writeFileSync(processedPath, refined);
-        }
-
-        const category = file.replace('.txt', '');
-        const chunks = refined.split('\n\n').filter(p => p.trim().length > 50);
+        const category = file.replace('.txt', '').replace(/[\-_]/g, ' ');
+        const chunks = createHighQualityChunks(hqContent, file, category);
         
         for (const chunk of chunks) {
-            const hash = crypto.createHash('md5').update(chunk.trim()).digest('hex');
+            const hash = crypto.createHash('md5').update(chunk.content).digest('hex');
             allChunks.push({
-                id: hash,
-                content: chunk.trim(),
+                index: allChunks.length,
+                content: chunk.content,
                 metadata: {
-                    source_file: file,
+                    id: hash,
+                    source: file,
                     category: category,
-                    type: isTransport ? 'transport' : 'info',
-                    department: file.match(/cse|ece|it|eee|mech|civil|aids|csbs|cyber|aiml/) ? category : 'general'
+                    timestamp: new Date().toISOString()
                 }
             });
         }
     }
     
     fs.writeFileSync(unifiedPath, JSON.stringify(allChunks, null, 2));
-    console.log(`✅ Processed ${files.length} files into ${allChunks.length} chunks. (Used Cache where available)`);
+    console.log(`\n✅ HIGH-QUALITY PROCESSING COMPLETE!`);
+    console.log(`Generated ${allChunks.length} HQ chunks with Context Overlap.`);
+    console.log(`Saved to: ${unifiedPath}`);
 }
 
-main();
+main().catch(console.error);
