@@ -7,25 +7,22 @@ if (!token) throw new Error('TELEGRAM_BOT_TOKEN is required');
 
 const bot = new Bot(token);
 
-// --- GLOBAL RESILIENCE HANDLER ---
 bot.command('start', (ctx) => ctx.reply("👋 Hello! I am Lorin, your smart MSAJCE Campus Concierge. I've been hardened with new stability shields. Ask me anything!"));
 
 bot.on('message:text', async (ctx) => {
     const userId = ctx.from.id;
     const text = ctx.message.text;
 
-    // 1. SILENT FAILURE SHIELD: Always send a 'Thinking' state for UX
     await ctx.replyWithChatAction('typing');
 
-    // 2. TIMEOUT PROTECTION: We must finish in < 10s for Vercel
+    // Timeout guard for Vercel (10s limit)
     const timeoutPromise = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('REQUEST_TIMEOUT')), 9000)
+        setTimeout(() => reject(new Error('REQUEST_TIMEOUT')), 8500)
     );
 
     try {
         console.log(`[Bot] Request from ${userId}: ${text}`);
         
-        // Race the retrieval against the timeout
         const result = await Promise.race([
             (async () => {
                 const history = await getMemory(userId);
@@ -40,14 +37,18 @@ bot.on('message:text', async (ctx) => {
 
     } catch (err: any) {
         console.error('[CRITICAL BOT ERROR]:', err.message);
-        
-        // 3. FUTURE-PROOF FEEDBACK: Never stay silent
         const errorMsg = err.message === 'REQUEST_TIMEOUT' 
-            ? "⏱️ I'm taking a bit longer than usual to think. Could you try asking that again?" 
-            : "🛠️ My internal system is undergoing a quick tune-up. I'll be right back with you!";
+            ? "⏱️ Information retrieval is taking a bit longer than usual. Please try asking again in a moment!" 
+            : "🛠️ I'm briefly recalibrating my brain. I'll be ready for your next question in a few seconds!";
         
         await ctx.reply(errorMsg);
     }
 });
 
-export default webhookCallback(bot, 'https');
+// VERCEL SPECIFIC HANDLER (RE-ESTABLISHING THE LINK)
+export default async function handler(req: any, res: any) {
+    if (req.method === 'POST') {
+        return webhookCallback(bot, 'https')(req, res);
+    }
+    res.status(200).send('Lorin Bot is Online 🚀');
+}
