@@ -1,36 +1,32 @@
-# Lorin RAG: System Design & Architecture
+# System Architecture: Lorin RAG V2
 
-This document describes the high-level design of the Lorin RAG assistant, focusing on the processing pipeline and data flow.
+## 🧬 The 9-Stage Orchestration Pipeline
+Lorin operates on a "Reason-Before-Search" model. Instead of a naive retrieval, the `orchestrator.ts` executes the following logic chain:
 
-## 1. The 9-Stage Orchestration Pipeline
-Lorin uses a modular orchestrator logic to process every user message through nine distinct stages to ensure groundedness and precision.
+1. **Classification**: `classifyIntent` maps queries to specific institutional domains (Admission/Placement/etc).
+2. **Contextual Expansion**: `rewriteQuery` resolves pronouns by analyzing the last 3 messages in history.
+3. **Retrieval**: `hybridRetrieve` performs a 1536-dimensional vector search on Qdrant and an ILIKE keyword search on Supabase.
+4. **Deduplication**: Merges vector and keyword results while preserving source metadata.
+5. **Reranking**: A small-model reranker scores the top 10 chunks to move the most factually dense data to the top.
+6. **Agent Decision**: `agentDecide` determines if the bot should show an admission form or ask a clarifying question.
+7. **Context Assembly**: Combines user profile, short-term memory, and retrieved campus data.
+8. **Generation**: `generateGrounded` instructs the LLM to strictly adhere to the provided context with specific formatting rules (no bolding, emoji support).
+9. **Post-Processing**: `postProcess` performs the final link injection, mapping source files to their official `.php` URLs.
 
-1.  **Ingestion & Refinement**: Batch scraping via Firecrawl followed by LLM-based cleaning to ensure high SNR (Signal-to-Noise Ratio).
-2.  **Intent Classification**: Mapping user queries to categories (e.g., Admissions, Transport, Faculty).
-3.  **Query Rewriting**: Expanding vague user tokens (e.g., "Tell me more about him") into rich, context-contained search queries.
-4.  **Matryoshka Embedding**: Generating 1536-dimensional vectors optimized for prefix-slicing and semantic retrieval.
-5.  **Multi-Index Retrieval**: Parallel querying across Qdrant and Supabase.
-6.  **Context Reranking**: Using a lightweight LLM pass (GPT-4o-mini) to sort retrieved chunks by relevance before passing to the final model.
-7.  **Dynamic Prompt Construction**: Assembling profile data, conversation history, and grounded data chunks.
-8.  **Grounded Generation**: Response generation with strict "Don't Hallucinate" instructions.
-9.  **Post-Processing**: Injecting dynamic forms (Google Forms) or location links based on intent.
+## 🗄️ Knowledge Infrastructure
+- **Structural Scraping**: We target `<table>` and `<li>` elements specifically to capture faculty roles and seat counts often lost by LLM-based crawlers.
+- **Narrative Merge**: We use Trafilatura to capture the "vibe" and descriptive text of the college departments.
+- **Master Files**: All data is merged into `03_master` files before being chunked into 1000-character segments to maximize the Signal-to-Noise Ratio (SNR).
 
-## 2. Technical Decisions & Rationale
-
-### OpenAI Embeddings (1536 Dim)
-We standardized on `text-embedding-3-small`. The choice of 1536 dimensions allows for high-granularity search in institutional datasets where subtle differences (e.g., different engineering departments) are critical.
-
-### Hybrid Retrieval Strategy
-We use Qdrant as the primary vector store for its low latency and payload filtering capabilities. Supabase serves as our secondary index and relational storage, providing a fallback and robust ACID-compliant user memory.
-
-### Agentic Orchestration
-Instead of a simple chain, we use an orchestrator that can decide when to ask clarifying questions or when to trigger "Marketing Mode" to handle competitive institutional claims.
-
-## 3. Data Integrity & Evaluation
-We integrate the **Ragas** framework to evaluate:
-- **Faithfulness**: Is the answer derived solely from the context?
-- **Answer Relevance**: Does it directly address the user's intent?
-- **Context Precision**: Did we retrieve exactly what was needed?
-
----
-*Architectural Design by Lorin Engineering*
+## 📊 Logic Flow
+```mermaid
+graph TD
+    A[User Message] --> B{Intent Classifier}
+    B --> C[Query Rewriter]
+    C --> D[Hybrid Retriever]
+    D --> E[Reranker]
+    E --> F[Context Builder]
+    F --> G[Grounded Generator]
+    G --> H[Final Link Injector]
+    H --> I[Telegram Response]
+```

@@ -37,6 +37,7 @@ const openai = createOpenAI({
 });
 
 console.log('🤖 INITIALIZING LORIN (9-STAGE ORCHESTRATOR ACTIVE)...');
+fs.ensureDirSync(path.join(process.cwd(), 'logs'));
 
 bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your smart MSAJCE Concierge. How can I help you today?'));
 

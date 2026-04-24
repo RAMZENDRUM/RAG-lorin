@@ -1,74 +1,85 @@
-# 🤖 Lorin: Production-Grade Multi-Stage RAG Assistant
+# Lorin: The 9-Stage Orchestrated RAG Assistant 🦾🎓
 
-Lorin is a high-fidelity Retrieval-Augmented Generation (RAG) system designed to serve as an intelligent digital concierge for institutional knowledge. Unlike basic "Chat-with-PDF" wrappers, Lorin implements a **9-stage intelligence pipeline** featuring multi-stage query understanding, hybrid retrieval, and long-term memory.
-
----
-
-## 🎯 System Overview
-Lorin transforms fragmented institutional data (web pages, PDFs, internal docs) into a conversational interface used by students and parents. It optimizes for **factuality, low-latency, and context-awareness** in real-world scenarios.
-
-### 🚀 Key Capabilities
-*   **Multi-Stage Query Pipeline**: Utilizes an Orchestrator layer for intent classification, query rewriting, and LLM-based reranking.
-*   **Hybrid Retrieval Layer**: Dual-search strategy using **Qdrant** (high-speed vector search) and **Supabase/pgvector** (secondary filtered search).
-*   **Long-Term Memory**: Persistent user profiling and conversation history management for cohesive multi-turn dialogues.
-*   **Production Ingestion**: A robust ETL pipeline using the **Firecrawl SDK** for clean batch extraction and GPT-4o for institutional data refinement.
-*   **Audit Logging**: Native support for performance monitoring and diagnostic audits.
+**Lorin** is a production-grade, high-fidelity RAG (Retrieval-Augmented Generation) system designed as a digital concierge for Mohamed Sathak A.J. College of Engineering (MSAJCE). Unlike standard RAG implementations, Lorin utilizes a specialized **9-stage orchestration pipeline** to handle complex, vague, and context-dependent queries from students and parents.
 
 ---
 
-## 🏗️ Architecture
-The system is built on a modular four-layer architecture:
+## 🚀 Key Features
 
-1.  **Interface Layer (Telegram)**: Managed by Telegraf/GrammY with built-in rate-limiting and toxicity protection.
-2.  **Intelligence Layer (Orchestrator)**: Handles Query Rewriting (expanding vague questions) and Intent Mapping.
-3.  **Retrieval Layer (Hybrid)**: Vector search at **1536 dimensions** using `text-embedding-3-small`.
-4.  **Memory Layer (Persistence)**: Relational Postgres storage for persistent user profiles and interest extraction.
+- **9-Stage Orchestration**: A sophisticated pipeline that moves from Intent Classification to Query Rewriting, Hybrid Retrieval, and Reranking before generating a response.
+- **Dual-Fidelity Knowledge Mining**: A custom ingestion engine combining Structural (BeautifulSoup) and Narrative (Trafilatura) scraping to ensure 100% data parity for complex tables and administrative roles.
+- **Hybrid Retrieval Engine**: Seamlessly blends Qdrant Vector search (semantic) with Supabase pgvector/keyword matching for precise entity resolution.
+- **Parallel Multi-Engine Sync**: A high-speed ingestion pipeline that utilizes parallel workers across multiple LLM providers (OpenRouter + Vercel) to maintain zero-latency knowledge updates.
+- **Auto-Grounding & Source Trust**: Every response is grounded in verified metadata, automatically injecting source-linked URLs (e.g., official department pages) into the final reply.
+
+---
+
+## 🏗️ System Architecture
+
+Lorin is built on a **Modular Multi-Layer Architecture**:
+
+### 1. Intelligence Layer (`lib/core/orchestrator.ts`)
+The "Brain" of the system. It doesn't just "search"—it reasons. It classifies the user's intent (Admin, Placement, Faculty), rewrites vague queries (e.g., "Tell me more about him"), and reranks retrieved chunks to minimize LLM hallucinations.
+
+### 2. Retrieval Layer (`lib/core/retrieve.ts`)
+A dual-engine system using **Qdrant** for high-speed semantic search and **Supabase** for keyword-heavy institutional lookups.
+
+### 3. Interface Layer (`bot/` & `api/`)
+A multi-modal interface deployed via **Telegram** and hosted on **Vercel Edge Functions** for 24/7 global availability and near-zero cold starts.
 
 ---
 
 ## 🛠️ Tech Stack
-*   **LLM Framework**: Vercel AI SDK
-*   **Embeddings**: OpenAI (1536-dim Matryoshka-compatible)
-*   **Databases**: Qdrant (Vector) & Supabase (Postgres/Vector)
-*   **Scraping**: Firecrawl SDK
-*   **Compute**: Node.js & TypeScript / Python (Analytics)
+
+- **Model Engine**: GPT-4o-mini (Orchestration) + text-embedding-3-small (1536 dim)
+- **Vector Store**: Qdrant Cloud (Primary)
+- **Database**: Supabase / PostgreSQL (Hybrid Search & Long-Term Memory)
+- **Framework**: Vercel AI SDK, Telegraf (Telegram)
+- **Data Ingestion**: Playwright, BeautifulSoup, Trafilatura
+- **Deployment**: Vercel Serverless
 
 ---
 
-## 🔄 System Flow
-```text
-User  →  Telegram Bot  →  Orchestrator (Intent → Rewrite → Rerank)
-                               ↓
-          Memory (Postgres) ← Retriever (Qdrant + Supabase)
-                               ↓
-                        Grounded Response Generator
-```
+## 🌊 System Flow
+
+1. **User Query** → Received via Telegram Bot.
+2. **Intent Classification** → Orchestrator identifies if the user is asking about admissions, fees, or leadership.
+3. **Query Expansion** → Resolves pronouns (e.g., "who is he?") based on conversation history.
+4. **Hybrid Search** → Simultaneous pull from Qdrant and Supabase.
+5. **Reranking** → Scores retrieved data for factual relevance.
+6. **Grounded Response** → Generates an answer strictly using the master knowledge base with source-link injection.
 
 ---
 
 ## 💻 Developer Setup
 
-### 1. Requirements
-* Node.js v20+
-* Docker (for Qdrant) or Cloud API keys
-
-### 2. Environment Configuration
-Clone `.env.example` to `.env` and provide your secrets:
 ```bash
+# 1. Clone the repo
+git clone https://github.com/yourusername/RAG-lorin.git
+
+# 2. Install dependencies
+npm install
+
+# 3. Environment Setup
 cp .env.example .env
+# Update with your Qdrant, Supabase, and OpenAI credentials
+
+# 4. Ingest Master Knowledge
+npx tsx ingestion/ingest.ts
+
+# 5. Run Locally
+npm run dev
 ```
 
-### 3. Usage
-* **Ingest Data**: `npm run ingest`
-* **Evaluate**: `npm run eval`
-* **Launch Bot**: `npm run bot`
+---
+
+## 🌟 Use Cases
+- **Institutional Onboarding**: Helping prospective parents understand cutoff marks and fee structures.
+- **Administrative Automation**: Providing instant contact details for HODs and administrative officers.
+- **Placement Intelligence**: Giving students instant access to company-wise recruitment history and job statistics.
 
 ---
 
-## 📍 Potential Use Cases
-*   **Admissions**: Guiding parents through eligibility and fee structures.
-*   **HR/Ops**: Providing internal policy info to staff.
-*   **Student Support**: Quick access to bus routes, schedules, and department head details.
-
----
-**Developed by [Ramanathan S](https://linkedin.com/in/ramanathan-s-it)**
+### 👨‍💻 Developer
+**Ramanathan S** (B.Tech IT, MSAJCE)  
+[LinkedIn](https://www.linkedin.com/in/ramanathan-s-it) | [Portfolio](https://ramanathan-portfolio.vercel.app)
