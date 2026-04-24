@@ -85,7 +85,9 @@ if (bot) {
             await ctx.reply(result.answer, { parse_mode: 'Markdown' });
         } catch (e: any) {
             console.error('Text Handler Error:', e);
-            try { await ctx.reply("Oof, my brain hit a snag! 🧠💥 Hang on while I fix it!"); } catch(re) {}
+            try { 
+                await ctx.reply(`Oof, my brain hit a snag! 🧠💥\n\n**Error:** \`${e.message || 'Unknown Error'}\`\n\nI'm looking into this right now!`); 
+            } catch(re) {}
         }
     });
 }
