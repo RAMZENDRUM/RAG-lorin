@@ -111,14 +111,26 @@ export async function performLorinRetrieval(
             };
         }
 
-        // HARD SENTINEL: Research/Bio confirmation
-        const isConfirmation = /^(yes|yeah|yep|sure|ok|tell me more|more|show me|initiatives|research)/i.test(rawLower);
-        if (isConfirmation && lastMsg.includes('principal')) {
-            return {
-                answer: `🔬 **Dr. K. S. Srinivasan's Expertise**\n\nOur Principal is a highly respected academic with connections across **IIT Madras**, **NIT Trichy**, and **TNSCST**. \n\n**Key Initiatives:**\n• **Innovation:** Established key metrics to monitor student entrepreneurship.\n• **Research:** Oversees all institutional research committees and student welfare projects.\n• **Vision:** Focuses on fostering self-employment and modern engineering practices.\n\nIs there a specific research area or student project you'd like to dive into? 🚀`,
-                score: 1.0,
-                source: 'sentinel'
-            };
+        // HARD SENTINEL: Research/Bio/Bus Routes confirmation
+        const isConfirmation = /^(yes|yeah|yep|sure|ok|tell me more|more|show me|initiatives|research|bus|route)/i.test(rawLower);
+        
+        if (isConfirmation) {
+            // Case 1: Following up on Principal
+            if (lastMsg.includes('principal') || lastMsg.includes('srinivasan')) {
+                return {
+                    answer: `🔬 **Dr. K. S. Srinivasan's Expertise**\n\nOur Principal is a highly respected academic with connections across **IIT Madras**, **NIT Trichy**, and **TNSCST**. \n\n**Key Initiatives:**\n• **Innovation:** Established key metrics to monitor student entrepreneurship.\n• **Research:** Oversees all institutional research committees and student welfare projects.\n• **Vision:** Focuses on fostering self-employment and modern engineering practices.\n\nIs there a specific research area or student project you'd like to dive into? 🚀`,
+                    score: 1.0,
+                    source: 'sentinel'
+                };
+            }
+            // Case 2: Following up on Admin/Transport
+            if (lastMsg.includes('abdul gafoor') || lastMsg.includes('transport') || lastMsg.includes('bus')) {
+                return {
+                    answer: `🚌 **MSAJCE Transport Services**\n\nWe have a fleet of **22 buses** covering Chennai, Chengalpattu, Kanchipuram, and Thiruvallur!\n\n**Key Info:**\n• **Fleet:** 22 Buses, 1 Tata ACE, and 1 Ambulance.\n• **Committe:** Led by Dr. K.P. Santhosh Nathan (Convener) and Mr. A. Abdul Gafoor (Asst. Convener).\n• **Routes:** Covers all major transit points like Chennai Central, Tambaram, and CMDA station.\n\nWould you like the **specific route timings** (AR3-AR10) for your area? 📍`,
+                    score: 1.0,
+                    source: 'sentinel'
+                };
+            }
         }
 
         const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|nah)/i.test(rawLower) && rawLower.length < 10 && !isConfirmation;
