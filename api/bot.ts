@@ -1,31 +1,76 @@
 import { Bot, webhookCallback } from 'grammy';
-import { performLorinRetrieval } from '../lib/retrieve';
-import { getMemory, saveMemory } from '../lib/memory';
+import { generateText, embed } from 'ai';
+import { createOpenAI } from '@ai-sdk/openai';
+import { QdrantClient } from '@qdrant/js-client-rest';
+import postgres from 'postgres';
+import dotenv from 'dotenv';
 
-const token = process.env.TELEGRAM_BOT_TOKEN;
-if (!token) throw new Error('TELEGRAM_BOT_TOKEN is required');
+dotenv.config();
 
-const bot = new Bot(token);
+// --- INFRA CONFIG ---
+const COLLECTION_NAME = 'lorin_msajce_knowledge';
+const qdrant = new QdrantClient({
+    url: process.env.QDRANT_URL,
+    apiKey: process.env.QDRANT_API_KEY
+});
 
-bot.command('start', (ctx) => ctx.reply("👋 Lorin is Online! I've optimized my brain for speed. Ask me anything!"));
+// Database (Supabase)
+const sql = postgres(process.env.DATABASE_URL || '', { ssl: 'require' });
 
+const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN || '');
+
+function getOpenAI() {
+    const key = process.env.VERCEL_AI_KEY || process.env.OPENAI_API_KEY;
+    const isVercelGateway = key?.startsWith('vck_');
+    return createOpenAI({ 
+        apiKey: key,
+        baseURL: isVercelGateway ? 'https://ai-gateway.vercel.sh/v1' : undefined
+    });
+}
+
+// --- IDENTITY RESOLVER ---
+function resolveSubject(query: string, history: any[]): string {
+    const last = [...history].reverse().find(h => h.role === 'assistant')?.content.toLowerCase() || '';
+    if (query.toLowerCase().match(/(him|her|more|details|about him)/)) {
+        if (last.includes('srinivasan') || last.includes('principal')) return 'Dr. K. S. Srinivasan Principal';
+        if (last.includes('abdul gafoor') || last.includes('admin')) return 'Mr. A. Abdul Gafoor Administrative Officer';
+    }
+    return query;
+}
+
+// --- BOT HANDLER ---
 bot.on('message:text', async (ctx) => {
-    const userId = ctx.from.id;
+    const userId = ctx.from.id.toString();
     const text = ctx.message.text;
 
     await ctx.replyWithChatAction('typing');
 
     try {
-        // Simple sequential flow for max stability on Vercel
-        const history = await getMemory(userId);
-        const result = await performLorinRetrieval(text, userId, 'session', history);
-        
-        await saveMemory(userId, text, result.answer);
-        await ctx.reply(result.answer, { parse_mode: 'Markdown' });
+        const openai = getOpenAI();
+
+        // 1. GET MEMORY (Direct)
+        const history = await sql`SELECT role, content FROM chat_history WHERE user_id = ${userId} ORDER BY created_at DESC LIMIT 4`.then(rows => rows.reverse());
+
+        // 2. SEARCH (Direct)
+        const targetQ = resolveSubject(text, history);
+        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: targetQ });
+        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 5, with_payload: true });
+        const context = results.length > 0 ? results.map(r => r.payload?.content).join('\n\n') : "No data.";
+
+        // 3. GENERATE (Direct)
+        const { text: answer } = await generateText({
+            model: openai('gpt-4o-mini'),
+            system: `You are Lorin, the smart MSAJCE Concierge. Facts: Principal=Dr. K. S. Srinivasan. Admin=Mr. Abdul Gafoor. Use context and history. format: **Bold Headers**, bullet points.`,
+            prompt: `Context:\n${context}\n\nUser: ${text}`
+        });
+
+        // 4. SAVE & REPLY
+        await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${text}), (${userId}, 'assistant', ${answer})`;
+        await ctx.reply(answer, { parse_mode: 'Markdown' });
 
     } catch (err: any) {
-        console.error('[BOT ERROR]:', err.message);
-        await ctx.reply("📡 I hit a small connection snag. Could you ask that again?");
+        console.error('Master Error:', err.message);
+        await ctx.reply("📡 I'm briefly refreshing my brain. Try asking that once more! ✨");
     }
 });
 
@@ -33,5 +78,5 @@ export default async function handler(req: any, res: any) {
     if (req.method === 'POST') {
         return webhookCallback(bot, 'https')(req, res);
     }
-    res.status(200).send('Lorin Node: ACTIVE 🟢');
+    res.status(200).send('Lorin Standalone: READY 🟢');
 }
