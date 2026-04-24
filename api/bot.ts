@@ -31,18 +31,18 @@ function getOpenAI() {
 async function hydraRetrieve(text: string, openai: any) {
     const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: text });
     
-    // 1. Qdrant Primary
+    // 1. Qdrant Primary (Increased to 15 chunks)
     const qdrant = new QdrantClient({ url: process.env.QDRANT_URL as string, apiKey: process.env.QDRANT_API_KEY as string });
-    const qResults = await qdrant.search('lorin_msajce_knowledge', { vector: embedding, limit: 3, with_payload: true });
+    const qResults = await qdrant.search('lorin_msajce_knowledge', { vector: embedding, limit: 15, with_payload: true });
     
     if (qResults.length > 0 && qResults[0].score > 0.7) {
         return qResults.map(r => r.payload?.content).join('\n\n');
     }
 
-    // 2. Supabase Secondary
+    // 2. Supabase Secondary (Increased to 10 chunks)
     const db = getSql();
     if (db) {
-        const sResults = await db`SELECT content, 1 - (embedding <=> ${`[${embedding.join(',')}]`}) as score FROM lorin_knowledge ORDER BY score DESC LIMIT 3`;
+        const sResults = await db`SELECT content, 1 - (embedding <=> ${`[${embedding.join(',')}]`}) as score FROM lorin_knowledge ORDER BY score DESC LIMIT 10`;
         if (sResults.length > 0) return sResults.map((r: any) => r.content).join('\n\n');
     }
     
@@ -69,18 +69,16 @@ bot.on('message:text', async (ctx) => {
         // 3. Response
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the official Concierge for Mohamed Sathak A.J. College of Engineering (MSAJCE) located in Siruseri, Chennai. ✨
+            system: `You are Lorin, the official Concierge for Mohamed Sathak A.J. College of Engineering (Siruseri, Chennai). ✨
             
-            STRICT LOCATION RULE:
-            - You represent the CHENNAI (SIRUSERI) CAMPUS ONLY.
-            - Do NOT mention or provide data for the Kilakarai campus.
+            KNOWLEDGE BASE:
+            - Engineering Departments: CSE, IT, AI&DS (Artificial Intelligence and Data Science), AI&ML, Cyber Security, CSBS (Computer Science and Business Systems), ECE (VLSI & Advanced Communication), EEE, Mechanical, Civil.
+            - DO NOT miss the New-Gen courses.
             
             CONVERSATION HYGIENE:
             - ONLY say "Welcome" in the FIRST message. 
             - DO NOT repeat questions (B.E./B.Tech) if answered in history.
-            - Provide data (like "departments") IMMEDIATELY from the context.
-            
-            IDENTITY: Mohamed Sathak A.J. College of Engineering (Chennai).`,
+            - Provide FULL data (like "departments") IMMEDIATELY from the context.`,
             prompt: `History: ${JSON.stringify(history)}\nContext: ${context}\nUser: ${text}`
         });
 
