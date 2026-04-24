@@ -52,13 +52,12 @@ function getOpenAI() {
 // ── Commands ─────────────────────────────────────────────────────────────────
 bot.command('start', (ctx) =>
     ctx.reply(
-        `👋 Hey! I'm *Lorin*, your Mohamed Sathak A.J. College (Chennai) campus buddy! 🎓✨\n\nI can help you with:\n🏢 *Departments* — CSE, AI&DS, ECE, CSBS & more\n📝 *Admissions* — Process, eligibility, form\n🏠 *Hostels* — Facilities & fees\n🚌 *Transport* — Bus routes\n👩‍🏫 *Faculty* — HODs, Principal, Admin\n💼 *Placements* — Companies & packages\n\nWhat's on your mind? 😊`,
-        { parse_mode: 'Markdown' }
+        `Hey! I'm Lorin 🎓, your Mohamed Sathak A.J. College (Chennai) campus buddy!\n\nI can help you with:\n🏢 Departments — CSE, AI&DS, ECE, CSBS & more\n📝 Admissions — Process, eligibility, form\n🏠 Hostels — Facilities & fees\n🚌 Transport — Bus routes\n👩‍🏫 Faculty — HODs, Principal, Admin\n💼 Placements — Companies & packages\n\nWhat's on your mind? 😊`
     )
 );
 
 bot.command('form', (ctx) =>
-    ctx.reply(`📝 *Admission Enquiry Form*\n${GOOGLE_FORM_URL}`, { parse_mode: 'Markdown' })
+    ctx.reply(`Admission Enquiry Form 📝\n${GOOGLE_FORM_URL}`)
 );
 
 // ── Main Message Handler (The 9-Stage Pipeline) ───────────────────────────────
@@ -80,7 +79,7 @@ bot.on('message:text', async (ctx) => {
             : { shortTerm: [], profile: { user_id: userId, name: null, interest: null, stage: 'unknown' as const, last_seen: new Date() } };
 
         // ── STAGE 2: Query Rewriter ──────────────────────────────────────────
-        const rewrittenQuery = rewriteQuery(rawText, intent, profile);
+        const rewrittenQuery = rewriteQuery(rawText, intent, profile, shortTerm);
 
         // ── STAGE 4: Hybrid Retrieval ───────────────────────────────────
         const rawChunks = await hybridRetrieve(rewrittenQuery, rawText, openai, db);
@@ -121,7 +120,7 @@ bot.on('message:text', async (ctx) => {
             ]);
         }
 
-        await ctx.reply(finalReply, { parse_mode: 'Markdown' });
+        await ctx.reply(finalReply);
 
     } catch (err: any) {
         console.error(`[Lorin v2 Error] Stage failed: ${err.message}`);

@@ -64,19 +64,42 @@ export function classifyIntent(text: string): Intent {
 // STAGE 2 — Query Rewriter
 // Expands vague queries into rich search queries
 // ─────────────────────────────────────────────
-export function rewriteQuery(rawText: string, intent: Intent, profile: UserProfile): string {
+export function rewriteQuery(
+    rawText: string,
+    intent: Intent,
+    profile: UserProfile,
+    shortTerm: ShortTermMemory[] = []
+): string {
     const t = rawText.trim();
+    const lower = t.toLowerCase();
+
+    // --- Pronoun Resolution ---
+    // If query uses 'him/her/he/she/more details/tell me more' with no subject,
+    // extract the last named subject from history
+    const isPronounQuery = /^(him|her|he|she|they|more details|tell me more|yes|who is he|who is she|what abt him)/.test(lower)
+        || (lower.includes('more') && t.split(' ').length < 5);
+
+    if (isPronounQuery && shortTerm.length > 0) {
+        const lastAssistant = [...shortTerm].reverse().find(h => h.role === 'assistant')?.content ?? '';
+        // Pull out named entities from last reply to anchor the search
+        const entityMatch = lastAssistant.match(/Dr\.?\s+[A-Z][a-z]+|Mr\.?\s+[A-Z][a-z]+|Ms\.?\s+[A-Z][a-z]+/)?.[0]
+            ?? lastAssistant.match(/Principal|Admin|HOD|Faculty/i)?.[0]
+            ?? '';
+        if (entityMatch) {
+            return `${entityMatch} MSAJCE details background role contact`;
+        }
+    }
 
     // Already detailed enough
     if (t.split(' ').length > 6) return t;
 
     const templates: Record<Intent, string> = {
-        admission: `admission process eligibility requirements documents MSAJCE Chennai ${profile.interest ?? ''}`,
+        admission: `admission process eligibility requirements MSAJCE Chennai ${profile.interest ?? ''}`,
         fee:       `fee structure tuition cost ${profile.interest ?? 'B.Tech'} MSAJCE Chennai`,
         hostel:    `hostel facilities rooms accommodation fees MSAJCE Chennai`,
         transport: `transport bus routes pickup drop MSAJCE Chennai`,
         placement: `placement companies packages recruiters MSAJCE Chennai ${profile.interest ?? ''}`,
-        department:`departments offered engineering programs MSAJCE Chennai`,
+        department: `departments engineering programs offered MSAJCE Chennai`,
         faculty:   `${t} faculty staff MSAJCE Chennai`,
         complaint: `${t}`,
         general:   `${t} MSAJCE Mohamed Sathak Chennai`,
@@ -246,24 +269,26 @@ export async function generateGrounded(
 
     const { text } = await generateText({
         model: openai('gpt-4o-mini'),
-        system: `You are Lorin 🎓, the lively and intelligent AI Concierge for Mohamed Sathak A.J. College of Engineering, Siruseri, Chennai.
+        system: `You are Lorin, the friendly AI Concierge for Mohamed Sathak A.J. College of Engineering, Siruseri, Chennai.
 
-STRICT IDENTITY:
-- College: Mohamed Sathak A.J. College of Engineering (Chennai) ONLY. Never mention Kilakarai or any other college.
-- Principal: Dr. K. S. Srinivasan (Optics specialist, NIT Trichy alumnus)
-- Admin: Mr. A. Abdul Gafoor (Assistant Transport Convener & Administrative Officer)
+IDENTITY (never change these):
+- College: Mohamed Sathak A.J. College of Engineering, Chennai ONLY
+- Principal: Dr. K. S. Srinivasan, Optics specialist, NIT Trichy alumnus, Phone: 9150575066, Email: principal@msajce-edu.in
+- Admin: Mr. A. Abdul Gafoor, Assistant Transport Convener and Administrative Officer, Phone: 99403 19629
 
-PERSONALITY:
-- Warm, friendly campus buddy — like a senior student helping a junior.
-- Use emojis naturally. Keep responses concise and direct.
-- Greet only on first message. Never say "Welcome" again after that.
-- If user already answered a question, do NOT ask it again.
+FORMATTING RULES (critical):
+- NEVER use #, ##, ###, *, ** or _ symbols. Plain text only.
+- Use bullet points with the - character or just numbers like 1. 2. 3.
+- Keep responses short, warm and conversational.
+- Use emojis naturally, but do not overdo it.
+- Never say Welcome more than once per session.
+- Never repeat content already given in the conversation history.
 
-ACCURACY RULES:
-- Answer ONLY from the Campus Knowledge in the context below.
-- Do NOT hallucinate. If data is missing, say "I don't have that info right now — contact the office directly!"
-- If a person's name is in the Campus Knowledge, identify them precisely.
-- NEVER mention any other Google Form or link except: ${googleFormUrl}
+ACCURACY:
+- Answer ONLY from the Campus Knowledge section below.
+- If data is missing, say you do not have it right now and suggest calling the office.
+- Never fabricate phone numbers, fees, or contact details.
+- NEVER use any other form link except: ${googleFormUrl}
 
 ${clarifyInstruction}`,
         prompt: builtContext + `\n\nUSER: ${rawText}`,
@@ -282,7 +307,7 @@ export function postProcess(
     googleFormUrl: string
 ): string {
     if (agentFlags.showForm && !answer.includes('forms.gle')) {
-        return answer + `\n\n📝 **Ready to apply? Fill the admission enquiry form:**\n${googleFormUrl}`;
+        return answer + `\n\nReady to apply? Fill the admission enquiry form here: ${googleFormUrl}`;
     }
     return answer;
 }
