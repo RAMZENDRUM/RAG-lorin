@@ -112,7 +112,7 @@ export async function hybridRetrieve(
         with_payload: true,
     });
 
-    const chunks: string[] = qResults.map(r => r.payload?.content ?? '').filter(Boolean);
+    const chunks: string[] = (qResults.map(r => r.payload?.content ?? '').filter(Boolean)) as string[];
 
     // Keyword search priority — prepend exact-match hits
     if (db && rawText.split(' ').length <= 5) {
@@ -152,7 +152,7 @@ export async function rerankResults(
 
         const { text } = await generateText({
             model: openai('gpt-4o-mini'),
-            maxTokens: 20,
+            maxOutputTokens: 20,
             prompt: `You are a relevance scorer for a college knowledge base.
 Query: "${query}"
 
