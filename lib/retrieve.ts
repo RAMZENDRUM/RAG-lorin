@@ -1,25 +1,18 @@
 import { generateText, embed } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
 import { QdrantClient } from '@qdrant/js-client-rest';
-import { CohereClient } from 'cohere-ai';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-// --- INFRA ---
 const COLLECTION_NAME = 'lorin_msajce_knowledge';
 const qdrant = new QdrantClient({
     url: process.env.QDRANT_URL,
     apiKey: process.env.QDRANT_API_KEY
 });
 
-const cohere = new CohereClient({
-    token: process.env.COHERE_API_KEY || ''
-});
-
 function getOpenAI() {
-    const keys = [process.env.VERCEL_AI_KEY, process.env.OPENAI_API_KEY].filter(Boolean) as string[];
-    const key = keys[Math.floor(Math.random() * keys.length)];
+    const key = process.env.VERCEL_AI_KEY || process.env.OPENAI_API_KEY;
     const isVercelGateway = key?.startsWith('vck_');
     return createOpenAI({ 
         apiKey: key,
@@ -30,33 +23,18 @@ function getOpenAI() {
 export interface ChatMessage { role: 'user' | 'assistant'; content: string; }
 export interface RetrievalResult { answer: string; score: number; source: string; }
 
-// --- ELITE IDENTITY RESOLVER (From RAG Techniques) ---
-async function resolveIdentity(query: string, history: ChatMessage[], openai: any): Promise<string> {
-    const historyReverse = [...history].reverse();
-    const lastAssistantMessage = historyReverse.find(h => h.role === 'assistant')?.content.toLowerCase() || '';
-    const lastUserMessage = historyReverse.find(h => h.role === 'user' && h.content !== query)?.content.toLowerCase() || '';
+// --- SPEED-FOCUSED IDENTITY RESOLVER ---
+async function resolveIdentityFast(query: string, history: ChatMessage[]): Promise<string> {
+    const last = [...history].reverse().find(h => h.role === 'assistant')?.content.toLowerCase() || '';
     
-    // Hard-coded Entity Resolution: Prioritize the most RECENT subject matching
-    const isMoreDetailsRequest = query.toLowerCase().includes('him') || query.toLowerCase().includes('more details') || query.toLowerCase().includes('abt him');
-
-    if (isMoreDetailsRequest) {
-        // Check Abdul Gafoor (Admin) first if he was the last subject
-        if (lastAssistantMessage.includes('abdul gafoor') || lastUserMessage.includes('abdul gafoor')) {
-            return `Mr. A. Abdul Gafoor Administrative Officer details profile`;
-        }
-        // Then check Srinivasan (Principal)
-        if (lastAssistantMessage.includes('srinivasan') || lastAssistantMessage.includes('principal') || lastUserMessage.includes('principal')) {
-            return `Dr. K. S. Srinivasan Principal details profile`;
-        }
+    // Hard-coded fast-resolve for entities
+    if (query.toLowerCase().includes('him') || query.toLowerCase().includes('more details')) {
+        if (last.includes('srinivasan') || last.includes('principal')) return 'Dr. K. S. Srinivasan Principal bio research';
+        if (last.includes('abdul gafoor') || last.includes('admin')) return 'Mr. A. Abdul Gafoor Administrative Officer';
     }
-        model: openai('gpt-4o-mini'),
-        system: "You are a Research Assistant. If the user uses pronouns or asks for 'more details', rewrite the query to include the EXACT NAME of the subject from history. ONLY output the rewritten query.",
-        prompt: `History:\n${JSON.stringify(history.slice(-3))}\n\nQuery: ${query}`
-    });
-    return text.trim();
+    return query;
 }
 
-// --- UNIVERSAL AGENTIC ENGINE ---
 export async function performLorinRetrieval(
     rawQuery: string, 
     userId: string | number, 
@@ -67,62 +45,31 @@ export async function performLorinRetrieval(
     const openai = getOpenAI();
 
     try {
-        // 1. RESOLVE SUBJECT (Entity Locking)
-        const searchTarget = await resolveIdentity(rawQuery, history, openai);
+        // 1. FAST IDENTITY LOCK
+        const targetQuery = await resolveIdentityFast(rawQuery, history);
         
-        // 2. MULTI-VECTOR RETRIEVAL
-        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: searchTarget });
-        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 12, with_payload: true });
+        // 2. VECTOR SEARCH (Single high-speed call)
+        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: targetQuery });
+        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 6, with_payload: true });
 
-        // 3. COHERE RE-RANKING & IDENTITY GUARDRAIL
-        let finalContext = "No specific data found.";
-        let finalScore = 0;
+        const context = results.length > 0 
+            ? results.map(r => r.payload?.content).join('\n\n') 
+            : "No specific data found.";
 
-        if (results.length > 0) {
-            const documents = results.map(r => r.payload?.content as string);
-            const reranked = await cohere.rerank({ 
-                query: searchTarget, 
-                documents: documents, 
-                topN: 5, 
-                model: 'rerank-english-v3.0' 
-            });
-            
-            // ELITE GUARDRAIL: If we are looking for Staff but Reranker found a Student (Developer), Discard!
-            const bestDoc = documents[reranked.results[0].index];
-            if (searchTarget.includes('Principal') && bestDoc.includes('B.Tech') && !bestDoc.includes('Srinivasan')) {
-                finalContext = "No deeper research data found for Dr. Srinivasan in the database currently.";
-            } else {
-                finalContext = reranked.results.map(res => documents[res.index]).join('\n\n---\n\n');
-                finalScore = reranked.results[0].relevanceScore;
-            }
-        }
-
-        // 4. GENERATION WITH STATIC IDENTITY GROUNDING
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 6000); // 6s generation limit
-
+        // 3. GENERATION
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            abortSignal: controller.signal,
-            system: `You are Lorin, the smart AI Concierge for MSAJCE. ✨
-            
-            IMMUTABLE IDENTITIES:
-            - Principal: Dr. K. S. Srinivasan. (Handled research with optics, NIT Trichy alumni).
-            - Admin: Mr. A. Abdul Gafoor (Transport expert).
-            - Developer: Ramanathan S (IT Student).
-            
-            STRICT RULES:
-            - If "him" refers to the Principal in history, DO NOT talk about Ramanathan.
-            - If data for the Principal is limited, say "I have provided the available contact and research details for Dr. Srinivasan." 
-            - FORMATTING: **Bold Headers**, bullet points, and clickable links.`,
-            prompt: `History:\n${JSON.stringify(history.slice(-3))}\n\nSearch context:\n${finalContext}\n\nUser Question: ${rawQuery}`
+            system: `You are Lorin, the smart MSAJCE Concierge. 
+            Facts: Principal=Dr. K. S. Srinivasan. Admin=Mr. Abdul Gafoor.
+            Rules: Use context. If "him" refers to someone in history, stay on that subject. 
+            Style: Bold Headers, Bullet points.`,
+            prompt: `History Context: ${JSON.stringify(history.slice(-2))}\nSearch Context: ${context}\nQuestion: ${rawQuery}`
         });
 
-        clearTimeout(timeoutId);
-        return { answer, score: finalScore, source: 'agentic-v3-resolved' };
+        return { answer, score: results[0]?.score || 0, source: 'fast-rag' };
 
     } catch (err: any) {
-        console.error('Agentic Snag:', err);
-        return { answer: "My brain hit a snag! 🧠💨", score: 0, source: 'error' };
+        console.error('RAG Error:', err.message);
+        return { answer: "I'm having a little trouble fetching those details! Try again?", score: 0, source: 'error' };
     }
 }

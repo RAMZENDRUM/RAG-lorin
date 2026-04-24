@@ -7,7 +7,7 @@ if (!token) throw new Error('TELEGRAM_BOT_TOKEN is required');
 
 const bot = new Bot(token);
 
-bot.command('start', (ctx) => ctx.reply("👋 Lorin is back online with her full HQ brain! Ask me anything about MSAJCE. 🎓"));
+bot.command('start', (ctx) => ctx.reply("👋 Lorin is Online! I've optimized my brain for speed. Ask me anything!"));
 
 bot.on('message:text', async (ctx) => {
     const userId = ctx.from.id;
@@ -16,28 +16,16 @@ bot.on('message:text', async (ctx) => {
     await ctx.replyWithChatAction('typing');
 
     try {
-        // 1. FAST MEMORY FETCH
-        const history = await Promise.race([
-            getMemory(userId),
-            new Promise((resolve) => setTimeout(() => resolve([]), 2500))
-        ]) as any;
-
-        // 2. ELITE RAG RETRIEVAL
-        const result = await Promise.race([
-            performLorinRetrieval(text, userId, 'session', history),
-            new Promise((_, reject) => setTimeout(() => reject(new Error('TIMEOUT')), 8000))
-        ]) as any;
-
-        await saveMemory(userId, text, result.answer).catch(() => {}); 
+        // Simple sequential flow for max stability on Vercel
+        const history = await getMemory(userId);
+        const result = await performLorinRetrieval(text, userId, 'session', history);
+        
+        await saveMemory(userId, text, result.answer);
         await ctx.reply(result.answer, { parse_mode: 'Markdown' });
 
     } catch (err: any) {
         console.error('[BOT ERROR]:', err.message);
-        if (err.message === 'TIMEOUT') {
-            await ctx.reply("⏱️ I'm researching that for you, but it's taking a moment. Please ask one more time!");
-        } else {
-            await ctx.reply("📡 Connecton stable, but my knowledge base is refreshing. Try that again in 5 seconds!");
-        }
+        await ctx.reply("📡 I hit a small connection snag. Could you ask that again?");
     }
 });
 
@@ -45,5 +33,5 @@ export default async function handler(req: any, res: any) {
     if (req.method === 'POST') {
         return webhookCallback(bot, 'https')(req, res);
     }
-    res.status(200).send('Lorin Engine: ONLINE 🟢');
+    res.status(200).send('Lorin Node: ACTIVE 🟢');
 }
