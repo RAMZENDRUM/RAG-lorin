@@ -24,20 +24,21 @@ const GOOGLE_FORM_URL = "https://forms.gle/your-admission-form";
 const bot = new Telegraf(BOT_TOKEN!);
 const sql = postgres(DATABASE_URL, { ssl: 'require' });
 
-// Multi-Key Vercel Rotation (To bypass rate-limits)
-const VERCEL_KEYS = [
-    process.env.VERCEL_AI_KEY,
-    process.env.VERCEL_AI_KEY_2,
-    process.env.VERCEL_AI_KEY_3,
-    process.env.VERCEL_AI_KEY_4
-].filter(Boolean) as string[];
-
-const activeVercelKey = VERCEL_KEYS[Math.floor(Math.random() * VERCEL_KEYS.length)] || process.env.OPENAI_API_KEY;
-
-const openai = createOpenAI({
-    apiKey: activeVercelKey,
-    baseURL: 'https://ai-gateway.vercel.sh/v1'
-});
+// Multi-Key Vercel Helper
+function getDynamicAIClient() {
+    const VERCEL_KEYS = [
+        process.env.VERCEL_AI_KEY,
+        process.env.VERCEL_AI_KEY_2,
+        process.env.VERCEL_AI_KEY_3,
+        process.env.VERCEL_AI_KEY_4
+    ].filter(Boolean) as string[];
+    
+    const activeVercelKey = VERCEL_KEYS[Math.floor(Math.random() * VERCEL_KEYS.length)] || process.env.OPENAI_API_KEY;
+    return createOpenAI({
+        apiKey: activeVercelKey,
+        baseURL: 'https://ai-gateway.vercel.sh/v1'
+    });
+}
 
 bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your smart MSAJCE Concierge. How can I help you today?'));
 
@@ -45,6 +46,9 @@ bot.on('text', async (ctx) => {
     try {
         const userId = ctx.from.id.toString();
         const rawText = ctx.message.text;
+        
+        // Dynamically instantiate the AI client per message to guarantee rotation
+        const openai = getDynamicAIClient();
 
         // Stage 0: Context
         const { shortTerm, profile } = await fetchMemory(userId, sql);
