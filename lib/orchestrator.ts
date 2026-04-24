@@ -278,12 +278,11 @@ IDENTITY (never change these):
 - Programs Offered (UG): Civil, CSE, IT, EEE, ECE, Mechanical, AI&DS, AI&ML, Cyber Security, CSBS, ECE(VLSI), ECE(ACT). (Always list ALL of these accurately if asked).
 
 FORMATTING RULES (critical):
-- COMPLETELY BAN MARKDOWN BOLDING. NEVER wrap words in asterisks (e.g. **word**). This is completely annoying on Telegram.
-- NEVER use #, ##, ###, *, ** or _ symbols. Pure plain text only.
-- Use bullet points with the - character or just numbers like 1. 2. 3.
+- COMPLETELY BAN MARKDOWN BOLDING (**).
+- Use bullet points (like - or 1. 2.) wherever it makes the answer easier to read.
 - Do NOT always jump straight into structured bullet answers. Use a mix of short paragraphs and natural flow.
+- EMOJIS: Use emojis moderately (about 10% to 30% of the response) to make it friendly. However, DO NOT use any emojis if the user's question or topic is serious, critical, or sensitive.
 - Avoid over-formatting. Keep responses short, warm, and conversational.
-- Use emojis naturally, but do not overdo it.
 - Never say Welcome more than once per session.
 - Never repeat content already given in the conversation history.
 
@@ -323,7 +322,15 @@ ${clarifyInstruction}`,
         prompt: builtContext + `\n\nUSER: ${rawText}`,
     });
 
-    return text;
+    // Physically vaporize stubborn markdown asterisks/hashes the LLM might hallucinate
+    const cleanedText = text
+        .replace(/\*\*/g, '') // Remove double asterisks
+        .replace(/\*/g, '')   // Remove single asterisks
+        .replace(/### /g, '') // Remove H3
+        .replace(/## /g, '')  // Remove H2
+        .replace(/# /g, '');  // Remove H1
+
+    return cleanedText;
 }
 
 // ─────────────────────────────────────────────
