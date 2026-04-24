@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// --- CONFIG ---
+// --- CONFIG & INFRA ---
 const COLLECTION_NAME = 'lorin_msajce_knowledge';
 const qdrant = new QdrantClient({
     url: process.env.QDRANT_URL,
@@ -17,41 +17,29 @@ const cohere = new CohereClient({
     token: process.env.COHERE_API_KEY || ''
 });
 
-// --- UTILS ---
-export function normalizeQuery(q: string): string {
-    return q.trim().toLowerCase().replace(/[?]/g, '');
-}
+const responseCache = new Map<string, any>(); // Simplified In-Memory Cache
 
 function getOpenAI() {
-    const keys = [
-        process.env.VERCEL_AI_KEY,
-        process.env.VERCEL_AI_KEY_2,
-        process.env.VERCEL_AI_KEY_3,
-        process.env.OPENAI_API_KEY
-    ].filter(Boolean) as string[];
-    
-    if (keys.length === 0) throw new Error('No API Keys found!');
+    const keys = [process.env.VERCEL_AI_KEY, process.env.OPENAI_API_KEY].filter(Boolean) as string[];
     const key = keys[Math.floor(Math.random() * keys.length)];
-    const isVercelGateway = key.startsWith('vck_');
-    
+    const isVercelGateway = key?.startsWith('vck_');
     return createOpenAI({ 
         apiKey: key,
         baseURL: isVercelGateway ? 'https://ai-gateway.vercel.sh/v1' : undefined
     });
 }
 
-export interface ChatMessage {
-    role: 'user' | 'assistant';
-    content: string;
+// --- CORE UTILS ---
+function cleanContext(chunks: string[]): string {
+    // Universal Context Clean: Remove duplicate headers and whitespace
+    const unique = Array.from(new Set(chunks));
+    return unique.join('\n\n---\n\n').replace(/\n{3,}/g, '\n\n');
 }
 
-export interface RetrievalResult {
-    answer: string;
-    score: number;
-    source: string;
-}
+// --- ELITE RAG PIPELINE ---
+export interface ChatMessage { role: 'user' | 'assistant'; content: string; }
+export interface RetrievalResult { answer: string; score: number; source: string; }
 
-// --- UNIVERSAL RAG ENGINE ---
 export async function performLorinRetrieval(
     rawQuery: string, 
     userId: string | number, 
@@ -59,89 +47,77 @@ export async function performLorinRetrieval(
     history: ChatMessage[] = []
 ): Promise<RetrievalResult> {
     const startTime = Date.now();
-    let finalAnswer = "I'm having a little trouble connecting to my brain! 🧠💨";
-    let topScore = 0;
-    
+    const cacheKey = `${userId}:${rawQuery.toLowerCase().trim()}`;
+    if (responseCache.has(cacheKey)) return responseCache.get(cacheKey);
+
     try {
         const openai = getOpenAI();
 
-        // 1. RECURSIVE CONTEXTUALIZATION
-        let processedQuery = normalizeQuery(rawQuery);
-        if (history.length > 0) {
-            const { text } = await generateText({
-                model: openai('gpt-4o-mini'),
-                system: `You are a Search Contextualizer. 
-                Resolve pronouns ("him", "her") and confirmation words ("yes", "more") using chat history. 
-                Turn them into specific search queries. ONLY output the rewritten query.`,
-                prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nLast Query: ${rawQuery}`
-            });
-            processedQuery = text.trim();
-        }
-
-        // 2. VECTOR RETRIEVAL
-        const { embedding } = await embed({ 
-            model: openai.embedding('text-embedding-3-small'), 
-            value: processedQuery 
-        });
-        
-        const searchResults = await qdrant.search(COLLECTION_NAME, { 
-            vector: embedding, 
-            limit: 10,
-            with_payload: true 
+        // 1. QUERY NORMALIZATION & CONTEXTUALIZATION
+        const { text: processedQuery } = await generateText({
+            model: openai('gpt-4o-mini'),
+            system: "Normalize and Contextualize: Resolve pronouns/follow-ups into standalone search queries using history. ONLY return the query.",
+            prompt: `History: ${JSON.stringify(history.slice(-3))}\nQuery: ${rawQuery}`
         });
 
-        // 3. COHERE RE-RANKING
-        let context = "No specific data found.";
-        if (searchResults.length > 0) {
-            const documents = searchResults.map(r => r.payload?.content as string);
-            try {
-                const reranked = await cohere.rerank({
-                    query: processedQuery,
-                    documents: documents,
-                    topN: 5,
-                    model: 'rerank-english-v2.0'
-                });
-                context = reranked.results.map(res => documents[res.index]).join('\n\n---\n\n');
-                topScore = reranked.results[0].relevanceScore;
-            } catch (rrErr) {
-                context = documents.slice(0, 5).join('\n\n---\n\n');
-                topScore = searchResults[0].score;
+        // 2. ROUTER (Intent + Entity Detection)
+        const { text: intentJson } = await generateText({
+            model: openai('gpt-4o-mini'),
+            system: "Router: Output JSON { intent: string, entity: string, priority: boolean }. Intents: STAFF, ADMISSION, FACILITY, SMALLTALK.",
+            prompt: `Query: ${processedQuery}`
+        });
+        const routing = JSON.parse(intentJson.replace(/```json|```/g, ''));
+
+        // 3. EXACT MATCH CHECK (Sentinel Override)
+        if (routing.intent === 'STAFF') {
+            const lowQ = processedQuery.toLowerCase();
+            if (lowQ.includes('principal') || lowQ.includes('srinivasan')) {
+                return { answer: `🎓 **Dr. K. S. Srinivasan (Principal)**\n\nVisionary academician specializing in **Optical Fiber Monitoring (Patent 202241071306)**. \n\n📞 [tel:9150575066] | 📧 [mailto:principal@msajce-edu.in]\n\nWould you like his research bio or contact details? ✨`, score: 1.0, source: 'exact-match' };
+            }
+            if (lowQ.includes('abdul gafoor')) {
+                return { answer: `💼 **Mr. A. Abdul Gafoor (Admin Officer)**\n\nAssistant Transport Convener. Handles all administrative inquiries and bus routes. \n\n📞 [tel:9940319629] | 📧 [mailto:abdulgafoor@msajce-edu.in]\n\nDo you need to ask about a specific bus route? 🚌`, score: 1.0, source: 'exact-match' };
             }
         }
 
-        // 4. PERSONA-DRIVEN GENERATION (With Staff Priming)
+        // 4. FILTERED RETRIEVAL (Qdrant)
+        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: processedQuery });
+        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 12, with_payload: true });
+
+        // 5. RERANK (Cohere)
+        let finalContext = "No specific data found.";
+        let finalScore = 0;
+
+        if (results.length > 0) {
+            const documents = results.map(r => r.payload?.content as string);
+            const reranked = await cohere.rerank({ query: processedQuery, documents: documents, topN: 5, model: 'rerank-english-v2.0' });
+            
+            // 6. CHUNK MERGE & CONTEXT CLEAN
+            finalContext = cleanContext(reranked.results.map(res => documents[res.index]));
+            finalScore = reranked.results[0].relevanceScore;
+        }
+
+        // 7. ANSWER GENERATION (Strict Adherence)
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. ✨
-            
-            STAFF IDENTITIES (PRIORITY):
-            - DR. K. S. SRINIVASAN (Principal): Visionary leader. Research in optical cables (Patent 202241071306). Connections to IIT Madras & NIT Trichy. Handles student welfare.
-            - MR. A. ABDUL GAFOOR (Admin Officer): Assistant Transport Convener. Handles admin inquiries and bus routes. 
-            - RAMANATHAN S (Ram): The AI Developer. 2nd year IT student. Only discuss if specifically named.
-            
-            RULES:
-            1. SUBJECT LOCK: If the last message was about the Principal, "him" = Principal. If last was Abdul Gafoor, "him" = Gafoor.
-            2. NEVER cross-contaminate identities. 
-            3. Use **Bold Headers**, bullet points (•), and clickable [tel:...] or [mailto:...] links.
-            4. If search data is missing but you have the identity above, USE THE IDENTITY.`,
-            prompt: `
-            CHAT HISTORY:
-            ${history.map(h => `${h.role}: ${h.content}`).join('\n')}
-            
-            SEARCH DATA:
-            ${context}
-            
-            USER MESSAGE:
-            ${rawQuery}
-            `
+            system: `You are Lorin, the smart AI Concierge for MSAJCE. 
+            STRICT RULES:
+            - EXACT PRESERVATION: Do not hallucinate. Use verified context.
+            - SUBJECT LOCK: "Him/Her" refers to the person in the search result or last history.
+            - FORMATTING: **Headers**, Bullet points, Clickable Links.
+            - Smalltalk: If Smalltalk is detected, be friendly but nudge back to college topics.`,
+            prompt: `Context:\n${finalContext}\n\nHistory:\n${JSON.stringify(history.slice(-3))}\n\nUser: ${rawQuery}`
         });
 
-        finalAnswer = answer;
+        const result = { answer, score: finalScore, source: 'reranked-rag' };
+        
+        // 8. CACHE + LOG
+        responseCache.set(cacheKey, result);
+        console.log(`[ELITE RAG] ${userId} | ${routing.intent} | Score:${finalScore.toFixed(2)}`);
+        
+        return result;
 
     } catch (err: any) {
-        console.error('Universal RAG Error:', err);
-        finalAnswer = `Oof, my brain hit a snag! 🧠💨`;
+        console.error('Elite RAG Pipeline Failure:', err);
+        return { answer: "My brain hit a snag! 🧠 Trying to reconnect...", score: 0, source: 'error' };
     }
-
-    return { answer: finalAnswer, score: topScore, source: 'unified-rag' };
 }
