@@ -32,15 +32,23 @@ export interface RetrievalResult { answer: string; score: number; source: string
 
 // --- ELITE IDENTITY RESOLVER (From RAG Techniques) ---
 async function resolveIdentity(query: string, history: ChatMessage[], openai: any): Promise<string> {
-    const lastContext = history.map(h => h.content).join(' ').toLowerCase();
+    const historyReverse = [...history].reverse();
+    const lastAssistantMessage = historyReverse.find(h => h.role === 'assistant')?.content.toLowerCase() || '';
+    const lastUserMessage = historyReverse.find(h => h.role === 'user' && h.content !== query)?.content.toLowerCase() || '';
     
-    // Hard-coded Entity Resolution to prevent hijacking
-    if (query.toLowerCase().includes('him') || query.toLowerCase().includes('more details')) {
-        if (lastContext.includes('srinivasan') || lastContext.includes('principal')) return `Dr. K. S. Srinivasan Principal`;
-        if (lastContext.includes('abdul gafoor') || lastContext.includes('admin officer')) return `Mr. A. Abdul Gafoor Administrative Officer`;
+    // Hard-coded Entity Resolution: Prioritize the most RECENT subject matching
+    const isMoreDetailsRequest = query.toLowerCase().includes('him') || query.toLowerCase().includes('more details') || query.toLowerCase().includes('abt him');
+
+    if (isMoreDetailsRequest) {
+        // Check Abdul Gafoor (Admin) first if he was the last subject
+        if (lastAssistantMessage.includes('abdul gafoor') || lastUserMessage.includes('abdul gafoor')) {
+            return `Mr. A. Abdul Gafoor Administrative Officer details profile`;
+        }
+        // Then check Srinivasan (Principal)
+        if (lastAssistantMessage.includes('srinivasan') || lastAssistantMessage.includes('principal') || lastUserMessage.includes('principal')) {
+            return `Dr. K. S. Srinivasan Principal details profile`;
+        }
     }
-    
-    const { text } = await generateText({
         model: openai('gpt-4o-mini'),
         system: "You are a Research Assistant. If the user uses pronouns or asks for 'more details', rewrite the query to include the EXACT NAME of the subject from history. ONLY output the rewritten query.",
         prompt: `History:\n${JSON.stringify(history.slice(-3))}\n\nQuery: ${query}`
