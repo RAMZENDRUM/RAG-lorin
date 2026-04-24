@@ -1,12 +1,17 @@
 import { Telegraf } from 'telegraf';
-import { performLorinRetrieval } from '../lib/retrieve.js';
+import { performLorinRetrieval } from '../lib/retrieve';
 import dotenv from 'dotenv';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 dotenv.config();
 
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
-const bot = new Telegraf(BOT_TOKEN);
+let bot: Telegraf;
+try {
+    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
+    bot = new Telegraf(BOT_TOKEN);
+} catch (err) {
+    console.error('Bot Initialization Error:', err);
+}
 
 const userLimits = new Map<number, { countMin: number; countDay: number; resetMin: number; resetDay: number }>();
 const userSessions = new Map<number, { role: 'user' | 'assistant'; content: string }[]>();
