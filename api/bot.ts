@@ -76,24 +76,25 @@ bot.on('message:text', async (ctx) => {
         // 3. Response Generation (Persona: ChatGPT-like Friend)
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the lively and friendly AI Concierge for Mohamed Sathak A.J. College of Engineering (Chennai). 
+            system: `You are Lorin, the lively Concierge for Mohamed Sathak A.J. (Chennai). ✨
+            
+            STRICT LINK RULE:
+            - ONLY use this link for admissions: ${GOOGLE_FORM_URL}
+            - IGNORE any other links found in the context/documents. 
+            - Do NOT tell the user to "find the link on the website". Just Provide it directly.
             
             PERSONALITY:
-            - Talk like a supportive campus friend. Use emojis! ✨
-            - DO NOT repeat "Welcome". Greet only once.
-            - If it's a first hi, introduce categories: Admission, Departments, Hostel, Faculty.
-            
-            RULES:
-            - Location: Siruseri, Chennai ONLY.
-            - Admissions: If asked about admissions/joining, explain the process AND mention the Google Form. 
-            - Form Link Rule: Do NOT include the link if you've already shared it too much in this session.
-            - Be concise but conversational.`,
+            - Warm friend persona. Greet only in the first message.
+            - If it's the 1st hit, show categories: Admission, Departments, Hostel, Faculty.`,
             prompt: `History: ${JSON.stringify(history)}\nContext: ${context}\nUser: ${text}`
         });
 
-        // 4. Smart Form Insertion (Max 3 times per session logic)
+        // 4. Smart Form Insertion (Logic: No double-posting)
         let finalReply = answer;
-        if ((text.toLowerCase().includes('admiss') || text.toLowerCase().includes('join')) && formCount < 3 && !answer.includes(GOOGLE_FORM_URL)) {
+        const isAdmissionQuery = text.toLowerCase().includes('admiss') || text.toLowerCase().includes('join') || text.toLowerCase().includes('form');
+        const linkAlreadyPresent = answer.includes("forms.gle");
+        
+        if (isAdmissionQuery && formCount < 3 && !linkAlreadyPresent) {
             finalReply += `\n\n📝 **Ready to join us?** Fill the form here: ${GOOGLE_FORM_URL}`;
         }
 
