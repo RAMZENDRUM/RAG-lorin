@@ -191,6 +191,7 @@ CONVERSATIONAL RULES:
   1. The user explicitly asks for a "link", "URL", or "official page".
   2. You have absolutely no information to answer the question.
   Otherwise, DO NOT append links. Be clean and direct.
+- PRINCIPAL VS GOVERNING COUNCIL: The Principal is the head of the institution. The Governing Council is the statutory body. Do not conflate them.
 
 KNOWLEDGE GUIDELINES:
 - Marketing: Highlight Siruseri IT Park, 100% Placements, and Industry connectivity.`,
@@ -207,19 +208,45 @@ export function postProcess(
     answer: string,
     agentFlags: AgentFlags,
     googleFormUrl: string,
-    retrievedChunks: KnowledgeChunk[] = []
+    retrievedChunks: KnowledgeChunk[] = [],
+    rawUserMsg: string = ""
 ): string {
     let finalAnswer = answer;
+    const linksToInject = new Set<string>();
     
-    // Only inject link if user ASKED for it or if the LLM thinks it's critical
-    if (finalAnswer.includes('[Official Page]') && retrievedChunks.length > 0) {
-        const bestChunk = retrievedChunks.find(c => {
-            const low = c.content.toLowerCase();
-            const ans = finalAnswer.toLowerCase();
-            return (ans.includes('yogesh') && low.includes('yogesh')) || (ans.includes('bus') && low.includes('bus'));
-        }) || retrievedChunks[0];
+    // Link Guard: Priority Logic
+    const hasPrincipal = /principal/i.test(rawUserMsg);
+    const hasGovCouncil = /governing council|statutory body/i.test(rawUserMsg);
 
-        finalAnswer = finalAnswer.replace('[Official Page]', `[Official Page](${bestChunk.url})`);
+    if (hasPrincipal) {
+        linksToInject.add(HARD_LINK_MAP["principal"]);
+        // If they ask for Principal, specifically block Governing Council link if found in text
+        finalAnswer = finalAnswer.replace(/https:\/\/www\.msajce-edu\.in\/governingcouncil\.php/g, "");
+    }
+    
+    if (hasGovCouncil) {
+        linksToInject.add(HARD_LINK_MAP["governing council"]);
+    }
+
+    // Only inject link if user ASKED for it
+    const wantsLink = /link|url|official page|website/i.test(rawUserMsg);
+    if (!wantsLink) {
+        // Vaporize all links if NOT requested
+        finalAnswer = finalAnswer.replace(/https?:\/\/[^\s]+/g, "");
+    }
+
+    // Re-inject hard-coded links if they were explicitly identified (and clean)
+    if (wantsLink) {
+        linksToInject.forEach(link => {
+            if (!finalAnswer.includes(link)) {
+                finalAnswer += `\n\n🔗 Official Page: ${link}`;
+            }
+        });
+    }
+
+    // Ensure Dr. Srinivasan is always clean if not asking for links
+    if (!wantsLink && hasPrincipal) {
+        finalAnswer = finalAnswer.replace(/🔗.*/g, "").trim();
     }
 
     // Only show form if it's an ADMISSION or ADAPTIVE intent (not every message)
