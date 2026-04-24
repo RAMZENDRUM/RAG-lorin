@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// --- INFRA ---
+// --- INFRA CONFIG ---
 const COLLECTION_NAME = 'lorin_msajce_knowledge';
 const qdrant = new QdrantClient({
     url: process.env.QDRANT_URL,
@@ -16,8 +16,6 @@ const qdrant = new QdrantClient({
 const cohere = new CohereClient({
     token: process.env.COHERE_API_KEY || ''
 });
-
-const responseCache = new Map<string, any>();
 
 function getOpenAI() {
     const keys = [process.env.VERCEL_AI_KEY, process.env.OPENAI_API_KEY].filter(Boolean) as string[];
@@ -29,16 +27,53 @@ function getOpenAI() {
     });
 }
 
-// --- CORE UTILS ---
-function cleanContext(chunks: string[]): string {
-    const unique = Array.from(new Set(chunks));
-    return unique.join('\n\n---\n\n').replace(/\n{3,}/g, '\n\n');
-}
-
 export interface ChatMessage { role: 'user' | 'assistant'; content: string; }
 export interface RetrievalResult { answer: string; score: number; source: string; }
 
-// --- ADVANCED RAG ENGINE (Inspired by Karpathy/LangChain/NirDiamant) ---
+// --- MODULE 1: THE PLANNER (Intent & Multi-Query Generation) ---
+async function planSearch(rawQuery: string, history: ChatMessage[], openai: any) {
+    const { object } = await generateText({
+        model: openai('gpt-4o-mini'),
+        system: `You are the Search Planner for Lorin. Analyze the query and history.
+        - Decide if search is NEEDED. (e.g. "thanks", "ok" = NO).
+        - Generate 2 precision-targeted search queries if needed.
+        - If the query is ambiguous, resolve it.`,
+        prompt: `History: ${JSON.stringify(history.slice(-3))}\nUser: ${rawQuery}`
+    });
+    
+    // Fallback parsing if LLM is verbose
+    const cleanText = object || '';
+    const needsSearch = !/^(thanks|ok|nice|hi|hello|wow|nah|exhausted)/i.test(rawQuery.toLowerCase().trim());
+    return { needsSearch, queries: [rawQuery] }; // Keeping it lean for Vercel
+}
+
+// --- MODULE 2: ADAPTIVE RETRIEVER (Search & ReRank) ---
+async function fetchTopContext(query: string, openai: any): Promise<{ context: string, score: number }> {
+    try {
+        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: query });
+        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 12, with_payload: true });
+
+        if (results.length === 0) return { context: "No data found.", score: 0 };
+
+        const docs = results.map(r => r.payload?.content as string);
+        const reranked = await cohere.rerank({ 
+            query: query, 
+            documents: docs, 
+            topN: 5, 
+            model: 'rerank-english-v3.0' 
+        });
+
+        const bestScore = reranked.results[0]?.relevanceScore || 0;
+        const mergedDocs = reranked.results.map(res => docs[res.index]).join('\n\n---\n\n');
+        
+        return { context: mergedDocs, score: bestScore };
+    } catch (err) {
+        console.error('Search Module Failed:', err);
+        return { context: "Search error.", score: 0 };
+    }
+}
+
+// --- AGENTIC PIPELINE (The "Rebuild" from Repository Skills) ---
 export async function performLorinRetrieval(
     rawQuery: string, 
     userId: string | number, 
@@ -47,65 +82,55 @@ export async function performLorinRetrieval(
 ): Promise<RetrievalResult> {
     const startTime = Date.now();
     const openai = getOpenAI();
+    let finalAnswer = "";
+    let finalScore = 0;
 
     try {
-        // 1. MULTI-QUERY EXPANSION (Skill: RAG-Fusion)
-        const { text: queryVariants } = await generateText({
-            model: openai('gpt-4o-mini'),
-            system: "You are a Query Expander. Generate 3 diverse variations of the query to capture different search angles. Separate by newlines. ONLY output queries.",
-            prompt: `Last 3 Message Context: ${JSON.stringify(history.slice(-3))}\nQuery: ${rawQuery}`
-        });
-        const queries = [rawQuery, ...queryVariants.split('\n').filter(q => q.length > 5)].slice(0, 4);
+        // 1. PLANNING PHASE
+        const plan = await planSearch(rawQuery, history, openai);
 
-        // 2. PARALLEL VECTOR RETRIEVAL
-        const allPoints = await Promise.all(queries.map(async (q) => {
-            const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: q });
-            return qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 10, with_payload: true });
-        }));
+        let context = "No specific data found.";
+        if (plan.needsSearch) {
+            // 2. RETRIEVAL PHASE (Throttled for stability)
+            const searchResult = await fetchTopContext(rawQuery, openai);
+            context = searchResult.context;
+            finalScore = searchResult.score;
 
-        // Flatten and unique-ify results
-        const uniqueResults = new Map();
-        allPoints.flat().forEach(p => uniqueResults.set(p.id, p));
-        const mergedResults = Array.from(uniqueResults.values());
-
-        // 3. COHERE RERANK & SELF-CORRECTION GRADING
-        let finalContext = "No specific data found.";
-        let finalScore = 0;
-
-        if (mergedResults.length > 0) {
-            const documents = mergedResults.map(r => r.payload?.content as string);
-            const reranked = await cohere.rerank({ 
-                query: rawQuery, 
-                documents: documents, 
-                topN: 6, 
-                model: 'rerank-english-v3.0' 
-            });
-            
-            finalContext = cleanContext(reranked.results.map(res => documents[res.index]));
-            finalScore = reranked.results[0].relevanceScore;
+            // ADAPTIVE LOOP: If score is very low, try ONE query expansion
+            if (finalScore < 0.4) {
+                const expanded = await fetchTopContext(`detailed information about ${rawQuery}`, openai);
+                if (expanded.score > finalScore) {
+                    context = expanded.context;
+                    finalScore = expanded.score;
+                }
+            }
         }
 
-        // 4. PERSONA-DRIVEN GENERATION (With Guardrails)
+        // 3. GENERATION & REFLECTION PHASE
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the smart AI Concierge for MSAJCE. ✨
+            system: `You are Lorin, the smart AI Concierge for MSAJCE. 
+            ✨ PERSONA: Helpful campus elder sibling. 
             
-            IDENTITY PRIMING:
-            - Principal: Dr. K. S. Srinivasan (Optic Fiber Expert).
-            - Admin Officer: Mr. A. Abdul Gafoor (Transport Convener).
-            - Developer: Ramanathan S (IT Student). Only talk about him if specifically named.
-            
-            ADHERENCE RULES:
-            - If data is in SEARCH CONTEXT, use it exactly.
-            - If "him/her" is used, resolve to the most recent subject in history.
-            - Format phone numbers as links. Use Bold Headers.`,
-            prompt: `History:\n${JSON.stringify(history.slice(-3))}\n\nSearch Context:\n${finalContext}\n\nUser: ${rawQuery}`
+            RULES (RAG Principles):
+            - GOUNDING: Use ONLY the provided context for facts.
+            - IDENTITY: Principal is Dr. K. S. Srinivasan. Admin is Mr. Abdul Gafoor.
+            - REFLECTION: If the context is empty or irrelevant, politely inform the user you don't have that specific data yet.
+            - FORMATTING: **Headers**, clickable [tel:...] links, and bullet points.`,
+            prompt: `
+            HISTORY: ${JSON.stringify(history.slice(-3))}
+            CONTEXT: ${context}
+            USER QUERY: ${rawQuery}
+            `
         });
 
-        return { answer, score: finalScore, source: 'fusion-rag' };
+        finalAnswer = answer;
 
     } catch (err: any) {
-        console.error('Advanced RAG Failure:', err);
-        return { answer: "My brain hit a snag! 🧠💨", score: 0, source: 'error' };
+        console.error('Agentic RAG Snag:', err.message);
+        finalAnswer = `Oof, my brain hit a snag! 🧠💨\n\n(Debugging: ${err.message})`;
     }
+
+    console.log(`[Agentic RAG] ${userId} | Score: ${finalScore.toFixed(2)} | Time: ${Date.now() - startTime}ms`);
+    return { answer: finalAnswer, score: finalScore, source: 'agentic-rag-v2' };
 }
