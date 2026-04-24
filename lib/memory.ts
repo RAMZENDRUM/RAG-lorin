@@ -1,68 +1,78 @@
 import postgres from 'postgres';
-import dotenv from 'dotenv';
-dotenv.config();
 
-let sql: any = null;
-
-export interface ChatMessage {
+export interface ShortTermMemory {
     role: 'user' | 'assistant';
     content: string;
+    created_at?: string;
 }
 
-function getSql() {
-    if (sql) return sql;
-    if (!process.env.DATABASE_URL) {
-        console.error('❌ DATABASE_URL is missing in Vercel environment variables!');
-        return null;
-    }
-    sql = postgres(process.env.DATABASE_URL);
-    return sql;
+export interface UserProfile {
+    user_id: string;
+    name: string | null;
+    interest: string | null;        // e.g. "CSE", "Hostel", "AI&DS"
+    stage: 'exploring' | 'applied' | 'unknown';
+    last_seen: Date;
 }
 
-export async function getChatHistory(userId: number | string, limit: number = 10): Promise<ChatMessage[]> {
-    try {
-        const db = getSql();
-        if (!db) return [];
-        
-        const safeUserId = BigInt(userId); // Force conversion for Supabase
-        const history = await db`
-            SELECT role, content 
-            FROM chat_history 
-            WHERE user_id = ${safeUserId}
-            ORDER BY created_at DESC 
-            LIMIT ${limit}
-        `;
-        return history.reverse().map((row: any) => ({
-            role: row.role as 'user' | 'assistant',
-            content: row.content
-        }));
-    } catch (err) {
-        console.error('Failed to get chat history:', err);
-        return [];
-    }
+// ── Fetch short-term + long-term memory in ONE round-trip each ──────────────
+export async function fetchMemory(
+    userId: string,
+    db: ReturnType<typeof postgres>
+): Promise<{ shortTerm: ShortTermMemory[]; profile: UserProfile }> {
+    const [shortTermRows, profileRows] = await Promise.all([
+        db<ShortTermMemory[]>`
+            SELECT role, content, created_at
+            FROM chat_history
+            WHERE user_id = ${userId}
+            ORDER BY created_at DESC
+            LIMIT 15
+        `.then(rows => rows.reverse()),
+        db<UserProfile[]>`
+            SELECT * FROM lorin_user_profiles WHERE user_id = ${userId} LIMIT 1
+        `,
+    ]);
+
+    const profile: UserProfile = profileRows[0] ?? {
+        user_id: userId,
+        name: null,
+        interest: null,
+        stage: 'unknown',
+        last_seen: new Date(),
+    };
+
+    return { shortTerm: shortTermRows, profile };
 }
 
-export async function saveChatMessage(userId: number | string, role: 'user' | 'assistant', content: string, sessionId?: string) {
-    try {
-        const db = getSql();
-        if (!db) return;
-        
-        const safeUserId = BigInt(userId);
-        await db`
-            INSERT INTO chat_history (user_id, role, content, session_id)
-            VALUES (${safeUserId}, ${role}, ${content}, ${sessionId || null})
-        `;
-    } catch (err) {
-        console.error('Failed to save chat message:', err);
-    }
+// ── Update long-term profile after each turn ─────────────────────────────────
+export async function updateProfile(
+    userId: string,
+    updates: Partial<Pick<UserProfile, 'name' | 'interest' | 'stage'>>,
+    db: ReturnType<typeof postgres>
+): Promise<void> {
+    await db`
+        INSERT INTO lorin_user_profiles (user_id, name, interest, stage, last_seen)
+        VALUES (${userId}, ${updates.name ?? null}, ${updates.interest ?? null}, ${updates.stage ?? 'unknown'}, NOW())
+        ON CONFLICT (user_id) DO UPDATE SET
+            name      = COALESCE(EXCLUDED.name, lorin_user_profiles.name),
+            interest  = COALESCE(EXCLUDED.interest, lorin_user_profiles.interest),
+            stage     = COALESCE(EXCLUDED.stage, lorin_user_profiles.stage),
+            last_seen = NOW()
+    `;
 }
 
-export async function clearChatHistory(userId: number) {
-    try {
-        const db = getSql();
-        if (!db) return;
-        await db`DELETE FROM chat_history WHERE user_id = ${userId}`;
-    } catch (err) {
-        console.error('Failed to clear chat history:', err);
-    }
+// ── Extract interest from query to update the profile ────────────────────────
+export function extractInterest(text: string): string | null {
+    const lower = text.toLowerCase();
+    if (lower.includes('cse') || lower.includes('computer science')) return 'CSE';
+    if (lower.includes('ai&ds') || lower.includes('data science')) return 'AI&DS';
+    if (lower.includes('ai&ml') || lower.includes('machine learning')) return 'AI&ML';
+    if (lower.includes('cyber')) return 'Cyber Security';
+    if (lower.includes('csbs')) return 'CSBS';
+    if (lower.includes('ece') || lower.includes('vlsi') || lower.includes('communication')) return 'ECE';
+    if (lower.includes('eee') || lower.includes('electrical')) return 'EEE';
+    if (lower.includes('mech')) return 'Mechanical';
+    if (lower.includes('civil')) return 'Civil';
+    if (lower.includes('it') || lower.includes('information tech')) return 'IT';
+    if (lower.includes('hostel')) return 'Hostel';
+    return null;
 }

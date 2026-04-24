@@ -20,8 +20,19 @@ async function init() {
         
         // Add index for fast retrieval
         await sql`CREATE INDEX IF NOT EXISTS idx_chat_history_user_id ON chat_history(user_id);`;
-        
-        console.log('✅ CHAT_HISTORY TABLE IS READY');
+
+        // ── Long-Term User Profiles (Lorin v2) ──────────────────────────────
+        await sql`
+            CREATE TABLE IF NOT EXISTS lorin_user_profiles (
+                user_id     TEXT PRIMARY KEY,
+                name        TEXT,
+                interest    TEXT,
+                stage       TEXT DEFAULT 'unknown',
+                last_seen   TIMESTAMPTZ DEFAULT NOW()
+            );
+        `;
+
+        console.log('✅ CHAT_HISTORY + USER_PROFILES TABLES ARE READY');
         process.exit(0);
     } catch (err) {
         console.error('❌ DB INIT ERROR:', err);
