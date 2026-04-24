@@ -24,8 +24,8 @@ const GOOGLE_FORM_URL = "https://forms.gle/your-admission-form";
 const bot = new Telegraf(BOT_TOKEN!);
 const sql = postgres(DATABASE_URL, { ssl: 'require' });
 const openai = createOpenAI({
-    apiKey: process.env.VERCEL_AI_KEY || process.env.OPENAI_API_KEY,
-    baseURL: 'https://ai-gateway.vercel.sh/v1'
+    apiKey: process.env.OPENROUTER_API_KEY || process.env.VERCEL_AI_KEY,
+    baseURL: process.env.OPENROUTER_API_KEY ? 'https://openrouter.ai/api/v1' : 'https://ai-gateway.vercel.sh/v1'
 });
 
 bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your smart MSAJCE Concierge. How can I help you today?'));
