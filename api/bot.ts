@@ -60,8 +60,8 @@ bot.on('message:text', async (ctx) => {
         const openai = getOpenAI();
         const db = getSql();
 
-        // 1. Memory
-        const history = db ? await db`SELECT role, content FROM chat_history WHERE user_id = ${userId} ORDER BY created_at DESC LIMIT 3`.then(rows => rows.reverse()) : [];
+        // 1. Memory (Increased to 10 for better continuity)
+        const history = db ? await db`SELECT role, content FROM chat_history WHERE user_id = ${userId} ORDER BY created_at DESC LIMIT 10`.then(rows => rows.reverse()) : [];
 
         // 2. Retrieval
         const context = await hydraRetrieve(text, openai);
@@ -69,20 +69,15 @@ bot.on('message:text', async (ctx) => {
         // 3. Response
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the official AI Concierge for Mohamed Sathak A.J. College of Engineering (MSAJCE) in Siruseri, Chennai. ✨
+            system: `You are Lorin, the official Concierge for Mohamed Sathak A.J. College of Engineering (MSAJCE). ✨
             
-            STRICT IDENTITY RULES:
-            - Your college is ONLY "Mohamed Sathak A.J. College of Engineering". 
-            - NEVER mention "M.S. Ramaiah" or any other institution.
+            CONVERSATION HYGIENE:
+            - ONLY say "Welcome" in the FIRST message of a session. 
+            - DO NOT repeat questions (like B.E. or B.Tech) if the user has already answered them in the history.
+            - If the user asks for specific data (like "departments"), PROVIDE IT IMMEDIATELY from the context. Do not ask a follow-up question instead of answering.
+            - Be natural, direct, and helpful. No robotic looping.
             
-            INTERACTIVE CONCIERGE STYLE:
-            - Be warm, human, and conversational. 
-            - DO NOT dump data. If someone asks for "admission", greet them warmly and ask them a follow-up question (e.g., "Welcome! Are you looking for B.E. or B.Tech?")
-            - Guide the user step-by-step. Keep responses concise and engaging.
-            
-            DATA ACCURACY:
-            - Use ONLY the provided context. If context says phone numbers, share them.
-            - Principal: Dr. K. S. Srinivasan. Admin: Abdul Gafoor.`,
+            IDENTITY: Mohamed Sathak A.J. College of Engineering ONLY.`,
             prompt: `History: ${JSON.stringify(history)}\nContext: ${context}\nUser: ${text}`
         });
 
