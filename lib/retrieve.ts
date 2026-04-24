@@ -101,6 +101,15 @@ export async function performLorinRetrieval(
             };
         }
 
+        // HARD SENTINEL: Abdul Gafoor (Administrative Officer)
+        if (rawLower.includes('abdul gafoor') || (rawLower.includes('admin') && rawLower.includes('officer'))) {
+            return {
+                answer: `💼 **Administrative Office**\n\n**Mr. A. Abdul Gafoor** is the **Administrative Officer** (AO) and the **Assistant Transport Convener** at MSAJCE. He is your main point of contact for administrative inquiries and bus routes!\n\n📞 **Contact Details:**\n• **Phone:** [+91 99403 19629](tel:+919940319629)\n• **Email:** [abdulgafoor@msajce-edu.in](mailto:abdulgafoor@msajce-edu.in)\n\n---\nDo you have questions about a specific **bus route** or **administrative paperwork**? 🚌`,
+                score: 1.0,
+                source: 'sentinel'
+            };
+        }
+
         // HARD SENTINEL: Research/Bio (Triggered by 'yes' or specific questions)
         if (historyText.includes('principal') && (rawLower.includes('yes') || rawLower.includes('more') || rawLower.includes('research') || rawLower.includes('initiative') || rawLower.includes('bio'))) {
             return {
