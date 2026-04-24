@@ -58,7 +58,12 @@ async function ingest() {
         batches.filter((_, idx) => idx % VERCEL_KEYS.length === i)
     );
 
-    const processStream = async (queue: any[], key: string, streamId: number) => {
+    interface Chunk {
+    content: string;
+    metadata: Record<string, any>;
+}
+
+const processStream = async (queue: Chunk[][], key: string, streamId: number) => {
         for (let i = 0; i < queue.length; i++) {
             const batch = queue[i];
             let success = false;
