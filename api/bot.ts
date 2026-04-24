@@ -76,7 +76,37 @@ bot.on('message:text', async (ctx) => {
         // ── STAGE 3: Memory Fetch (parallel with stage 2) ───────────────────
         const { shortTerm, profile } = db
             ? await fetchMemory(userId, db)
-            : { shortTerm: [], profile: { user_id: userId, name: null, interest: null, stage: 'unknown' as const, last_seen: new Date() } };
+            : { shortTerm: [], profile: { user_id: userId, name: null, interest: null, stage: 'unknown' as const, last_seen: new Date(), strikes: 0, blocked_until: null } };
+
+        // ── STAGE 1.5: Abuse / Spam Block Check ──────────────────────────────
+        if (profile.blocked_until && new Date(profile.blocked_until) > new Date()) {
+            return; // Silently ignore if blocked
+        }
+
+        const isAbusive = /fuck|shit|bitch|asshole|idiot|stupid/.test(rawText.toLowerCase());
+        const copyPastes = shortTerm.filter(m => m.role === 'user' && m.content === rawText);
+        const isSpam = copyPastes.length >= 2;
+
+        if (isAbusive || isSpam) {
+            const newStrikes = (profile.strikes || 0) + 1;
+            let blockHours = 0;
+            let warningText = '';
+
+            if (newStrikes === 1) {
+                blockHours = 3;
+                warningText = "Alright, I'll help—but let's keep it respectful and avoid spamming.";
+            } else if (newStrikes === 2) {
+                blockHours = 12;
+            } else {
+                blockHours = 24 * 365 * 10; // Permanent
+            }
+
+            const blockedUntil = new Date(Date.now() + blockHours * 60 * 60 * 1000);
+            if (db) await updateProfile(userId, { strikes: newStrikes, blocked_until: blockedUntil }, db);
+            
+            if (warningText) await ctx.reply(warningText);
+            return;
+        }
 
         // ── STAGE 2: Query Rewriter ──────────────────────────────────────────
         const rewrittenQuery = rewriteQuery(rawText, intent, profile, shortTerm);

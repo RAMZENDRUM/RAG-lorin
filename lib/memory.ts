@@ -12,6 +12,8 @@ export interface UserProfile {
     interest: string | null;        // e.g. "CSE", "Hostel", "AI&DS"
     stage: 'exploring' | 'applied' | 'unknown';
     last_seen: Date;
+    strikes: number;
+    blocked_until: Date | null;
 }
 
 // ── Fetch short-term + long-term memory in ONE round-trip each ──────────────
@@ -38,6 +40,8 @@ export async function fetchMemory(
         interest: null,
         stage: 'unknown',
         last_seen: new Date(),
+        strikes: 0,
+        blocked_until: null,
     };
 
     return { shortTerm: shortTermRows, profile };
@@ -46,16 +50,18 @@ export async function fetchMemory(
 // ── Update long-term profile after each turn ─────────────────────────────────
 export async function updateProfile(
     userId: string,
-    updates: Partial<Pick<UserProfile, 'name' | 'interest' | 'stage'>>,
+    updates: Partial<Pick<UserProfile, 'name' | 'interest' | 'stage' | 'strikes' | 'blocked_until'>>,
     db: ReturnType<typeof postgres>
 ): Promise<void> {
     await db`
-        INSERT INTO lorin_user_profiles (user_id, name, interest, stage, last_seen)
-        VALUES (${userId}, ${updates.name ?? null}, ${updates.interest ?? null}, ${updates.stage ?? 'unknown'}, NOW())
+        INSERT INTO lorin_user_profiles (user_id, name, interest, stage, last_seen, strikes, blocked_until)
+        VALUES (${userId}, ${updates.name ?? null}, ${updates.interest ?? null}, ${updates.stage ?? 'unknown'}, NOW(), ${updates.strikes ?? 0}, ${updates.blocked_until ?? null})
         ON CONFLICT (user_id) DO UPDATE SET
             name      = COALESCE(EXCLUDED.name, lorin_user_profiles.name),
             interest  = COALESCE(EXCLUDED.interest, lorin_user_profiles.interest),
             stage     = COALESCE(EXCLUDED.stage, lorin_user_profiles.stage),
+            strikes   = COALESCE(EXCLUDED.strikes, lorin_user_profiles.strikes),
+            blocked_until = COALESCE(EXCLUDED.blocked_until, lorin_user_profiles.blocked_until),
             last_seen = NOW()
     `;
 }

@@ -28,9 +28,15 @@ async function init() {
                 name        TEXT,
                 interest    TEXT,
                 stage       TEXT DEFAULT 'unknown',
-                last_seen   TIMESTAMPTZ DEFAULT NOW()
+                last_seen   TIMESTAMPTZ DEFAULT NOW(),
+                strikes       INT DEFAULT 0,
+                blocked_until TIMESTAMPTZ
             );
         `;
+
+        // Safely add columns if doing migration
+        await sql`ALTER TABLE lorin_user_profiles ADD COLUMN IF NOT EXISTS strikes INT DEFAULT 0;`.catch(() => {});
+        await sql`ALTER TABLE lorin_user_profiles ADD COLUMN IF NOT EXISTS blocked_until TIMESTAMPTZ;`.catch(() => {});
 
         console.log('✅ CHAT_HISTORY + USER_PROFILES TABLES ARE READY');
         process.exit(0);
