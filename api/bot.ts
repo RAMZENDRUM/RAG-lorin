@@ -27,26 +27,24 @@ function getOpenAI() {
     });
 }
 
-// HYDRA SEARCH (Qdrant -> Supabase)
+// HYDRA SEARCH (Vector + Keyword Fallback)
 async function hydraRetrieve(text: string, openai: any) {
     const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: text });
     
-    // 1. Qdrant Primary (Increased to 15 chunks)
+    // 1. Vector Search
     const qdrant = new QdrantClient({ url: process.env.QDRANT_URL as string, apiKey: process.env.QDRANT_API_KEY as string });
     const qResults = await qdrant.search('lorin_msajce_knowledge', { vector: embedding, limit: 15, with_payload: true });
     
-    if (qResults.length > 0 && qResults[0].score > 0.7) {
-        return qResults.map(r => r.payload?.content).join('\n\n');
+    // 2. Keyword Fallback (For names like Yogesh)
+    const db = getSql();
+    let keywordResults = "";
+    if (db && text.length < 20) { // Only for short name queries
+        const sResults = await db`SELECT content FROM lorin_knowledge WHERE content ILIKE ${'%' + text + '%'} LIMIT 3`;
+        keywordResults = sResults.map((r: any) => r.content).join('\n\n');
     }
 
-    // 2. Supabase Secondary (Increased to 10 chunks)
-    const db = getSql();
-    if (db) {
-        const sResults = await db`SELECT content, 1 - (embedding <=> ${`[${embedding.join(',')}]`}) as score FROM lorin_knowledge ORDER BY score DESC LIMIT 10`;
-        if (sResults.length > 0) return sResults.map((r: any) => r.content).join('\n\n');
-    }
-    
-    return "No specific data found.";
+    const vectorResults = qResults.map(r => r.payload?.content).join('\n\n');
+    return `${keywordResults}\n\n${vectorResults}`.trim() || "No data found.";
 }
 
 const GOOGLE_FORM_URL = "https://forms.gle/Fto1EWFofwQdnjoz7";
@@ -76,20 +74,19 @@ bot.on('message:text', async (ctx) => {
         // 2. Retrieval
         const context = await hydraRetrieve(text, openai);
 
-        // 3. Response Generation (Persona: Master Concierge)
+        // 3. Response Generation (Persona: 100% Database Driven)
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
             system: `You are Lorin, the official Concierge for Mohamed Sathak A.J. (Chennai). ✨
             
-            CORE IDENTITIES (MUST KNOW):
-            - Principal: Dr. K. S. Srinivasan. (Specialist in Optics, Nit Trichy).
-            - Admin: Mr. A. Abdul Gafoor (Assistant Transport Convener & AO). 
-            - If these names are mentioned, identify them IMMEDIATELY as MSAJCE leadership.
+            TRUST THE DATABASE:
+            - ONLY answer based on the provided context. 
+            - If a person (like Yogesh) is in the context, describe their role exactly. 
+            - DO NOT guess or give generic "unknown person" answers if the name is in front of you.
             
             RULES:
-            - Admit Link: ${GOOGLE_FORM_URL} (Hourly cooldown).
-            - Be a warm, supportive campus friend.
-            - Greet only once.`,
+            - Campus: Siruseri, Chennai only.
+            - Admissions: Share form link: ${GOOGLE_FORM_URL} (Max 1x per hour).`,
             prompt: `History: ${JSON.stringify(history)}\nContext: ${context}\nUser: ${text}`
         });
 
