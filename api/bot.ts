@@ -23,9 +23,20 @@ const GOOGLE_FORM_URL = "https://forms.gle/your-admission-form";
 // Initialization
 const bot = new Telegraf(BOT_TOKEN!);
 const sql = postgres(DATABASE_URL, { ssl: 'require' });
+
+// Multi-Key Vercel Rotation (To bypass rate-limits)
+const VERCEL_KEYS = [
+    process.env.VERCEL_AI_KEY,
+    process.env.VERCEL_AI_KEY_2,
+    process.env.VERCEL_AI_KEY_3,
+    process.env.VERCEL_AI_KEY_4
+].filter(Boolean) as string[];
+
+const activeVercelKey = VERCEL_KEYS[Math.floor(Math.random() * VERCEL_KEYS.length)] || process.env.OPENAI_API_KEY;
+
 const openai = createOpenAI({
-    apiKey: process.env.OPENROUTER_API_KEY || process.env.VERCEL_AI_KEY,
-    baseURL: process.env.OPENROUTER_API_KEY ? 'https://openrouter.ai/api/v1' : 'https://ai-gateway.vercel.sh/v1'
+    apiKey: activeVercelKey,
+    baseURL: 'https://ai-gateway.vercel.sh/v1'
 });
 
 bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your smart MSAJCE Concierge. How can I help you today?'));
