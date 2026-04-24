@@ -19,6 +19,7 @@
     "cohere-ai": "^7.21.0",
     "dotenv": "^16.3.1",
     "fs-extra": "^11.2.0",
+    "grammy": "^1.42.0",
     "llama-parse": "^0.1.0",
     "nodemailer": "^8.0.5",
     "openai": "^6.34.0",
