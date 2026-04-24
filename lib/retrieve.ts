@@ -18,8 +18,6 @@ const cohere = new CohereClient({
     token: process.env.COHERE_API_KEY || ''
 });
 
-const responseCache = new Map<string, string>();
-
 // --- UTILS ---
 export function normalizeQuery(q: string): string {
     return q.trim().toLowerCase().replace(/[?]/g, '');
@@ -36,8 +34,6 @@ function getOpenAI() {
     if (keys.length === 0) throw new Error('No API Keys found (OpenAI or Vercel Gateway)!');
     
     const key = keys[Math.floor(Math.random() * keys.length)];
-    
-    // Auto-detect Vercel Gateway Key vs Standard OpenAI Key
     const isVercelGateway = key.startsWith('vck_');
     
     return createOpenAI({ 
@@ -73,13 +69,18 @@ export async function performLorinRetrieval(
     try {
         const openai = getOpenAI();
 
-        // 1. Contextualize Query (Convert "yes", "more", "tell me" into full searches)
+        // 1. Contextualize Query (Convert "yes", "more", "him" into specific subjects)
         if (history.length > 0) {
             try {
                 const { text } = await generateText({
                     model: openai('gpt-4o-mini'),
-                    system: "You are a Search Contextualizer. You see the chat history. If the user's latest message is a confirmation (like 'yes', 'sure', 'more', 'tell me'), rewrite it as a specific search query based on the assistant's previous suggestion or the main subject. ONLY output the rewritten query. DO NOT prefix it.",
-                    prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nUser: ${rawQuery}`
+                    system: `You are a Search Contextualizer. 
+                    IDENTITY RULES:
+                    - "Principal" or "Srinivasan" = Dr. K. S. Srinivasan (The Boss).
+                    - "Developer", "Ram", or "Ramanathan" = The AI engine developer.
+                    - "Him" or "He" MUST resolve to the person most recently discussed in history.
+                    If the user says 'yes' or 'more', rewrite to ask for specific background or research based on the last topic.`,
+                    prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nLatest Message: ${rawQuery}`
                 });
                 contextualizedQuery = text.trim();
             } catch (e) {
@@ -90,12 +91,12 @@ export async function performLorinRetrieval(
         // 2. Identify Intent & Sentinels
         const lowerQuery = contextualizedQuery.toLowerCase();
         const rawLower = rawQuery.toLowerCase();
-        const historyText = history.map(h => h.content).join(' ').toLowerCase();
+        const lastMsg = history[history.length - 1]?.content.toLowerCase() || '';
         
         // HARD SENTINEL: Principal Contact Info
         if ((rawLower.includes('principal') || rawLower.includes('srinivasan')) && !rawLower.includes('research') && !rawLower.includes('initiative') && !rawLower.includes('more')) {
             return { 
-                answer: `🎓 **Meet Our Principal**\n\n**Dr. K. S. Srinivasan** is the visionary leader of MSAJCE, dedicated to academic excellence and student success!\n\n📞 **Contact Details:**\n• **Phone:** [+91 91505 75066](tel:+919150575066)\n• **Email:** [principal@msajce-edu.in](mailto:principal@msajce-edu.in)\n\n---\nWould you like to know about his **research background** or **current initiatives**? ✨`, 
+                answer: `🎓 **Meet Our Principal**\n\n**Dr. K. S. Srinivasan** is the visionary leader of MSAJCE!\n\n📞 **Contact Details:**\n• **Phone:** [+91 91505 75066](tel:+919150575066)\n• **Email:** [principal@msajce-edu.in](mailto:principal@msajce-edu.in)\n\n---\nWould you like to know about his **research background** or **current initiatives**? ✨`, 
                 score: 1.0, 
                 source: 'sentinel' 
             };
@@ -110,8 +111,9 @@ export async function performLorinRetrieval(
             };
         }
 
-        // HARD SENTINEL: Research/Bio (Triggered by 'yes' or specific questions)
-        if (historyText.includes('principal') && (rawLower.includes('yes') || rawLower.includes('more') || rawLower.includes('research') || rawLower.includes('initiative') || rawLower.includes('bio'))) {
+        // HARD SENTINEL: Research/Bio confirmation
+        const isConfirmation = /^(yes|yeah|yep|sure|ok|tell me more|more|show me|initiatives|research)/i.test(rawLower);
+        if (isConfirmation && lastMsg.includes('principal')) {
             return {
                 answer: `🔬 **Dr. K. S. Srinivasan's Expertise**\n\nOur Principal is a highly respected academic with connections across **IIT Madras**, **NIT Trichy**, and **TNSCST**. \n\n**Key Initiatives:**\n• **Innovation:** Established key metrics to monitor student entrepreneurship.\n• **Research:** Oversees all institutional research committees and student welfare projects.\n• **Vision:** Focuses on fostering self-employment and modern engineering practices.\n\nIs there a specific research area or student project you'd like to dive into? 🚀`,
                 score: 1.0,
@@ -119,7 +121,7 @@ export async function performLorinRetrieval(
             };
         }
 
-        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|yep|yes|sure|nah)/i.test(rawLower) && rawLower.length < 10;
+        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|nah)/i.test(rawLower) && rawLower.length < 10 && !isConfirmation;
 
         // 3. Search
         let context = "No specific data found.";
@@ -151,12 +153,15 @@ export async function performLorinRetrieval(
                 model: openai('gpt-4o-mini'),
                 system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. 
                 
-                BEHAVIOR:
-                1. If history is provided, ALWAYS use it to stay on topic. 
-                2. If the user says something like "yes" or "tell me more", they are following up on your last message.
-                3. NEVER say "I don't have information" if the history contains the answer. 
-                4. Always format phone numbers as clickable links.
-                5. Use emojis and a friendly tone.`,
+                CRITICAL IDENTITY RULES:
+                1. DR. SRINIVASAN: The Principal. If asked about "Him" after discussing Principal, talk about the Principal.
+                2. RAMANATHAN / RAM: The Developer of this AI. Only talk about him if specifically named. NEVER refer to him as "The Principal".
+                3. NEVER mix Dr. Srinivasan and Ram. They are different people.
+                
+                STYLE:
+                - Use **Bold Headers** and bullet points.
+                - Format phone numbers as links.
+                - Stay warm and interactive.`,
                 prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nContext:\n${context}\n\nUser Message: ${rawQuery}`
             });
             finalAnswer = text;
