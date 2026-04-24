@@ -14,7 +14,7 @@ const qdrant = new QdrantClient({
     apiKey: process.env.QDRANT_API_KEY
 });
 
-// Database (Supabase)
+// Database (Supabase) - used for Memory AND Secondary RAG
 const sql = postgres(process.env.DATABASE_URL || '', { ssl: 'require' });
 
 const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN || '');
@@ -28,49 +28,68 @@ function getOpenAI() {
     });
 }
 
-// --- IDENTITY RESOLVER ---
-function resolveSubject(query: string, history: any[]): string {
-    const last = [...history].reverse().find(h => h.role === 'assistant')?.content.toLowerCase() || '';
-    if (query.toLowerCase().match(/(him|her|more|details|about him)/)) {
-        if (last.includes('srinivasan') || last.includes('principal')) return 'Dr. K. S. Srinivasan Principal';
-        if (last.includes('abdul gafoor') || last.includes('admin')) return 'Mr. A. Abdul Gafoor Administrative Officer';
+// --- HYDRA SEARCH (Qdrant + Supabase Fallback) ---
+async function hydraRetrieve(query: string, embedding: number[], openai: any) {
+    console.log(`🔍 Hydra Search: ${query}`);
+    
+    // 1. PRIMARY: Qdrant
+    const qResults = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 5, with_payload: true });
+    const bestQScore = qResults[0]?.score || 0;
+    
+    // 2. SECONDARY: Supabase (if score < 0.7)
+    if (bestQScore < 0.7) {
+        console.log(`⚠️ Low Qdrant Score (${bestQScore}). Triggering Supabase Fallback...`);
+        try {
+            const sResults = await sql`
+                SELECT content, metadata, 1 - (embedding <=> ${`[${embedding.join(',')}]`}) as score
+                FROM lorin_knowledge
+                ORDER BY score DESC
+                LIMIT 5
+            `;
+            if (sResults.length > 0 && sResults[0].score > bestQScore) {
+                console.log(`✅ Supabase found better results! Score: ${sResults[0].score}`);
+                return sResults.map(r => r.content).join('\n\n');
+            }
+        } catch (e) {
+            console.error('Supabase RAG Failed:', e);
+        }
     }
-    return query;
+
+    return qResults.map(r => r.payload?.content).join('\n\n');
 }
 
 // --- BOT HANDLER ---
 bot.on('message:text', async (ctx) => {
     const userId = ctx.from.id.toString();
     const text = ctx.message.text;
-
     await ctx.replyWithChatAction('typing');
 
     try {
         const openai = getOpenAI();
 
-        // 1. GET MEMORY (Direct)
+        // 1. HISTORY (From Supabase)
         const history = await sql`SELECT role, content FROM chat_history WHERE user_id = ${userId} ORDER BY created_at DESC LIMIT 4`.then(rows => rows.reverse());
 
-        // 2. SEARCH (Direct)
-        const targetQ = resolveSubject(text, history);
-        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: targetQ });
-        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 5, with_payload: true });
-        const context = results.length > 0 ? results.map(r => r.payload?.content).join('\n\n') : "No data.";
+        // 2. EMBEDDING
+        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: text });
 
-        // 3. GENERATE (Direct)
+        // 3. HYDRA RETRIEVAL (Qdrant -> Supabase)
+        const context = await hydraRetrieve(text, embedding, openai);
+
+        // 4. GENERATION
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the smart MSAJCE Concierge. Facts: Principal=Dr. K. S. Srinivasan. Admin=Mr. Abdul Gafoor. Use context and history. format: **Bold Headers**, bullet points.`,
+            system: `You are Lorin, the smart MSAJCE AI Concierge. Facts: Principal=Dr. K. S. Srinivasan. Admin=Mr. Abdul Gafoor. Use provided context. Bold Headers, bullet points.`,
             prompt: `Context:\n${context}\n\nUser: ${text}`
         });
 
-        // 4. SAVE & REPLY
+        // 5. SAVE & REPLY
         await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${text}), (${userId}, 'assistant', ${answer})`;
         await ctx.reply(answer, { parse_mode: 'Markdown' });
 
     } catch (err: any) {
-        console.error('Master Error:', err.message);
-        await ctx.reply("📡 I'm briefly refreshing my brain. Try asking that once more! ✨");
+        console.error('Hydra Error:', err.message);
+        await ctx.reply("📡 I'm fine-tuning my dual-search engine. Give me a moment and ask again! ✨");
     }
 });
 
@@ -78,5 +97,5 @@ export default async function handler(req: any, res: any) {
     if (req.method === 'POST') {
         return webhookCallback(bot, 'https')(req, res);
     }
-    res.status(200).send('Lorin Standalone: READY 🟢');
+    res.status(200).send('Lorin Hydra: ONLINE 🟢');
 }
