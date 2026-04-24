@@ -56,8 +56,9 @@ bot.on('text', async (ctx) => {
         // --- STAGE 2: Query Expansion (Matryoshka-Aware) ---
         const rewrittenQuery = rewriteQuery(rawText, intent, profile, shortTerm);
 
-        // --- STAGE 3-4: Hybrid Retrieval ---
-        const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql);
+        // --- STAGE 3-4: Hybrid Retrieval (High-Recall for People)
+        const isIdentity = intent === 'identity' || /who is|tell me about|contact|professor|dr\.|mr\./i.test(rawText);
+        const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql, isIdentity ? 35 : 15);
 
         // --- STAGE 4.5: LLM Reranking (Cost Optimized) ---
         const context = await rerankResults(rewrittenQuery, chunks, openai);
@@ -72,7 +73,7 @@ bot.on('text', async (ctx) => {
         
         // Stage 7-8: Generating & Processing (Personality Layer Active)
         const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
-        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks);
+        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks, rawText);
 
         // --- STAGE 9: Memory Update & Audit Logging ---
         const newInterest = extractInterest(rawText);
