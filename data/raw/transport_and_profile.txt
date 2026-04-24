@@ -2,14 +2,20 @@
 Full Name: Ramanathan S
 Known As: Ram (Handle: Ramzendrum)
 Department: B.Tech - Information Technology (IT)
-Batch: 2024–2028 (Current 2nd Year)
+Batch: 2024-2028 (Current 2nd Year)
 College: Mohamed Sathak A.J. College of Engineering, Siruseri, Chennai.
-Academic Standing: expected CGPA 7.8 – 8.8
 Official Links:
-- LinkedIn: www.linkedin.com/in/ramanathan-s-it (Ramanathan S IT)
-- Portfolio: ramanathan-portfolio.vercel.app
-Technical Expertise: Full-Stack Mastery, AI & Automation (Lorin, Vector DBs, n8n), Unity Game Dev.
-Key Projects: Lorin, SmartHostel Web App, Haunted Village (Unity), Event Booking System.
+- LinkedIn: https://www.linkedin.com/in/ramanathan-s-it
+- Portfolio: https://ramanathan-portfolio.vercel.app
+Technical Expertise: Full-Stack Development, AI & Automation, App Development.
+Key Projects:
+- Lorin (AI RAG College Assistant)
+- Smart Hostel Web App
+- Event Management System
+- College Bus Tracking App
+- Pocket Lawyer
+- Haunted Village (Unity Game)
+- Zenify (A premium music player app similar to Apple Music and Spotify)
 
 # TRANSPORT ROUTE AR 3: UTHIRAMERUR TO COLLEGE
 Driver: Mr. Sathish K (Contact: 9789970304)
