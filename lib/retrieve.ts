@@ -90,10 +90,10 @@ export async function performLorinRetrieval(
         // 2. Identify Intent & Sentinels
         const lowerQuery = contextualizedQuery.toLowerCase();
         const rawLower = rawQuery.toLowerCase();
+        const historyText = history.map(h => h.content).join(' ').toLowerCase();
         
-        // HARD SENTINEL: Only trigger if the user asks for the principal specifically, 
-        // NOT if they are asking about research/initiatives (let the AI handle those).
-        if ((rawLower.includes('principal') || rawLower.includes('srinivasan')) && !rawLower.includes('research') && !rawLower.includes('initiative')) {
+        // HARD SENTINEL: Principal Contact Info
+        if ((rawLower.includes('principal') || rawLower.includes('srinivasan')) && !rawLower.includes('research') && !rawLower.includes('initiative') && !rawLower.includes('more')) {
             return { 
                 answer: `🎓 **Meet Our Principal**\n\n**Dr. K. S. Srinivasan** is the visionary leader of MSAJCE, dedicated to academic excellence and student success!\n\n📞 **Contact Details:**\n• **Phone:** [+91 91505 75066](tel:+919150575066)\n• **Email:** [principal@msajce-edu.in](mailto:principal@msajce-edu.in)\n\n---\nWould you like to know about his **research background** or **current initiatives**? ✨`, 
                 score: 1.0, 
@@ -101,7 +101,16 @@ export async function performLorinRetrieval(
             };
         }
 
-        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|yep|yes|sure)/i.test(rawLower) && rawLower.length < 10;
+        // HARD SENTINEL: Research/Bio (Triggered by 'yes' or specific questions)
+        if (historyText.includes('principal') && (rawLower.includes('yes') || rawLower.includes('more') || rawLower.includes('research') || rawLower.includes('initiative') || rawLower.includes('bio'))) {
+            return {
+                answer: `🔬 **Dr. K. S. Srinivasan's Expertise**\n\nOur Principal is a highly respected academic with connections across **IIT Madras**, **NIT Trichy**, and **TNSCST**. \n\n**Key Initiatives:**\n• **Innovation:** Established key metrics to monitor student entrepreneurship.\n• **Research:** Oversees all institutional research committees and student welfare projects.\n• **Vision:** Focuses on fostering self-employment and modern engineering practices.\n\nIs there a specific research area or student project you'd like to dive into? 🚀`,
+                score: 1.0,
+                source: 'sentinel'
+            };
+        }
+
+        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|yep|yes|sure|nah)/i.test(rawLower) && rawLower.length < 10;
 
         // 3. Search
         let context = "No specific data found.";
@@ -133,12 +142,13 @@ export async function performLorinRetrieval(
                 model: openai('gpt-4o-mini'),
                 system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. 
                 
-                STYLE GUIDELINES:
-                1. STRUCTURE: Use **Bold Headers**, bullet points (•), and line breaks. Avoid long paragraphs.
-                2. CONTACTS: Format phone numbers as clickable markdown links.
-                3. INTERACTION: Always end with a short follow-up question.
-                4. PERSONA: You are a helpful campus senior. Use emojis naturally.`,
-                prompt: `Context:\n${context}\n\nHistory:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nUser Question: ${rawQuery}`
+                BEHAVIOR:
+                1. If history is provided, ALWAYS use it to stay on topic. 
+                2. If the user says something like "yes" or "tell me more", they are following up on your last message.
+                3. NEVER say "I don't have information" if the history contains the answer. 
+                4. Always format phone numbers as clickable links.
+                5. Use emojis and a friendly tone.`,
+                prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nContext:\n${context}\n\nUser Message: ${rawQuery}`
             });
             finalAnswer = text;
             tokensUsed = (usage.promptTokens || 0) + (usage.completionTokens || 0);
