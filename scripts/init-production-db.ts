@@ -5,9 +5,31 @@ dotenv.config();
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 
 async function init() {
-    console.log('🚀 Initializing Production Database Schema...');
+    console.log('🚀 Finalizing Production Database Schema (Full Alignment)...');
     try {
-        // 1. Audit Logs (for reporting)
+        // 1. User Profiles (Full Schema)
+        await sql`
+            CREATE TABLE IF NOT EXISTS user_profiles (
+                user_id TEXT PRIMARY KEY,
+                name TEXT,
+                interest TEXT,
+                stage TEXT DEFAULT 'unknown',
+                last_seen TIMESTAMPTZ DEFAULT NOW(),
+                strikes INTEGER DEFAULT 0,
+                blocked_until TIMESTAMPTZ,
+                data JSONB DEFAULT '{}'
+            );
+        `;
+        
+        // Ensure columns exist if table was already created
+        await sql`ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS name TEXT;`;
+        await sql`ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS stage TEXT DEFAULT 'unknown';`;
+        await sql`ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS strikes INTEGER DEFAULT 0;`;
+        await sql`ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS blocked_until TIMESTAMPTZ;`;
+        
+        console.log('✅ User Profiles schema fully aligned.');
+
+        // 2. Audit Logs
         await sql`
             CREATE TABLE IF NOT EXISTS lorin_audit_logs (
                 id SERIAL PRIMARY KEY,
@@ -17,7 +39,7 @@ async function init() {
         `;
         console.log('✅ Audit Log table ready.');
 
-        // 2. Chat History (for memory)
+        // 3. Chat History
         await sql`
             CREATE TABLE IF NOT EXISTS chat_history (
                 id SERIAL PRIMARY KEY,
@@ -29,33 +51,9 @@ async function init() {
         `;
         console.log('✅ Chat History table ready.');
 
-        // 3. User Profiles (for Matryoshka memory)
-        await sql`
-            CREATE TABLE IF NOT EXISTS user_profiles (
-                user_id TEXT PRIMARY KEY,
-                interest TEXT,
-                last_seen TIMESTAMPTZ DEFAULT NOW(),
-                data JSONB DEFAULT '{}'
-            );
-        `;
-        console.log('✅ User Profiles table ready.');
-
-        // 4. Knowledge Base (for keyword search)
-        await sql`
-            CREATE TABLE IF NOT EXISTS lorin_knowledge (
-                id SERIAL PRIMARY KEY,
-                content TEXT UNIQUE,
-                metadata JSONB,
-                created_at TIMESTAMPTZ DEFAULT NOW()
-            );
-        `;
-        // Ensure constraint is loose as per previous fix
-        await sql`ALTER TABLE lorin_knowledge DROP CONSTRAINT IF EXISTS lorin_knowledge_content_key;`;
-        console.log('✅ Knowledge Base table ready.');
-
-        console.log('🌟 DATABASE ALIGNED FOR PRODUCTION.');
+        console.log('🌟 DATABASE FULLY SYNCHRONIZED.');
     } catch (e: any) {
-        console.error('❌ DB Init Failed:', e.message);
+        console.error('❌ DB Update Failed:', e.message);
     } finally {
         await sql.end();
     }

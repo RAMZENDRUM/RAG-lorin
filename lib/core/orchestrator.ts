@@ -226,7 +226,7 @@ ${agentFlags.askClarify ? 'Query is vague. Ask for clarification.' : ''}`,
 }
 
 // ─────────────────────────────────────────────
-// STAGE 8 — Post-Processor
+// STAGE 8 — Post-Processor (Smart Link Injection)
 // ─────────────────────────────────────────────
 export function postProcess(
     answer: string,
@@ -236,15 +236,35 @@ export function postProcess(
 ): string {
     let finalAnswer = answer;
     
-    if (retrievedChunks.length > 0 && retrievedChunks[0].url) {
-        const realLink = retrievedChunks[0].url;
-        if (finalAnswer.includes('Link') || finalAnswer.includes('Official Page')) {
-            finalAnswer = finalAnswer.replace(/Link|\[Link\]/g, realLink);
-        } else if (finalAnswer.length < 300 && !finalAnswer.includes('http')) {
-            finalAnswer += `\n\n🔗 For more details, visit: ${realLink}`;
+    // 1. Resolve highly relevant source link
+    if (retrievedChunks.length > 0) {
+        // Find the BEST chunk that actually contains the answer's key subject
+        const bestChunk = retrievedChunks.find(c => {
+            const content = c.content.toLowerCase();
+            const ans = finalAnswer.toLowerCase();
+            return (ans.includes('yogesh') && content.includes('yogesh')) ||
+                   (ans.includes('srinivasan') && content.includes('srinivasan')) ||
+                   (ans.includes('bus') && content.includes('bus')) ||
+                   (ans.includes('hostel') && content.includes('hostel'));
+        }) || retrievedChunks[0];
+
+        const realLink = bestChunk.url;
+        
+        // Only inject link if the LLM mentions "Official Page", "Link", "Source",
+        // OR if the answer is very short and lacks details.
+        const needsLink = /official page|link|source|website/i.test(finalAnswer) || finalAnswer.length < 200;
+
+        if (realLink && needsLink && !finalAnswer.includes('http')) {
+            // Replace [Link] placeholder or append gracefully
+            if (finalAnswer.includes('[Official Page]')) {
+                finalAnswer = finalAnswer.replace('[Official Page]', `[Official Page](${realLink})`);
+            } else {
+                finalAnswer += `\n\n🔗 Source: ${realLink}`;
+            }
         }
     }
 
+    // 2. Inject Admission Form (only if relevant)
     if (agentFlags.showForm && !finalAnswer.includes('forms.gle')) {
         finalAnswer += `\n\n📝 Admission Enquiry: ${googleFormUrl}`;
     }

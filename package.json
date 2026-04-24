@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "dev": "tsx bot/main.ts",
     "ingest": "tsx ingestion/ingest.ts",
     "bot": "tsx bot/main.ts",
     "scrape": "python ingestion/scraper.py",

@@ -96,8 +96,7 @@ bot.on('text', async (ctx) => {
         await fs.appendFile(path.join(process.cwd(), 'logs', 'audit.jsonl'), JSON.stringify(auditTrail) + '\n');
 
         await updateProfile(userId, { 
-            interest: newInterest || profile.interest,
-            last_seen: new Date()
+            interest: newInterest || profile.interest || undefined,
         }, sql);
 
         // Persistent history save
@@ -107,7 +106,7 @@ bot.on('text', async (ctx) => {
         await ctx.reply(finalOutput, { parse_mode: 'Markdown' });
 
     } catch (error: any) {
-        console.error('Orchestration Error:', error.message);
+        console.error('CRITICAL ORCHESTRATION ERROR:', error);
         await ctx.reply("I'm refocusing my circuits! Please ask that again? 🤖🔄");
     }
 });

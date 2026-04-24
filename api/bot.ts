@@ -28,29 +28,38 @@ const openai = createOpenAI({
     baseURL: 'https://ai-gateway.vercel.sh/v1'
 });
 
-// Setup bot logic (same as main.ts but for webhook)
-bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your 24/7 MSAJCE Virtual Concierge.'));
+bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your smart MSAJCE Concierge. How can I help you today?'));
 
 bot.on('text', async (ctx) => {
     try {
         const userId = ctx.from.id.toString();
         const rawText = ctx.message.text;
 
+        // Stage 0: Context
         const { shortTerm, profile } = await fetchMemory(userId, sql);
+        
+        // Stage 1-2: Classification & Expansion
         const intent = classifyIntent(rawText);
         const rewrittenQuery = rewriteQuery(rawText, intent, profile, shortTerm);
+        
+        // Stage 3-4: Hybrid Search
         const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql);
-        const rerankedContext = await rerankResults(rewrittenQuery, chunks, openai);
-        const agentFlags = agentDecide(intent, rawText, rerankedContext, profile.last_seen.getTime(), GOOGLE_FORM_URL);
-        const finalContext = buildContext(rerankedContext, shortTerm, profile);
+        
+        // Stage 4.5: Reranking
+        const context = await rerankResults(rewrittenQuery, chunks, openai);
+        
+        // Stage 5-6: Framing
+        const agentFlags = agentDecide(intent, rawText, context, profile.last_seen.getTime(), GOOGLE_FORM_URL);
+        const finalContext = buildContext(context, shortTerm, profile);
+        
+        // Stage 7-8: Generating & Processing
         const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
         const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks);
 
-        // Update Memory
+        // Memory & Audit
         const newInterest = extractInterest(rawText);
         await updateProfile(userId, { 
-            interest: newInterest || profile.interest,
-            last_seen: new Date()
+            interest: newInterest || profile.interest || undefined,
         }, sql);
 
         await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${rawText})`;
@@ -59,7 +68,8 @@ bot.on('text', async (ctx) => {
         await ctx.reply(finalOutput, { parse_mode: 'Markdown' });
 
     } catch (e: any) {
-        console.error('Webhook Error:', e.message);
+        console.error('Webhook Orchestration Error:', e);
+        // Do not crash, just fail gracefully in Telegram
     }
 });
 
