@@ -7,8 +7,12 @@ dotenv.config();
 
 let bot: Telegraf;
 try {
-    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
-    bot = new Telegraf(BOT_TOKEN);
+    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+    if (BOT_TOKEN) {
+        bot = new Telegraf(BOT_TOKEN);
+    } else {
+        console.error('TELEGRAM_BOT_TOKEN is missing');
+    }
 } catch (err) {
     console.error('Bot Initialization Error:', err);
 }
