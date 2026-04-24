@@ -33,11 +33,17 @@ function getOpenAI() {
         process.env.OPENAI_API_KEY
     ].filter(Boolean) as string[];
     
-    if (keys.length === 0) throw new Error('No OpenAI API Keys found in environment!');
+    if (keys.length === 0) throw new Error('No API Keys found (OpenAI or Vercel Gateway)!');
     
-    // Simple rotation
     const key = keys[Math.floor(Math.random() * keys.length)];
-    return createOpenAI({ apiKey: key });
+    
+    // Auto-detect Vercel Gateway Key vs Standard OpenAI Key
+    const isVercelGateway = key.startsWith('vck_');
+    
+    return createOpenAI({ 
+        apiKey: key,
+        baseURL: isVercelGateway ? 'https://ai-gateway.vercel.sh/v1' : undefined
+    });
 }
 
 // --- CORE PIPELINE ---
