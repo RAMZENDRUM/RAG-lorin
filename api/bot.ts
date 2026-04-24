@@ -86,7 +86,7 @@ bot.on('message:text', async (ctx) => {
         const rawChunks = await hybridRetrieve(rewrittenQuery, rawText, openai, db);
 
         // ── STAGE 4.5: Cohere Reranker ───────────────────────────────
-        const retrievedContext = await rerankResults(rewrittenQuery, rawChunks);
+        const retrievedContext = await rerankResults(rewrittenQuery, rawChunks, openai);
 
         // ── Check last form send time from short-term memory ────────────────
         const lastFormMsg = [...shortTerm].reverse().find(

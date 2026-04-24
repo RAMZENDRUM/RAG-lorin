@@ -5,17 +5,7 @@
 
 import { embed, generateText } from 'ai';
 import { QdrantClient } from '@qdrant/js-client-rest';
-import { CohereClient } from 'cohere-ai';
 import type { ShortTermMemory, UserProfile } from './memory.js';
-
-// Lazy Cohere singleton
-let _cohere: CohereClient | null = null;
-function getCohere() {
-    if (!_cohere && process.env.COHERE_API_KEY) {
-        _cohere = new CohereClient({ token: process.env.COHERE_API_KEY });
-    }
-    return _cohere;
-}
 
 // ─────────────────────────────────────────────
 // TYPES
@@ -140,35 +130,53 @@ export async function hybridRetrieve(
 }
 
 // ─────────────────────────────────────────────
-// STAGE 4.5 — Cohere Reranker
-// Precision-ranks raw chunks, keeps top 5
+// STAGE 4.5 — LLM Reranker (via Vercel AI Key)
+// Scores chunk previews, keeps top 5 full chunks
+// Cost: ~200 tokens. Saves ~800 tokens main call.
 // ─────────────────────────────────────────────
 export async function rerankResults(
     query: string,
-    chunks: string[]
+    chunks: string[],
+    openai: any
 ): Promise<string> {
-    // Skip reranking if only 1 chunk or Cohere key not set
-    const cohere = getCohere();
-    if (!cohere || chunks.length <= 3 || chunks[0] === 'No data found.') {
+    // Skip if too few chunks to bother
+    if (chunks.length <= 3 || chunks[0] === 'No data found.') {
         return chunks.join('\n\n---\n\n');
     }
 
     try {
-        const response = await cohere.rerank({
-            model: 'rerank-english-v3.0',
-            query,
-            documents: chunks,
-            topN: 5,
+        // Build a compact preview list — keep tokens low
+        const previews = chunks
+            .map((c, i) => `[${i}]: ${c.substring(0, 180).replace(/\n/g, ' ')}`)
+            .join('\n');
+
+        const { text } = await generateText({
+            model: openai('gpt-4o-mini'),
+            maxTokens: 20,
+            prompt: `You are a relevance scorer for a college knowledge base.
+Query: "${query}"
+
+Chunks:
+${previews}
+
+Return ONLY the 0-based indices of the top 5 most relevant chunks, comma-separated. Example: 2,0,7,3,11`,
         });
 
-        const reranked = response.results
-            .sort((a, b) => a.index - b.index)
-            .map(r => chunks[r.index]);
+        const indices = text
+            .trim()
+            .split(',')
+            .map(s => parseInt(s.trim()))
+            .filter(i => !isNaN(i) && i >= 0 && i < chunks.length)
+            .slice(0, 5);
 
-        console.log(`[Reranker] ${chunks.length} chunks → top ${reranked.length} kept`);
+        if (indices.length === 0) throw new Error('No valid indices returned');
+
+        const reranked = indices.map(i => chunks[i]);
+        console.log(`[Reranker] ${chunks.length} chunks → top ${reranked.length} selected via LLM`);
         return reranked.join('\n\n---\n\n');
+
     } catch (e: any) {
-        console.warn('[Reranker] Cohere failed, falling back to raw chunks:', e.message);
+        console.warn('[Reranker] Fallback to top-5:', e.message);
         return chunks.slice(0, 5).join('\n\n---\n\n');
     }
 }
