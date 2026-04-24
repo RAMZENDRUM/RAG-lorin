@@ -1,21 +1,19 @@
 # DEVELOPER PROFILE: RAMANATHAN S (RAM)
-Full Name: Ramanathan S
-Known As: Ram (Handle: Ramzendrum)
+Full Name: Ramanathan S (Known as Ram)
 Department: B.Tech - Information Technology (IT)
-Batch: 2024-2028 (Current 2nd Year)
 College: Mohamed Sathak A.J. College of Engineering, Siruseri, Chennai.
-Official Links:
+Contact & Links:
 - LinkedIn: https://www.linkedin.com/in/ramanathan-s-it
 - Portfolio: https://ramanathan-portfolio.vercel.app
-Technical Expertise: Full-Stack Development, AI & Automation, App Development.
-Key Projects:
-- Lorin (AI RAG College Assistant)
-- Smart Hostel Web App
-- Event Management System
-- College Bus Tracking App
-- Pocket Lawyer
-- Haunted Village (Unity Game)
-- Zenify (A premium music player app similar to Apple Music and Spotify)
+Key Technical Projects:
+- Zenify: A premium music player app similar to Apple Music and Spotify.
+- Lorin: The AI RAG Digital Concierge for Mohamed Sathak A.J. College of Engineering.
+- Pocket Lawyer: Legal assistant app.
+- College Bus Tracking App: Real-time tracking for college buses.
+- Smart Hostel Web App: Digital management for hostel facilities.
+- Event Management System: Planning and booking platform.
+- Haunted Village: A 3D game developed in Unity.
+(Note: Do not list CGPA or any other academic scores for Ram).
 
 # TRANSPORT ROUTE AR 3: UTHIRAMERUR TO COLLEGE
 Driver: Mr. Sathish K (Contact: 9789970304)

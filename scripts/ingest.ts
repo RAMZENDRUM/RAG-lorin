@@ -35,29 +35,50 @@ async function ingest() {
 
     for (let i = 0; i < chunks.length; i++) {
         const chunk = chunks[i];
-        console.log(`Processing Chunk ${i+1}/${chunks.length}...`);
+        console.log(`Processing Chunk ${i + 1}/${chunks.length}... [Source: ${chunk.metadata.source}]`);
 
-        try {
-            const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: chunk.content });
+        let retryCount = 0;
+        let success = false;
 
-            // 1. PUSH TO QDRANT (Primary)
-            await qdrant.upsert(COLLECTION_NAME, {
-                points: [{
-                    id: i,
-                    vector: embedding,
-                    payload: { content: chunk.content, ...chunk.metadata }
-                }]
-            });
+        while (retryCount < 3 && !success) {
+            try {
+                const { embedding } = await embed({ 
+                    model: openai.embedding('text-embedding-3-small'), 
+                    value: chunk.content 
+                });
 
-            // 2. PUSH TO SUPABASE (Secondary)
-            await sql`
-                INSERT INTO lorin_knowledge (content, metadata, embedding)
-                VALUES (${chunk.content}, ${chunk.metadata}, ${`[${embedding.join(',')}]`})
-                ON CONFLICT DO NOTHING;
-            `;
+                // 1. PUSH TO QDRANT (Primary)
+                await qdrant.upsert(COLLECTION_NAME, {
+                    points: [{
+                        id: i,
+                        vector: embedding,
+                        payload: { content: chunk.content, ...chunk.metadata }
+                    }]
+                });
 
-        } catch (e: any) {
-            console.error(`Failed at chunk ${i}:`, e.message);
+                // 2. PUSH TO SUPABASE (Secondary)
+                await sql`
+                    INSERT INTO lorin_knowledge (content, metadata, embedding)
+                    VALUES (${chunk.content}, ${chunk.metadata}, ${`[${embedding.join(',')}]` })
+                    ON CONFLICT DO NOTHING;
+                `;
+
+                success = true;
+                // SAFE 5s delay for Vercel AI Free Tier
+                await new Promise(resolve => setTimeout(resolve, 5000));
+
+            } catch (e: any) {
+                retryCount++;
+                console.error(`⚠️ Attempt ${retryCount} failed for chunk ${i}:`, e.message);
+                if (retryCount < 3) {
+                    console.log(`Retrying in 5s...`);
+                    await new Promise(resolve => setTimeout(resolve, 5000));
+                }
+            }
+        }
+
+        if (!success) {
+            console.error(`❌ PERMANENT FAILURE for chunk ${i}. Moving to next.`);
         }
     }
 
