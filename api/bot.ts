@@ -49,6 +49,8 @@ async function hydraRetrieve(text: string, openai: any) {
     return "No specific data found.";
 }
 
+bot.command('start', (ctx) => ctx.reply("🎓 Lorin is back online! The Hydra Brain is active. Ask me anything about MSAJCE. ✨"));
+
 bot.on('message:text', async (ctx) => {
     const userId = ctx.from.id.toString();
     const text = ctx.message.text;
@@ -67,7 +69,11 @@ bot.on('message:text', async (ctx) => {
         // 3. Response
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: "You are Lorin, the smart AI Concierge for MSAJCE. Principal: Dr. K.S. Srinivasan. Admin: Abdul Gafoor. Use provided context. format with bold and bullets.",
+            system: `You are Lorin, the smart AI Concierge for MSAJCE. 
+            Principal: Dr. K. S. Srinivasan. (Optics, Nit Trichy).
+            Admin: Mr. A. Abdul Gafoor.
+            Developer: Ramanathan S.
+            Always prioritize the subject mentioned in history!`,
             prompt: `History: ${JSON.stringify(history)}\nContext: ${context}\nUser: ${text}`
         });
 
@@ -77,7 +83,7 @@ bot.on('message:text', async (ctx) => {
 
     } catch (err: any) {
         console.error('Final Error:', err.message);
-        await ctx.reply("🛠️ I'm briefly recalibrating my campus sensors. Try that again in 10 seconds!");
+        await ctx.reply("📡 I'm briefly refreshing my brain. Try asking that once more! ✨");
     }
 });
 
@@ -85,5 +91,5 @@ export default async function (req: any, res: any) {
     if (req.method === 'POST') {
         return webhookCallback(bot, 'https')(req, res);
     }
-    res.status(200).send('Lorin Hydra: ONLINE (Build Fixed) 🟩');
+    res.status(200).send('Lorin Master: ONLINE 🟢');
 }
