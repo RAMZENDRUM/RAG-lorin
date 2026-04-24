@@ -87,9 +87,19 @@ export async function performLorinRetrieval(
             }
         }
 
-        // 2. Identify Intent
-        const lastMsg = history[history.length - 1]?.content.toLowerCase() || '';
-        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that)/i.test(contextualizedQuery) && contextualizedQuery.length < 20;
+        // 2. Identify Intent & Sentinels
+        const lowerQuery = contextualizedQuery.toLowerCase();
+        
+        // HARD SENTINEL: Principal (High Priority)
+        if (lowerQuery.includes('principal') || lowerQuery.includes('srinivasan')) {
+            return { 
+                answer: "The Principal of MSAJCE is **Dr. K. S. Srinivasan**. 🎓 He is a dedicated leader committed to academic excellence! You can contact him at **+91 91505 75066** or email **principal@msajce-edu.in**. \n\nShall I tell you more about his background or initiatives? ✨", 
+                score: 1.0, 
+                source: 'sentinel' 
+            };
+        }
+
+        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that)/i.test(lowerQuery) && lowerQuery.length < 20;
 
         // 3. Search
         let context = "No specific data found.";
@@ -119,18 +129,20 @@ export async function performLorinRetrieval(
         try {
             const { text, usage } = await generateText({
                 model: openai('gpt-4o-mini'),
-                system: `You are Lorin, the smart AI Concierge for MSAJCE. 
-                - Use Context to answer if available.
-                - Treat phone numbers as clickable (+91 91505 75066).
-                - Use Chat History to stay on topic.
-                - Be a friendly campus buddy! ✨`,
-                prompt: `Context:\n${context}\n\nHistory:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nUser: ${rawQuery}`
+                system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. 
+                MISSION: Answer student questions accurately and warmly.
+                GUIDELINES:
+                1. BE INTERACTIVE: Always try to end with a follow-up question or helpful tip.
+                2. STAY ON TOPIC: Use the MOST RECENT chat history to answer vague questions.
+                3. CONTACTS: Always format phone numbers as clickable international links (+91 91505 75066).
+                PERSONA: Friendly campus senior. ✨`,
+                prompt: `Context:\n${context}\n\nHistory:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nUser Question: ${rawQuery}`
             });
             finalAnswer = text;
             tokensUsed = (usage.promptTokens || 0) + (usage.completionTokens || 0);
         } catch (err: any) {
             console.error('Generation error:', err);
-            finalAnswer = `Ooh, I see what you're asking, but I'm having a hard time reaching my database! 😅\n\nError: \`${err.message}\`\n\nCan I help with anything else?`;
+            finalAnswer = `Ooh, I see what you're asking, but I'm having a hard time reaching my brain! 😅\n\nError: \`${err.message}\`\n\nCan I help with anything else?`;
         }
     } catch (rootErr: any) {
         console.error('Root Retrieval Error:', rootErr);

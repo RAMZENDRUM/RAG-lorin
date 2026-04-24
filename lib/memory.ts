@@ -19,15 +19,16 @@ function getSql() {
     return sql;
 }
 
-export async function getChatHistory(userId: number, limit: number = 10): Promise<ChatMessage[]> {
+export async function getChatHistory(userId: number | string, limit: number = 10): Promise<ChatMessage[]> {
     try {
         const db = getSql();
         if (!db) return [];
         
+        const safeUserId = BigInt(userId); // Force conversion for Supabase
         const history = await db`
             SELECT role, content 
             FROM chat_history 
-            WHERE user_id = ${userId}
+            WHERE user_id = ${safeUserId}
             ORDER BY created_at DESC 
             LIMIT ${limit}
         `;
@@ -41,14 +42,15 @@ export async function getChatHistory(userId: number, limit: number = 10): Promis
     }
 }
 
-export async function saveChatMessage(userId: number, role: 'user' | 'assistant', content: string, sessionId?: string) {
+export async function saveChatMessage(userId: number | string, role: 'user' | 'assistant', content: string, sessionId?: string) {
     try {
         const db = getSql();
         if (!db) return;
         
+        const safeUserId = BigInt(userId);
         await db`
             INSERT INTO chat_history (user_id, role, content, session_id)
-            VALUES (${userId}, ${role}, ${content}, ${sessionId || null})
+            VALUES (${safeUserId}, ${role}, ${content}, ${sessionId || null})
         `;
     } catch (err) {
         console.error('Failed to save chat message:', err);
