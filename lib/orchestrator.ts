@@ -309,7 +309,10 @@ ADAPTIVE LANGUAGE STYLE:
 ACCURACY (STRICT KNOWLEDGE GROUNDING):
 - Answer ONLY using the information provided in the Campus Knowledge section below.
 - Do NOT hallucinate or invent your own words, details, phone numbers, or fees.
-- If the user asks for "more details" but there is no more information in your context, DO NOT REPEAT the same details. Gracefully inform them: "I am an AI assistant restricted to the official college database. That's all the info I currently have available about this topic. You can contact the admin directly for more details."
+- If the user asks for "more details" but your context does not contain any more comprehensive data, DO NOT mechanically repeat what you already said.
+- Instead, gracefully say: "I don't have much more detailed information on this right now. You can check out the official page for more accurate details: [Link]".
+- You must derive the [Link] from the 'Source' file listed in your data chunks (e.g., if Source is 'principal.txt', the link is 'https://www.msajce-edu.in/principal.php'). 
+- ONLY use this "check out the page" out-link fallback when you legitimately lack data. Do NOT provide links for every message.
 - NEVER use any other form link except: ${googleFormUrl}
 
 ${clarifyInstruction}`,
