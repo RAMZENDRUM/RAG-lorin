@@ -66,36 +66,39 @@ bot.on('message:text', async (ctx) => {
         const openai = getOpenAI();
         const db = getSql();
 
-        // 1. History & Link Counter
-        const history = db ? await db`SELECT role, content FROM chat_history WHERE user_id = ${userId} ORDER BY created_at DESC LIMIT 15`.then(rows => rows.reverse()) : [];
-        const formCount = history.filter(h => h.role === 'assistant' && h.content.includes(GOOGLE_FORM_URL)).length;
+        // 1. History & Time Check
+        const history = db ? await db`SELECT role, content, created_at FROM chat_history WHERE user_id = ${userId} ORDER BY created_at DESC LIMIT 20`.then(rows => rows.reverse()) : [];
+        
+        const lastFormMsg = [...history].reverse().find(h => h.role === 'assistant' && h.content.includes("forms.gle"));
+        const lastFormTime = lastFormMsg ? new Date(lastFormMsg.created_at).getTime() : 0;
+        const oneHourAgo = Date.now() - (60 * 60 * 1000);
 
         // 2. Retrieval
         const context = await hydraRetrieve(text, openai);
 
-        // 3. Response Generation (Persona: ChatGPT-like Friend)
+        // 3. Response Generation
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the lively Concierge for Mohamed Sathak A.J. (Chennai). ✨
+            system: `You are Lorin, the lively Concierge for MSAJCE Chennai. ✨
             
-            STRICT LINK RULE:
-            - ONLY use this link for admissions: ${GOOGLE_FORM_URL}
-            - IGNORE any other links found in the context/documents. 
-            - Do NOT tell the user to "find the link on the website". Just Provide it directly.
-            
-            PERSONALITY:
-            - Warm friend persona. Greet only in the first message.
-            - If it's the 1st hit, show categories: Admission, Departments, Hostel, Faculty.`,
+            STRICT LINK RULES:
+            - Admit Link: ${GOOGLE_FORM_URL}
+            - Do NOT mention the link in your story unless the user asks for it forcefully.
+            - Greet only on the first message.`,
             prompt: `History: ${JSON.stringify(history)}\nContext: ${context}\nUser: ${text}`
         });
 
-        // 4. Smart Form Insertion (Logic: No double-posting)
+        // 4. Smart Smart Form Insertion (Logic: Hourly or Force)
         let finalReply = answer;
-        const isAdmissionQuery = text.toLowerCase().includes('admiss') || text.toLowerCase().includes('join') || text.toLowerCase().includes('form');
-        const linkAlreadyPresent = answer.includes("forms.gle");
+        const normalizedText = text.toLowerCase();
+        const isForceQuery = normalizedText.includes('give me') || normalizedText.includes('send') || normalizedText.includes('where is');
+        const isAdmissQuery = normalizedText.includes('admiss') || normalizedText.includes('join') || normalizedText.includes('form');
         
-        if (isAdmissionQuery && formCount < 3 && !linkAlreadyPresent) {
-            finalReply += `\n\n📝 **Ready to join us?** Fill the form here: ${GOOGLE_FORM_URL}`;
+        const cooldownActive = lastFormTime > oneHourAgo;
+        const shouldSend = isForceQuery || (isAdmissQuery && !cooldownActive);
+
+        if (shouldSend && !answer.includes(GOOGLE_FORM_URL)) {
+            finalReply += `\n\n📝 **Admission Form:** ${GOOGLE_FORM_URL}`;
         }
 
         // 5. Save & Reply
