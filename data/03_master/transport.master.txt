@@ -1,0 +1,269 @@
+--- SOURCE: https://www.msajce-edu.in/transport.php ---
+[[ STRUCTURED DATA (BS4) ]]
+URL: https://www.msajce-edu.in/transport.php
+STRUCTURED TEXT:
+MSAJCE | Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
+NAAC|
+IQAC|
+NIRF|
+ARIIA |
+Online Application Form  |
+Online Fee Payment   |
+Students Corner   |
+College Video
+9940004500
+What's New
+Teachers & Engineers Day 2025 Celebration Photos  New  |
+ESE Timetable June 2025 New  |
+Internship Report Format - 2025 New  |
+Internship Report Format - 2025 - Download Here    |
+18th Graduation Day 22 Feb 2025 Photos  New  |
+Admission 2026 - 2027 Flyer  New |
+AICTE-ATAL Sponsored Six Days FDP  New |
+17th Graduation Day Photos  New  |
+Admission Open 2026-2027 - Online Application Form    |
+Online Fee Payment  New  |
+Grievance Cell - grievance@msajce-edu.in     |
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal  New
+About Us
+An Overview
+Vision and Mission
+Management
+Principal Message
+Statutory body
+Governing Council
+Planning & Monitoring Board
+Academic Advisory Committe
+Grievance and Redressal Committee
+Anti-Ragging Committee & Squad
+Womens Empowerment Cell
+Functional Committees
+MSAJCE Policies
+Mandatory Disclosure
+Group of Institutions
+Admission
+Academics
+Regulations
+Curriculum and Syllabus
+Department
+Technology Centre
+Research
+COE
+ESE Timetable Nov - Dec 2025
+ESE NOV-DEC 2025 RESULTS
+EXAM REGISTRATION MAY-JUN'25
+I & II YEAR
+III & IV YEAR
+Placement
+Life at MSAJCE
+Learning Centre (Library)
+Hostel
+Transport
+Sports
+Campus Radio
+Social Services
+Clubs & Societies
+Professional Socities
+Alumni
+AICTE Scholarship
+Incubation
+Home
+College Bus Facility
+The College is easily accessible from Chennai Central Railway Station, Tambaram Railway Station and CMDA Bus station by the state operated
+transport service. In addition, The College provides its own transportation for students and staff residing in and around the campus. The Institute has
+22 buses, One Tata ACE, One Ambulance for the benefit of students and the staff. The transport facility is available from various places in Chennai,
+Chengalpattu, Kanchipuram and Thiruvallur districts to the institute on all working days. The bus facilities are being utilized for local social service
+activities, Sports, NCC/ NSS activities, Placement and Training activities, industrial visits and educational trips. . Our transport facilities ensure that
+our students and staff are able to reach the college in time with utmost care and ease.
+A transport committee, headed by a Convener, is formed to take care of the smooth operation of buses. The staff in-charge of the buses
+(one teaching and one supporting staff) ensure the smooth functioning of the buses. The Transport committee meets once in Six months and the
+Principal and the staff in-charge of the buses attend the meeting.
+The members of the committee are
+Members
+Mobile
+Dr. K. P. SANTHOSH NATHAN :
+Transport Convener
+98408 86992
+Mr. A. ABDUL GAFOOR :
+Asst. Transport Convener
+99403 19629
+MTC Bus passing through Our College from different location as follows
+S.No
+MTC Bus Route No
+Starting Point
+Ending Point
+Via
+Frequency
+1
+19
+T. Nagar
+Thiruporur
+OMR, Madhiya Kailash, SRP
+Daily
+2
+519
+Saidapet, Adyar, SRP
+3
+221H
+Central
+Anna Salai, Saidapet, SRP
+4
+102X
+Broadway
+Marina, Adyar, OMR
+5
+102S
+Sipcot
+6
+102
+Kelambakkam
+7
+B19
+Shollinganallur
+Sipcot, OMR
+8
+570
+CMBT
+Vadapalani, Velachery, SRP
+9
+570S
+10
+105
+Tambaram
+Siruseri
+Thalambur
+Our College Bus Route as follows
+SNo
+Bus Route
+Time
+Route Schedule
+AR 3 - UTHIRAMERUR
+5.50 AM
+View Details
+AR 4 - MOOLAKADAI
+6.10
+AM
+AR 5 - MMDA SCHOOL
+6.15
+AR 6 - ICF
+AR 7 - CHUNAMBEDU
+5.25 AM
+AR 8 - MANJAMBAKKAM
+5.50
+AR 9 - ENNORE
+AR 10 - PORUR
+6.25
+R 22 - NEMILICHERY
+6.00 AM
+34, Rajiv Gandhi Salai (OMR),
+Siruseri IT Park, Siruseri,
+Chennai - 603103
++91 99400 04500
+msajce.office@gmail.com
+Connect With Us
+MSAJCE Links
+News Letter
+Anna University Approval
+AICTE Approval
+Code of Conduct
+Best Practices
+Grievance Cell
+Web Links
+College Management System
+Academic Calendar
+EBSB
+UBA
+KARMA
+Spoken Tutorial
+Balance Sheet
+Useful Links
+AICTE Scholarship/Fellowship Schemes
+Annual Report AY2023-2024
+Graduation Day
+Institutional Distinctiveness
+© 2023 MSAJCE All Rights Reserved | 1635387 Visitors
+Maintained by : WebTeam MSAJCE
+TABLE DATA:
+--- TABLE 1 ---
+Members | Mobile
+Dr. K. P. SANTHOSH NATHAN :  Transport Convener | 98408 86992
+Mr. A. ABDUL GAFOOR :   Asst. Transport Convener | 99403 19629
+--- TABLE 2 ---
+S.No | MTC Bus Route No | Starting Point | Ending Point | Via | Frequency
+1 | 19 | T. Nagar | Thiruporur | OMR, Madhiya Kailash, SRP | Daily
+2 | 519 | T. Nagar | Thiruporur | Saidapet, Adyar, SRP | Daily
+3 | 221H | Central | Thiruporur | Anna Salai, Saidapet, SRP | Daily
+4 | 102X | Broadway | Thiruporur | Marina, Adyar, OMR | Daily
+5 | 102S | Broadway | Sipcot | Marina, Adyar, OMR | Daily
+6 | 102 | Broadway | Kelambakkam | Marina, Adyar, OMR | Daily
+7 | B19 | Shollinganallur | Kelambakkam | Sipcot, OMR | Daily
+8 | 570 | CMBT | Kelambakkam | Vadapalani, Velachery, SRP | Daily
+9 | 570S | CMBT | Sipcot | Vadapalani, Velachery, SRP | Daily
+10 | 105 | Tambaram | Siruseri | Thalambur | Daily
+--- TABLE 3 ---
+SNo | Bus Route | Time | Route Schedule
+1 | AR 3 - UTHIRAMERUR | 5.50 AM | View Details
+2 | AR 4 - MOOLAKADAI | 6.10    AM | View Details
+3 | AR 5 - MMDA SCHOOL | 6.15    AM | View Details
+4 | AR 6 - ICF | 6.15    AM | View Details
+5 | AR 7 - CHUNAMBEDU | 5.25 AM | View Details
+6 | AR 8 - MANJAMBAKKAM | 5.50    AM | View Details
+7 | AR 9 - ENNORE | 6.15    AM | View Details
+8 | AR 10 - PORUR | 6.25    AM | View Details
+9 | R 22 - NEMILICHERY | 6.00 AM | View Details
+[[ NARRATIVE DATA (TRAFILATURA) ]]
+MARKDOWN CONTENT:
+## College Bus Facility
+### The members of the committee are
+| Members |
+Mobile |
+**Dr. K. P. SANTHOSH NATHAN** : Transport Convener |
+98408 86992 |
+**Mr. A. ABDUL GAFOOR** : Asst. Transport Convener |
+99403 19629 |
+#### MTC Bus passing through Our College from different location as follows
+| S.No |
+MTC Bus Route No |
+Starting Point |
+Ending Point |
+Via |
+Frequency |
+| 1 |
+19 |
+T. Nagar |
+Thiruporur |
+OMR, Madhiya Kailash, SRP |
+Daily |
+| 2 |
+519 |
+Saidapet, Adyar, SRP |
+| 3 |
+221H |
+Central |
+Anna Salai, Saidapet, SRP |
+| 4 |
+102X |
+Broadway |
+Marina, Adyar, OMR |
+| 5 |
+102S |
+Sipcot |
+| 6 |
+102 |
+Kelambakkam |
+| 7 |
+B19 |
+Shollinganallur |
+Sipcot, OMR |
+| 8 |
+570 |
+CMBT |
+Vadapalani, Velachery, SRP |
+| 9 |
+570S |
+| 10 |
+105 |
+Tambaram |
+Siruseri |
+Thalambur |
+### Our College Bus Route as follows

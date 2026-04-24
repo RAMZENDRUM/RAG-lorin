@@ -16,10 +16,7 @@ const DATABASE_URL = process.env.DATABASE_URL!;
 const client = new QdrantClient({ url: QDRANT_URL, apiKey: QDRANT_API_KEY });
 const sql = postgres(DATABASE_URL, { ssl: 'require' });
 
-const COLLECTION_NAME = 'lorin_msajce_knowledge';
-const UNIFIED_DATA_PATH = path.join(process.cwd(), 'data', 'unified_cleaned_data.json');
-
-// Vercel Keys for rotation
+// ENGINE POOL
 const VERCEL_KEYS = [
     process.env.VERCEL_AI_KEY,
     process.env.VERCEL_AI_KEY_2,
@@ -27,84 +24,111 @@ const VERCEL_KEYS = [
     process.env.VERCEL_AI_KEY_4,
 ].filter(Boolean) as string[];
 
-const openaiClients = VERCEL_KEYS.map(key => createOpenAI({
-    apiKey: key,
-    baseURL: 'https://ai-gateway.vercel.sh/v1'
-}));
+const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY!;
+
+const engines = [
+    { name: 'OpenRouter', client: createOpenAI({ apiKey: OPENROUTER_KEY, baseURL: 'https://openrouter.ai/api/v1' }), delay: 100, model: 'openai/text-embedding-3-small' },
+    ...VERCEL_KEYS.map((key, i) => ({
+        name: `Vercel-${i + 1}`,
+        client: createOpenAI({ apiKey: key, baseURL: 'https://ai-gateway.vercel.sh/v1' }),
+        delay: 5000, // Safe buffer for Vercel
+        model: 'text-embedding-3-small'
+    }))
+];
+
+const COLLECTION_NAME = 'lorin_msajce_knowledge';
+const RAW_DIR = path.join(process.cwd(), 'data/03_master');
+
+function chunkText(text: string, size: number = 1000): string[] {
+    const chunks: string[] = [];
+    const lines = text.split('\n');
+    let currentChunk = '';
+    for (const line of lines) {
+        if ((currentChunk + line).length > size && currentChunk) {
+            chunks.push(currentChunk.trim());
+            currentChunk = '';
+        }
+        currentChunk += line + '\n';
+    }
+    if (currentChunk.trim()) chunks.push(currentChunk.trim());
+    return chunks;
+}
 
 async function ingest() {
-    console.log('🔍 Loading high-fidelity Firecrawl data (1536 Dimensions)...');
-    if (!fs.existsSync(UNIFIED_DATA_PATH)) {
-        console.error('❌ unified_cleaned_data.json not found!');
-        return;
+    console.log('🧹 Purging for fresh parallel sync...');
+    try {
+        await sql`TRUNCATE TABLE lorin_knowledge;`;
+        try { await client.deleteCollection(COLLECTION_NAME); } catch (e) {}
+        await client.createCollection(COLLECTION_NAME, { vectors: { size: 1536, distance: 'Cosine' } });
+    } catch (e: any) { console.warn('⚠️ Purge Warning:', e.message); }
+
+    const files = (await fs.readdir(RAW_DIR)).filter(f => f.endsWith('.master.txt'));
+    const allData: { content: string, metadata: any }[] = [];
+    
+    for (const file of files) {
+        const content = await fs.readFile(path.join(RAW_DIR, file), 'utf-8');
+        const chunks = chunkText(content);
+        chunks.forEach((c, idx) => {
+            allData.push({
+                content: c,
+                metadata: {
+                    source: file,
+                    url: `https://www.msajce-edu.in/${file.replace('.master.txt', '.php')}`,
+                    chunk_idx: idx,
+                    id: crypto.randomBytes(16).toString('hex')
+                }
+            });
+        });
     }
 
-    const allChunks = await fs.readJson(UNIFIED_DATA_PATH);
-    console.log(`🚀 Starting ULTRA-STABLE Ingestion (${allChunks.length} chunks)...`);
-    console.log(`💡 Mode: Sequential (No concurrency), 5s Delay, Quad-Key Rotation.`);
+    console.log(`🚀 MULTI-ENGINE PUSH: ${allData.length} chunks via ${engines.length} Parallel Workers...`);
 
-    let keyIdx = 0;
+    let currentIndex = 0;
+    const total = allData.length;
 
-    for (let i = 0; i < allChunks.length; i++) {
-        const chunk = allChunks[i];
-        const currentClient = openaiClients[keyIdx];
-        const keyLabel = `Key ${keyIdx + 1}`;
+    // Worker Function
+    async function worker(engine: typeof engines[0]) {
+        while (currentIndex < total) {
+            const i = currentIndex++; // ATOMIC CLAIM
+            if (i >= total) break;
 
-        try {
-            // 1. EMBED (1536)
-            const { embedding } = await embed({
-                model: currentClient.embedding('text-embedding-3-small'),
-                value: chunk.content,
-            });
+            const item = allData[i];
+            try {
+                const { embedding } = await embed({
+                    model: engine.client.embedding(engine.model),
+                    value: item.content,
+                });
 
-            // 2. PUSH TO SUPABASE
-            await sql`
-                INSERT INTO lorin_knowledge (content, metadata, embedding)
-                VALUES (${chunk.content}, ${chunk.metadata}, ${`[${embedding.join(',')}]` })
-                ON CONFLICT (content) DO NOTHING;
-            `;
+                await sql`
+                    INSERT INTO lorin_knowledge (content, metadata, embedding)
+                    VALUES (${item.content}, ${item.metadata}, ${`[${embedding.join(',')}]` });
+                `;
 
-            // 3. PUSH TO QDRANT
-            await client.upsert(COLLECTION_NAME, {
-                wait: true,
-                points: [{
-                    id: chunk.metadata.id || crypto.randomUUID(),
-                    vector: embedding,
-                    payload: {
-                        ...chunk.metadata,
-                        content: chunk.content,
-                        type: 'knowledge',
-                        category: chunk.metadata.category || 'general'
-                        // id: chunk.metadata.id — already in qdrant id field
-                    }
-                }]
-            });
+                await client.upsert(COLLECTION_NAME, {
+                    wait: i === total - 1,
+                    points: [{
+                        id: item.metadata.id,
+                        vector: embedding,
+                        payload: { ...item.metadata, content: item.content, type: 'knowledge' }
+                    }]
+                });
 
-            console.log(`[${i + 1}/${allChunks.length}] ✅ Success (${keyLabel})`);
-            
-            // Rotate key for next chunk
-            keyIdx = (keyIdx + 1) % openaiClients.length;
+                console.log(`[${i + 1}/${total}] ✅ ${engine.name}: ${item.metadata.source}`);
+                await new Promise(r => setTimeout(r, engine.delay));
 
-            // 5 second cooldown to bypass Vercel abuse detection
-            await new Promise(r => setTimeout(r, 5000));
-
-        } catch (error: any) {
-            console.error(`\n[${i + 1}/${allChunks.length}] ❌ Failed (${keyLabel}): ${error.message}`);
-            
-            if (error.message.includes('rate limits') || error.message.includes('abuse')) {
-                console.log('      ⚠️ Vercel Gateway Blocked. Shifting keys and waiting 30s...');
-                await new Promise(r => setTimeout(r, 30000));
-                keyIdx = (keyIdx + 1) % openaiClients.length;
-                i--; // Retry same chunk
-            } else {
-                // For other errors, just skip to next
-                console.log('      ⚠️ Skipping chunk due to unexpected error.');
+            } catch (error: any) {
+                console.error(`\n❌ ${engine.name} Error at ${i}: ${error.message}`);
+                // Put it back in the queue if possible (simplified: just wait and retry)
+                currentIndex--; 
+                await new Promise(r => setTimeout(r, 10000));
             }
         }
     }
 
-    console.log('\n\n🌟 INGESTION COMPLETE! 1536 DIMENSIONS SAVED.');
-    console.log(`✅ ${allChunks.length} chunks indexed in Qdrant and Supabase.`);
+    // Start all workers simultaneously
+    await Promise.all(engines.map(e => worker(e)));
+
+    console.log('\n\n🌟 PARALLEL SYNC COMPLETE! TOTAL SPEED ACHIEVED.');
 }
 
 ingest().catch(console.error);

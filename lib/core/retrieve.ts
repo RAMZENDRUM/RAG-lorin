@@ -12,11 +12,19 @@ const qdrant = new QdrantClient({
 });
 
 function getOpenAI() {
-    const key = process.env.VERCEL_AI_KEY || process.env.OPENAI_API_KEY;
-    const isVercelGateway = key?.startsWith('vck_');
+    const keys = [
+        process.env.VERCEL_AI_KEY,
+        process.env.VERCEL_AI_KEY_2,
+        process.env.VERCEL_AI_KEY_3,
+        process.env.VERCEL_AI_KEY_4
+    ].filter(Boolean);
+    
+    // Pick a random key to distribute load
+    const key = keys[Math.floor(Math.random() * keys.length)];
+    
     return createOpenAI({ 
         apiKey: key,
-        baseURL: isVercelGateway ? 'https://ai-gateway.vercel.sh/v1' : undefined
+        baseURL: 'https://ai-gateway.vercel.sh/v1'
     });
 }
 
