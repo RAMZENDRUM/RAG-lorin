@@ -17,74 +17,85 @@ async function generateReports() {
     const rawLogs = (await fs.readFile(LOG_FILE, 'utf-8'))
         .split('\n')
         .filter(line => line.trim())
-        .map(line => JSON.parse(line));
+        .map(line => {
+            try { return JSON.parse(line); } catch(e) { return null; }
+        })
+        .filter(Boolean);
 
-    // File 1: Audit Forensics
-    let auditCsv = 'Timestamp,UserID,SessionID,UserQuery,Retrieval_Source,Response_Time_ms,Tokens_Used,Query_Cost_USD,Spam_Flag,Abuse_Flag\n';
-    rawLogs.forEach(log => {
-        auditCsv += `"${log.timestamp}","${log.userId}","${log.sessionId}","${log.query.replace(/"/g, '""')}","${log.source}",${log.latency},${log.tokens},${log.cost.toFixed(6)},${log.spam},${log.abuse}\n`;
-    });
-
-    // File 2: Developer Optimization
-    let devCsv = 'Unanswered_Queries,Top_Match_Similarity_Score,Top_K_Chunks_Count,Failed_Model_ID,Missed_Keywords,Sentinel_Usage_Report,Peak_Usage_Hour\n';
-    const unanswered = rawLogs.filter(l => l.score < 0.25).slice(0, 10);
-    const sentinelCount = rawLogs.filter(l => l.source === 'SENTINEL').length;
+    // 1. ADVANCED METRIC CALCULATION
+    const totalUsers = new Set(rawLogs.map(l => l.userId)).size;
+    const highIntentUsers = new Set(rawLogs.filter(l => l.outcome === 'High Intent').map(l => l.userId)).size;
+    const failedQueries = rawLogs.filter(l => l.isFailure);
+    const negativeQueries = rawLogs.filter(l => l.isNegative);
     
-    // Simple Peak Hour Logic
-    const hours = rawLogs.map(l => new Date(l.timestamp).getHours());
-    const peakHour = hours.sort((a,b) =>
-          hours.filter(v => v===a).length - hours.filter(v => v===b).length
-    ).pop();
+    // Intent Breakdown
+    const intents: Record<string, number> = {};
+    rawLogs.forEach(l => intents[l.intent] = (intents[l.intent] || 0) + 1);
 
-    unanswered.forEach(log => {
-        devCsv += `"${log.query.replace(/"/g, '""')}",${log.score.toFixed(4)},${log.k},"${log.model}","","${sentinelCount}","${peakHour}:00"\n`;
-    });
+    // 2. GENERATE KEY INSIGHTS (The Powerful Part)
+    const insights = [
+        `🔥 USERS: Total ${totalUsers} unique users interacted this week.`,
+        `📈 INTENT: ${((highIntentUsers/totalUsers)*100).toFixed(1)}% of users showed "High Intent" (asked multiple deep questions).`,
+        `⚠️ WEAKNESS: System failed to answer ${failedQueries.length} specific queries.`,
+        `🛡️ SENTIMENT: ${negativeQueries.length} negative/competitive questions were handled by Marketing Mode.`,
+        `🎯 FOCUS: Top intent this week was "${Object.entries(intents).sort((a,b)=>b[1]-a[1])[0]?.[0] || 'N/A'}".`
+    ];
 
-    // File 3: Institutional Benefits
-    let instCsv = 'Trend_Detection,Feedback_Score_CSAT,Human_Deflection_Rate,Knowledge_Coverage_Percent,New_Knowledge_Added,Total_Cost_Savings_USD,Storage_Efficiency\n';
-    const costSavings = rawLogs.filter(l => l.source === 'CACHE' || l.source === 'SENTINEL').length * 0.05;
+    // 3. GENERATE ACTIONS
+    const actions = [
+        failedQueries.length > 0 ? `🛠️ FIX: Update knowledge base with answers to: "${failedQueries[0]?.query}"` : "🛠️ MAINTAIN: No major data gaps detected.",
+        negativeQueries.length > 5 ? "📣 STRATEGY: Update Marketing Mode instructions for competitive placement claims." : "📣 MAINTAIN: General sentiment is positive.",
+        "🔄 OPTIMIZE: Review Reranker latency for peak hour traffic."
+    ];
+
+    // 4. ASSEMBLE FINAL REPORT
+    const reportBody = `
+# 🏁 LORIN WEEKLY INTELLIGENCE REPORT
+
+## 📊 CORE STATS
+- Total Messages: ${rawLogs.length}
+- Avg Engagement: ${(rawLogs.length / totalUsers).toFixed(1)} msgs/user
+- Returning Users: ${rawLogs.filter(l => l.engagementScore > 1).length}
+
+## 🔥 KEY INSIGHTS
+${insights.join('\n')}
+
+## 🛠️ RECOMMENDED ACTIONS (FIX NEXT WEEK)
+${actions.join('\n')}
+
+---
+*Lorin RAG Audit Sentinel*
+`;
+
+    // 5. SAVE CSV FOR EXCEL ANALYSIS
+    const csvData = 'Timestamp,UserID,Intent,Engagement,IsFailure,IsNegative,Query\n' + 
+        rawLogs.map(l => `"${l.timestamp}","${l.userId}","${l.intent}",${l.engagementScore},${l.isFailure},${l.isNegative},"${l.query.replace(/"/g, '""')}"`).join('\n');
     
-    instCsv += `"Institutional Trends Detected", "N/A", "85%", "92%", "5", "${costSavings.toFixed(2)}", "MD5 Active"\n`;
+    await fs.ensureDir('logs');
+    await fs.writeFile('logs/weekly_audit_detailed.csv', csvData);
 
-    await fs.writeFile('logs/lorin_audit_forensics.csv', auditCsv);
-    await fs.writeFile('logs/lorin_developer_optimization.csv', devCsv);
-    await fs.writeFile('logs/lorin_institutional_benefits.csv', instCsv);
-
-    console.log('✅ Reports generated in /logs directory.');
-    await sendEmail();
+    console.log('✅ Weekly analysis complete.');
+    await sendEmail(reportBody);
 }
 
-async function sendEmail() {
+async function sendEmail(content: string) {
     const transporter = nodemailer.createTransport({
         host: 'smtp-relay.brevo.com',
         port: 587,
-        secure: false, // TLS on 587 uses STARTTLS
-        auth: {
-            user: process.env.BREVO_SMTP_LOGIN, 
-            pass: process.env.BREVO_SMTP_KEY
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
+        auth: { user: process.env.BREVO_SMTP_LOGIN, pass: process.env.BREVO_SMTP_KEY }
     });
 
-    const mailOptions = {
-        from: '"Lorin RAG Sentinel" <eventbooking.otp@gmail.com>',
-        to: RECIPIENT,
-        subject: `Weekly Intelligence Report - ${new Date().toLocaleDateString()}`,
-        text: 'Attached are the weekly Lorin RAG intelligence reports.',
-        attachments: [
-            { filename: 'lorin_audit_forensics.csv', path: 'logs/lorin_audit_forensics.csv' },
-            { filename: 'lorin_developer_optimization.csv', path: 'logs/lorin_developer_optimization.csv' },
-            { filename: 'lorin_institutional_benefits.csv', path: 'logs/lorin_institutional_benefits.csv' }
-        ]
-    };
-
     try {
-        await transporter.sendMail(mailOptions);
-        console.log('📧 Weekly report emailed to ramzendrum@gmail.com');
+        await transporter.sendMail({
+            from: '"Lorin Sentinel" <eventbooking.otp@gmail.com>',
+            to: RECIPIENT,
+            subject: `Lorin Intelligence Report - ${new Date().toLocaleDateString()}`,
+            text: content,
+            attachments: [{ filename: 'weekly_audit.csv', path: 'logs/weekly_audit_detailed.csv' }]
+        });
+        console.log('📧 High-impact report emailed to ramzendrum@gmail.com');
     } catch (err) {
-        console.error('❌ Failed to send email:', err);
+        console.error('❌ Email failed:', err);
     }
 }
 

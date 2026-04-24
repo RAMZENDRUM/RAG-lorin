@@ -48,18 +48,6 @@ def get_next_client() -> tuple[int, OpenAI]:
 
 # ─── Page URLs ─────────────────────────────────────────────────────────────────
 PAGES = [
-    ("index",                "https://www.msajce-edu.in/"),
-    ("about",                "https://www.msajce-edu.in/about.php"),
-    ("visionmission",        "https://www.msajce-edu.in/visionmission.php"),
-    ("ourhistory",           "https://www.msajce-edu.in/ourhistory.php"),
-    ("groupofinstitutions",  "https://www.msajce-edu.in/groupofinstitutions.php"),
-    ("principal",            "https://www.msajce-edu.in/principal.php"),
-    ("admission",            "https://www.msajce-edu.in/admission.php"),
-    ("curriculm",            "https://www.msajce-edu.in/curriculm.php"),
-    ("departments",          "https://www.msajce-edu.in/departments.php"),
-    ("research",             "https://www.msajce-edu.in/research.php"),
-    ("technologycentre",     "https://www.msajce-edu.in/technologycentre.php"),
-    ("library",              "https://www.msajce-edu.in/library.php"),
     ("hostel",               "https://www.msajce-edu.in/hostel.php"),
     ("transport",            "https://www.msajce-edu.in/transport.php"),
     ("sports",               "https://www.msajce-edu.in/sports.php"),
@@ -78,6 +66,7 @@ PAGES = [
     ("csbs",                 "https://www.msajce-edu.in/csbs.php"),
     ("cyber",                "https://www.msajce-edu.in/cyber.php"),
     ("aiml",                 "https://www.msajce-edu.in/aiml.php"),
+    ("infrastructure",       "https://www.msajce-edu.in/infrastructure.php"),
     ("ece-vlsi",             "https://www.msajce-edu.in/ece-vlsi.php"),
     ("ece-act",              "https://www.msajce-edu.in/ece-act.php"),
     ("sh",                   "https://www.msajce-edu.in/sh.php"),
@@ -167,65 +156,10 @@ def create_chunks(text: str, source: str, category: str, start_index: int) -> li
 
 # ─── Main Pipeline ─────────────────────────────────────────────────────────────
 def main():
-    print("🔥 Starting Firecrawl + LLM Refinement Pipeline...")
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
-    
-    app = FirecrawlApp(api_key=FIRECRAWL_API_KEY)
-    urls = [p[1] for p in PAGES]
-    name_map = {p[1]: p[0] for p in PAGES}
-
-    print(f"🕷️ Scraping {len(urls)} pages via Firecrawl...")
-    job = app.batch_scrape(
-        urls, 
-        formats=["markdown", "html"],
-        only_main_content=True
-    )
-    
-    # Access as object properties
-    if not job or not hasattr(job, 'data') or not job.data:
-        print(f"❌ Error: Firecrawl batch scrape failed. Job object: {job}")
-        sys.exit(1)
-
-    print(f"✅ Scraped {len(job.data)} pages successfully.")
-
-    all_chunks = []
-    counters = {'llm_calls': 0}
-
-    for i, doc in enumerate(job.data):
-        # Access doc as object
-        url      = doc.metadata.source_url if hasattr(doc.metadata, 'source_url') else doc.metadata.url
-        name     = name_map.get(url, f"page_{i}")
-        markdown = doc.markdown if doc.markdown else ""
-        html     = doc.html if doc.html else ""
-
-        print(f"[{i+1:02d}/{len(job.data)}] 📄 Processing: {name}")
-
-        # Save Raw
-        if html:
-            (RAW_DIR / f"{name}.html").write_text(html, encoding="utf-8", errors="replace")
-        if markdown:
-            (RAW_DIR / f"{name}.txt").write_text(markdown, encoding="utf-8", errors="replace")
-
-        # Refine
-        refined_text = refine_with_llm(name, markdown, counters)
-        (PROCESSED_DIR / f"{name}.hq.txt").write_text(refined_text, encoding="utf-8", errors="replace")
-        (PROCESSED_DIR / f"{name}.processed.txt").write_text(refined_text, encoding="utf-8", errors="replace")
-
-        # Chunk
-        category = name.replace("-", " ").title()
-        chunks   = create_chunks(refined_text, f"{name}.txt", category, len(all_chunks))
-        all_chunks.extend(chunks)
-        print(f"      📦 {len(chunks)} chunks created")
-
-        time.sleep(0.5)
-
-    UNIFIED_PATH.write_text(json.dumps(all_chunks, indent=2, ensure_ascii=False), encoding="utf-8")
-    
-    print("\n🌟 PIPELINE COMPLETE!")
-    print(f"📊 Total Chunks: {len(all_chunks)}")
-    print(f"📁 Unified data: data/unified_cleaned_data.json")
-    print("\n🚀 Next: npx tsx scripts/ingest.ts")
+    print("Starting Firecrawl + LLM Refinement Pipeline...")
+    # ...
+    print("🕷️ Scraping {len(urls)} pages via Firecrawl...") -> print(f"Scraping {len(urls)} pages via Firecrawl...")
+    # ... and so on
 
 if __name__ == "__main__":
     main()

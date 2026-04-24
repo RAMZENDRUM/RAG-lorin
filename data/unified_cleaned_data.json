@@ -1908,5 +1908,15 @@
       "id": "662778106f9ca27dcb78c739c54a9ff8",
       "timestamp": "2026-04-24T14:10:04Z"
     }
+  },
+  {
+    "index": 0,
+    "content": "Source: infrastructure.txt | Category: Infrastructure | Content: File not found.",
+    "metadata": {
+      "source": "infrastructure.txt",
+      "category": "Infrastructure",
+      "id": "a8f6cd6e9f1c621acf19b96fc74c7731",
+      "timestamp": "2026-04-24T14:48:04Z"
+    }
   }
 ]

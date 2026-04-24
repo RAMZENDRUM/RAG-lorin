@@ -1,167 +1,79 @@
-/**
- * Lorin v2 — Master Bot Handler
- * Wires the 9-stage orchestrator to Grammy + Vercel
- */
-
-import { Bot, webhookCallback } from 'grammy';
+import { Telegraf } from 'telegraf';
+import { 
+    classifyIntent, 
+    rewriteQuery, 
+    hybridRetrieve, 
+    rerankResults, 
+    agentDecide, 
+    buildContext, 
+    generateGrounded, 
+    postProcess 
+} from '../lib/core/orchestrator.js';
+import { fetchMemory, updateProfile, extractInterest } from '../lib/core/memory.js';
 import { createOpenAI } from '@ai-sdk/openai';
 import postgres from 'postgres';
+import dotenv from 'dotenv';
 
-import {
-    classifyIntent,
-    rewriteQuery,
-    hybridRetrieve,
-    rerankResults,
-    agentDecide,
-    buildContext,
-    generateGrounded,
-    postProcess,
-} from '../lib/orchestrator.js';
+dotenv.config();
 
-import {
-    fetchMemory,
-    updateProfile,
-    extractInterest,
-} from '../lib/memory.js';
+const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const DATABASE_URL = process.env.DATABASE_URL!;
+const GOOGLE_FORM_URL = "https://forms.gle/your-admission-form";
 
-// ── Constants ────────────────────────────────────────────────────────────────
-const GOOGLE_FORM_URL = 'https://forms.gle/Fto1EWFofwQdnjoz7';
-const COLLECTION = 'lorin_msajce_knowledge';
+// Initialization
+const bot = new Telegraf(BOT_TOKEN!);
+const sql = postgres(DATABASE_URL, { ssl: 'require' });
+const openai = createOpenAI({
+    apiKey: process.env.VERCEL_AI_KEY || process.env.OPENAI_API_KEY,
+    baseURL: 'https://ai-gateway.vercel.sh/v1'
+});
 
-// ── Lazy Singletons ──────────────────────────────────────────────────────────
-const token = process.env.TELEGRAM_BOT_TOKEN;
-if (!token) throw new Error('TELEGRAM_BOT_TOKEN is required');
-const bot = new Bot(token);
+// Setup bot logic (same as main.ts but for webhook)
+bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your 24/7 MSAJCE Virtual Concierge.'));
 
-let _sql: ReturnType<typeof postgres> | null = null;
-function getSql() {
-    if (!_sql && process.env.DATABASE_URL) {
-        _sql = postgres(process.env.DATABASE_URL, { ssl: 'require', connect_timeout: 10 });
-    }
-    return _sql;
-}
-
-function getOpenAI() {
-    const key = process.env.VERCEL_AI_KEY || process.env.OPENAI_API_KEY;
-    return createOpenAI({
-        apiKey: key,
-        baseURL: key?.startsWith('vck_') ? 'https://ai-gateway.vercel.sh/v1' : undefined,
-    });
-}
-
-// ── Commands ─────────────────────────────────────────────────────────────────
-bot.command('start', (ctx) =>
-    ctx.reply(
-        `Hey! I'm Lorin 🎓, your Mohamed Sathak A.J. College (Chennai) campus buddy!\n\nI can help you with:\n🏢 Departments — CSE, AI&DS, ECE, CSBS & more\n📝 Admissions — Process, eligibility, form\n🏠 Hostels — Facilities & fees\n🚌 Transport — Bus routes\n👩‍🏫 Faculty — HODs, Principal, Admin\n💼 Placements — Companies & packages\n\nWhat's on your mind? 😊`
-    )
-);
-
-bot.command('form', (ctx) =>
-    ctx.reply(`Admission Enquiry Form 📝\n${GOOGLE_FORM_URL}`)
-);
-
-// ── Main Message Handler (The 9-Stage Pipeline) ───────────────────────────────
-bot.on('message:text', async (ctx) => {
-    const userId = ctx.from.id.toString();
-    const rawText = ctx.message.text.trim();
-    await ctx.replyWithChatAction('typing');
-
+bot.on('text', async (ctx) => {
     try {
-        const openai = getOpenAI();
-        const db = getSql();
+        const userId = ctx.from.id.toString();
+        const rawText = ctx.message.text;
 
-        // ── STAGE 1: Intent Classification ──────────────────────────────────
+        const { shortTerm, profile } = await fetchMemory(userId, sql);
         const intent = classifyIntent(rawText);
-
-        // ── STAGE 3: Memory Fetch (parallel with stage 2) ───────────────────
-        const { shortTerm, profile } = db
-            ? await fetchMemory(userId, db)
-            : { shortTerm: [], profile: { user_id: userId, name: null, interest: null, stage: 'unknown' as const, last_seen: new Date(), strikes: 0, blocked_until: null } };
-
-        // ── STAGE 1.5: Abuse / Spam Block Check ──────────────────────────────
-        if (profile.blocked_until && new Date(profile.blocked_until) > new Date()) {
-            return; // Silently ignore if blocked
-        }
-
-        const isAbusive = /fuck|shit|bitch|asshole|idiot|stupid/.test(rawText.toLowerCase());
-        const copyPastes = shortTerm.filter(m => m.role === 'user' && m.content === rawText);
-        const isSpam = copyPastes.length >= 2;
-
-        if (isAbusive || isSpam) {
-            const newStrikes = (profile.strikes || 0) + 1;
-            let blockHours = 0;
-            let warningText = '';
-
-            if (newStrikes === 1) {
-                blockHours = 3;
-                warningText = "Alright, I'll help—but let's keep it respectful and avoid spamming.";
-            } else if (newStrikes === 2) {
-                blockHours = 12;
-            } else {
-                blockHours = 24 * 365 * 10; // Permanent
-            }
-
-            const blockedUntil = new Date(Date.now() + blockHours * 60 * 60 * 1000);
-            if (db) await updateProfile(userId, { strikes: newStrikes, blocked_until: blockedUntil }, db);
-            
-            if (warningText) await ctx.reply(warningText);
-            return;
-        }
-
-        // ── STAGE 2: Query Rewriter ──────────────────────────────────────────
         const rewrittenQuery = rewriteQuery(rawText, intent, profile, shortTerm);
+        const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql);
+        const rerankedContext = await rerankResults(rewrittenQuery, chunks, openai);
+        const agentFlags = agentDecide(intent, rawText, rerankedContext, profile.last_seen.getTime(), GOOGLE_FORM_URL);
+        const finalContext = buildContext(rerankedContext, shortTerm, profile);
+        const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
+        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL);
 
-        // ── STAGE 4: Hybrid Retrieval ───────────────────────────────────
-        const rawChunks = await hybridRetrieve(rewrittenQuery, rawText, openai, db);
+        // Update Memory
+        const newInterest = extractInterest(rawText);
+        await updateProfile(userId, { 
+            interest: newInterest || profile.interest,
+            last_seen: new Date()
+        }, sql);
 
-        // ── STAGE 4.5: Cohere Reranker ───────────────────────────────
-        const retrievedContext = await rerankResults(rewrittenQuery, rawChunks, openai);
+        await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${rawText})`;
+        await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'assistant', ${finalOutput})`;
 
-        // ── Check last form send time from short-term memory ────────────────
-        const lastFormMsg = [...shortTerm].reverse().find(
-            h => h.role === 'assistant' && h.content.includes('forms.gle')
-        );
-        const lastFormTime = lastFormMsg?.created_at ? new Date(lastFormMsg.created_at).getTime() : 0;
+        await ctx.reply(finalOutput, { parse_mode: 'Markdown' });
 
-        // ── STAGE 5: Agent Decision ──────────────────────────────────────────
-        const agentFlags = agentDecide(intent, rawText, retrievedContext, lastFormTime, GOOGLE_FORM_URL);
-
-        // ── STAGE 6: Context Builder ─────────────────────────────────────────
-        const builtContext = buildContext(retrievedContext, shortTerm, profile);
-
-        // ── STAGE 7: Grounded LLM Generation ────────────────────────────────
-        const rawAnswer = await generateGrounded(builtContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
-
-        // ── STAGE 8: Post-Processing ─────────────────────────────────────────
-        const finalReply = postProcess(rawAnswer, agentFlags, GOOGLE_FORM_URL);
-
-        // ── STAGE 9: Storage + Delivery ──────────────────────────────────────
-        if (db) {
-            const interest = extractInterest(rawText);
-            const stage = intent === 'admission' ? 'exploring' : undefined;
-
-            await Promise.all([
-                db`INSERT INTO chat_history (user_id, role, content) VALUES
-                    (${userId}, 'user', ${rawText}),
-                    (${userId}, 'assistant', ${finalReply})`,
-                interest || stage
-                    ? updateProfile(userId, { interest: interest ?? undefined, stage }, db)
-                    : Promise.resolve(),
-            ]);
-        }
-
-        await ctx.reply(finalReply);
-
-    } catch (err: any) {
-        console.error(`[Lorin v2 Error] Stage failed: ${err.message}`);
-        await ctx.reply("✨ I hit a small snag — ask me again and I'll get it right!");
+    } catch (e: any) {
+        console.error('Webhook Error:', e.message);
     }
 });
 
-// ── Vercel Serverless Handler ─────────────────────────────────────────────────
+// Vercel Serverless Handler
 export default async function handler(req: any, res: any) {
     if (req.method === 'POST') {
-        return webhookCallback(bot, 'https')(req, res);
+        try {
+            await bot.handleUpdate(req.body);
+            res.status(200).send('OK');
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Error');
+        }
+    } else {
+        res.status(200).send('Lorin Webhook is Active 🤖');
     }
-    res.status(200).send('Lorin v2: ONLINE 🟢 (Orchestrated Intelligence Active)');
 }

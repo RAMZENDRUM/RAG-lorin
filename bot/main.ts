@@ -13,6 +13,8 @@ import { fetchMemory, updateProfile, extractInterest } from '../lib/core/memory.
 import { createOpenAI } from '@ai-sdk/openai';
 import postgres from 'postgres';
 import dotenv from 'dotenv';
+import fs from 'fs-extra';
+import path from 'path';
 
 dotenv.config();
 
@@ -71,8 +73,27 @@ bot.on('text', async (ctx) => {
         // --- STAGE 8: Post-Processing ---
         const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL);
 
-        // --- STAGE 9: Memory Update ---
+        // --- STAGE 9: Memory Update & Audit Logging ---
         const newInterest = extractInterest(rawText);
+        const finalEngagement = (shortTerm.length / 2) + 1; // Approx turns
+        const isFailure = rerankedContext.includes('No data found');
+        const isNegative = agentFlags.dominantIntent === 'complaint' || /bad|worst|scam|waste/i.test(rawText);
+
+        const auditTrail = {
+            timestamp: new Date().toISOString(),
+            userId,
+            intent: agentFlags.dominantIntent,
+            engagementScore: finalEngagement,
+            isFailure,
+            isNegative,
+            query: rawText,
+            outcome: finalEngagement > 3 ? 'High Intent' : 'Exploring'
+        };
+
+        // Write to persistent audit log for the Sunday Report
+        await sql`INSERT INTO lorin_audit_logs (data) VALUES (${auditTrail})`;
+        await fs.appendFile(path.join(process.cwd(), 'logs', 'audit.jsonl'), JSON.stringify(auditTrail) + '\n');
+
         await updateProfile(userId, { 
             interest: newInterest || profile.interest,
             last_seen: new Date()
