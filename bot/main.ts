@@ -71,7 +71,7 @@ bot.on('text', async (ctx) => {
         const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
 
         // --- STAGE 8: Post-Processing ---
-        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL);
+        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks);
 
         // --- STAGE 9: Memory Update & Audit Logging ---
         const newInterest = extractInterest(rawText);

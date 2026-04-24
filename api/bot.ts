@@ -44,7 +44,7 @@ bot.on('text', async (ctx) => {
         const agentFlags = agentDecide(intent, rawText, rerankedContext, profile.last_seen.getTime(), GOOGLE_FORM_URL);
         const finalContext = buildContext(rerankedContext, shortTerm, profile);
         const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
-        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL);
+        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks);
 
         // Update Memory
         const newInterest = extractInterest(rawText);

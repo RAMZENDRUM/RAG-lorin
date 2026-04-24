@@ -109,15 +109,14 @@ export function rewriteQuery(
 }
 
 // ─────────────────────────────────────────────
-// STAGE 4 — Hybrid Retrieval (Vector + Keyword)
-// Returns raw chunk array for reranking
+// STAGE 3 — Hybrid Retrieval (Qdrant + Keyword)
 // ─────────────────────────────────────────────
 export async function hybridRetrieve(
     rewrittenQuery: string,
     rawText: string,
     openai: any,
-    db: any
-): Promise<string[]> {
+    db?: any
+): Promise<KnowledgeChunk[]> {
     const qdrant = new QdrantClient({
         url: process.env.QDRANT_URL as string,
         apiKey: process.env.QDRANT_API_KEY as string,
@@ -128,19 +127,22 @@ export async function hybridRetrieve(
         value: rewrittenQuery,
     });
 
-    // Vector search — cast wide net (15 chunks for reranker to filter)
+    // Vector search
     const qResults = await qdrant.search('lorin_msajce_knowledge', {
         vector: embedding,
         limit: 15,
         with_payload: true,
     });
 
-    const chunks: string[] = (qResults.map(r => r.payload?.content ?? '').filter(Boolean)) as string[];
+    const chunks: KnowledgeChunk[] = qResults.map(r => ({
+        content: r.payload?.content as string || '',
+        source: r.payload?.source as string || 'index.txt'
+    })).filter(c => c.content);
 
-    // Keyword search priority — prepend exact-match hits
+    // Keyword search fallback
     if (db && rawText.split(' ').length <= 5) {
         const kResults = await db`
-            SELECT content FROM lorin_knowledge
+            SELECT content, metadata FROM lorin_knowledge
             WHERE content ILIKE ${'%' + rawText + '%'}
             LIMIT 4
         `;
@@ -159,21 +161,19 @@ export async function hybridRetrieve(
 // ─────────────────────────────────────────────
 export async function rerankResults(
     query: string,
-    chunks: string[],
+    chunks: KnowledgeChunk[],
     openai: any
 ): Promise<string> {
-    // Skip if too few chunks to bother
-    if (chunks.length <= 3 || chunks[0] === 'No data found.') {
-        return chunks.join('\n\n---\n\n');
+    if (chunks.length <= 3 || chunks[0].content === 'No data found.') {
+        return chunks.map(c => c.content).join('\n\n---\n\n');
     }
 
     try {
-        // Build a compact preview list — keep tokens low
         const previews = chunks
-            .map((c, i) => `[${i}]: ${c.substring(0, 180).replace(/\n/g, ' ')}`)
+            .map((c, i) => `[${i}]: ${c.content.substring(0, 180).replace(/\n/g, ' ')}`)
             .join('\n');
 
-        const { text } = await generateText({
+        const { text: indicesText } = await generateText({
             model: openai('gpt-4o-mini'),
             maxOutputTokens: 20,
             prompt: `You are a relevance scorer for a college knowledge base.
@@ -335,16 +335,46 @@ ${clarifyInstruction}`,
 }
 
 // ─────────────────────────────────────────────
-// STAGE 8 — Post-Processor
-// Injects form link if agentFlags call for it
+// STAGE 8 — Post-Processor (Systematic Link Injection)
 // ─────────────────────────────────────────────
 export function postProcess(
     answer: string,
     agentFlags: AgentFlags,
-    googleFormUrl: string
+    googleFormUrl: string,
+    retrievedChunks: any[] = []
 ): string {
-    if (agentFlags.showForm && !answer.includes('forms.gle')) {
-        return answer + `\n\nReady to apply? Fill the admission enquiry form here: ${googleFormUrl}`;
+    let finalAnswer = answer;
+
+    // 1. Resolve source link from the best chunk
+    if (retrievedChunks.length > 0 && retrievedChunks[0].source) {
+        const sourceMap: Record<string, string> = {
+            'index.txt': 'https://www.msajce-edu.in/',
+            'about.txt': 'https://www.msajce-edu.in/about.php',
+            'admission.txt': 'https://www.msajce-edu.in/admission.php',
+            'infrastructure.txt': 'https://www.msajce-edu.in/infrastructure.php',
+            'hostel.txt': 'https://www.msajce-edu.in/hostel.php',
+            'transport.txt': 'https://www.msajce-edu.in/transport.php',
+            'principal.txt': 'https://www.msajce-edu.in/principal.php',
+            'placement.txt': 'https://www.msajce-edu.in/placement.php',
+            'departments.txt': 'https://www.msajce-edu.in/departments.php'
+        };
+
+        const sourceFile = retrievedChunks[0].source;
+        const realLink = sourceMap[sourceFile] || `https://www.msajce-edu.in/${sourceFile.replace('.txt', '.php')}`;
+
+        // If the LLM mentions "official page" or "link", replace the text or append
+        if (finalAnswer.includes('official page') || finalAnswer.includes('Link')) {
+            finalAnswer = finalAnswer.replace(/Link|\[Link\]/g, realLink);
+            if (!finalAnswer.includes(realLink)) {
+                finalAnswer += `\n\n🔗 Source: ${realLink}`;
+            }
+        }
     }
-    return answer;
+
+    // 2. Inject Admission Form
+    if (agentFlags.showForm && !finalAnswer.includes('forms.gle')) {
+        finalAnswer += `\n\nReady to apply? Fill the admission enquiry form here: ${googleFormUrl}`;
+    }
+
+    return finalAnswer;
 }
