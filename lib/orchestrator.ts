@@ -5,7 +5,17 @@
 
 import { embed, generateText } from 'ai';
 import { QdrantClient } from '@qdrant/js-client-rest';
+import { CohereClient } from 'cohere-ai';
 import type { ShortTermMemory, UserProfile } from './memory.js';
+
+// Lazy Cohere singleton
+let _cohere: CohereClient | null = null;
+function getCohere() {
+    if (!_cohere && process.env.COHERE_API_KEY) {
+        _cohere = new CohereClient({ token: process.env.COHERE_API_KEY });
+    }
+    return _cohere;
+}
 
 // ─────────────────────────────────────────────
 // TYPES
@@ -87,13 +97,14 @@ export function rewriteQuery(rawText: string, intent: Intent, profile: UserProfi
 
 // ─────────────────────────────────────────────
 // STAGE 4 — Hybrid Retrieval (Vector + Keyword)
+// Returns raw chunk array for reranking
 // ─────────────────────────────────────────────
 export async function hybridRetrieve(
     rewrittenQuery: string,
     rawText: string,
     openai: any,
     db: any
-): Promise<string> {
+): Promise<string[]> {
     const qdrant = new QdrantClient({
         url: process.env.QDRANT_URL as string,
         apiKey: process.env.QDRANT_API_KEY as string,
@@ -104,28 +115,62 @@ export async function hybridRetrieve(
         value: rewrittenQuery,
     });
 
-    // Vector search (semantic concepts)
+    // Vector search — cast wide net (15 chunks for reranker to filter)
     const qResults = await qdrant.search('lorin_msajce_knowledge', {
         vector: embedding,
-        limit: 12,
+        limit: 15,
         with_payload: true,
     });
 
-    // Keyword search (exact names / short queries)
-    let keywordContext = '';
+    const chunks: string[] = qResults.map(r => r.payload?.content ?? '').filter(Boolean);
+
+    // Keyword search priority — prepend exact-match hits
     if (db && rawText.split(' ').length <= 5) {
         const kResults = await db`
             SELECT content FROM lorin_knowledge
             WHERE content ILIKE ${'%' + rawText + '%'}
             LIMIT 4
         `;
-        keywordContext = kResults.map((r: any) => r.content).join('\n\n');
+        const kChunks: string[] = kResults.map((r: any) => r.content);
+        // Deduplicate and prepend keyword hits
+        kChunks.forEach(k => { if (!chunks.includes(k)) chunks.unshift(k); });
     }
 
-    const vectorContext = qResults.map(r => r.payload?.content ?? '').join('\n\n');
+    return chunks.length > 0 ? chunks : ['No data found.'];
+}
 
-    // Keyword hits get priority (exact match = higher signal)
-    return [keywordContext, vectorContext].filter(Boolean).join('\n\n---\n\n') || 'No data found.';
+// ─────────────────────────────────────────────
+// STAGE 4.5 — Cohere Reranker
+// Precision-ranks raw chunks, keeps top 5
+// ─────────────────────────────────────────────
+export async function rerankResults(
+    query: string,
+    chunks: string[]
+): Promise<string> {
+    // Skip reranking if only 1 chunk or Cohere key not set
+    const cohere = getCohere();
+    if (!cohere || chunks.length <= 3 || chunks[0] === 'No data found.') {
+        return chunks.join('\n\n---\n\n');
+    }
+
+    try {
+        const response = await cohere.rerank({
+            model: 'rerank-english-v3.0',
+            query,
+            documents: chunks,
+            topN: 5,
+        });
+
+        const reranked = response.results
+            .sort((a, b) => a.index - b.index)
+            .map(r => chunks[r.index]);
+
+        console.log(`[Reranker] ${chunks.length} chunks → top ${reranked.length} kept`);
+        return reranked.join('\n\n---\n\n');
+    } catch (e: any) {
+        console.warn('[Reranker] Cohere failed, falling back to raw chunks:', e.message);
+        return chunks.slice(0, 5).join('\n\n---\n\n');
+    }
 }
 
 // ─────────────────────────────────────────────

@@ -11,6 +11,7 @@ import {
     classifyIntent,
     rewriteQuery,
     hybridRetrieve,
+    rerankResults,
     agentDecide,
     buildContext,
     generateGrounded,
@@ -81,8 +82,11 @@ bot.on('message:text', async (ctx) => {
         // ── STAGE 2: Query Rewriter ──────────────────────────────────────────
         const rewrittenQuery = rewriteQuery(rawText, intent, profile);
 
-        // ── STAGE 4: Hybrid Retrieval ────────────────────────────────────────
-        const retrievedContext = await hybridRetrieve(rewrittenQuery, rawText, openai, db);
+        // ── STAGE 4: Hybrid Retrieval ───────────────────────────────────
+        const rawChunks = await hybridRetrieve(rewrittenQuery, rawText, openai, db);
+
+        // ── STAGE 4.5: Cohere Reranker ───────────────────────────────
+        const retrievedContext = await rerankResults(rewrittenQuery, rawChunks);
 
         // ── Check last form send time from short-term memory ────────────────
         const lastFormMsg = [...shortTerm].reverse().find(
