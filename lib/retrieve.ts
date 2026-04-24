@@ -104,7 +104,11 @@ export async function performLorinRetrieval(
         try {
             const { text } = await generateText({
                 model: openai('gpt-4o-mini'),
-                system: "You are a Query Contextualizer. Based on the chat history, rewrite the user's latest message into a standalone search query. Example: 'who is srinivasan' -> 'tell me more about him' becomes 'Further details about Dr. K. S. Srinivasan'. If the input is just small talk (hi, thanks, cool), return it as is. Respond ONLY with the query.",
+                system: `You are a Search Query contextualizer. 
+                - Rewrite the User's question into a standalone search query.
+                - CRITICAL: Prioritize the most RECENT person/entity mentioned in the history.
+                - If the user says 'him' and the very last assistant message was about 'Dr. Srinivasan', the query MUST include 'Dr. K. S. Srinivasan'.
+                - Don't bring up the developer (Ram) unless the user specifically asks about the developer.`,
                 prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nUser: ${rawQuery}`
             });
             contextualizedQuery = text.trim();
@@ -113,26 +117,24 @@ export async function performLorinRetrieval(
 
     // --- STAGE 2: INTENT DETECTION ---
     const lowerQuery = contextualizedQuery.toLowerCase();
-    const isSmallTalk = history.length > 0 && (lowerQuery.length < 15 || /^(nice|cool|great|thanks|ok|wow|hello|hi)/.test(lowerQuery));
+    const isSmallTalk = history.length > 0 && (lowerQuery.length < 15 || /^(nice|cool|great|thanks|ok|wow|hello|hi|that)/.test(lowerQuery));
 
     // --- STAGE 3: HYBRID RETRIEVAL ---
     let finalChunks: string[] = [];
     let topScore = 0;
     
-    // Skip heavy search for clear small talk to stay responsive
     if (!isSmallTalk) {
         try {
             const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: contextualizedQuery });
-            const searchResults = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 10, with_payload: true });
+            const searchResults = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 12, with_payload: true });
             
-            // Re-rank and score
             if (searchResults.length > 0) {
                 const results = searchResults.map(res => {
                     const content = (res.payload?.content as string || '').toLowerCase();
                     const words = contextualizedQuery.toLowerCase().split(' ').filter(w => w.length > 3);
                     let matches = 0;
                     words.forEach(w => { if (content.includes(w)) matches++; });
-                    const bonus = words.length > 0 ? (matches / words.length) * 0.2 : 0;
+                    const bonus = words.length > 0 ? (matches / words.length) * 0.25 : 0;
                     return { content: res.payload?.content as string, score: res.score + bonus };
                 });
                 results.sort((a, b) => b.score - a.score);
@@ -143,22 +145,17 @@ export async function performLorinRetrieval(
     }
 
     // --- STAGE 4: GROUNDED GENERATION ---
-    // Instruction: Never say "I don't know" if the history has enough info to be helpful.
     const context = finalChunks.join('\n\n---\n\n');
-    let finalAnswer = "I'm sorry, I don't have specific details on that in my MSAJCE database. Could you ask about our departments, transport, or admissions?";
-
     try {
         const { text, usage } = await generateText({
             model: openai(modelId),
-            system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. 
-            MISSION: Provide highly accurate, friendly information to students.
-            GUIDELINES:
-            1. PERSISTENCE: Use Chat History to resolve pronouns (him/it/that).
-            2. CONTEXT FIRST: If 'Context' is provided, use it as the primary source.
-            3. SENTIMENT: If the user is being friendly or making small-talk, reply warmly as a campus buddy.
-            4. ACCURACY: If you truly cannot find info in context OR history, politely say so.
-            PERSONA: Energetic, professional, and slightly casual (campus-buddy style).`,
-            prompt: `Context:\n${context || 'No specific metadata found for this query.'}\n\nChat History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nLatest Input: ${rawQuery}`
+            system: `You are Lorin, the MSAJCE AI Concierge. 
+            RULES:
+            1. FORMATTING: Always format phone numbers as clickable international links, e.g., +91 91505 75066.
+            2. CONTEXT: Stay strictly on the topic being discussed in the MOST RECENT 1-2 turns of history.
+            3. AMBIGUITY: If the user says 'him' and it's unclear who they mean, ask for clarification.
+            4. SMALL TALK: If the user says 'that's nice' or similar, acknowledge it warmly and ask if they have more questions about the college.`,
+            prompt: `Context:\n${context || 'No new data found.'}\n\nChat History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nUser: ${rawQuery}`
         });
         finalAnswer = text;
         tokensUsed = (usage.promptTokens || 0) + (usage.completionTokens || 0);
