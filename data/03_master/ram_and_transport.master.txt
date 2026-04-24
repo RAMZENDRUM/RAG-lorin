@@ -1,0 +1,43 @@
+# DEVELOPER PROFILE: RAMANATHAN S (RAM)
+- Full Name: Ramanathan S
+- Known As: Ram (Handle: Ramzendrum)
+- Department: B.Tech - Information Technology (IT)
+- Batch: 2024–2028 (Current 2nd Year)
+- College: Mohamed Sathak A.J. College of Engineering, Siruseri, Chennai.
+- Expected CGPA: 7.8 – 8.8
+- Technical Expertise: Full-Stack Mastery, AI & Automation (Lorin, Vector DBs, n8n), Unity Game Dev.
+- Key Projects: Lorin (This Bot), SmartHostel Web App, Haunted Village (Unity), Event Booking System.
+
+# TRANSPORT INFRASTRUCTURE: AR-SERIES (EXCLUSIVE STUDENT FLEET)
+
+## AR 8: MANJAMBAKKAM (Via Velachery/Adampakkam)
+- Driver: Mr. Raju (9790750906)
+- Route: Manjambakkam (5:50 AM) -> Retteri -> Senthil Nagar -> Padi -> Anna Nagar -> Thirumangalam -> Vijaykanth Mandapam -> Chinmaya Nagar -> Avachi School -> Nesapakkam -> KK Nagar -> Ashok Pillar -> Aadampakkam -> Kaiveli -> Pallikkarani -> Medavakkam -> Perumbakkam -> Sholinganallur -> Girls Hostel -> MSAJCE (8:00 AM)
+
+## AR 4: MOOLAKADAI TO COLLEGE
+- Driver: Mr. M. Suresh (9849265637)
+- Route: Moolakadai (6:10 AM) -> Perambur -> Otteri -> Dowton -> Vepery -> Periyamed -> Central (6:35 AM) -> Parrys (6:40 AM) -> Marina -> Santhome -> Adyar (7:00 AM) -> Thiruvanmiyur -> Palavakkam -> Neelankarai -> Akkarai -> Sholinganallur -> Girls Hostel -> MSAJCE (8:00 AM)
+
+## AR 3: UTHIRAMERUR TO COLLEGE
+- Driver: Mr. Sathish K (9789970304)
+- Route: Uthiramerur (6:00 AM) -> G.H. Hospital -> Paranur -> Mahindra City -> S.P. Koil -> Maraimalai Nagar -> Guduvanchery -> Oorapakkam -> Vandalur Zoo -> Perungalathur -> Kandigai -> Mambakkam -> Puthupakkam -> Kelambakkam -> Sipcot -> MSAJCE (8:00 AM)
+
+## AR 5 (N/3): MMDA SCHOOL TO COLLEGE
+- Driver: Mr. Velu (9940050685)
+- Route: MMDA School (6:15 AM) -> Anna Nagar -> Chinthamani -> Skywalk -> Choolaimadu -> Loyola College -> T. Nagar -> CIT Nagar -> Saidapet -> Velachery Check Post (6:50 AM) -> Vijaya Nagar -> Baby Nagar -> Tharamani -> MGR Road -> OMR -> Girls Hostel -> MSAJCE (8:00 AM)
+
+## AR 6: MMDA SCHOOL (V2) TO COLLEGE
+- Driver: Mr. B. Padmanaban (7358527720)
+- Route: MMDA School (6:10 AM) -> ICF -> Ayanavaram -> Purasawalkam -> Egmore -> Rathnacap -> Triplicane -> New College -> Tenampet -> Kotturpuram -> Madhyakilash -> SRP Tools (7:15 AM) -> Perungudi -> Karapakkam -> Girls Hostel -> MSAJCE (8:00 AM)
+
+## AR 7: CHUNAMBEDU TO COLLEGE
+- Driver: Mr. Suresh (9789895025)
+- Route: Chunambedu (5:25 AM) -> Kadapakkam -> Koovathur -> Kalpakkam -> Thirukazukundram -> Paiyanur -> Thirupporur -> Kelambakkam -> Padur -> MSAJCE (8:00 AM)
+
+## AR 9: ENNORE TO COLLEGE
+- Driver: Mr. Kanagaraj (9710209097)
+- Route: Ennore (6:15 AM) -> Mint -> Broadway -> Central -> Hospital -> Royapettah -> Mylapore -> Mandaveli -> Adyar -> Thiruvanmiyur -> Palavakkam -> Sholinganallur -> Girls Hostel -> MSAJCE (8:00 AM)
+
+## R 21 (Formerly AR 10): PORUR TO COLLEGE
+- Driver: Mr. Ravindran (9710939995)
+- Route: Porur (6:25 AM) -> Kovoor -> Kundrathur -> Pammal -> Pallavaram -> Meenambakkam -> Chrompet -> Tambaram (7:00 AM) -> Camp Road -> Selaiyur -> Medavakkam -> Sholinganallur -> MSAJCE (8:00 AM)
