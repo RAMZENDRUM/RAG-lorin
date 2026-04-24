@@ -89,6 +89,11 @@ bot.on('text', async (ctx) => {
 
     } catch (e: any) {
         console.error('Webhook Orchestration Error:', e);
+        try {
+            await ctx.reply(`⚠️ **System Diagnostics Error:**\n\`${e.message || String(e)}\``, { parse_mode: 'Markdown' });
+        } catch (fallbackErr) {
+            console.error('Diagnostic delivery failed', fallbackErr);
+        }
     }
 });
 
