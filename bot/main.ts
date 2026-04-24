@@ -60,24 +60,24 @@ bot.on('text', async (ctx) => {
         const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql);
 
         // --- STAGE 4.5: LLM Reranking (Cost Optimized) ---
-        const rerankedContext = await rerankResults(rewrittenQuery, chunks, openai);
+        const context = await rerankResults(rewrittenQuery, chunks, openai);
 
-        // --- STAGE 5: Agent Decisioning ---
-        const agentFlags = agentDecide(intent, rawText, rerankedContext, profile.last_seen.getTime(), GOOGLE_FORM_URL);
+        // Stage 5-6: Framing
+        const lastSeenTime = profile.last_seen instanceof Date 
+            ? profile.last_seen.getTime() 
+            : Date.now();
 
-        // --- STAGE 6: Context Building ---
-        const finalContext = buildContext(rerankedContext, shortTerm, profile);
-
-        // --- STAGE 7: Grounded Generation ---
+        const agentFlags = agentDecide(intent, rawText, context, lastSeenTime, GOOGLE_FORM_URL);
+        const finalContext = buildContext(context, shortTerm, profile);
+        
+        // Stage 7-8: Generating & Processing (Personality Layer Active)
         const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
-
-        // --- STAGE 8: Post-Processing ---
         const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks);
 
         // --- STAGE 9: Memory Update & Audit Logging ---
         const newInterest = extractInterest(rawText);
         const finalEngagement = (shortTerm.length / 2) + 1; // Approx turns
-        const isFailure = rerankedContext.includes('No data found');
+        const isFailure = context.includes('No data found');
         const isNegative = agentFlags.dominantIntent === 'complaint' || /bad|worst|scam|waste/i.test(rawText);
 
         const auditTrail = {

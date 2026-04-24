@@ -3,23 +3,16 @@ import { QdrantClient } from '@qdrant/js-client-rest';
 import type { ShortTermMemory, UserProfile } from './memory.js';
 
 // ─────────────────────────────────────────────
-// TYPES
+// TYPES & CONSTANTS
 // ─────────────────────────────────────────────
-export type Intent =
-    | 'admission'
-    | 'faculty'
-    | 'department'
-    | 'hostel'
-    | 'transport'
-    | 'fee'
-    | 'placement'
-    | 'complaint'
-    | 'general';
+export type Intent = 'admission' | 'faculty' | 'department' | 'hostel' | 'transport' | 'fee' | 'placement' | 'complaint' | 'general';
 
 export interface AgentFlags {
     showForm: boolean;
     askClarify: boolean;
     dominantIntent: Intent;
+    isMarketingMode: boolean;
+    isAbuseDetected: boolean;
 }
 
 export interface KnowledgeChunk {
@@ -27,6 +20,13 @@ export interface KnowledgeChunk {
     source: string;
     url?: string;
 }
+
+const ACKNOWLEDGMENTS = [
+    "I've got you covered—", "Okay, here's the lowdown on that:", "Good question! Let me check—",
+    "Sure thing! Here's what you need to know:", "Absolutely, let's look into that:", "I understand, here is the information:",
+    "Right on it! Here's the deal:", "That’s a great point! Specifically,", "Here’s the thing—", 
+    "I see what you're asking. Basically,", "Let me clear that up for you:", "Interesting! Generally speaking,"
+];
 
 // ─────────────────────────────────────────────
 // STAGE 1 — Intent Classifier
@@ -40,7 +40,7 @@ export function classifyIntent(text: string): Intent {
     if (/place|recruit|company|package|salary|job/.test(t)) return 'placement';
     if (/department|dept|cse|it|ece|eee|mech|civil|ai|cyber|csbs/.test(t)) return 'department';
     if (/faculty|staff|hod|professor|dr\.|mr\.|principal|gafoor|srinivasan|president|secretary|coordinator/.test(t)) return 'faculty';
-    if (/complaint|problem|issue|wrong|bad/.test(t)) return 'complaint';
+    if (/complaint|problem|issue|wrong|bad|waste|worst|other/.test(t)) return 'complaint';
     return 'general';
 }
 
@@ -56,7 +56,6 @@ export function rewriteQuery(
     const t = rawText.trim();
     const lower = t.toLowerCase();
 
-    // Pronoun Resolution
     const isPronounQuery = /^(him|her|he|she|they|more details|tell me more|yes|who is he|who is she|what abt him)/.test(lower)
         || (lower.includes('more') && t.split(' ').length < 5);
 
@@ -65,22 +64,18 @@ export function rewriteQuery(
         const entityMatch = lastAssistant.match(/Dr\.?\s+[A-Z][a-z]+|Mr\.?\s+[A-Z][a-z]+|Ms\.?\s+[A-Z][a-z]+/)?.[0]
             ?? lastAssistant.match(/Principal|Admin|HOD|Faculty|Yogesh|Weslin|President/i)?.[0]
             ?? '';
-        if (entityMatch) {
-            return `${entityMatch} MSAJCE details background role contact`;
-        }
+        if (entityMatch) return `${entityMatch} MSAJCE details background role contact`;
     }
 
-    if (t.split(' ').length > 6) return t;
-
     const templates: Record<Intent, string> = {
-        admission: `admission process eligibility requirements MSAJCE Chennai ${profile.interest ?? ''}`,
-        fee:       `fee structure tuition cost ${profile.interest ?? 'B.Tech'} MSAJCE Chennai`,
-        hostel:    `hostel facilities rooms accommodation fees MSAJCE Chennai`,
-        transport: `transport bus routes pickup drop MSAJCE Chennai`,
-        placement: `placement companies packages recruiters MSAJCE Chennai ${profile.interest ?? ''}`,
-        department: `departments engineering programs offered MSAJCE Chennai`,
-        faculty:   `${t} faculty staff leadership coordinator MSAJCE Chennai`,
-        complaint: `${t}`,
+        admission: `admission process eligibility requirements MSAJCE ${profile.interest ?? ''}`,
+        fee:       `fee structure tuition cost ${profile.interest ?? 'B.Tech'} MSAJCE`,
+        hostel:    `hostel facilities rooms accommodation fees MSAJCE`,
+        transport: `transport bus routes pickup drop Manjambakkam Velachery MSAJCE`,
+        placement: `placement companies recruiters packages MSAJCE`,
+        department: `departments engineering programs MSAJCE`,
+        faculty:   `${t} faculty leadership secretary MSAJCE`,
+        complaint: `${t} comparison value marketing`,
         general:   `${t} MSAJCE Mohamed Sathak Chennai`,
     };
 
@@ -108,7 +103,7 @@ export async function hybridRetrieve(
 
     const qResults = await qdrant.search('lorin_msajce_knowledge', {
         vector: embedding,
-        limit: 12,
+        limit: 15,
         with_payload: true,
     });
 
@@ -116,44 +111,21 @@ export async function hybridRetrieve(
         content: r.payload?.content as string || '',
         source: r.payload?.source as string || '',
         url: r.payload?.url as string || ''
-    })).filter(c => c.content);
+    }));
 
-    // Keyword hits
-    if (db && rawText.split(' ').length <= 6) {
-        const kResults = await db`
-            SELECT content, metadata FROM lorin_knowledge
-            WHERE content ILIKE ${'%' + rawText + '%'}
-            LIMIT 4
-        `;
-        
-        kResults.forEach((r: any) => {
-            const exists = chunks.some(c => c.content === r.content);
-            if (!exists) {
-                chunks.unshift({
-                    content: r.content,
-                    source: r.metadata.source,
-                    url: r.metadata.url
-                });
-            }
-        });
-    }
-
-    return chunks.length > 0 ? chunks : [{ content: 'No data found.', source: '' }];
+    return chunks;
 }
 
 // ─────────────────────────────────────────────
-// STAGE 4 — Reranker
+// STAGE 4 — Reranker (Now Optimized for Large Tables)
 // ─────────────────────────────────────────────
 export async function rerankResults(
     query: string,
     chunks: KnowledgeChunk[],
     openai: any
 ): Promise<string> {
-    if (chunks.length <= 4 || chunks[0].content === 'No data found.') {
-        return chunks.map(c => c.content).join('\n\n---\n\n');
-    }
-    // Simple top-6 cut for speed, context window is large enough for 1000-char chunks
-    return chunks.slice(0, 8).map(c => c.content).join('\n\n---\n\n');
+    const relevant = chunks.slice(0, 10).map(c => c.content).join('\n\n---\n\n');
+    return relevant || 'No high-confidence data found.';
 }
 
 // ─────────────────────────────────────────────
@@ -163,14 +135,19 @@ export function agentDecide(
     intent: Intent,
     rawText: string,
     context: string,
-    lastSeen: number,
+    lastSeen: any,
     googleFormUrl: string
 ): AgentFlags {
-    const isHighIntent = intent === 'admission' || /apply|join|enquiry|seat/.test(rawText.toLowerCase());
+    const t = rawText.toLowerCase();
+    const isAbuse = /fuck|shit|scam|idiot|bitch|bastard/.test(t);
+    const isMarketing = /waste|other|better|why choose|compare/.test(t) || intent === 'complaint';
+
     return {
-        showForm: isHighIntent,
-        askClarify: rawText.split(' ').length < 3 && !context,
-        dominantIntent: intent
+        showForm: intent === 'admission' || t.includes('apply'),
+        askClarify: t.split(' ').length < 3 && !context,
+        dominantIntent: intent,
+        isMarketingMode: isMarketing,
+        isAbuseDetected: isAbuse
     };
 }
 
@@ -182,14 +159,12 @@ export function buildContext(
     history: ShortTermMemory[],
     profile: UserProfile
 ): string {
-    const profileBlock = profile.interest ? `## User Interest\n- Student interested in: ${profile.interest}` : '';
-    const memoryBlock = history.length > 0 ? `## Past Conversation\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}` : '';
-    const dataBlock = `## Campus Knowledge\n${retrievedContext}`;
-    return [profileBlock, memoryBlock, dataBlock].filter(Boolean).join('\n\n');
+    const ack = ACKNOWLEDGMENTS[Math.floor(Math.random() * ACKNOWLEDGMENTS.length)];
+    return `[System: Acknowledge with: "${ack}"]\n\n## User Context\nInterest: ${profile.interest}\nHistory: ${history.slice(-3).map(h => `${h.role}: ${h.content}`).join(' | ')}\n\n## Knowledge\n${retrievedContext}`;
 }
 
 // ─────────────────────────────────────────────
-// STAGE 7 — Grounded LLM Generation
+// STAGE 7 — Grounded LLM Generation (The Personality Core)
 // ─────────────────────────────────────────────
 export async function generateGrounded(
     builtContext: string,
@@ -200,33 +175,37 @@ export async function generateGrounded(
 ): Promise<string> {
     const { text } = await generateText({
         model: openai('gpt-4o-mini'),
-        system: `You are Lorin, the smart AI Concierge for Mohamed Sathak A.J. College of Engineering (MSAJCE).
+        system: `You are Lorin, the smart, helpful, and natural AI Assistant for MSAJCE, Chennai.
+        
+CORE PERSONALITY (MANDATORY):
+- Be HUMAN. Acknowledge the user's intent naturally (e.g., "Got it—", "Okay, here's how that works—").
+- Use varied acknowledgments. NEVER stick to one phrase.
+- AVOID ROBOTIC BULLETS. Use natural paragraphs and flow. Only use bullets for complex lists.
+- STYLE: Match the user's tone. If they are casual, be warm. If they are direct, be efficient.
+- PRINCIPAL: Dr. K. S. Srinivasan. ADMIN: Mr. A. Abdul Gafoor.
+- DEVELOPER: Ramanathan S (Ram), B.Tech IT. Known for Zenify, Lorin, etc.
+- AVOID BOLDING (**). Use plain text or bullet dashes.
 
-IDENTITY & LEADERSHIP (Ground Truth):
-- Principal: Dr. K. S. Srinivasan
-- Administrative Officer: Mr. A. Abdul Gafoor
-- CSI President (Student): Yogesh R (IT Dept, 2022-2026 Batch)
-- CSI Counselor (Faculty): Dr. D. Weslin (Associate Professor, IT)
-- CSI Vice President: Saqlin Mustaq M (AI&DS)
-- Fine Arts President: Kishore. P (Mechanical)
-- Developer: Ramanathan S (B.Tech IT), known as "Ram".
+ABUSE & COOLDOWN:
+- If isAbuseDetected: Respond with controlled sarcasm: "Alright, I'll help—but let's keep it respectful." then ignore.
+- NEVER escalate. Be the mature professional.
 
-Rules:
-- NEVER use double asterisks (**) or markdown bolding.
-- Use Bullet points for details.
-- Be friendly but professional.
-- If you lack specific data, provide the source link using the format: [Official Page](Link)
-- LINK FALLBACK: If providing a link, derive it from the knowledge context provided.
+MARKETING MODE:
+- If isMarketingMode: Speak like a smart admission counselor. Highlight Siruseri IT Park, Placements, and Industry exposure.
+- NEVER insult competing colleges. Redirect doubt toward MSAJCE strengths.
 
-${agentFlags.askClarify ? 'Query is vague. Ask for clarification.' : ''}`,
-        prompt: builtContext + `\n\nUSER: ${rawText}`,
+KNOWLEDGE GROUNDING:
+- Answer ONLY from the "## Knowledge" section. 
+- If providing a link, use exactly: [Official Page](Link)
+- LINK RULE: ONLY provide a link if explicitly asked OR if you need to say "I don't have more details." Do NOT append links to every message.`,
+        prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
 
     return text.replace(/\*\*/g, '').replace(/\*/g, '');
 }
 
 // ─────────────────────────────────────────────
-// STAGE 8 — Post-Processor (Smart Link Injection)
+// STAGE 8 — Post-Processor (Precision Link Control)
 // ─────────────────────────────────────────────
 export function postProcess(
     answer: string,
@@ -236,37 +215,21 @@ export function postProcess(
 ): string {
     let finalAnswer = answer;
     
-    // 1. Resolve highly relevant source link
+    // Only inject link if the LLM actually used the [Official Page] placeholder
     if (retrievedChunks.length > 0) {
-        // Find the BEST chunk that actually contains the answer's key subject
         const bestChunk = retrievedChunks.find(c => {
-            const content = c.content.toLowerCase();
+            const low = c.content.toLowerCase();
             const ans = finalAnswer.toLowerCase();
-            return (ans.includes('yogesh') && content.includes('yogesh')) ||
-                   (ans.includes('srinivasan') && content.includes('srinivasan')) ||
-                   (ans.includes('bus') && content.includes('bus')) ||
-                   (ans.includes('hostel') && content.includes('hostel'));
+            return (ans.includes('yogesh') && low.includes('yogesh')) || (ans.includes('bus') && low.includes('bus'));
         }) || retrievedChunks[0];
 
-        const realLink = bestChunk.url;
-        
-        // Only inject link if the LLM mentions "Official Page", "Link", "Source",
-        // OR if the answer is very short and lacks details.
-        const needsLink = /official page|link|source|website/i.test(finalAnswer) || finalAnswer.length < 200;
-
-        if (realLink && needsLink && !finalAnswer.includes('http')) {
-            // Replace [Link] placeholder or append gracefully
-            if (finalAnswer.includes('[Official Page]')) {
-                finalAnswer = finalAnswer.replace('[Official Page]', `[Official Page](${realLink})`);
-            } else {
-                finalAnswer += `\n\n🔗 Source: ${realLink}`;
-            }
+        if (finalAnswer.includes('[Official Page]')) {
+            finalAnswer = finalAnswer.replace('[Official Page]', `[Official Page](${bestChunk.url})`);
         }
     }
 
-    // 2. Inject Admission Form (only if relevant)
     if (agentFlags.showForm && !finalAnswer.includes('forms.gle')) {
-        finalAnswer += `\n\n📝 Admission Enquiry: ${googleFormUrl}`;
+        finalAnswer += `\n\n📝 Enquiry: ${googleFormUrl}`;
     }
 
     return finalAnswer;

@@ -49,10 +49,14 @@ bot.on('text', async (ctx) => {
         const context = await rerankResults(rewrittenQuery, chunks, openai);
         
         // Stage 5-6: Framing
-        const agentFlags = agentDecide(intent, rawText, context, profile.last_seen.getTime(), GOOGLE_FORM_URL);
+        const lastSeenTime = profile.last_seen instanceof Date 
+            ? profile.last_seen.getTime() 
+            : Date.now();
+
+        const agentFlags = agentDecide(intent, rawText, context, lastSeenTime, GOOGLE_FORM_URL);
         const finalContext = buildContext(context, shortTerm, profile);
         
-        // Stage 7-8: Generating & Processing
+        // Stage 7-8: Generating & Processing (Personality Layer)
         const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
         const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks);
 
@@ -69,7 +73,6 @@ bot.on('text', async (ctx) => {
 
     } catch (e: any) {
         console.error('Webhook Orchestration Error:', e);
-        // Do not crash, just fail gracefully in Telegram
     }
 });
 
