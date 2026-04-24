@@ -21,6 +21,14 @@ export interface KnowledgeChunk {
     url?: string;
 }
 
+const HARD_LINK_MAP: Record<string, string> = {
+    "principal": "https://www.msajce-edu.in/principal.php",
+    "admin": "https://www.msajce-edu.in/administration.php",
+    "governing council": "https://www.msajce-edu.in/governingcouncil.php",
+    "transport": "https://www.msajce-edu.in/transport.php",
+    "placement": "https://www.msajce-edu.in/placement.php"
+};
+
 const ACKNOWLEDGMENTS = [
     "I've got you covered—", "Okay, here's the lowdown on that:", "Good question! Let me check—",
     "Sure thing! Here's what you need to know:", "Absolutely, let's look into that:", "I understand, here is the information:",
@@ -249,8 +257,8 @@ export function postProcess(
         finalAnswer = finalAnswer.replace(/🔗.*/g, "").trim();
     }
 
-    // Only show form if it's an ADMISSION or ADAPTIVE intent (not every message)
-    const isEnquiry = agentFlags.dominantIntent === 'admission' || agentFlags.dominantIntent === 'enquiry';
+    // Only show form if it's an ADMISSION intent
+    const isEnquiry = agentFlags.dominantIntent === 'admission';
     if (agentFlags.showForm && isEnquiry && !finalAnswer.includes('forms.gle')) {
         finalAnswer += `\n\n📝 Enquiry: ${googleFormUrl}`;
     }
