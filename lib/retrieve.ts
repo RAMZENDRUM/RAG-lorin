@@ -98,8 +98,12 @@ export async function performLorinRetrieval(
         }
 
         // 4. GENERATION WITH STATIC IDENTITY GROUNDING
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 6000); // 6s generation limit
+
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
+            abortSignal: controller.signal,
             system: `You are Lorin, the smart AI Concierge for MSAJCE. ✨
             
             IMMUTABLE IDENTITIES:
@@ -114,6 +118,7 @@ export async function performLorinRetrieval(
             prompt: `History:\n${JSON.stringify(history.slice(-3))}\n\nSearch context:\n${finalContext}\n\nUser Question: ${rawQuery}`
         });
 
+        clearTimeout(timeoutId);
         return { answer, score: finalScore, source: 'agentic-v3-resolved' };
 
     } catch (err: any) {
