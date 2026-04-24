@@ -1,1 +1,54 @@
-Technology Centre Home Technology Centre Technology Centre In pursuit of MSAJCE vision and mission to make the students deployable and equip them with the upcoming emerging industrial demands, various Technology Centres to educate, train and up-skill students in niche technologies established in the year 2019-2020. The courses and training are designed based on the recommendations of AICTE and India Skill Report 2020. The Technology Centers established with state of art facility, provide an ambient learning environment for research and innovation. Each centre is collaborated with industry / government organizations to provide certifications, onsite / offsite projects and internships. The list of industries include Automation Anywhere, Godrej Inc, Ford, Palo Alto systems, Amazon Web Services, National Instruments, CISCO Academy, Altair, Open wave computing, Levergent Technologies, Propeller Technologies etc. Technology / Skill Development Centre MECH and CIVIL ECE and EEE CSE and IT S.No Name of the Centre Details 1 Centre for 3d Printing and Additive Manufacturing View 2 Centre for CAE View 3 Centre for Industrial Robotics View 4 Centre for NDT- Non Destructive Testing View 5 Centre for Building Information Modelling View S.No Name of the Centre Details 1 Centre for Embedded & IOT View 2 Centre for UAV / Drone Technology View 3 Centre for Godrej Disha Skill Development Centre View 4 Centre for Bosch Industry Institute Collaboration View 5 Centre for E-Mobility View 6 Centre for Renewable Energy View 7 Centre for APJ Abdul Kalam Innovation Centre View S.No Name of the Centre Details 1 Centre for Bot Lab & Robotics Process Automation View 2 Centre for Cisco Networking Academy View 3 Centre for Code Tantra - Coding Learning Centre View 4 Centre for GAMING AND AR/VR View 5 Centre for Artificial Intelligence and Machine Learning Centre View 6 Centre for Block Chain Technology View 7 Centre for Mobile and Web Application Development View Technology Centre
+Technology Centre
+
+- Home
+- Technology Centre
+
+							 Technology Centre
+
+								In pursuit of MSAJCE vision and mission to make the students deployable and equip them with the 
+								upcoming emerging industrial demands, various Technology Centres to educate, train and up-skill students in niche 
+								technologies established in the year 2019-2020. The courses and training are designed based on the recommendations 
+								of AICTE and India Skill Report 2020. The Technology Centers established with state of art facility, provide an ambient 
+								learning environment for research and innovation. Each centre is collaborated with industry / government organizations 
+								to provide certifications, onsite / offsite projects and internships. The list of industries include Automation Anywhere, 
+								Godrej Inc, Ford, Palo Alto systems, Amazon Web Services, National Instruments, CISCO Academy, Altair, Open wave computing, 
+								Levergent Technologies, Propeller Technologies etc. 
+
+			Technology / Skill Development Centre
+
+- MECH and CIVIL
+- ECE and EEE
+- CSE and IT
+
+[TABLE START]
+| S.No | Name of the Centre | Details |
+| 1 | Centre for  3d Printing and Additive Manufacturing | View |
+| 2 | Centre for CAE | View |
+| 3 | Centre for Industrial Robotics | View |
+| 4 | Centre for NDT- Non Destructive Testing | View |
+| 5 | Centre for Building Information Modelling | View |
+[TABLE END]
+
+[TABLE START]
+| S.No | Name of the Centre | Details |
+| 1 | Centre for Embedded & IOT | View |
+| 2 | Centre for UAV / Drone Technology | View |
+| 3 | Centre for Godrej Disha Skill Development Centre | View |
+| 4 | Centre for Bosch Industry Institute Collaboration | View |
+| 5 | Centre for E-Mobility | View |
+| 6 | Centre for Renewable Energy | View |
+| 7 | Centre for APJ Abdul Kalam Innovation Centre | View |
+[TABLE END]
+
+[TABLE START]
+| S.No | Name of the Centre | Details |
+| 1 | Centre for Bot Lab & Robotics Process Automation | View |
+| 2 | Centre for Cisco Networking Academy | View |
+| 3 | Centre for Code Tantra - Coding Learning Centre | View |
+| 4 | Centre for GAMING AND AR/VR | View |
+| 5 | Centre for Artificial Intelligence and Machine Learning Centre | View |
+| 6 | Centre for Block Chain Technology | View |
+| 7 | Centre for Mobile and Web Application Development | View |
+[TABLE END]
+
+							Technology Centre

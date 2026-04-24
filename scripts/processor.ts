@@ -1,61 +1,54 @@
 import fs from 'fs';
 import path from 'path';
-import dotenv from 'dotenv';
-import { generateText } from 'ai';
-import { createOpenAI } from '@ai-sdk/openai';
 import crypto from 'crypto';
+import { generateText } from 'ai';
+import { openai } from '@ai-sdk/openai';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
-const VERCEL_KEY = process.env.VERCEL_AI_KEY || '';
-const openai = createOpenAI({ 
-    apiKey: VERCEL_KEY,
-    baseURL: 'https://ai-gateway.vercel.sh/v1'
-});
-const model = openai('gpt-4o-mini');
+const RAW_DIR = path.join(process.cwd(), 'data', 'raw');
+const PROCESSED_DIR = path.join(process.cwd(), 'data', 'processed');
+const CHUNK_SIZE = 1000;
+const OVERLAP = 200;
 
-// --- HIGH-QUALITY REFINER (Skill: Semantic Enrichment) ---
-async function refineContent(rawText: string, filename: string) {
+async function refineContent(rawText: string, filename: string): Promise<string> {
     console.log(`🚀 Deep Refining: ${filename}...`);
-    
     const { text } = await generateText({
-        model,
-        system: `You are an Elite Data Engineer for a University RAG system.
-        
-        GOAL: Transform raw web-scraped content into high-fidelity "RAG-ready" blocks.
+        model: openai('gpt-4o-mini'),
+        system: `You are an AI data refiner for the Mohamed Sathak A.J. College of Engineering (MSAJCE) RAG system.
         
         INSTRUCTIONS:
         1. CONTEXTUAL HEADERS: Prepend a summary header to the text if the file is about a specific person or department.
         2. DATA RECONSTRUCTION: Convert all tables and list-based contact details into descriptive sentences. 
            - Bad: "Name: Ram | Dept: IT"
            - Good: "Ramanathan S (Ram) is a student in the IT department at MSAJCE."
-        3. DENSITY: Preserve all phone numbers and emails EXACTLY.
+        3. DENSITY: Preserve all phone numbers, emails, and SPECIFIC DETAILS in brackets (e.g. "English, German & Japan") exactly. These are not general communication skills; they are specific offerings.
         4. CLEANING: Strip out navigation menus, footers, and redundant web boilerplate.
-        5. TONE: Professional, objective, and informative.`,
-        prompt: `FILENAME: ${filename}\n\nRAW CONTENT:\n${rawText.substring(0, 10000)}`
+        5. TONE: Professional, objective, and informative.
+        6. KEY POINTS: Ensure marketing claims (like "100+ leading IT Industries") are preserved as high-priority bullet points.`,
+        prompt: `FILENAME: ${filename}\n\nRAW CONTENT:\n${rawText.substring(0, 15000)}`
     });
     
     return text;
 }
 
-// --- RECURSIVE CHUNKER (Skill: Overlap & Context) ---
-function createHighQualityChunks(text: string, filename: string, category: string) {
-    const CHUNK_SIZE = 600;
-    const OVERLAP = 100;
+function createHighQualityChunks(text: string, source: string, category: string) {
     const chunks = [];
-    
-    // Prefix for every chunk to preserve "Subject Knowledge"
-    const prefix = `[Entity: MSAJCE | Category: ${category} | Source: ${filename}] `;
+    const prefix = `[Topic: ${category} | Origin: ${source}]\n`;
     
     let start = 0;
     while (start < text.length) {
         let end = start + CHUNK_SIZE;
         let chunk = text.substring(start, end);
         
-        // Enrich and Store
         chunks.push({
             content: prefix + chunk.trim(),
-            length: chunk.length
+            metadata: {
+                source,
+                category,
+                timestamp: new Date().toISOString()
+            }
         });
         
         start += (CHUNK_SIZE - OVERLAP);
@@ -65,25 +58,18 @@ function createHighQualityChunks(text: string, filename: string, category: strin
 }
 
 async function main() {
-    const rawDir = path.join(process.cwd(), 'data', 'raw');
-    const processedDir = path.join(process.cwd(), 'data', 'processed');
-    const unifiedPath = path.join(process.cwd(), 'data', 'unified_cleaned_data.json');
+    if (!fs.existsSync(PROCESSED_DIR)) fs.mkdirSync(PROCESSED_DIR, { recursive: true });
     
-    if (!fs.existsSync(processedDir)) fs.mkdirSync(processedDir, { recursive: true });
-    
-    const files = fs.readdirSync(rawDir).filter(f => f.endsWith('.txt'));
+    const files = fs.readdirSync(RAW_DIR).filter(f => f.endsWith('.txt'));
     const allChunks = [];
 
     for (const file of files) {
-        const filePath = path.join(rawDir, file);
-        const processedPath = path.join(processedDir, `${file.replace('.txt', '')}.hq.txt`);
+        const filePath = path.join(RAW_DIR, file);
+        const processedPath = path.join(PROCESSED_DIR, `${file.replace('.txt', '')}.hq.txt`);
         const rawContent = fs.readFileSync(filePath, 'utf-8');
         
-        let hqContent = '';
-        
-        // Always Deep-Refine to ensure high-fidelity context (Ignore cache for now for total quality)
         console.log(`Processing ${file}...`);
-        hqContent = await refineContent(rawContent, file);
+        const hqContent = await refineContent(rawContent, file);
         fs.writeFileSync(processedPath, hqContent);
 
         const category = file.replace('.txt', '').replace(/[\-_]/g, ' ');
@@ -92,22 +78,18 @@ async function main() {
         for (const chunk of chunks) {
             const hash = crypto.createHash('md5').update(chunk.content).digest('hex');
             allChunks.push({
-                index: allChunks.length,
-                content: chunk.content,
-                metadata: {
-                    id: hash,
-                    source: file,
-                    category: category,
-                    timestamp: new Date().toISOString()
-                }
+                ...chunk,
+                metadata: { ...chunk.metadata, id: hash }
             });
         }
+
+        // Safety delay for Vercel AI Free Tier (gpt-4o-mini limits)
+        await new Promise(resolve => setTimeout(resolve, 3000));
     }
     
+    const unifiedPath = path.join(process.cwd(), 'data', 'unified_cleaned_data.json');
     fs.writeFileSync(unifiedPath, JSON.stringify(allChunks, null, 2));
     console.log(`\n✅ HIGH-QUALITY PROCESSING COMPLETE!`);
-    console.log(`Generated ${allChunks.length} HQ chunks with Context Overlap.`);
-    console.log(`Saved to: ${unifiedPath}`);
 }
 
 main().catch(console.error);

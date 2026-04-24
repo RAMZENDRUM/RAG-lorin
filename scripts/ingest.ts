@@ -17,73 +17,116 @@ const qdrant = new QdrantClient({
 
 const sql = postgres(process.env.DATABASE_URL || '', { ssl: 'require' });
 
-function getOpenAI() {
-    const key = process.env.VERCEL_AI_KEY || process.env.OPENAI_API_KEY;
-    const isVercelGateway = key?.startsWith('vck_');
-    return createOpenAI({ 
-        apiKey: key,
-        baseURL: isVercelGateway ? 'https://ai-gateway.vercel.sh/v1' : undefined
-    });
+// Create 4 Clients for Batch Rotation
+const keys = [
+    process.env.VERCEL_AI_KEY,
+    process.env.VERCEL_AI_KEY_2,
+    process.env.VERCEL_AI_KEY_3,
+    process.env.VERCEL_AI_KEY_4
+].filter(Boolean) as string[];
+
+const clients = keys.map(key => createOpenAI({
+    apiKey: key,
+    baseURL: 'https://ai-gateway.vercel.sh/v1'
+}));
+
+async function isAlreadyIngested(hash: string) {
+    try {
+        const result = await sql`
+            SELECT 1 FROM lorin_knowledge 
+            WHERE metadata->>'id' = ${hash}
+            LIMIT 1;
+        `;
+        return result.length > 0;
+    } catch (e) {
+        return false;
+    }
+}
+
+async function processChunk(chunk: any, index: number, clientIndex: number) {
+    const client = clients[clientIndex % clients.length];
+    
+    try {
+        const { embedding } = await embed({ 
+            model: client.embedding('text-embedding-3-small'), 
+            value: chunk.content 
+        });
+
+        // 1. PUSH TO QDRANT
+        await qdrant.upsert(COLLECTION_NAME, {
+            points: [{
+                id: index, // Using index as numeric ID for Qdrant
+                vector: embedding,
+                payload: { content: chunk.content, ...chunk.metadata }
+            }]
+        });
+
+        // 2. PUSH TO SUPABASE
+        await sql`
+            INSERT INTO lorin_knowledge (content, metadata, embedding)
+            VALUES (${chunk.content}, ${chunk.metadata}, ${`[${embedding.join(',')}]` })
+            ON CONFLICT (content) DO NOTHING;
+        `;
+        
+        return true;
+    } catch (e: any) {
+        console.error(`❌ Error in chunk ${index} (Key ${clientIndex+1}): ${e.message}`);
+        return false;
+    }
 }
 
 async function ingest() {
-    console.log('🚀 Starting DUAL Ingestion (Qdrant Main + Supabase Secondary)...');
+    const unifiedPath = path.join(process.cwd(), 'data', 'unified_cleaned_data.json');
+    const allChunks = JSON.parse(fs.readFileSync(unifiedPath, 'utf-8'));
     
-    const dataPath = path.join(process.cwd(), 'data', 'unified_cleaned_data.json');
-    const chunks = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
-    const openai = getOpenAI();
+    console.log('🔍 Checking for already ingested content...');
+    
+    // Fetch all existing hashes to avoid O(N) queries later
+    const existingRows = await sql`SELECT metadata->>'id' as id FROM lorin_knowledge`;
+    const existingHashes = new Set(existingRows.map(r => r.id));
+    
+    const chunksToProcess = allChunks.filter((c: any) => !existingHashes.has(c.metadata.id));
+    
+    if (chunksToProcess.length === 0) {
+        console.log('✨ All chunks already ingested. Nothing to do!');
+        process.exit(0);
+    }
 
-    for (let i = 0; i < chunks.length; i++) {
-        const chunk = chunks[i];
-        console.log(`Processing Chunk ${i + 1}/${chunks.length}... [Source: ${chunk.metadata.source}]`);
+    console.log(`🚀 Starting QUAD-KEY SMART Ingestion (${chunksToProcess.length}/${allChunks.length} chunks remaining)...`);
+    
+    const BATCH_SIZE = 40; 
+    
+    for (let i = 0; i < chunksToProcess.length; i += BATCH_SIZE) {
+        const batch = chunksToProcess.slice(i, i + BATCH_SIZE);
+        console.log(`\n📦 Batch ${Math.floor(i/BATCH_SIZE) + 1}: Processing ${batch.length} chunks...`);
 
-        let retryCount = 0;
-        let success = false;
-
-        while (retryCount < 3 && !success) {
-            try {
-                const { embedding } = await embed({ 
-                    model: openai.embedding('text-embedding-3-small'), 
-                    value: chunk.content 
-                });
-
-                // 1. PUSH TO QDRANT (Primary)
-                await qdrant.upsert(COLLECTION_NAME, {
-                    points: [{
-                        id: i,
-                        vector: embedding,
-                        payload: { content: chunk.content, ...chunk.metadata }
-                    }]
-                });
-
-                // 2. PUSH TO SUPABASE (Secondary)
-                await sql`
-                    INSERT INTO lorin_knowledge (content, metadata, embedding)
-                    VALUES (${chunk.content}, ${chunk.metadata}, ${`[${embedding.join(',')}]` })
-                    ON CONFLICT DO NOTHING;
-                `;
-
-                success = true;
-                // SAFE 5s delay for Vercel AI Free Tier
-                await new Promise(resolve => setTimeout(resolve, 5000));
-
-            } catch (e: any) {
-                retryCount++;
-                console.error(`⚠️ Attempt ${retryCount} failed for chunk ${i}:`, e.message);
-                if (retryCount < 3) {
-                    console.log(`Retrying in 5s...`);
-                    await new Promise(resolve => setTimeout(resolve, 5000));
-                }
-            }
+        let successCount = 0;
+        
+        // Execute sequentially within batch with rotation
+        for (let j = 0; j < batch.length; j++) {
+            const chunk = batch[j];
+            const clientIdx = j % clients.length;
+            
+            // Log rotation
+            process.stdout.write(`[Key ${clientIdx + 1}] `);
+            
+            const success = await processChunk(chunk, chunk.index, clientIdx);
+            if (success) successCount++;
+            
+            // Minimal gap to prevent IP spikes
+            await new Promise(resolve => setTimeout(resolve, 300));
         }
 
-        if (!success) {
-            console.error(`❌ PERMANENT FAILURE for chunk ${i}. Moving to next.`);
+        console.log(`\n✅ Batch Complete: ${successCount}/${batch.length} saved.`);
+
+        if (i + BATCH_SIZE < chunksToProcess.length) {
+            console.log(`🕒 Cooldown: Waiting 50 seconds before next batch...`);
+            await new Promise(resolve => setTimeout(resolve, 50000));
         }
     }
 
-    console.log('✅ DUAL INGESTION COMPLETE! Lorin is now synched across Qdrant and Supabase.');
+    console.log('\n🌟 SMART INGESTION COMPLETE!');
     process.exit(0);
 }
 
-ingest();
+ingest().catch(console.error);
