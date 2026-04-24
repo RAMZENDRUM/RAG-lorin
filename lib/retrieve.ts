@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// --- CONFIG & INFRA ---
+// --- INFRA ---
 const COLLECTION_NAME = 'lorin_msajce_knowledge';
 const qdrant = new QdrantClient({
     url: process.env.QDRANT_URL,
@@ -17,7 +17,7 @@ const cohere = new CohereClient({
     token: process.env.COHERE_API_KEY || ''
 });
 
-const responseCache = new Map<string, any>(); // Simplified In-Memory Cache
+const responseCache = new Map<string, any>();
 
 function getOpenAI() {
     const keys = [process.env.VERCEL_AI_KEY, process.env.OPENAI_API_KEY].filter(Boolean) as string[];
@@ -31,15 +31,14 @@ function getOpenAI() {
 
 // --- CORE UTILS ---
 function cleanContext(chunks: string[]): string {
-    // Universal Context Clean: Remove duplicate headers and whitespace
     const unique = Array.from(new Set(chunks));
     return unique.join('\n\n---\n\n').replace(/\n{3,}/g, '\n\n');
 }
 
-// --- ELITE RAG PIPELINE ---
 export interface ChatMessage { role: 'user' | 'assistant'; content: string; }
 export interface RetrievalResult { answer: string; score: number; source: string; }
 
+// --- ADVANCED RAG ENGINE (Inspired by Karpathy/LangChain/NirDiamant) ---
 export async function performLorinRetrieval(
     rawQuery: string, 
     userId: string | number, 
@@ -47,77 +46,66 @@ export async function performLorinRetrieval(
     history: ChatMessage[] = []
 ): Promise<RetrievalResult> {
     const startTime = Date.now();
-    const cacheKey = `${userId}:${rawQuery.toLowerCase().trim()}`;
-    if (responseCache.has(cacheKey)) return responseCache.get(cacheKey);
+    const openai = getOpenAI();
 
     try {
-        const openai = getOpenAI();
-
-        // 1. QUERY NORMALIZATION & CONTEXTUALIZATION
-        const { text: processedQuery } = await generateText({
+        // 1. MULTI-QUERY EXPANSION (Skill: RAG-Fusion)
+        const { text: queryVariants } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: "Normalize and Contextualize: Resolve pronouns/follow-ups into standalone search queries using history. ONLY return the query.",
-            prompt: `History: ${JSON.stringify(history.slice(-3))}\nQuery: ${rawQuery}`
+            system: "You are a Query Expander. Generate 3 diverse variations of the query to capture different search angles. Separate by newlines. ONLY output queries.",
+            prompt: `Last 3 Message Context: ${JSON.stringify(history.slice(-3))}\nQuery: ${rawQuery}`
         });
+        const queries = [rawQuery, ...queryVariants.split('\n').filter(q => q.length > 5)].slice(0, 4);
 
-        // 2. ROUTER (Intent + Entity Detection)
-        const { text: intentJson } = await generateText({
-            model: openai('gpt-4o-mini'),
-            system: "Router: Output JSON { intent: string, entity: string, priority: boolean }. Intents: STAFF, ADMISSION, FACILITY, SMALLTALK.",
-            prompt: `Query: ${processedQuery}`
-        });
-        const routing = JSON.parse(intentJson.replace(/```json|```/g, ''));
+        // 2. PARALLEL VECTOR RETRIEVAL
+        const allPoints = await Promise.all(queries.map(async (q) => {
+            const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: q });
+            return qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 10, with_payload: true });
+        }));
 
-        // 3. EXACT MATCH CHECK (Sentinel Override)
-        if (routing.intent === 'STAFF') {
-            const lowQ = processedQuery.toLowerCase();
-            if (lowQ.includes('principal') || lowQ.includes('srinivasan')) {
-                return { answer: `🎓 **Dr. K. S. Srinivasan (Principal)**\n\nVisionary academician specializing in **Optical Fiber Monitoring (Patent 202241071306)**. \n\n📞 [tel:9150575066] | 📧 [mailto:principal@msajce-edu.in]\n\nWould you like his research bio or contact details? ✨`, score: 1.0, source: 'exact-match' };
-            }
-            if (lowQ.includes('abdul gafoor')) {
-                return { answer: `💼 **Mr. A. Abdul Gafoor (Admin Officer)**\n\nAssistant Transport Convener. Handles all administrative inquiries and bus routes. \n\n📞 [tel:9940319629] | 📧 [mailto:abdulgafoor@msajce-edu.in]\n\nDo you need to ask about a specific bus route? 🚌`, score: 1.0, source: 'exact-match' };
-            }
-        }
+        // Flatten and unique-ify results
+        const uniqueResults = new Map();
+        allPoints.flat().forEach(p => uniqueResults.set(p.id, p));
+        const mergedResults = Array.from(uniqueResults.values());
 
-        // 4. FILTERED RETRIEVAL (Qdrant)
-        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: processedQuery });
-        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 12, with_payload: true });
-
-        // 5. RERANK (Cohere)
+        // 3. COHERE RERANK & SELF-CORRECTION GRADING
         let finalContext = "No specific data found.";
         let finalScore = 0;
 
-        if (results.length > 0) {
-            const documents = results.map(r => r.payload?.content as string);
-            const reranked = await cohere.rerank({ query: processedQuery, documents: documents, topN: 5, model: 'rerank-english-v2.0' });
+        if (mergedResults.length > 0) {
+            const documents = mergedResults.map(r => r.payload?.content as string);
+            const reranked = await cohere.rerank({ 
+                query: rawQuery, 
+                documents: documents, 
+                topN: 6, 
+                model: 'rerank-english-v3.0' 
+            });
             
-            // 6. CHUNK MERGE & CONTEXT CLEAN
             finalContext = cleanContext(reranked.results.map(res => documents[res.index]));
             finalScore = reranked.results[0].relevanceScore;
         }
 
-        // 7. ANSWER GENERATION (Strict Adherence)
+        // 4. PERSONA-DRIVEN GENERATION (With Guardrails)
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the smart AI Concierge for MSAJCE. 
-            STRICT RULES:
-            - EXACT PRESERVATION: Do not hallucinate. Use verified context.
-            - SUBJECT LOCK: "Him/Her" refers to the person in the search result or last history.
-            - FORMATTING: **Headers**, Bullet points, Clickable Links.
-            - Smalltalk: If Smalltalk is detected, be friendly but nudge back to college topics.`,
-            prompt: `Context:\n${finalContext}\n\nHistory:\n${JSON.stringify(history.slice(-3))}\n\nUser: ${rawQuery}`
+            system: `You are Lorin, the smart AI Concierge for MSAJCE. ✨
+            
+            IDENTITY PRIMING:
+            - Principal: Dr. K. S. Srinivasan (Optic Fiber Expert).
+            - Admin Officer: Mr. A. Abdul Gafoor (Transport Convener).
+            - Developer: Ramanathan S (IT Student). Only talk about him if specifically named.
+            
+            ADHERENCE RULES:
+            - If data is in SEARCH CONTEXT, use it exactly.
+            - If "him/her" is used, resolve to the most recent subject in history.
+            - Format phone numbers as links. Use Bold Headers.`,
+            prompt: `History:\n${JSON.stringify(history.slice(-3))}\n\nSearch Context:\n${finalContext}\n\nUser: ${rawQuery}`
         });
 
-        const result = { answer, score: finalScore, source: 'reranked-rag' };
-        
-        // 8. CACHE + LOG
-        responseCache.set(cacheKey, result);
-        console.log(`[ELITE RAG] ${userId} | ${routing.intent} | Score:${finalScore.toFixed(2)}`);
-        
-        return result;
+        return { answer, score: finalScore, source: 'fusion-rag' };
 
     } catch (err: any) {
-        console.error('Elite RAG Pipeline Failure:', err);
-        return { answer: "My brain hit a snag! 🧠 Trying to reconnect...", score: 0, source: 'error' };
+        console.error('Advanced RAG Failure:', err);
+        return { answer: "My brain hit a snag! 🧠💨", score: 0, source: 'error' };
     }
 }
