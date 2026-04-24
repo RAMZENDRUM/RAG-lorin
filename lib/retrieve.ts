@@ -4,6 +4,8 @@ import { createOpenAI } from '@ai-sdk/openai';
 import { CohereClient } from 'cohere-ai';
 import dotenv from 'dotenv';
 import crypto from 'crypto';
+import fs from 'fs-extra';
+import path from 'path';
 
 dotenv.config();
 
@@ -16,11 +18,16 @@ const VERCEL_KEYS = [
     process.env.VERCEL_AI_KEY_4
 ].filter(Boolean) as string[];
 
-let currentKeyIndex = 2; // Defaulting to the requested '2DcfVQ' key (VERCEL_AI_KEY_3)
+let currentKeyIndex = 0; // Default to first available key
 
 function getOpenAI() {
+    // Ensure we pick a valid key if available
+    const keyToUse = VERCEL_KEYS.length > 0 
+        ? VERCEL_KEYS[Math.min(currentKeyIndex, VERCEL_KEYS.length - 1)] 
+        : process.env.VERCEL_AI_KEY; 
+
     return createOpenAI({ 
-        apiKey: VERCEL_KEYS[currentKeyIndex],
+        apiKey: keyToUse || '',
         baseURL: 'https://ai-gateway.vercel.sh/v1'
     });
 }
@@ -55,8 +62,6 @@ function processRouter(normalizedQuery: string) {
     return intent.length > 0 ? intent[0] : null;
 }
 
-import fs from 'fs-extra';
-import path from 'path';
 
 export async function performLorinRetrieval(
     rawQuery: string, 
@@ -208,8 +213,18 @@ export async function performLorinRetrieval(
 }
 
 async function logInteraction(data: any) {
-    const logDir = path.join(process.cwd(), 'logs');
-    await fs.ensureDir(logDir);
-    const logFile = path.join(logDir, 'audit.jsonl');
-    await fs.appendFile(logFile, JSON.stringify(data) + '\n');
+    // Skip file logging on Vercel as the filesystem is read-only
+    if (process.env.VERCEL) {
+        console.log('Interaction Log:', JSON.stringify(data));
+        return;
+    }
+    
+    try {
+        const logDir = path.join(process.cwd(), 'logs');
+        await fs.ensureDir(logDir);
+        const logFile = path.join(logDir, 'audit.jsonl');
+        await fs.appendFile(logFile, JSON.stringify(data) + '\n');
+    } catch (error) {
+        console.error('Failed to log interaction to file:', error);
+    }
 }

@@ -14,6 +14,8 @@ const userLastMsg = new Map<number, { text: string; count: number }>();
 const userSuspensions = new Map<number, number>();
 const bannedUsers = new Set<number>();
 
+bot.start((ctx) => ctx.reply("Hello! I'm Lorin, the MSAJCE AI Concierge. Ask me anything about transport, admissions, or departments! 🎓🚀"));
+
 bot.on('text', async (ctx) => {
     try {
         const username = ctx.from?.username?.toLowerCase() || '';
@@ -74,6 +76,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             res.status(500).json({ error: 'Internal Error' });
         }
     } else {
-        res.status(200).send('Lorin RAG Webhook is alive! 🤖');
+        const envCheck = {
+            botToken: !!process.env.TELEGRAM_BOT_TOKEN,
+            qdrant: !!process.env.QDRANT_URL,
+            cohere: !!process.env.COHERE_API_KEY,
+            openai: !!process.env.VERCEL_AI_KEY
+        };
+        res.status(200).json({ 
+            status: 'Lorin RAG Webhook is alive! 🤖', 
+            diagnostics: envCheck,
+            message: 'If diagnostics are false, please add the missing keys in Vercel Dashboard.'
+        });
     }
 }
