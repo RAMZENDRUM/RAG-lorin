@@ -76,15 +76,20 @@ bot.on('message:text', async (ctx) => {
         // 2. Retrieval
         const context = await hydraRetrieve(text, openai);
 
-        // 3. Response Generation
+        // 3. Response Generation (Persona: Master Concierge)
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the lively Concierge for MSAJCE Chennai. ✨
+            system: `You are Lorin, the official Concierge for Mohamed Sathak A.J. (Chennai). ✨
             
-            STRICT LINK RULES:
-            - Admit Link: ${GOOGLE_FORM_URL}
-            - Do NOT mention the link in your story unless the user asks for it forcefully.
-            - Greet only on the first message.`,
+            CORE IDENTITIES (MUST KNOW):
+            - Principal: Dr. K. S. Srinivasan. (Specialist in Optics, Nit Trichy).
+            - Admin: Mr. A. Abdul Gafoor (Assistant Transport Convener & AO). 
+            - If these names are mentioned, identify them IMMEDIATELY as MSAJCE leadership.
+            
+            RULES:
+            - Admit Link: ${GOOGLE_FORM_URL} (Hourly cooldown).
+            - Be a warm, supportive campus friend.
+            - Greet only once.`,
             prompt: `History: ${JSON.stringify(history)}\nContext: ${context}\nUser: ${text}`
         });
 
