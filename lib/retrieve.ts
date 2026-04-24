@@ -1,4 +1,3 @@
-import crypto from 'crypto';
 import { generateText, embed } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
 import { QdrantClient } from '@qdrant/js-client-rest';
@@ -31,8 +30,7 @@ function getOpenAI() {
         process.env.OPENAI_API_KEY
     ].filter(Boolean) as string[];
     
-    if (keys.length === 0) throw new Error('No API Keys found (OpenAI or Vercel Gateway)!');
-    
+    if (keys.length === 0) throw new Error('No API Keys found!');
     const key = keys[Math.floor(Math.random() * keys.length)];
     const isVercelGateway = key.startsWith('vck_');
     
@@ -42,7 +40,6 @@ function getOpenAI() {
     });
 }
 
-// --- CORE PIPELINE ---
 export interface ChatMessage {
     role: 'user' | 'assistant';
     content: string;
@@ -54,6 +51,7 @@ export interface RetrievalResult {
     source: string;
 }
 
+// --- UNIVERSAL RAG ENGINE ---
 export async function performLorinRetrieval(
     rawQuery: string, 
     userId: string | number, 
@@ -61,134 +59,97 @@ export async function performLorinRetrieval(
     history: ChatMessage[] = []
 ): Promise<RetrievalResult> {
     const startTime = Date.now();
-    let tokensUsed = 0;
-    let finalAnswer = "I'm having a little trouble connecting to my brain right now! 🧠💨 Could you ask me again in a second?";
+    let finalAnswer = "I'm having a little trouble connecting to my brain! 🧠💨";
     let topScore = 0;
-    let contextualizedQuery = normalizeQuery(rawQuery);
-
+    
     try {
         const openai = getOpenAI();
 
-        // 1. Contextualize Query (Convert "yes", "more", "him" into specific subjects)
+        // 1. RECURSIVE CONTEXTUALIZATION (Universal Subject Locking)
+        let processedQuery = normalizeQuery(rawQuery);
         if (history.length > 0) {
-            try {
-                const { text } = await generateText({
-                    model: openai('gpt-4o-mini'),
-                    system: `You are a Search Contextualizer. 
-                    IDENTITY RULES:
-                    - "Principal" or "Srinivasan" = Dr. K. S. Srinivasan (The Boss).
-                    - "Developer", "Ram", or "Ramanathan" = The AI engine developer.
-                    - "Him" or "He" MUST resolve to the person most recently discussed in history.
-                    If the user says 'yes' or 'more', rewrite to ask for specific background or research based on the last topic.`,
-                    prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nLatest Message: ${rawQuery}`
-                });
-                contextualizedQuery = text.trim();
-            } catch (e) {
-                console.error('Rewriting failed');
-            }
-        }
-
-        // 2. Identify Intent & Sentinels
-        const lowerQuery = contextualizedQuery.toLowerCase();
-        const rawLower = rawQuery.toLowerCase();
-        const lastMsg = history[history.length - 1]?.content.toLowerCase() || '';
-        
-        // HARD SENTINEL: Principal Contact Info
-        if ((rawLower.includes('principal') || rawLower.includes('srinivasan')) && !rawLower.includes('research') && !rawLower.includes('initiative') && !rawLower.includes('more')) {
-            return { 
-                answer: `🎓 **Meet Our Principal**\n\n**Dr. K. S. Srinivasan** is the visionary leader of MSAJCE!\n\n📞 **Contact Details:**\n• **Phone:** [+91 91505 75066](tel:+919150575066)\n• **Email:** [principal@msajce-edu.in](mailto:principal@msajce-edu.in)\n\n---\nWould you like to know about his **research background** or **current initiatives**? ✨`, 
-                score: 1.0, 
-                source: 'sentinel' 
-            };
-        }
-
-        // HARD SENTINEL: Abdul Gafoor (Administrative Officer)
-        if (rawLower.includes('abdul gafoor') || (rawLower.includes('admin') && rawLower.includes('officer'))) {
-            return {
-                answer: `💼 **Administrative Office**\n\n**Mr. A. Abdul Gafoor** is the **Administrative Officer** (AO) and the **Assistant Transport Convener** at MSAJCE. He is your main point of contact for administrative inquiries and bus routes!\n\n📞 **Contact Details:**\n• **Phone:** [+91 99403 19629](tel:+919940319629)\n• **Email:** [abdulgafoor@msajce-edu.in](mailto:abdulgafoor@msajce-edu.in)\n\n---\nDo you have questions about a specific **bus route** or **administrative paperwork**? 🚌`,
-                score: 1.0,
-                source: 'sentinel'
-            };
-        }
-
-        // HARD SENTINEL: Research/Bio/Bus Routes confirmation
-        const isConfirmation = /^(yes|yeah|yep|sure|ok|tell me more|more|show me|initiatives|research|bus|route)/i.test(rawLower);
-        
-        if (isConfirmation) {
-            // Case 1: Following up on Principal
-            if (lastMsg.includes('principal') || lastMsg.includes('srinivasan')) {
-                return {
-                    answer: `🔬 **Dr. K. S. Srinivasan's Expertise**\n\nOur Principal is a highly respected academic with connections across **IIT Madras**, **NIT Trichy**, and **TNSCST**. \n\n**Key Initiatives:**\n• **Innovation:** Established key metrics to monitor student entrepreneurship.\n• **Research:** Oversees all institutional research committees and student welfare projects.\n• **Vision:** Focuses on fostering self-employment and modern engineering practices.\n\nIs there a specific research area or student project you'd like to dive into? 🚀`,
-                    score: 1.0,
-                    source: 'sentinel'
-                };
-            }
-            // Case 2: Following up on Admin/Transport
-            if (lastMsg.includes('abdul gafoor') || lastMsg.includes('transport') || lastMsg.includes('bus')) {
-                return {
-                    answer: `🚌 **MSAJCE Transport Services**\n\nWe have a fleet of **22 buses** covering Chennai, Chengalpattu, Kanchipuram, and Thiruvallur!\n\n**Key Info:**\n• **Fleet:** 22 Buses, 1 Tata ACE, and 1 Ambulance.\n• **Committe:** Led by Dr. K.P. Santhosh Nathan (Convener) and Mr. A. Abdul Gafoor (Asst. Convener).\n• **Routes:** Covers all major transit points like Chennai Central, Tambaram, and CMDA station.\n\nWould you like the **specific route timings** (AR3-AR10) for your area? 📍`,
-                    score: 1.0,
-                    source: 'sentinel'
-                };
-            }
-        }
-
-        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|nah)/i.test(rawLower) && rawLower.length < 10 && !isConfirmation;
-
-        // 3. Search
-        let context = "No specific data found.";
-        if (!isSmallTalk) {
-            try {
-                const { embedding } = await embed({ 
-                    model: openai.embedding('text-embedding-3-small'), 
-                    value: contextualizedQuery 
-                });
-                
-                const results = await qdrant.search(COLLECTION_NAME, { 
-                    vector: embedding, 
-                    limit: 5, 
-                    with_payload: true 
-                });
-
-                if (results.length > 0) {
-                    topScore = results[0].score;
-                    context = results.map(r => r.payload?.content as string).join('\n\n---\n\n');
-                }
-            } catch (err) {
-                console.error('Search error:', err);
-            }
-        }
-
-        // 4. Generate
-        try {
-            const { text, usage } = await generateText({
+            const { text } = await generateText({
                 model: openai('gpt-4o-mini'),
-                system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. 
-                
-                CRITICAL IDENTITY RULES:
-                1. DR. SRINIVASAN: The Principal. If asked about "Him" after discussing Principal, talk about the Principal.
-                2. RAMANATHAN / RAM: The Developer of this AI. Only talk about him if specifically named. NEVER refer to him as "The Principal".
-                3. NEVER mix Dr. Srinivasan and Ram. They are different people.
-                
-                STYLE:
-                - Use **Bold Headers** and bullet points.
-                - Format phone numbers as links.
-                - Stay warm and interactive.`,
-                prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nContext:\n${context}\n\nUser Message: ${rawQuery}`
+                system: `You are a Search Contextualizer. Given a chat history and a latest query, rewrite the query to be a standalone search term. 
+                - If the user uses "him", "her", "they", "it", resolve the pronoun using history.
+                - If the user says "yes", "more", "tell me", "sure", rewrite it to ask for more details about the LAST topic discussed.
+                - If the query is already clear, do not change it much.
+                - ONLY output the rewritten query.`,
+                prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nLast Query: ${rawQuery}`
             });
-            finalAnswer = text;
-            tokensUsed = (usage.promptTokens || 0) + (usage.completionTokens || 0);
-        } catch (err: any) {
-            console.error('Generation error:', err);
-            finalAnswer = `Ooh, I see what you're asking, but I'm having a hard time reaching my brain! 😅\n\nError: \`${err.message}\`\n\nCan I help with anything else?`;
+            processedQuery = text.trim();
         }
-    } catch (rootErr: any) {
-        console.error('Root Retrieval Error:', rootErr);
-        finalAnswer = `⚠️ **Configuration Error**\n\nI couldn't find my AI API keys! Please make sure 'OPENAI_API_KEY' is added to Vercel.\n\nError: \`${rootErr.message}\``;
+
+        // 2. VECTOR RETRIEVAL
+        const { embedding } = await embed({ 
+            model: openai.embedding('text-embedding-3-small'), 
+            value: processedQuery 
+        });
+        
+        const searchResults = await qdrant.search(COLLECTION_NAME, { 
+            vector: embedding, 
+            limit: 15, // Get more for re-ranking
+            with_payload: true 
+        });
+
+        // 3. COHERE RE-RANKING (Universal Accuracy)
+        let context = "No specific data found.";
+        if (searchResults.length > 0) {
+            const documents = searchResults.map(r => r.payload?.content as string);
+            try {
+                const reranked = await cohere.rerank({
+                    query: processedQuery,
+                    documents: documents,
+                    topN: 5,
+                    model: 'rerank-english-v2.0'
+                });
+                
+                context = reranked.results
+                    .map(res => documents[res.index])
+                    .join('\n\n---\n\n');
+                
+                topScore = reranked.results[0].relevanceScore;
+            } catch (rrErr) {
+                console.error('ReRank failed, falling back to vector score');
+                context = documents.slice(0, 5).join('\n\n---\n\n');
+                topScore = searchResults[0].score;
+            }
+        }
+
+        // 4. PERSONA-DRIVEN GENERATION
+        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|nah)/i.test(normalizeQuery(rawQuery)) && rawQuery.length < 10;
+
+        const { text: answer } = await generateText({
+            model: openai('gpt-4o-mini'),
+            system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. 
+            
+            CORE DIRECTIVES:
+            - IDENTITY: The Principal is Dr. K. S. Srinivasan. The Developer is Ramanathan S (Ram). 
+            - MEMORY: Use chat history to stay on topic. If search context is empty but history has the info, USE HISTORY.
+            - ACCURACY: Only state facts from the context. If not found, say you don't have that specific detail yet.
+            - FORMATTING: Use **Bold Headers**, bullet points (•), and clickable [tel:...] or [mailto:...] links.
+            - TONE: Friendly campus senior. ✨
+            
+            If the context provided is "No specific data found", use your history and general knowledge of being a campus concierge to guide the user back to valid topics.`,
+            prompt: `
+            CHAT HISTORY:
+            ${history.map(h => `${h.role}: ${h.content}`).join('\n')}
+            
+            SEARCH CONTEXT (Verified Data):
+            ${context}
+            
+            USER'S LATEST MESSAGE:
+            ${rawQuery}
+            `
+        });
+
+        finalAnswer = answer;
+
+    } catch (err: any) {
+        console.error('Universal RAG Error:', err);
+        finalAnswer = `Oof, my brain hit a snag! 🧠💥\n\nError: \`${err.message}\``;
     }
 
-    // 5. Final Diagnostic Log
-    console.log(`[Lorin] User:${userId} | Latency:${Date.now() - startTime}ms | Score:${topScore.toFixed(3)} | Query:${contextualizedQuery}`);
-
-    return { answer: finalAnswer, score: topScore, source: 'live' };
+    console.log(`[Universal RAG] Query: ${rawQuery} | Latency: ${Date.now() - startTime}ms | Score: ${topScore.toFixed(3)}`);
+    return { answer: finalAnswer, score: topScore, source: 'reranked-rag' };
 }
