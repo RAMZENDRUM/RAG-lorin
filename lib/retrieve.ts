@@ -93,7 +93,7 @@ export async function performLorinRetrieval(
         // HARD SENTINEL: Principal (High Priority)
         if (lowerQuery.includes('principal') || lowerQuery.includes('srinivasan')) {
             return { 
-                answer: "The Principal of MSAJCE is **Dr. K. S. Srinivasan**. 🎓 He is a dedicated leader committed to academic excellence! You can contact him at **+91 91505 75066** or email **principal@msajce-edu.in**. \n\nShall I tell you more about his background or initiatives? ✨", 
+                answer: `🎓 **Meet Our Principal**\n\n**Dr. K. S. Srinivasan** is the visionary leader of MSAJCE, dedicated to academic excellence and student success!\n\n📞 **Contact Details:**\n• **Phone:** [+91 91505 75066](tel:+919150575066)\n• **Email:** [principal@msajce-edu.in](mailto:principal@msajce-edu.in)\n\n---\nWould you like to know about his **research background** or **current initiatives**? ✨`, 
                 score: 1.0, 
                 source: 'sentinel' 
             };
@@ -130,12 +130,12 @@ export async function performLorinRetrieval(
             const { text, usage } = await generateText({
                 model: openai('gpt-4o-mini'),
                 system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. 
-                MISSION: Answer student questions accurately and warmly.
-                GUIDELINES:
-                1. BE INTERACTIVE: Always try to end with a follow-up question or helpful tip.
-                2. STAY ON TOPIC: Use the MOST RECENT chat history to answer vague questions.
-                3. CONTACTS: Always format phone numbers as clickable international links (+91 91505 75066).
-                PERSONA: Friendly campus senior. ✨`,
+                
+                STYLE GUIDELINES:
+                1. STRUCTURE: Use **Bold Headers**, bullet points (•), and line breaks. Avoid long paragraphs.
+                2. CONTACTS: Format phone numbers as clickable markdown links.
+                3. INTERACTION: Always end with a short follow-up question.
+                4. PERSONA: You are a helpful campus senior. Use emojis naturally.`,
                 prompt: `Context:\n${context}\n\nHistory:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nUser Question: ${rawQuery}`
             });
             finalAnswer = text;
