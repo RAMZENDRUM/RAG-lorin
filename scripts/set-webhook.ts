@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const VERCEL_URL = process.env.VERCEL_PROJECT_URL || "YOUR_VERCEL_APP_URL"; // e.g. "https://rag-lorin.vercel.app"
+const VERCEL_URL = process.env.VERCEL_PROJECT_URL || "https://rag-lorin.vercel.app";
 
 async function setWebhook() {
     const webhookUrl = `${VERCEL_URL}/api/bot`;
