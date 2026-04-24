@@ -1,177 +1,74 @@
-# 🤖 Lorin — AI Concierge for MSAJCE
+# 🤖 Lorin: Production-Grade Multi-Stage RAG Assistant
 
-> **A production-grade Retrieval-Augmented Generation (RAG) chatbot built for Mohamed Sathak A.J. College of Engineering (MSAJCE), Chennai.**
-> Developed by **Ramanathan S (Ramzendrum)** — B.Tech IT, MSAJCE.
-
----
-
-## What is Lorin?
-
-Lorin is not a generic chatbot. She is a **sovereign AI assistant** trained exclusively on MSAJCE's institutional knowledge. She answers student queries about transport routes, admissions, departments, hostel, labs, and more — with **zero hallucinations** and a high-energy campus-buddy persona.
-
-She is built on the **RAG (Retrieval-Augmented Generation)** architecture, which means:
-- She does **not** make things up. Every answer is grounded in real documents.
-- She can be updated instantly by adding new `.txt` files — no model retraining needed.
-- She is **cheap to run** — most queries cost less than $0.0001.
+Lorin is a high-fidelity Retrieval-Augmented Generation (RAG) system designed to serve as an intelligent digital concierge for institutional knowledge. Unlike basic "Chat-with-PDF" wrappers, Lorin implements a **9-stage intelligence pipeline** featuring multi-stage query understanding, hybrid retrieval, and long-term memory.
 
 ---
 
-## Architecture: The Hydra Pipeline
+## 🎯 System Overview
+Lorin transforms fragmented institutional data (web pages, PDFs, internal docs) into a conversational interface used by students and parents. It optimizes for **factuality, low-latency, and context-awareness** in real-world scenarios.
 
+### 🚀 Key Capabilities
+*   **Multi-Stage Query Pipeline**: Utilizes an Orchestrator layer for intent classification, query rewriting, and LLM-based reranking.
+*   **Hybrid Retrieval Layer**: Dual-search strategy using **Qdrant** (high-speed vector search) and **Supabase/pgvector** (secondary filtered search).
+*   **Long-Term Memory**: Persistent user profiling and conversation history management for cohesive multi-turn dialogues.
+*   **Production Ingestion**: A robust ETL pipeline using the **Firecrawl SDK** for clean batch extraction and GPT-4o for institutional data refinement.
+*   **Audit Logging**: Native support for performance monitoring and diagnostic audits.
+
+---
+
+## 🏗️ Architecture
+The system is built on a modular four-layer architecture:
+
+1.  **Interface Layer (Telegram)**: Managed by Telegraf/GrammY with built-in rate-limiting and toxicity protection.
+2.  **Intelligence Layer (Orchestrator)**: Handles Query Rewriting (expanding vague questions) and Intent Mapping.
+3.  **Retrieval Layer (Hybrid)**: Vector search at **1536 dimensions** using `text-embedding-3-small`.
+4.  **Memory Layer (Persistence)**: Relational Postgres storage for persistent user profiles and interest extraction.
+
+---
+
+## 🛠️ Tech Stack
+*   **LLM Framework**: Vercel AI SDK
+*   **Embeddings**: OpenAI (1536-dim Matryoshka-compatible)
+*   **Databases**: Qdrant (Vector) & Supabase (Postgres/Vector)
+*   **Scraping**: Firecrawl SDK
+*   **Compute**: Node.js & TypeScript / Python (Analytics)
+
+---
+
+## 🔄 System Flow
+```text
+User  →  Telegram Bot  →  Orchestrator (Intent → Rewrite → Rerank)
+                               ↓
+          Memory (Postgres) ← Retriever (Qdrant + Supabase)
+                               ↓
+                        Grounded Response Generator
 ```
-User Query
-    │
-    ▼
-┌─────────────────────────────┐
-│  Layer 1: SENTINEL (Instinct)│  ← Zero-cost hard-coded fast paths
-│  (Tambaram, R 21, SIPCOT...) │    for critical transport & profile data
-└────────────┬────────────────┘
-             │ Miss
-             ▼
-┌─────────────────────────────┐
-│  Layer 2: CACHE (Memory)    │  ← Identical queries served instantly
-└────────────┬────────────────┘
-             │ Miss
-             ▼
-┌─────────────────────────────┐
-│  Layer 3: RAG BRAIN         │  ← Full pipeline:
-│  Embed → Qdrant → Rerank    │    Embed (OpenAI) → Search (Qdrant)
-│  → GPT-4o-mini → Answer     │    → Rerank (Cohere) → Generate (LLM)
-└─────────────────────────────┘
-```
 
 ---
 
-## Tech Stack
+## 💻 Developer Setup
 
-| Layer | Technology | Purpose |
-|:---|:---|:---|
-| **LLM** | OpenAI `gpt-4o-mini` | Answer generation |
-| **Embeddings** | `text-embedding-3-small` (1536 dims) | Semantic search |
-| **Vector DB** | Qdrant (Cloud) | Knowledge retrieval |
-| **Reranker** | Cohere `rerank-english-v3.0` | Precision filtering |
-| **Bot Interface** | Telegraf (Telegram) | Student-facing UI |
-| **Deployment** | Vercel (Serverless Webhook) | 24/7 hosting |
-| **Reporting** | Nodemailer + Brevo SMTP | Weekly email reports |
-| **Ingestion** | TSX + 4-Key Rotation | Parallel data processing |
+### 1. Requirements
+* Node.js v20+
+* Docker (for Qdrant) or Cloud API keys
 
----
-
-## Knowledge Base
-
-Lorin currently has **34 raw data files** covering:
-
-| Category | Files |
-|:---|:---|
-| **Transport** | `transport_and_profile.txt`, `transport.txt` |
-| **Admissions** | `admission.txt` |
-| **Departments** | `it.txt`, `cse.txt`, `aids.txt`, `aiml.txt`, `ece.txt`, `eee.txt`, `mech.txt`, `civil.txt`, `cyber.txt`, `csbs.txt`, `ece-vlsi.txt`, `ece-act.txt` |
-| **Campus Life** | `hostel.txt`, `sports.txt`, `library.txt`, `clubssocieties.txt` |
-| **Institutional** | `about.txt`, `visionmission.txt`, `principal.txt`, `ourhistory.txt`, `departments.txt` |
-| **Research & Innovation** | `research.txt`, `technologycentre.txt`, `Incubation&Startup.txt` |
-| **Community** | `alumni.txt`, `socialservices.txt`, `professionalsocities.txt` |
-
----
-
-## Key Features
-
-### 🛡️ Zero-Hallucination Sentinel System
-Hard-coded fast-paths for the most critical, volatile data:
-- **R 21** (formerly AR 10): Full route from Porur → MSAJCE
-- **Tambaram, Pallikaranai, Medavakkam, Velachery, SIPCOT** arrival times
-- **Principal:** Dr. K. S. Srinivasan
-- **Developer Profile:** Ramanathan S (Ramzendrum)
-
-### 🚌 100% Transport Fidelity
-- All bus routes (AR3–AR9, N/3, R21, R22) with **stop-by-stop timings**
-- SIPCOT arrival locked at **07:45–07:55 AM**
-- **Kaiveli** correctly spelled (not "Kiveli")
-- Ladies Hostel = Girls Hostel at **Sholinganallur** stop
-
-### 🧠 Smart Ingestion Pipeline
-- **MD5 Hashing** for deterministic point IDs (no duplicates in Qdrant)
-- **4-Key Rotation** across Vercel AI Gateway for parallel processing
-- **Burst-and-Rest** strategy: 5 requests burst → 0.5s gap → 30s rest
-
-### 📊 Weekly Intelligence Reports (Every Sunday)
-Three auto-generated CSV reports sent to `ramzendrum@gmail.com`:
-1. **`lorin_audit_forensics.csv`** — UserID, SessionID, Latency, Cost, Spam/Abuse Flags
-2. **`lorin_developer_optimization.csv`** — Unanswered queries, Match scores, Missed keywords
-3. **`lorin_institutional_benefits.csv`** — Trend Detection, Cost Savings, Knowledge Coverage
-
-### 🔒 Security & Rate Limiting
-- **Spam Detection:** 5 identical messages → 1 hour suspension
-- **Rate Limit:** 5 msg/min, 25 msg/day per user
-- **Permanent Ban:** Rapid-fire spammers auto-blocked
-
----
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+
-- Qdrant Cloud account
-- OpenAI + Cohere API keys
-- Telegram Bot Token (from @BotFather)
-- Brevo SMTP account (for weekly reports)
-
-### Installation
-
+### 2. Environment Configuration
+Clone `.env.example` to `.env` and provide your secrets:
 ```bash
-git clone https://github.com/RAMZENDRUM/RAG-lorin.git
-cd RAG-lorin
-npm install
+cp .env.example .env
 ```
 
-### Environment Setup
-Create a `.env` file (see `.env.production` for the full list of required keys):
-
-```env
-VERCEL_AI_KEY=your_key
-QDRANT_URL=your_qdrant_url
-QDRANT_API_KEY=your_qdrant_key
-COHERE_API_KEY=your_cohere_key
-TELEGRAM_BOT_TOKEN=your_bot_token
-BREVO_SMTP_LOGIN=your_brevo_login
-BREVO_SMTP_KEY=your_brevo_smtp_key
-```
-
-### Running the Pipeline
-
-```bash
-# Step 1: Ingest data into Qdrant
-npm run ingest
-
-# Step 2: Run the bot locally
-npm run bot
-
-# Step 3: Generate weekly report manually
-npx tsx scripts/generate-weekly-report.ts
-```
+### 3. Usage
+* **Ingest Data**: `npm run ingest`
+* **Evaluate**: `npm run eval`
+* **Launch Bot**: `npm run bot`
 
 ---
 
-## Deployment (Vercel — 24/7 Free)
-
-1. Push to GitHub (already configured)
-2. Import repo into [vercel.com](https://vercel.com)
-3. Add all environment variables in Vercel Dashboard
-4. After deploy, register the webhook **once**:
-
-```
-https://api.telegram.org/bot<YOUR_TOKEN>/setWebhook?url=https://rag-lorin.vercel.app/api/bot
-```
+## 📍 Potential Use Cases
+*   **Admissions**: Guiding parents through eligibility and fee structures.
+*   **HR/Ops**: Providing internal policy info to staff.
+*   **Student Support**: Quick access to bus routes, schedules, and department head details.
 
 ---
-
-## Developer
-
-**Ramanathan S** — *Creator & Architect*
-- 🎓 B.Tech Information Technology, MSAJCE (2nd Year)
-- 💼 [LinkedIn](https://www.linkedin.com/in/ramanathan-s-it)
-- 🌐 [Portfolio](https://ramanathan-portfolio.vercel.app)
-
----
-
-## License
-MIT — Built with purpose for MSAJCE students.
+**Developed by [Ramanathan S](https://linkedin.com/in/ramanathan-s-it)**

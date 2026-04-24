@@ -1,54 +1,47 @@
-Technology Centre
+## Technology Centre
 
-- Home
-- Technology Centre
+1. [Home](https://www.msajce-edu.in/index.php)
+2. Technology Centre
 
-							 Technology Centre
+## Technology Centre
 
-								In pursuit of MSAJCE vision and mission to make the students deployable and equip them with the 
-								upcoming emerging industrial demands, various Technology Centres to educate, train and up-skill students in niche 
-								technologies established in the year 2019-2020. The courses and training are designed based on the recommendations 
-								of AICTE and India Skill Report 2020. The Technology Centers established with state of art facility, provide an ambient 
-								learning environment for research and innovation. Each centre is collaborated with industry / government organizations 
-								to provide certifications, onsite / offsite projects and internships. The list of industries include Automation Anywhere, 
-								Godrej Inc, Ford, Palo Alto systems, Amazon Web Services, National Instruments, CISCO Academy, Altair, Open wave computing, 
-								Levergent Technologies, Propeller Technologies etc. 
+In pursuit of MSAJCE vision and mission to make the students deployable and equip them with the
+upcoming emerging industrial demands, various Technology Centres to educate, train and up-skill students in niche
+technologies established in the year 2019-2020. The courses and training are designed based on the recommendations
+of AICTE and India Skill Report 2020. The Technology Centers established with state of art facility, provide an ambient
+learning environment for research and innovation. Each centre is collaborated with industry / government organizations
+to provide certifications, onsite / offsite projects and internships. The list of industries include Automation Anywhere,
+Godrej Inc, Ford, Palo Alto systems, Amazon Web Services, National Instruments, CISCO Academy, Altair, Open wave computing,
+Levergent Technologies, Propeller Technologies etc.
 
-			Technology / Skill Development Centre
+## Technology Centre
 
-- MECH and CIVIL
-- ECE and EEE
-- CSE and IT
+[![](https://www.msajce-edu.in/images/technologycentre/roboticprocessautomation.jpg)](https://www.msajce-edu.in/technologycentreroboticsprocess.php)
 
-[TABLE START]
-| S.No | Name of the Centre | Details |
-| 1 | Centre for  3d Printing and Additive Manufacturing | View |
-| 2 | Centre for CAE | View |
-| 3 | Centre for Industrial Robotics | View |
-| 4 | Centre for NDT- Non Destructive Testing | View |
-| 5 | Centre for Building Information Modelling | View |
-[TABLE END]
+[![](https://www.msajce-edu.in/images/technologycentre/cisco.jpg)](https://www.msajce-edu.in/technologycentrecisco.php)
 
-[TABLE START]
-| S.No | Name of the Centre | Details |
-| 1 | Centre for Embedded & IOT | View |
-| 2 | Centre for UAV / Drone Technology | View |
-| 3 | Centre for Godrej Disha Skill Development Centre | View |
-| 4 | Centre for Bosch Industry Institute Collaboration | View |
-| 5 | Centre for E-Mobility | View |
-| 6 | Centre for Renewable Energy | View |
-| 7 | Centre for APJ Abdul Kalam Innovation Centre | View |
-[TABLE END]
+[![](https://www.msajce-edu.in/images/technologycentre/3D-printing.jpg)](https://www.msajce-edu.in/technologycentre3dprinting.php)
 
-[TABLE START]
-| S.No | Name of the Centre | Details |
-| 1 | Centre for Bot Lab & Robotics Process Automation | View |
-| 2 | Centre for Cisco Networking Academy | View |
-| 3 | Centre for Code Tantra - Coding Learning Centre | View |
-| 4 | Centre for GAMING AND AR/VR | View |
-| 5 | Centre for Artificial Intelligence and Machine Learning Centre | View |
-| 6 | Centre for Block Chain Technology | View |
-| 7 | Centre for Mobile and Web Application Development | View |
-[TABLE END]
+[![](https://www.msajce-edu.in/images/technologycentre/amazonweb.jpg)](https://www.msajce-edu.in/technologycentreamazonweb.php)
 
-							Technology Centre
+[![](https://www.msajce-edu.in/images/technologycentre/cybersecurity.jpg)](https://www.msajce-edu.in/technologycentrecybersecurityacademy.php)
+
+[![](https://www.msajce-edu.in/images/technologycentre/embedded-iot.jpg)](https://www.msajce-edu.in/technologycentreembeddediotcentre.php)
+
+[![](https://www.msajce-edu.in/images/technologycentre/eYantra.jpg)](https://www.msajce-edu.in/technologycentreeyantra.php)
+
+[![](https://www.msajce-edu.in/images/technologycentre/codetantra.jpg)](https://www.msajce-edu.in/technologycentrecodinglearningcentre.php)
+
+[![](https://www.msajce-edu.in/images/technologycentre/gamingarvr.jpg)](https://www.msajce-edu.in/technologycentregamingarvrcentre.php)
+
+[![](https://www.msajce-edu.in/images/technologycentre/Bentley.jpg)](https://www.msajce-edu.in/technologycentrebentleys.php)
+
+[![](https://www.msajce-edu.in/images/technologycentre/centreforcae.jpg)](https://www.msajce-edu.in/technologycentrealtair.php)
+
+[![](https://www.msajce-edu.in/images/technologycentre/language.jpg)](https://www.msajce-edu.in/technologycentrecommunicationlanguage.php)
+
+[![](https://www.msajce-edu.in/images/technologycentre/mit.jpg)](https://www.msajce-edu.in/technologycentremit.php)
+
+* * *
+
+Copyright ©2016 ThemeMascot

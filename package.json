@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "collect": "tsx scripts/collector.ts",
-    "ingest": "tsx scripts/ingest.ts",
-    "bot": "tsx scripts/telegram-bot.ts",
+    "ingest": "tsx ingestion/ingest.ts",
+    "bot": "tsx bot/main.ts",
+    "scrape": "python ingestion/scraper.py",
     "build": "echo 'Vercel builds via @vercel/node'"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.64",
     "@ai-sdk/openai": "latest",
+    "@google/generative-ai": "^0.24.1",
     "@llamaindex/llama-cloud": "^2.4.1",
     "@qdrant/js-client-rest": "^1.7.0",
     "ai": "^6.0.168",

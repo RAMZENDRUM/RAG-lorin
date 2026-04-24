@@ -1,3 +1,35 @@
-- Home
-- Academics
-- Programmes Offered
+1. [Home](https://www.msajce-edu.in/index.php)
+2. [Academics](https://www.msajce-edu.in/departments.php)
+3. Programmes Offered
+
+[![](https://www.msajce-edu.in/images/departments/civil-b.png)](https://www.msajce-edu.in/civil.php)
+
+[![](https://www.msajce-edu.in/images/departments/cse-b.png)](https://www.msajce-edu.in/cse.php)
+
+[![](https://www.msajce-edu.in/images/departments/eee-b.png)](https://www.msajce-edu.in/eee.php)
+
+[![](https://www.msajce-edu.in/images/departments/ece-b.png)](https://www.msajce-edu.in/ece.php)
+
+[![](https://www.msajce-edu.in/images/departments/mech-b.png)](https://www.msajce-edu.in/mech.php)
+
+[![](https://www.msajce-edu.in/images/departments/it-b.png)](https://www.msajce-edu.in/it.php)
+
+[![](https://www.msajce-edu.in/images/departments/aids-b.png)](https://www.msajce-edu.in/aids.php)
+
+[![](https://www.msajce-edu.in/images/departments/csbs-b.png)](https://www.msajce-edu.in/csbs.php)
+
+[![](https://www.msajce-edu.in/images/departments/cyber-b.png)](https://www.msajce-edu.in/cyber.php)
+
+[![](https://www.msajce-edu.in/images/departments/aiml-b.png)](https://www.msajce-edu.in/aiml.php)
+
+[![](https://www.msajce-edu.in/images/departments/ece-vlsi-b.png)](https://www.msajce-edu.in/ece-vlsi.php)
+
+[![](https://www.msajce-edu.in/images/departments/ece-act-b.png)](https://www.msajce-edu.in/ece-act.php)
+
+## Supporting  Department
+
+[![](https://www.msajce-edu.in/images/departments/sh-b.png)](https://www.msajce-edu.in/sh.php)
+
+* * *
+
+Copyright ©2016 ThemeMascot

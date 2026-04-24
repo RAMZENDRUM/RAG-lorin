@@ -1,344 +1,38 @@
-Computer Science and Business Systems
+## Computer Science and Business Systems
 
-- Home
-- Academics
-- Programmes Offered
-- Computer Science and Business Systems
+1. [Home](https://www.msajce-edu.in/index.php)
+2. [Academics](https://www.msajce-edu.in/csbs.php)
+3. [Programmes Offered](https://www.msajce-edu.in/csbs.php)
+4. Computer Science and Business Systems
 
-				  Department of Computer Science and Business Systems                 
+## Department of Computer Science and Business Systems
 
-- About Department
-- OBE
-- Job Profiles
-- Academics
+![](https://www.msajce-edu.in/academics/csbs/csbs01.jpg)
 
-                                          Overview  
+## infrastructures
 
-											The B.Tech in Computer Science and Business System (CSBS) is a specialized undergraduate 
-											engineering program designed to blend core computer science education with insights into business systems 
-											and management. It is a relatively new course introduced in collaboration with industry leaders like 
-											Tata Consultancy Services (TCS) to bridge the gap between traditional computer science education and 
-											the dynamic needs of the IT and business world.
+![](https://www.msajce-edu.in/images/departments/csbs/3.jpg)
 
-											This program aims to enhance the relevance of the Computer Science program in India 
-											to meet the future demands of the IT industry whose landscape is rapidly changing in the era of 
-											Business 4.0. The curriculum is designed to ensure that students should get better exposure to 
-											emerging subjects such as Analytics, Deep learning, Machine Learning, Cloud Computing, Business Analytics, 
-											Financial Management, Economics and Internet of Things and Design thinking and also to develop an equal 
-											interest and appreciation towards humanity, value added science and other interrelated topics. 
-											The students graduating from this program will be in high demand by the industries and will be productive.
+![](https://www.msajce-edu.in/images/departments/csbs/4.jpg)
 
-- Objective:  To produce graduates who are not only technically sound in 
-													computer science but also understand the fundamentals of business, economics, and management.
+![](https://www.msajce-edu.in/images/departments/csbs/5.jpg)
 
-											 Key Features
+![](https://www.msajce-edu.in/images/departments/csbs/1.jpg)
 
-- Balanced Curriculum:
+![](https://www.msajce-edu.in/images/departments/csbs/2.jpg)
 
-															 Core Computer Science subjects (Data Structures, Algorithms, OS, DBMS, AI/ML, etc.)
-															 Business and Management subjects (Economics, Financial Management, Business Process Management, etc.)
-- Core Computer Science subjects (Data Structures, Algorithms, OS, DBMS, AI/ML, etc.)
-- Business and Management subjects (Economics, Financial Management, Business Process Management, etc.)
-- Industry Collaboration:
+![](https://www.msajce-edu.in/images/departments/csbs/3.jpg)
 
-															 Designed in partnership with TCS
-															 Emphasis on employability and industry readiness
-- Designed in partnership with TCS
-- Emphasis on employability and industry readiness
-- Focus Areas:
+![](https://www.msajce-edu.in/images/departments/csbs/4.jpg)
 
-															 Problem-solving using computational thinking
-															 Business analytics and decision-making 
-															 IT systems for business applications
-- Problem-solving using computational thinking
-- Business analytics and decision-making
-- IT systems for business applications
-- Soft Skills Training:
+![](https://www.msajce-edu.in/images/departments/csbs/5.jpg)
 
-															 Communication
-															 Teamwork 
-															 Entrepreneurial thinking
-- Communication
-- Teamwork
-- Entrepreneurial thinking
+![](https://www.msajce-edu.in/images/departments/csbs/1.jpg)
 
-											  Top Recruiters
+![](https://www.msajce-edu.in/images/departments/csbs/2.jpg)
 
-- TCS, Infosys, Wipro, Accenture, CTS. Startups and Fin Tech companies like FSS.
+![](https://www.msajce-edu.in/images/departments/csbs/3.jpg)
 
-											  Benefits Over Regular CSE
+* * *
 
-- More interdisciplinary exposure
-- Better suited for roles in tech-enabled business functions
-- Greater alignment with industry expectations, especially in IT services and consulting.
-
-										 Programme
-
-															B.Tech. - Computer Science and Business Systems
-
-																		Duration:
-
-																		4 years (Regular) / 3 years (Lateral Entry)
-
-																		No. of Semesters:
-
-																		8 (Regular) / 6 (Lateral Entry)
-
-																		Intake / No. of Seats: 
-
-																		Total - 30 (Government - 15, Management - 15)
-
-																		Eligibility: 
-
-																	10+2 system of Education. Must have secured a pass in Physics, Chemistry and Mathematics in the qualifying examination. For more information   Click here
-
-																		Curriculum & Syllabus:
-
-																		  2021 Regulation
-
-																Public Sector Undertaking | Government Sector  
-
-																		Scope for Higher Studies:
-
-- M.E. / M.Tech. / M.B.A.
-
-											Vision
-												To be a centre of excellence for transforming students into proficient 
-												IT Professionals with Business Skills through sustainable practices.
-
-											Mission
-												M1.    Impart core fundamental knowledge and necessary skills in Information Science and 
-																					Business through innovative teaching and learning methodology.  
-												M2.    Inculcate Business thinking, ethics, lifelong learning and creativity needed for industry and society.
-												M3.    Cultivate the students with all-round competencies, for career, higher education and self- employability.
-
-                                         PEOs / PSOs / PO
-
-											Programme Educational Objectives (PEOs)                        
-
-[TABLE START]
-| PEO1. | Graduates will be prepared for analysing, designing, developing and testing the software solutions and products with creativity and sustainability |
-| PEO2. | Graduates will be skilled in the use of modern tools for critical problem solving and analyzing industrial and societal requirements |
-| PEO3. | Graduates will be prepared with managerial and leadership skills for career and starting up own firms |
-[TABLE END]
-
-											Program Specific Outcomes (PSOs)
-											Engineering Graduates will be able to                        
-
-[TABLE START]
-| PSO1. | Develop creative solutions by adapting emerging technologies / tools for real time applications of Industry |
-| PSO1. | Apply the acquired knowledge to develop software solutions and innovative mobile apps for various automation applications |
-[TABLE END]
-
-											Programme Outcomes (PO)
-
-[TABLE START]
-| PO1. | Engineering Knowledge: Apply the knowledge of mathematics, science, engineering fundamentals, and an engineering specialization to the solution of complex engineering problems. |
-| PO2. | Problem Analysis:Identify, formulate, review research literature, and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences, and engineering sciences. |
-| PO3. | Design/Development Of Solutions: Design solutions for complex engineering problems and design system components or processes that meet the specified needs with appropriate consideration for the public health and safety, and the cultural, societal, and environmental considerations. |
-| PO4. | Conduct Investigations of Complex Problems:Use research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of the information to provide valid conclusions. |
-| PO5. | Modern Tool Usage:Create, select, and apply appropriate techniques, resources, and modern engineering and IT tools including prediction and modeling to complex engineering activities with an understanding of the limitations. |
-| PO6. | The Engineer and Society: Apply reasoning informed by the contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to the professional engineering practice. |
-| PO7. | Environment and Sustain ability: Understand the impact of the professional engineering solutions in societal and environmental contexts, and demonstrate the knowledge of, and need for sustainable development. |
-| PO8. | Ethics: Apply ethical principles and commit to professional ethics and responsibilities and norms of the engineering practice. |
-| PO9. | Individual and Team Work: Function effectively as an individual, and as a member or leader in diverse teams, and in multi disciplinary settings. |
-| PO10. | Communication: Communicate effectively on complex engineering activities with the engineering community and with society at large, such as, being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions. |
-| PO11. | Project Management and Finance: Demonstrate knowledge and understanding of the engineering and management principles and apply these to one's own work, as a member and leader in a team, to manage projects and in multi disciplinary environments. |
-| PO12. | Life-long Learning: Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change. |
-[TABLE END]
-
-                                         Job Profiles
-
-                                         Employment Growth in Computer Science and Business Systems by 2025 – 2030 in India
-
-										The employment opportunities for professionals in Computer Science and Business Systems in India over
-										the next five years (2025–2030) will see significant growth, driven by the country’s increasing digitalization, rise 
-										in e-commerce, adoption of AI, and the transformation of business processes. With India positioning itself as a hub
-										for both IT services and business innovation, there will be a strong demand for professionals who can blend technical
-										expertise with a solid understanding of business systems.
-
-										  Key Drivers of Employment Growth in Computer Science and Business Systems (2025–2030)
-
-- Digital Transformation of Businesses
-
-														 Business Process Automation: Companies across sectors are embracing automation, AI, cloud technologies, and big data to optimize their operations. 
-														 With the continued growth of Enterprise Resource Planning (ERP) systems like SAP, Oracle, and Microsoft Dynamics, and a shift towards Software as a Service (SaaS) models, professionals will be needed to implement, maintain, and integrate these solutions.
-- Business Process Automation: Companies across sectors are embracing automation, AI, cloud technologies, and big data to optimize their operations.
-- With the continued growth of Enterprise Resource Planning (ERP) systems like SAP, Oracle, and Microsoft Dynamics, and a shift towards Software as a Service (SaaS) models, professionals will be needed to implement, maintain, and integrate these solutions.
-- Growth of AI, Machine Learning, and Analytics
-
-														 Data-Driven Decision Making: Businesses increasingly rely on data for decision-making, boosting demand for data analysts, data scientists, and business intelligence professionals who can transform raw data into actionable insights.
-														 AI and ML in Business: With AI and machine learning at the heart of digital business transformations (such as customer relationship management, predictive analytics, and inventory management), professionals with expertise in these technologies will be highly sought after.
-- Data-Driven Decision Making: Businesses increasingly rely on data for decision-making, boosting demand for data analysts, data scientists, and business intelligence professionals who can transform raw data into actionable insights.
-- AI and ML in Business: With AI and machine learning at the heart of digital business transformations (such as customer relationship management, predictive analytics, and inventory management), professionals with expertise in these technologies will be highly sought after.
-- Cloud Computing and Digital Platforms
-
-														 Cloud Migration: As businesses continue migrating to the cloud, there is a demand for cloud architects, cloud engineers, and business analysts who can help organizations seamlessly integrate cloud solutions into their operations.
-														 Hybrid and Multi-Cloud Environments: The rise of multi-cloud strategies, using multiple providers like AWS, Azure, and Google Cloud, will require professionals who understand both the technical and business implications of such systems.
-- Cloud Migration: As businesses continue migrating to the cloud, there is a demand for cloud architects, cloud engineers, and business analysts who can help organizations seamlessly integrate cloud solutions into their operations.
-- Hybrid and Multi-Cloud Environments: The rise of multi-cloud strategies, using multiple providers like AWS, Azure, and Google Cloud, will require professionals who understand both the technical and business implications of such systems.
-- E-Commerce Growth and Customer Experience
-
-														 E-commerce and Retail Transformation: With India's growing e-commerce market, businesses need professionals to build online platforms, optimize user experiences, and integrate AI-powered customer service tools like chatbots and recommendation systems.
-														 Supply Chain Optimization: E-commerce companies will continue to invest in automated inventory management, logistics, and demand forecasting systems, creating demand for data scientists and systems analysts.
-- E-commerce and Retail Transformation: With India's growing e-commerce market, businesses need professionals to build online platforms, optimize user experiences, and integrate AI-powered customer service tools like chatbots and recommendation systems.
-- Supply Chain Optimization: E-commerce companies will continue to invest in automated inventory management, logistics, and demand forecasting systems, creating demand for data scientists and systems analysts.
-- Enterprise Digitalization (FinTech, Healthcare, Manufacturing)
-
-														 FinTech Expansion: As India’s fintech industry expands, there will be a rise in demand for professionals skilled in developing digital payment systems, blockchain technologies, and AI-powered financial services.
-														 Healthcare Transformation: With healthcare systems adopting digital records, telemedicine, and AI for diagnostics, professionals with knowledge in both IT and business systems will be crucial.
-														 Smart Manufacturing: With the adoption of Industry 4.0, IoT, and AI in manufacturing, businesses will need professionals to bridge the gap between technical systems and business operations.
-- FinTech Expansion: As India’s fintech industry expands, there will be a rise in demand for professionals skilled in developing digital payment systems, blockchain technologies, and AI-powered financial services.
-- Healthcare Transformation: With healthcare systems adopting digital records, telemedicine, and AI for diagnostics, professionals with knowledge in both IT and business systems will be crucial.
-- Smart Manufacturing: With the adoption of Industry 4.0, IoT, and AI in manufacturing, businesses will need professionals to bridge the gap between technical systems and business operations.
-- Cyber security and Compliance
-
-														 Increased Cyber security Threats: As companies increasingly move operations online, the demand for professionals in cyber security (focused on protecting business systems) will rise. This includes roles in cyber defense, data protection, and ensuring compliance with data privacy regulations.
-														 Regulatory Compliance: With evolving data protection laws (such as GDPR and India’s Personal Data Protection Bill), businesses will need experts to manage risk, privacy, and regulatory compliance.
-- Increased Cyber security Threats: As companies increasingly move operations online, the demand for professionals in cyber security (focused on protecting business systems) will rise. This includes roles in cyber defense, data protection, and ensuring compliance with data privacy regulations.
-- Regulatory Compliance: With evolving data protection laws (such as GDPR and India’s Personal Data Protection Bill), businesses will need experts to manage risk, privacy, and regulatory compliance.
-
-											  Key Roles in High Demand
-
-- Business Systems Analyst
-
-														Responsibilities:Identify business needs, design systems to meet those needs, and ensure that technical solutions align with business goals. This role involves understanding both business requirements and the technical aspects of IT systems.
-														Skills Required:	Business analysis, Systems design, ERP systems (SAP, Oracle), Agile methodologies, Requirements gathering.
-- Responsibilities:Identify business needs, design systems to meet those needs, and ensure that technical solutions align with business goals. This role involves understanding both business requirements and the technical aspects of IT systems.
-- Skills Required:	Business analysis, Systems design, ERP systems (SAP, Oracle), Agile methodologies, Requirements gathering.
-- Data Scientist / Data Analyst
-
-														Responsibilities:Collect, analyze, and interpret large datasets to help businesses make informed decisions. The role combines business acumen with Data analysis and Statistical modeling.
-														Skills Required:Python, R, SQL, Machine Learning, Data Visualization (Tableau, Power BI), Big Data tools (Hadoop, Spark).
-- Responsibilities:Collect, analyze, and interpret large datasets to help businesses make informed decisions. The role combines business acumen with Data analysis and Statistical modeling.
-- Skills Required:Python, R, SQL, Machine Learning, Data Visualization (Tableau, Power BI), Big Data tools (Hadoop, Spark).
-- Cloud Architect / Cloud Engineer
-
-														Responsibilities:Design, implement, and manage cloud solutions that help businesses transition to or optimize their cloud environments. This role often requires an understanding of both business and technical sides of cloud computing.
-														Skills Required:	AWS, Azure, Google Cloud, cloud architecture, Serverless technologies, Cloud security.
-- Responsibilities:Design, implement, and manage cloud solutions that help businesses transition to or optimize their cloud environments. This role often requires an understanding of both business and technical sides of cloud computing.
-- Skills Required:	AWS, Azure, Google Cloud, cloud architecture, Serverless technologies, Cloud security.
-- ERP Consultant / Implementation Specialist
-
-														Responsibilities:Implement and customize ERP systems (like SAP, Oracle). This role often involves interacting with both business stakeholders and technical teams to ensure the system meets organizational needs.
-														Skills Required:	ERP software (SAP, Oracle), business process modeling, project management, change management
-- Responsibilities:Implement and customize ERP systems (like SAP, Oracle). This role often involves interacting with both business stakeholders and technical teams to ensure the system meets organizational needs.
-- Skills Required:	ERP software (SAP, Oracle), business process modeling, project management, change management
-- AI / ML Engineer
-
-														Responsibilities::Develop machine learning algorithms, artificial intelligence tools, and models to solve business challenges such as demand forecasting, customer service automation, and fraud detection.
-														Skills Required:	Python, Tensor Flow, Keras, AI algorithms, NLP, data preprocessing.
-- Responsibilities::Develop machine learning algorithms, artificial intelligence tools, and models to solve business challenges such as demand forecasting, customer service automation, and fraud detection.
-- Skills Required:	Python, Tensor Flow, Keras, AI algorithms, NLP, data preprocessing.
-- Cyber security Specialist
-
-														Responsibilities: Protect business systems from cyber threats, ensuring the security of sensitive data and networks. This includes implementing firewalls, intrusion detection systems, and encryption technologies.
-														Skills Required: Network security, ethical hacking, penetration testing, data encryption, GDPR compliance.
-- Responsibilities: Protect business systems from cyber threats, ensuring the security of sensitive data and networks. This includes implementing firewalls, intrusion detection systems, and encryption technologies.
-- Skills Required: Network security, ethical hacking, penetration testing, data encryption, GDPR compliance.
-- Business Intelligence Analyst
-
-														Responsibilities::	Use data analytics tools to help businesses make strategic decisions. This includes generating reports, creating dashboards, and analyzing trends.
-														Skills Required:	SQL, Tableau, Power BI, data mining, business analytics, decision support systems.
-- Responsibilities::	Use data analytics tools to help businesses make strategic decisions. This includes generating reports, creating dashboards, and analyzing trends.
-- Skills Required:	SQL, Tableau, Power BI, data mining, business analytics, decision support systems.
-- Block chain Developer
-
-														 Responsibilities:	Design and develop decentralized applications using block chain technology. Block chain's use in finance, supply chain, and business contracts is creating new opportunities. 
-														 Skills Required:	Block chain platforms (Ethereum, Hyperledger), smart contracts, cryptography, distributed ledgers.
-- Responsibilities:	Design and develop decentralized applications using block chain technology. Block chain's use in finance, supply chain, and business contracts is creating new opportunities.
-- Skills Required:	Block chain platforms (Ethereum, Hyperledger), smart contracts, cryptography, distributed ledgers.
-- Fin Tech Professional
-
-														 Responsibilities:	Design, implement, and optimize financial technologies for payments, lending, insurance, and investment systems. Professionals in this role will work on both the technical side (coding) and the business side (strategy).
-														 Skills Required:	Fin Tech platforms, block chain, digital payments, regulatory compliance, data analytics.
-- Responsibilities:	Design, implement, and optimize financial technologies for payments, lending, insurance, and investment systems. Professionals in this role will work on both the technical side (coding) and the business side (strategy).
-- Skills Required:	Fin Tech platforms, block chain, digital payments, regulatory compliance, data analytics.
-
-										  Sectors with High Employment Potential in Computer Science and Business Systems
-
-- Information Technology (IT Services)
-
-														 India’s IT services sector will continue to be a major driver of job opportunities in this field, including roles in cloud computing, business process outsourcing (BPO), and ERP implementation.
-- India’s IT services sector will continue to be a major driver of job opportunities in this field, including roles in cloud computing, business process outsourcing (BPO), and ERP implementation.
-- E-Commerce
-
-														 As India’s e-commerce market grows, there will be an increasing demand for professionals skilled in data analytics, customer experience design, and supply chain management.
-- As India’s e-commerce market grows, there will be an increasing demand for professionals skilled in data analytics, customer experience design, and supply chain management.
-- Financial Services and FinTech
-
-														 The fintech sector is rapidly growing, offering opportunities in digital payments, blockchain, insurtech, and investment technology.
-- The fintech sector is rapidly growing, offering opportunities in digital payments, blockchain, insurtech, and investment technology.
-- Healthcare
-
-														 As healthcare systems embrace digital health, telemedicine, and AI for diagnostics, professionals with expertise in both business systems and IT will be in demand.
-- As healthcare systems embrace digital health, telemedicine, and AI for diagnostics, professionals with expertise in both business systems and IT will be in demand.
-- Manufacturing and Industry 4.0
-
-														The smart manufacturing revolution (driven by IoT, AI, and cloud computing) will create roles focused on integrating IT systems with industrial processes.
-- The smart manufacturing revolution (driven by IoT, AI, and cloud computing) will create roles focused on integrating IT systems with industrial processes.
-
-								 Faculty
-
-[TABLE START]
-| Name | Qualification | Designation | Area of Specialization |
-| Dr. NAGASUBRAMANIAN R | M.E.,Ph.D., | Head - PG | Computer Science Engineering |
-| Dr. SUBRAMANIAN P | M.E.,Ph.D., | Head - UG | Wireless Sensor Networking and Image Processing |
-| Dr. PREMALATHA G | M.E.,Ph.D., | Associate Professor | Image Processing and Machine Learning |
-| Mrs. SARANYA V | M.Tech.,(Ph.D) | Assistant Professor | IOT and Cloud Computing |
-| Mrs. SASIKALA L | M.E | Assistant Professor | Computer Science and Engineering |
-| Mrs. KIRUTHIKA S | M.E | Assistant Professor | Computer Science and Engineering |
-| Mrs. ASRIN MAHMOOTHA A | M.E | Assistant Professor | Computer Science Engineering |
-| Mr. PRAVEENKUMAR P | M.E | Assistant Professor | Computer Science Engineering |
-| Mr. RAJAKUMAR B | M.Tech.,(Ph.D) | Assistant Professor | IOT, AI, NLP and Image Processing |
-| Mr. RAJASEKAR R | M.E.,(Ph.D) | Assistant Professor | IOT, Network Security |
-[TABLE END]
-
-[TABLE START]
-| Sl.No | Name of the Lab | Facility Available | Courses Offered | Virtual Link / ICT Tools | Soft copy of Lab Record |
-| 1 | C Programming Lab | View Details | CS8261 - C Programming | View | Download |
-| 2 | Internet Programming Lab | View Details | CS8661 - Internet Programming | View | Download |
-| 3 | Operating Systems Lab | View Details | CS8461 - Operating Systems | View | Download |
-| 4 | Object Oriented Analysis and Design Lab | View Details | CS8461 - Object Oriented Analysis and Design | View | Download |
-| 5 | Web Technology Lab | View Details | IT8511 - Web Technology | View | Download |
-| 6 | Networks Lab | View Details | CS8581 Networks Lab | View | Download |
-[TABLE END]
-
-								 Academics
-
-								 Anna University Syllabus
-
-[TABLE START]
-| BE - 2021 Syllabus |  |
-[TABLE END]
-
-								   Course Materials
-
-[TABLE START]
-| S.No. | Subject    Code | Subject    Name | Lesson    Plan | Question    Bank | Lecture    Notes | ICT    Tools |
-| 1 | MA3354 | Discrete Mathematics | View | View | View | View |
-| 2 | CS3351 | Digital Principles and Computer Organization | View | View | View | View |
-| 3 | AD3391 | Database Design and Management | View | View | View | View |
-| 4 | AD3351 | Design and Analysis of Algorithms | View | View | View | View |
-| 5 | AD3301 | Data Exploration and Visualization | View | View | View | View |
-| 6 | AL3391 | Artificial Intelligence | View | View | View | View |
-| 7 | AD3381 | Database Design and Management Laboratory | View | View | View | View |
-| 8 | AD3311 | Artificial Intelligence Laboratory | View | View | View | View |
-| 9 | GE3361 | Professional Development | View | View | View | View |
-[TABLE END]
-
-                                         PLACEMENT DETAILS
-
-																		PLACEMENT DETAILS 
-
-											 Off Campus Placed Students in Various Company 
-
-                                         NEWS & EVENTS
-
-																	NEWS & EVENTS
-
-                                         Student Activities
-
-                                         Members of Alumni Association
-
-						infrastructures
+Copyright ©2016 ThemeMascot

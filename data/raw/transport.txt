@@ -1,34 +1,50 @@
-Transport
+## Transport
 
-- Home
-- Life at MSAJCE
-- Transport
+1. [Home](https://www.msajce-edu.in/index.php)
+2. [Life at MSAJCE](https://www.msajce-edu.in/transport.php)
+3. Transport
 
-				   College Bus Facility
+## College Bus Facility
 
-						The College is easily accessible from Chennai Central Railway Station, Tambaram Railway Station and CMDA Bus station by the state operated 
-					transport service. In addition, The College provides its own transportation for students and staff residing in and around the campus. The Institute has 
-					22 buses, One Tata ACE, One Ambulance for the benefit of students and the staff. The transport facility is available from various places in Chennai, 
-					Chengalpattu, Kanchipuram and Thiruvallur districts to the institute on all working days. The bus facilities are being utilized for local social service 
-					activities, Sports, NCC/ NSS activities, Placement and Training activities, industrial visits and educational trips. . Our transport facilities ensure that 
-					our students and staff are able to reach the college in time with utmost care and ease. 
+![](https://www.msajce-edu.in/images/transport/transport3.JPG)
 
-					A transport committee, headed by a Convener, is formed to take care of the smooth operation of buses. The staff in-charge of the buses 
-					(one teaching and one supporting staff) ensure the smooth functioning of the buses. The Transport committee meets once in Six months and the 
-					Principal and the staff in-charge of the buses attend the meeting. 
+![](https://www.msajce-edu.in/images/transport/transport4.JPG)
 
-					 The members of the committee are
+![](https://www.msajce-edu.in/images/transport/transport1.jpg)
 
-[TABLE START]
+![](https://www.msajce-edu.in/images/transport/transport2.jpg)
+
+![](https://www.msajce-edu.in/images/transport/transport3.JPG)
+
+![](https://www.msajce-edu.in/images/transport/transport4.JPG)
+
+![](https://www.msajce-edu.in/images/transport/transport1.jpg)
+
+![](https://www.msajce-edu.in/images/transport/transport2.jpg)
+
+The College is easily accessible from Chennai Central Railway Station, Tambaram Railway Station and CMDA Bus station by the state operated
+transport service. In addition, The College provides its own transportation for students and staff residing in and around the campus. The Institute has
+22 buses, One Tata ACE, One Ambulance for the benefit of students and the staff. The transport facility is available from various places in Chennai,
+Chengalpattu, Kanchipuram and Thiruvallur districts to the institute on all working days. The bus facilities are being utilized for local social service
+activities, Sports, NCC/ NSS activities, Placement and Training activities, industrial visits and educational trips. . Our transport facilities ensure that
+our students and staff are able to reach the college in time with utmost care and ease.
+
+
+A transport committee, headed by a Convener, is formed to take care of the smooth operation of buses. The staff in-charge of the buses
+(one teaching and one supporting staff) ensure the smooth functioning of the buses. The Transport committee meets once in Six months and the
+Principal and the staff in-charge of the buses attend the meeting.
+
+### The members of the committee are
+
 | Members | Mobile |
-| Dr. K. P. SANTHOSH NATHAN :  Transport Convener | 98408 86992 |
-| Mr. A. ABDUL GAFOOR :   Asst. Transport Convener | 99403 19629 |
-[TABLE END]
+| --- | --- |
+| **Dr. K. P. SANTHOSH NATHAN** : Transport Convener | 98408 86992 |
+| **Mr. A. ABDUL GAFOOR** : Asst. Transport Convener | 99403 19629 |
 
-					 MTC Bus passing through Our College from different location as follows
+#### MTC Bus passing through Our College from different location as follows
 
-[TABLE START]
 | S.No | MTC Bus Route No | Starting Point | Ending Point | Via | Frequency |
+| --- | --- | --- | --- | --- | --- |
 | 1 | 19 | T. Nagar | Thiruporur | OMR, Madhiya Kailash, SRP | Daily |
 | 2 | 519 | T. Nagar | Thiruporur | Saidapet, Adyar, SRP | Daily |
 | 3 | 221H | Central | Thiruporur | Anna Salai, Saidapet, SRP | Daily |
@@ -39,19 +55,21 @@ Transport
 | 8 | 570 | CMBT | Kelambakkam | Vadapalani, Velachery, SRP | Daily |
 | 9 | 570S | CMBT | Sipcot | Vadapalani, Velachery, SRP | Daily |
 | 10 | 105 | Tambaram | Siruseri | Thalambur | Daily |
-[TABLE END]
 
-					 Our College Bus Route as follows
+### Our College Bus Route as follows
 
-[TABLE START]
 | SNo | Bus Route | Time | Route Schedule |
-| 1 | AR 3 - UTHIRAMERUR | 5.50 AM | View Details |
-| 2 | AR 4 - MOOLAKADAI | 6.10    AM | View Details |
-| 3 | AR 5 - MMDA SCHOOL | 6.15    AM | View Details |
-| 4 | AR 6 - ICF | 6.15    AM | View Details |
-| 5 | AR 7 - CHUNAMBEDU | 5.25 AM | View Details |
-| 6 | AR 8 - MANJAMBAKKAM | 5.50    AM | View Details |
-| 7 | AR 9 - ENNORE | 6.15    AM | View Details |
-| 8 | AR 10 - PORUR | 6.25    AM | View Details |
-| 9 | R 22 - NEMILICHERY | 6.00 AM | View Details |
-[TABLE END]
+| --- | --- | --- | --- |
+| 1 | AR 3 - UTHIRAMERUR | 5.50 AM | [View Details](https://www.msajce-edu.in/images/transport/AR3.pdf) |
+| 2 | AR 4 - MOOLAKADAI | 6.10 AM | [View Details](https://www.msajce-edu.in/images/transport/AR4.pdf) |
+| 3 | AR 5 - MMDA SCHOOL | 6.15 AM | [View Details](https://www.msajce-edu.in/images/transport/AR5.pdf) |
+| 4 | AR 6 - ICF | 6.15 AM | [View Details](https://www.msajce-edu.in/images/transport/AR6.pdf) |
+| 5 | AR 7 - CHUNAMBEDU | 5.25 AM | [View Details](https://www.msajce-edu.in/images/transport/AR7.pdf) |
+| 6 | AR 8 - MANJAMBAKKAM | 5.50 AM | [View Details](https://www.msajce-edu.in/images/transport/AR8.pdf) |
+| 7 | AR 9 - ENNORE | 6.15 AM | [View Details](https://www.msajce-edu.in/images/transport/AR9.pdf) |
+| 8 | AR 10 - PORUR | 6.25 AM | [View Details](https://www.msajce-edu.in/images/transport/AR10.pdf) |
+| 9 | R 22 - NEMILICHERY | 6.00 AM | [View Details](https://www.msajce-edu.in/images/transport/R22.pdf) |
+
+* * *
+
+Copyright ©2016 ThemeMascot
