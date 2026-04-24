@@ -49,7 +49,13 @@ async function hydraRetrieve(text: string, openai: any) {
     return "No specific data found.";
 }
 
-bot.command('start', (ctx) => ctx.reply("🎓 Lorin is back online! The Hydra Brain is active. Ask me anything about MSAJCE. ✨"));
+const GOOGLE_FORM_URL = "https://forms.gle/CTuZcJpQsPsLn7nu8";
+
+bot.command('start', (ctx) => {
+    ctx.reply(`👋 Hey! I'm Lorin, your Mohamed Sathak A.J. (Chennai) campus buddy! 🎓✨\n\nI can help you with:\n🏢 **Departments**\n📝 **Admissions**\n🏠 **Hostels**\n👩‍🏫 **Faculty**\n\nWhat are you looking for today?`, { parse_mode: 'Markdown' });
+});
+
+bot.command('form', (ctx) => ctx.reply(`📝 **Admission Form:** ${GOOGLE_FORM_URL}`));
 
 bot.on('message:text', async (ctx) => {
     const userId = ctx.from.id.toString();
@@ -60,35 +66,44 @@ bot.on('message:text', async (ctx) => {
         const openai = getOpenAI();
         const db = getSql();
 
-        // 1. Memory (Increased to 10 for better continuity)
-        const history = db ? await db`SELECT role, content FROM chat_history WHERE user_id = ${userId} ORDER BY created_at DESC LIMIT 10`.then(rows => rows.reverse()) : [];
+        // 1. History & Link Counter
+        const history = db ? await db`SELECT role, content FROM chat_history WHERE user_id = ${userId} ORDER BY created_at DESC LIMIT 15`.then(rows => rows.reverse()) : [];
+        const formCount = history.filter(h => h.role === 'assistant' && h.content.includes(GOOGLE_FORM_URL)).length;
 
         // 2. Retrieval
         const context = await hydraRetrieve(text, openai);
 
-        // 3. Response
+        // 3. Response Generation (Persona: ChatGPT-like Friend)
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the official Concierge for Mohamed Sathak A.J. College of Engineering (Siruseri, Chennai). ✨
+            system: `You are Lorin, the lively and friendly AI Concierge for Mohamed Sathak A.J. College of Engineering (Chennai). 
             
-            KNOWLEDGE BASE:
-            - Engineering Departments: CSE, IT, AI&DS (Artificial Intelligence and Data Science), AI&ML, Cyber Security, CSBS (Computer Science and Business Systems), ECE (VLSI & Advanced Communication), EEE, Mechanical, Civil.
-            - DO NOT miss the New-Gen courses.
+            PERSONALITY:
+            - Talk like a supportive campus friend. Use emojis! ✨
+            - DO NOT repeat "Welcome". Greet only once.
+            - If it's a first hi, introduce categories: Admission, Departments, Hostel, Faculty.
             
-            CONVERSATION HYGIENE:
-            - ONLY say "Welcome" in the FIRST message. 
-            - DO NOT repeat questions (B.E./B.Tech) if answered in history.
-            - Provide FULL data (like "departments") IMMEDIATELY from the context.`,
+            RULES:
+            - Location: Siruseri, Chennai ONLY.
+            - Admissions: If asked about admissions/joining, explain the process AND mention the Google Form. 
+            - Form Link Rule: Do NOT include the link if you've already shared it too much in this session.
+            - Be concise but conversational.`,
             prompt: `History: ${JSON.stringify(history)}\nContext: ${context}\nUser: ${text}`
         });
 
-        // 4. Save & Reply
-        if (db) await db`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${text}), (${userId}, 'assistant', ${answer})`;
-        await ctx.reply(answer, { parse_mode: 'Markdown' });
+        // 4. Smart Form Insertion (Max 3 times per session logic)
+        let finalReply = answer;
+        if ((text.toLowerCase().includes('admiss') || text.toLowerCase().includes('join')) && formCount < 3 && !answer.includes(GOOGLE_FORM_URL)) {
+            finalReply += `\n\n📝 **Ready to join us?** Fill the form here: ${GOOGLE_FORM_URL}`;
+        }
+
+        // 5. Save & Reply
+        if (db) await db`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${text}), (${userId}, 'assistant', ${finalReply})`;
+        await ctx.reply(finalReply, { parse_mode: 'Markdown' });
 
     } catch (err: any) {
-        console.error('Final Error:', err.message);
-        await ctx.reply("📡 I'm briefly refreshing my brain. Try asking that once more! ✨");
+        console.error('Lively Fail:', err.message);
+        await ctx.reply("✨ Just taking a quick campus stroll! Ask me again in a second.");
     }
 });
 
