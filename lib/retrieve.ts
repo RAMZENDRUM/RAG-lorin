@@ -73,25 +73,27 @@ export async function performLorinRetrieval(
     try {
         const openai = getOpenAI();
 
-        // 1. Contextualize Query
+        // 1. Contextualize Query (Convert "yes", "more", "tell me" into full searches)
         if (history.length > 0) {
             try {
                 const { text } = await generateText({
                     model: openai('gpt-4o-mini'),
-                    system: "You are a Search Contextualizer. Full chat history is provided. Rewrite the user's latest query as a standalone search query. Prioritize the MOST RECENT subject in the chat. ONLY return the query.",
-                    prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nLast Message: ${rawQuery}`
+                    system: "You are a Search Contextualizer. You see the chat history. If the user's latest message is a confirmation (like 'yes', 'sure', 'more', 'tell me'), rewrite it as a specific search query based on the assistant's previous suggestion or the main subject. ONLY output the rewritten query. DO NOT prefix it.",
+                    prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nUser: ${rawQuery}`
                 });
                 contextualizedQuery = text.trim();
             } catch (e) {
-                console.error('Rewriting failed, using raw query');
+                console.error('Rewriting failed');
             }
         }
 
         // 2. Identify Intent & Sentinels
         const lowerQuery = contextualizedQuery.toLowerCase();
+        const rawLower = rawQuery.toLowerCase();
         
-        // HARD SENTINEL: Principal (High Priority)
-        if (lowerQuery.includes('principal') || lowerQuery.includes('srinivasan')) {
+        // HARD SENTINEL: Only trigger if the user asks for the principal specifically, 
+        // NOT if they are asking about research/initiatives (let the AI handle those).
+        if ((rawLower.includes('principal') || rawLower.includes('srinivasan')) && !rawLower.includes('research') && !rawLower.includes('initiative')) {
             return { 
                 answer: `🎓 **Meet Our Principal**\n\n**Dr. K. S. Srinivasan** is the visionary leader of MSAJCE, dedicated to academic excellence and student success!\n\n📞 **Contact Details:**\n• **Phone:** [+91 91505 75066](tel:+919150575066)\n• **Email:** [principal@msajce-edu.in](mailto:principal@msajce-edu.in)\n\n---\nWould you like to know about his **research background** or **current initiatives**? ✨`, 
                 score: 1.0, 
@@ -99,7 +101,7 @@ export async function performLorinRetrieval(
             };
         }
 
-        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that)/i.test(lowerQuery) && lowerQuery.length < 20;
+        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|yep|yes|sure)/i.test(rawLower) && rawLower.length < 10;
 
         // 3. Search
         let context = "No specific data found.";
