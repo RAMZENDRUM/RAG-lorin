@@ -24,14 +24,14 @@ const VERCEL_KEYS = [
     process.env.VERCEL_AI_KEY_4,
 ].filter(Boolean) as string[];
 
-const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY!;
+const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY;
 
 const engines = [
-    { name: 'OpenRouter', client: createOpenAI({ apiKey: OPENROUTER_KEY, baseURL: 'https://openrouter.ai/api/v1' }), delay: 100, model: 'openai/text-embedding-3-small' },
+    ...(OPENROUTER_KEY ? [{ name: 'OpenRouter', client: createOpenAI({ apiKey: OPENROUTER_KEY, baseURL: 'https://openrouter.ai/api/v1' }), delay: 100, model: 'openai/text-embedding-3-small' }] : []),
     ...VERCEL_KEYS.map((key, i) => ({
         name: `Vercel-${i + 1}`,
         client: createOpenAI({ apiKey: key, baseURL: 'https://ai-gateway.vercel.sh/v1' }),
-        delay: 5000, // Safe buffer for Vercel
+        delay: 12500,
         model: 'text-embedding-3-small'
     }))
 ];
@@ -55,12 +55,15 @@ function chunkText(text: string, size: number = 1000): string[] {
 }
 
 async function ingest() {
-    console.log('🧹 Purging for fresh parallel sync...');
+    console.log('🚀 Checking for fresh parallel sync (Incremental)...');
     try {
-        await sql`TRUNCATE TABLE lorin_knowledge;`;
-        try { await client.deleteCollection(COLLECTION_NAME); } catch (e) {}
-        await client.createCollection(COLLECTION_NAME, { vectors: { size: 1536, distance: 'Cosine' } });
-    } catch (e: any) { console.warn('⚠️ Purge Warning:', e.message); }
+        // Ensure collection exists without deleting it
+        const collections = await client.getCollections();
+        if (!collections.collections.some(c => c.name === COLLECTION_NAME)) {
+            await client.createCollection(COLLECTION_NAME, { vectors: { size: 1536, distance: 'Cosine' } });
+            console.log(`✅ Created fresh collection: ${COLLECTION_NAME}`);
+        }
+    } catch (e: any) { console.warn('⚠️ Collection Check Warning:', e.message); }
 
     const files = (await fs.readdir(RAW_DIR)).filter(f => f.endsWith('.master.txt'));
     const allData: { content: string, metadata: any }[] = [];
