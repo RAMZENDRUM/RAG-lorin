@@ -65,16 +65,14 @@ export async function performLorinRetrieval(
     try {
         const openai = getOpenAI();
 
-        // 1. RECURSIVE CONTEXTUALIZATION (Universal Subject Locking)
+        // 1. RECURSIVE CONTEXTUALIZATION
         let processedQuery = normalizeQuery(rawQuery);
         if (history.length > 0) {
             const { text } = await generateText({
                 model: openai('gpt-4o-mini'),
-                system: `You are a Search Contextualizer. Given a chat history and a latest query, rewrite the query to be a standalone search term. 
-                - If the user uses "him", "her", "they", "it", resolve the pronoun using history.
-                - If the user says "yes", "more", "tell me", "sure", rewrite it to ask for more details about the LAST topic discussed.
-                - If the query is already clear, do not change it much.
-                - ONLY output the rewritten query.`,
+                system: `You are a Search Contextualizer. 
+                Resolve pronouns ("him", "her") and confirmation words ("yes", "more") using chat history. 
+                Turn them into specific search queries. ONLY output the rewritten query.`,
                 prompt: `History:\n${history.map(h => `${h.role}: ${h.content}`).join('\n')}\n\nLast Query: ${rawQuery}`
             });
             processedQuery = text.trim();
@@ -88,11 +86,11 @@ export async function performLorinRetrieval(
         
         const searchResults = await qdrant.search(COLLECTION_NAME, { 
             vector: embedding, 
-            limit: 15, // Get more for re-ranking
+            limit: 10,
             with_payload: true 
         });
 
-        // 3. COHERE RE-RANKING (Universal Accuracy)
+        // 3. COHERE RE-RANKING
         let context = "No specific data found.";
         if (searchResults.length > 0) {
             const documents = searchResults.map(r => r.payload?.content as string);
@@ -103,46 +101,37 @@ export async function performLorinRetrieval(
                     topN: 5,
                     model: 'rerank-english-v2.0'
                 });
-                
-                context = reranked.results
-                    .map(res => documents[res.index])
-                    .join('\n\n---\n\n');
-                
+                context = reranked.results.map(res => documents[res.index]).join('\n\n---\n\n');
                 topScore = reranked.results[0].relevanceScore;
             } catch (rrErr) {
-                console.error('ReRank failed, falling back to vector score');
                 context = documents.slice(0, 5).join('\n\n---\n\n');
                 topScore = searchResults[0].score;
             }
         }
 
-        // 4. PERSONA-DRIVEN GENERATION
-        const isSmallTalk = history.length > 0 && /^(nice|thanks|cool|ok|wow|hello|hi|great|that|nah)/i.test(normalizeQuery(rawQuery)) && rawQuery.length < 10;
-
+        // 4. PERSONA-DRIVEN GENERATION (With Staff Priming)
         const { text: answer } = await generateText({
             model: openai('gpt-4o-mini'),
-            system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. 
+            system: `You are Lorin, the smart AI Concierge for MSAJCE Engineering College. ✨
             
-            CORE DIRECTIVES:
-            1. IDENTITY HIERARCHY:
-               - STAFF: Dr. K. S. Srinivasan (Principal), Mr. A. Abdul Gafoor (Admin Officer).
-               - DEVELOPER: Ramanathan S (Ram). 
-            2. SUBJECT LOCK: 
-               - If the last message was about a STAFF member, "Him" refers ONLY to that staff member. 
-               - NEVER switch from a Staff person to "Ram" unless the user explicitly mentions the word "Ram" or "Developer".
-               - If the Search Context is about 'Ram' but the user is asking about 'Staff', DISCARD the Ram info and say you don't have deeper details on the Staff person yet.
-            3. MEMORY: Always use chat history to verify WHO we are talking about.
-            4. FORMATTING: Use **Bold Headers** and bullet points. Format numbers as links.
+            STAFF IDENTITIES (PRIORITY):
+            - DR. K. S. SRINIVASAN (Principal): Visionary leader. Research in optical cables (Patent 202241071306). Connections to IIT Madras & NIT Trichy. Handles student welfare.
+            - MR. A. ABDUL GAFOOR (Admin Officer): Assistant Transport Convener. Handles admin inquiries and bus routes. 
+            - RAMANATHAN S (Ram): The AI Developer. 2nd year IT student. Only discuss if specifically named.
             
-            SCENARIO: If the user asks "more abt him" after discussing Abdul Gafoor, and you only see info for Ram in the Search Context, DO NOT TALK ABOUT RAM. Instead, say you only have the contact info for Mr. Gafoor currently.`,
+            RULES:
+            1. SUBJECT LOCK: If the last message was about the Principal, "him" = Principal. If last was Abdul Gafoor, "him" = Gafoor.
+            2. NEVER cross-contaminate identities. 
+            3. Use **Bold Headers**, bullet points (•), and clickable [tel:...] or [mailto:...] links.
+            4. If search data is missing but you have the identity above, USE THE IDENTITY.`,
             prompt: `
             CHAT HISTORY:
             ${history.map(h => `${h.role}: ${h.content}`).join('\n')}
             
-            SEARCH CONTEXT (Verified Data):
+            SEARCH DATA:
             ${context}
             
-            USER'S LATEST MESSAGE:
+            USER MESSAGE:
             ${rawQuery}
             `
         });
@@ -151,9 +140,8 @@ export async function performLorinRetrieval(
 
     } catch (err: any) {
         console.error('Universal RAG Error:', err);
-        finalAnswer = `Oof, my brain hit a snag! 🧠💥\n\nError: \`${err.message}\``;
+        finalAnswer = `Oof, my brain hit a snag! 🧠💨`;
     }
 
-    console.log(`[Universal RAG] Query: ${rawQuery} | Latency: ${Date.now() - startTime}ms | Score: ${topScore.toFixed(3)}`);
-    return { answer: finalAnswer, score: topScore, source: 'reranked-rag' };
+    return { answer: finalAnswer, score: topScore, source: 'unified-rag' };
 }
