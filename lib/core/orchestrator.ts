@@ -97,7 +97,8 @@ export async function hybridRetrieve(
     rewrittenQuery: string,
     rawText: string,
     openai: any,
-    db?: any
+    db?: any,
+    limit: number = 15
 ): Promise<KnowledgeChunk[]> {
     const qdrant = new QdrantClient({
         url: process.env.QDRANT_URL as string,
@@ -111,7 +112,7 @@ export async function hybridRetrieve(
 
     const qResults = await qdrant.search('lorin_msajce_knowledge', {
         vector: embedding,
-        limit: 15,
+        limit: limit,
         with_payload: true,
     });
 
@@ -239,8 +240,9 @@ export function postProcess(
     // Only inject link if user ASKED for it
     const wantsLink = /link|url|official page|website/i.test(rawUserMsg);
     if (!wantsLink) {
-        // Vaporize all links if NOT requested
-        finalAnswer = finalAnswer.replace(/https?:\/\/[^\s]+/g, "");
+        // Vaporize all links and their surrounding promotional text
+        finalAnswer = finalAnswer.replace(/(?:🔗?\s*(?:For more details|Visit official page|Click here)?[\s,]*visit:\s*)?https?:\/\/[^\s]+/gi, "");
+        finalAnswer = finalAnswer.replace(/🔗.*/g, ""); // Catch any leftover chain emojis
     }
 
     // Re-inject hard-coded links if they were explicitly identified (and clean)

@@ -57,7 +57,7 @@ bot.on('text', async (ctx) => {
         const rewrittenQuery = rewriteQuery(rawText, intent, profile, shortTerm);
 
         // --- STAGE 3-4: Hybrid Retrieval (High-Recall for People)
-        const isIdentity = intent === 'identity' || /who is|tell me about|contact|professor|dr\.|mr\./i.test(rawText);
+        const isIdentity = intent === 'faculty' || /who is|tell me about|contact|professor|dr\.|mr\./i.test(rawText);
         const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql, isIdentity ? 35 : 15);
 
         // --- STAGE 4.5: LLM Reranking (Cost Optimized) ---

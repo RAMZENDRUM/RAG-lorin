@@ -42,8 +42,9 @@ bot.on('text', async (ctx) => {
         const intent = classifyIntent(rawText);
         const rewrittenQuery = rewriteQuery(rawText, intent, profile, shortTerm);
         
-        // Stage 3-4: Hybrid Search
-        const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql);
+        // Stage 3-4: Hybrid Search (High-Recall for People)
+        const isIdentity = intent === 'faculty' || /who|tell me about|contact|professor|dr\.|mr\./i.test(rawText);
+        const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql, isIdentity ? 35 : 15);
         
         // Stage 4.5: Reranking
         const context = await rerankResults(rewrittenQuery, chunks, openai);
@@ -58,7 +59,7 @@ bot.on('text', async (ctx) => {
         
         // Stage 7-8: Generating & Processing (Personality Layer)
         const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
-        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks);
+        const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks, rawText);
 
         // Memory & Audit
         const newInterest = extractInterest(rawText);
