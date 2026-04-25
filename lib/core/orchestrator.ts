@@ -114,6 +114,36 @@ export async function hybridRetrieve(
     db?: any,
     limit: number = 15
 ): Promise<KnowledgeChunk[]> {
+    // STAGE 1: Supabase Entity Lookup (Fuzzy Priority)
+    let entityContext = "";
+    try {
+        const sql = db; 
+        if (sql) {
+            const rawQueryClean = rewrittenQuery.replace(/who|is|the|msajce|personnel|about|tell/gi, '').trim();
+            const tokens = rawQueryClean.split(' ').filter(t => t.length > 2);
+            
+            if (tokens.length > 0) {
+                const searchToken = tokens[0];
+                // Use Trigram similarity (%) for fuzzy matching
+                const results = await sql`
+                    SELECT name, role, department, batch, context, similarity(name, ${searchToken}) as score
+                    FROM msajce_entities 
+                    WHERE name % ${searchToken} 
+                    OR name ILIKE ${'%' + searchToken + '%'}
+                    ORDER BY score DESC
+                    LIMIT 2
+                `;
+                
+                if (results && results.length > 0) {
+                    entityContext = results.map((r: any) => 
+                        `[ENTITY TABLE]: ${r.name} is the ${r.role || 'Member'} in ${r.department || 'the college'}. ${r.batch ? `Batch: ${r.batch}.` : ''} Context: ${r.context}`
+                    ).join('\n\n');
+                }
+            }
+        }
+    } catch (e) { console.error('Fuzzy Entity Lookup Failed:', e); }
+
+    // STAGE 2: Qdrant Search
     const qdrant = new QdrantClient({
         url: process.env.QDRANT_URL as string,
         apiKey: process.env.QDRANT_API_KEY as string,
@@ -135,6 +165,15 @@ export async function hybridRetrieve(
         source: r.payload?.source as string || '',
         url: r.payload?.url as string || ''
     }));
+
+    // Prepend Entity Context if found
+    if (entityContext) {
+        chunks.unshift({
+            content: entityContext,
+            source: 'Supabase Entity Store',
+            url: 'https://www.msajce-edu.in'
+        });
+    }
 
     return chunks;
 }
@@ -229,7 +268,8 @@ FORMATTING RULES (STRICT PLAIN TEXT):
 RESPONSE STYLE:
 - Talk like a helpful campus guide.
 - Start with a natural sentence lead-in.
-- Keep responses factual, direct, and completely free of markdown styling except for simple dashes.`,
+- Keep responses factual, direct, and completely free of markdown styling except for simple dashes.
+- IDENTITY RULE: If context contains "[ENTITY TABLE]", you MUST use that data for the person's description. It is the absolute source of truth.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
 

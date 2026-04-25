@@ -60,23 +60,32 @@ async function ingest() {
         console.log(`✅ Created fresh collection: ${COLLECTION_NAME}`);
     } catch (e: any) { console.warn('⚠️ Reset Warning:', e.message); }
 
-    const files = (await fs.readdir(RAW_DIR)).filter(f => f.endsWith('.semantic.txt'));
+    const folders = ['data/04_semantic', 'data/raw_detailed'];
     const allData: { content: string, metadata: any }[] = [];
     
-    for (const file of files) {
-        const content = await fs.readFile(path.join(RAW_DIR, file), 'utf-8');
-        const chunks = chunkBySection(content);
-        chunks.forEach((c, idx) => {
-            allData.push({
-                content: c,
-                metadata: {
-                    source: file,
-                    url: `https://www.msajce-edu.in/${file.replace('.semantic.txt', '.php')}`,
-                    chunk_idx: idx,
-                    id: crypto.randomBytes(16).toString('hex')
-                }
+    for (const folder of folders) {
+        const fullPath = path.join(process.cwd(), folder);
+        if (!fs.existsSync(fullPath)) continue;
+        
+        const files = (await fs.readdir(fullPath)).filter(f => f.endsWith('.txt'));
+        for (const file of files) {
+            const content = await fs.readFile(path.join(fullPath, file), 'utf-8');
+            const chunks = folder.includes('semantic') ? chunkBySection(content) : content.split(/\n\n+/);
+            
+            chunks.forEach((c, idx) => {
+                if (c.trim().length < 20) return;
+                allData.push({
+                    content: c,
+                    metadata: {
+                        source: file,
+                        folder: folder,
+                        url: `https://www.msajce-edu.in/${file.replace('.semantic.txt', '.php').replace('.detailed.txt', '.php')}`,
+                        chunk_idx: idx,
+                        id: crypto.randomBytes(16).toString('hex')
+                    }
+                });
             });
-        });
+        }
     }
 
     console.log(`🚀 MULTI-ENGINE PUSH: ${allData.length} chunks via ${engines.length} Parallel Workers...`);
