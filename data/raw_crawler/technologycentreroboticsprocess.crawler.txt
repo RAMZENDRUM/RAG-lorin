@@ -1,0 +1,118 @@
+URL: https://www.msajce-edu.in/technologycentreroboticsprocess.php
+TITLE: MSAJCE | Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
+
+Online Application Form
+Online Fee Payment
+Students Corner
+College Video
+9940004500
+Teachers & Engineers Day 2025 Celebration Photos New
+ESE Timetable June 2025 New
+Internship Report Format - 2025 New
+Internship Report Format - 2025 - Download Here
+18th Graduation Day 22 Feb 2025 Photos New
+Admission 2026 - 2027 Flyer New
+AICTE-ATAL Sponsored Six Days FDP New
+17th Graduation Day Photos New
+Admission Open 2026-2027 - Online Application Form
+Online Fee Payment New
+Grievance Cell - grievance@msajce-edu.in
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal New
+About Us An Overview Vision and Mission Management Principal Message Statutory body Governing Council Planning & Monitoring Board Academic Advisory Committe Grievance and Redressal Committee Anti-Ragging Committee & Squad Womens Empowerment Cell Functional Committees MSAJCE Policies Mandatory Disclosure Group of Institutions
+An Overview
+Vision and Mission
+Management
+Principal Message
+Statutory body Governing Council Planning & Monitoring Board Academic Advisory Committe Grievance and Redressal Committee Anti-Ragging Committee & Squad Womens Empowerment Cell
+Governing Council
+Planning & Monitoring Board
+Academic Advisory Committe
+Grievance and Redressal Committee
+Anti-Ragging Committee & Squad
+Womens Empowerment Cell
+Functional Committees
+MSAJCE Policies
+Mandatory Disclosure
+Group of Institutions
+Admission
+Academics Regulations Curriculum and Syllabus Department Technology Centre
+Regulations
+Curriculum and Syllabus
+Department
+Technology Centre
+Research
+COE ESE Timetable Nov - Dec 2025 ESE NOV-DEC 2025 RESULTS EXAM REGISTRATION MAY-JUN'25 I & II YEAR III & IV YEAR
+ESE Timetable Nov - Dec 2025
+ESE NOV-DEC 2025 RESULTS
+EXAM REGISTRATION MAY-JUN'25 I & II YEAR III & IV YEAR
+I & II YEAR
+III & IV YEAR
+Placement
+Life at MSAJCE Learning Centre (Library) Hostel Transport Sports Campus Radio Social Services Clubs & Societies Professional Socities
+Learning Centre (Library)
+Hostel
+Transport
+Sports
+Campus Radio
+Social Services
+Clubs & Societies
+Professional Socities
+Alumni
+AICTE Scholarship
+Incubation
+Robotics Process Automation (RPA) Partnered with Automation Anywhere
+Technology Centre
+Robotics Process Automation (RPA) Partnered with Automation Anywhere
+Objectives
+Outcomes
+RPA Centre
+Courses / Training / Certification Offered
+Syllabus
+The Students will be able
+The students will be able to
+Mohamed Sathak A J College of Engineering has partnered with Automation Anywhere the market leaders in Robotic Process Automation (RPA) to establish the AAU powered Bot Lab. The AAU powered Bot Labprovides training in Robotic Process Automation (RPA) which is simpleand powerfulautomation software. RPAis used to create software robots that can automate any business process.
+Courses Offered:
+Robotic Process Automation
+Certifications:
+Introduction to Robotic Process Automation & Bot Creation (6 Hours) Introduction to RPA and Use cases – Automation Anywhere Enterprise Platform – Advanced features and capabilities – Ways to create Bots – Conclusion. Web Control Room and Client (6 Hours) Introduction - Features Panel - Dashboard (Home, Bots, Devices, Audit, Workload, Insights) - Features Panel – Activity (View Tasks in Progress and Scheduled Tasks) - Bots (View Bots Uploaded and Credentials) - Devices (View Development and Runtime Clients and Device Pools) - Workload (Queues and SLA Calculator) - Audit Log (View Activities Logged which are associated with Web CR) - Administration (Configure Settings, Users, Roles, License and Migration) - Demo of Exposed API’s – Conclusion – Client introduction and Conclusion.
+Bot Creator (9 Hours) Introduction – Recorders – Smart Recorders – Web Recorders – Screen Recorders - Task Editor – Variables - Command Library – Loop Command – Excel Command – Database Command - String Operation Command - XML Command - Terminal Emulator Command - PDF Integration Command - FTP Command - PGP Command - Object Cloning Command - Error Handling Command - Manage Windows Control Command - Workflow Designer - Report Designer - Best Practices - Summary
+Meta Bot and Bot Insight (6 Hours) Introduction - MetaBot Designer - MetaBot With AI Sense - Bot Insight - Transactional Analytics - Operational Analytics - Course Key Points.
+Assessment and Essential Certification (6 Hours)
+List of Experiments (12 Hours)
+Software Installation Procedure – Installation of AA Control Room, SQL Server and AA Client.
+Bot Creation using recorders (Smart, Web and Screen ).
+Bot Creation using command library – (Loop Command).
+Bot Creation to invoke database automation
+Bot Creation for automating excel operations
+Bot Creation for PDF Integrations.
+Bot Creation and working on error handling.
+Bot Development using Object Cloning Command.
+FTP and PGB Command Execution by Bots
+MetaBot Designing with AI Sense.
+Text Books
+Learning Robotic Process Automation: Create Software robots and automate business processes with the leading RPA tool - UiPath: Create Software robots. with the leading RPA tool – UiPath Kindle Edition
+Robotic Process Automation A Complete Guide - 2020 Edition Kindle Edition
+34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103
++91 99400 04500
+msajce.office@gmail.com
+Connect With Us
+MSAJCE Links
+News Letter
+Anna University Approval
+AICTE Approval
+Code of Conduct
+Best Practices
+Mandatory Disclosure
+Grievance Cell
+Web Links
+College Management System
+Academic Calendar
+Spoken Tutorial
+Balance Sheet
+Useful Links
+AICTE Scholarship/Fellowship Schemes
+Annual Report AY2023-2024
+Graduation Day
+Institutional Distinctiveness
+© 2023 MSAJCE All Rights Reserved | 1635387 Visitors
+Maintained by : WebTeam MSAJCE

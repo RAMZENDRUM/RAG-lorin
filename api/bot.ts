@@ -79,7 +79,7 @@ bot.on('text', async (ctx) => {
         
         // Stage 3-4: Hybrid Search (High-Recall for People)
         const isIdentity = intent === 'faculty' || /who|tell me about|contact|professor|dr\.|mr\./i.test(rawText);
-        const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql, isIdentity ? 35 : 15);
+        const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql, isIdentity ? 50 : 15);
         
         // Stage 4.5: Reranking
         const context = await rerankResults(rewrittenQuery, chunks, openai);

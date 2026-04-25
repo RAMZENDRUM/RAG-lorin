@@ -45,7 +45,7 @@ export function classifyIntent(text: string): Intent {
     
     // Explicit Identity Detection (Highest Priority)
     if (/(who|tell|about|contact|info|details|profile|is|the)\s+(dr|mr|ms|mrs|prof)?\.?\s*[a-z]+/.test(t)) return 'faculty';
-    if (/faculty|staff|hod|professor|dr\.|mr\.|principal|gafoor|srinivasan|president|secretary|coordinator|usha|weslin|yogesh/.test(t)) return 'faculty';
+    if (/faculty|staff|hod|professor|dr\.|mr\.|principal|gafoor|srinivasan|president|secretary|coordinator/.test(t)) return 'faculty';
 
     if (/admiss|join|apply|enrol|seat|cutoff|counsell/.test(t)) return 'admission';
     if (/fee|fees|cost|tuition|payment/.test(t)) return 'fee';
@@ -96,7 +96,7 @@ export function rewriteQuery(
         transport: `transport bus routes pickup drop Manjambakkam Velachery MSAJCE`,
         placement: `placement companies recruiters packages MSAJCE`,
         department: `departments engineering programs MSAJCE`,
-        faculty:   `${t} personnel biography contact details MSAJCE`,
+        faculty:   `${t} personnel MSAJCE`,
         complaint: `${t} comparison value marketing`,
         general:   `${t} MSAJCE college info`,
     };
@@ -147,7 +147,27 @@ export async function rerankResults(
     chunks: KnowledgeChunk[],
     openai: any
 ): Promise<string> {
-    const relevant = chunks.slice(0, 10).map(c => c.content).join('\n\n---\n\n');
+    const rawQuery = query.toLowerCase();
+    
+    // Extract potential names from query (simple heuristic)
+    const nameKeywords = query.split(' ').filter(w => w.length > 3 && !['who', 'is', 'the', 'msajce', 'personnel', 'about', 'tell'].includes(w.toLowerCase()));
+
+    // Sort by name presence first
+    const sorted = [...chunks].sort((a, b) => {
+        let scoreA = 0;
+        let scoreB = 0;
+        const lowA = a.content.toLowerCase();
+        const lowB = b.content.toLowerCase();
+
+        for (const kw of nameKeywords) {
+            if (lowA.includes(kw.toLowerCase())) scoreA += 10;
+            if (lowB.includes(kw.toLowerCase())) scoreB += 10;
+        }
+
+        return scoreB - scoreA;
+    });
+
+    const relevant = sorted.slice(0, 10).map(c => c.content).join('\n\n---\n\n');
     return relevant || 'No high-confidence data found.';
 }
 
@@ -215,10 +235,6 @@ CORE FACTS:
 - RAM (Developer): Ramanathan S. B.Tech IT student, creator of Lorin/Zenify. Unity/AI expert. (NEVER MENTION CGPA).
 - PRINCIPAL: Dr. K. S. Srinivasan. (Very prominent).
 - ADMIN: Mr. A. Abdul Gafoor.
-- MS. S. USHA: AP/English, Convener of Grievance Redressal Committee. (sh.usha@msajce-edu.in)
-- DR. D. WESLIN: Associate Professor IT, CSI Student Branch Counsellor. (it.weslin@msajce-edu.in)
-- DR. ELLISS YOGESH R: Prominent Faculty/Head.
-- DEPARTMENTS: CSE (Dr. Vijayarangan), IT (Dr. Kannan), AI&DS (Dr. Nagasubramanian), Mech (Dr. Balaji).
 - TRANSPORT: AR-Series buses (AR 8, AR 4, AR 5). Point-to-point service.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });

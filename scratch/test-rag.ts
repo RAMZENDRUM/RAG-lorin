@@ -7,7 +7,7 @@ import {
     buildContext, 
     generateGrounded, 
     postProcess 
-} from '../lib/core/orchestrator.ts';
+} from '../lib/core/orchestrator.js';
 import { createOpenAI } from '@ai-sdk/openai';
 import dotenv from 'dotenv';
 

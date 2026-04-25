@@ -49,15 +49,20 @@ function chunkBySection(text: string): string[] {
 }
 
 async function ingest() {
-    console.log('🚀 Checking for fresh parallel sync (Incremental)...');
+    console.log('🚀 PERFORMING FULL RESET (Wiping old data)...');
     try {
-        // Ensure collection exists without deleting it
-        const collections = await client.getCollections();
-        if (!collections.collections.some(c => c.name === COLLECTION_NAME)) {
-            await client.createCollection(COLLECTION_NAME, { vectors: { size: 1536, distance: 'Cosine' } });
-            console.log(`✅ Created fresh collection: ${COLLECTION_NAME}`);
-        }
-    } catch (e: any) { console.warn('⚠️ Collection Check Warning:', e.message); }
+        await client.deleteCollection(COLLECTION_NAME);
+        console.log(`🗑️ Deleted old collection: ${COLLECTION_NAME}`);
+    } catch (e) {}
+
+    try {
+        await client.createCollection(COLLECTION_NAME, { vectors: { size: 1536, distance: 'Cosine' } });
+        console.log(`✅ Created fresh collection: ${COLLECTION_NAME}`);
+        
+        // Also wipe Supabase table content
+        await sql`DELETE FROM lorin_knowledge`;
+        console.log(`🧹 Wiped Supabase table.`);
+    } catch (e: any) { console.warn('⚠️ Reset Warning:', e.message); }
 
     const files = (await fs.readdir(RAW_DIR)).filter(f => f.endsWith('.semantic.txt'));
     const allData: { content: string, metadata: any }[] = [];
