@@ -58,10 +58,6 @@ async function ingest() {
     try {
         await client.createCollection(COLLECTION_NAME, { vectors: { size: 1536, distance: 'Cosine' } });
         console.log(`✅ Created fresh collection: ${COLLECTION_NAME}`);
-        
-        // Also wipe Supabase table content
-        await sql`DELETE FROM lorin_knowledge`;
-        console.log(`🧹 Wiped Supabase table.`);
     } catch (e: any) { console.warn('⚠️ Reset Warning:', e.message); }
 
     const files = (await fs.readdir(RAW_DIR)).filter(f => f.endsWith('.semantic.txt'));
@@ -100,11 +96,6 @@ async function ingest() {
                     model: engine.client.embedding(engine.model),
                     value: item.content,
                 });
-
-                await sql`
-                    INSERT INTO lorin_knowledge (content, metadata, embedding)
-                    VALUES (${item.content}, ${item.metadata}, ${`[${embedding.join(',')}]` });
-                `;
 
                 await client.upsert(COLLECTION_NAME, {
                     wait: i === total - 1,

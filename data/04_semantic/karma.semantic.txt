@@ -1,14 +1,68 @@
-[SECTION: KAUSHAL AUGMENTATION AND RESTRUCTURING MISSION (KARMA)]
-The Kaushal Augmentation and Restructuring Mission of AICTE (KARMA) aims to address the shortage of skilled labor in India by implementing strategic skill initiatives. This program encourages institutions to optimize their existing higher education infrastructure for skill training, realigning resources to ensure training aligns with National Skills Qualifications Framework (NSQF). Candidates who have completed at least the 10th standard or have ITI qualifications are eligible for this domain-specific training, designed to enhance employability in core engineering sectors.
+SECTION: Overview of MSAJCE
+The Mohamed Sathak A. J. College of Engineering (MSAJCE) is recognized as a premier engineering institution in Chennai, providing various undergraduate and postgraduate programs. The college is dedicated to delivering high-quality education and fostering skill development among students.
 
-[SECTION: SKILLING MODELS UNDER KARMA]
-KARMA proposes three distinct models to enhance skill development among students. Model 1 targets school dropouts post-10th grade, while Model 2 focuses on upgrading the skills of students currently enrolled in AICTE-approved technical institutions. This model introduces advanced skilling courses from the 4th to 7th semesters to prepare students for industry demands. Lastly, Model 3 integrates school education with higher education by initiating weekly skill-based training for nearby school students, fostering collaboration between higher education institutions and schools.
+SECTION: Objectives of KARMA
+The "Kaushal Augmentation and Restructuring Mission of AICTE" (KARMA) aims to create a skilled and certified workforce to enhance India's position as a global skills capital. It encourages institutions to utilize available infrastructure for skill training and mandates participation for candidates who have completed at least 10th standard or ITIs.
 
-[SECTION: APPROVED COURSES]
-The Mohamed Sathak A. J. College of Engineering has been authorized by AICTE to offer five courses under Model 2, including: AI - Machine Learning Developer, Refrigeration and Air Conditioning Technician, Additive Manufacturing Technician (3D Printing), Certificate Course in Embedded System Design using ARM/Cortex Microcontroller, and Architectural Drafting with Autodesk Revit. Under Model 1, the institute is also approved to offer Computer Hardware Network Maintenance and Refrigeration and Air Conditioning Technician courses, both with a maximum intake of 30 students.
+SECTION: Skill Training Models under KARMA
+KARMA encompasses three skilling models designed for different educational contexts:
+- Model 1 targets school dropouts after class 10th.
+- Model 2 enhances skill advancement for students currently enrolled in AICTE-approved technical institutions, offering advanced courses during the 4th to 7th semesters. 
+- Model 3 seeks to integrate school education with higher education, promoting skill-based training for nearby school students once a week.
 
-[SECTION: STUDENT ACHIEVEMENTS IN ENGINEERING DEPARTMENTS]
-The academic performance of students at MSAJCE showcases notable talent across various engineering disciplines. For instance, Mohamed Jassim (Civil Engineering, Year II), Mohamed Nibras (Mechanical Engineering, Year IV), and Vinitha (Computer Science, Year II) have demonstrated excellence. These achievements reflect the institution's commitment to fostering a culture of academic excellence and skill development in engineering. The focus on mentorship and resources further enhances students’ readiness for the industry.
+SECTION: Course Offerings for Skilling
+The Mohamed Sathak A J College of Engineering is approved to conduct the following courses under Model 2 with an intake capacity:
+1. AI -Machine Learning Developer
+2. Refrigeration and Air Conditioning Technician
+3. Additive Manufacturing Technician (3D Printing)
+4. Certificate Course in Embedded System Design using ARM/Cortex Microcontroller
+5. Architectural Drafting and Basic 3D Design with Autodesk Revit
 
-[SECTION: CONTACT INFORMATION]
-For inquiries or assistance, MSAJCE can be reached at +91 99400 04500 or via email at msajce.office@gmail.com. The institution is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. Additionally, details related to programs, admission, and academic activities can be found on the official website.
+SECTION: Approval Letters and Course Details
+Approval Letters related to the training models can be accessed as follows:
+1. Approval Letter – Model 1: https://facilities.aicte-india.org/KARMA/letter_r_karma_model1.php?app_id=MS05NzU2MzUx&model=model1
+2. Approval Letter – Model 2: https://facilities.aicte-india.org/KARMA/letter_r_karma_model2.php?app_id=MS05NzU2MzUx&model=model2
+3. Course Registration Details: https://facilities.aicte-india.org/KARMA/review_data.php?app_id=MS05NzU2MzUx
+
+SECTION: Academic Calendar
+The academic calendars include:
+- Higher Semester (Odd Semester - 2022-2023)
+- Higher Semester (Even Semester - 2021-2022)
+- First Year (Even Semester - 2021-2022)
+
+SECTION: Academic Toppers
+From the Department of Civil Engineering:
+- Mohamed Jassim .M (Year II)
+- Veera Kumar .M (Year III)
+- Mohmood Naina .M.H (Year IV)
+
+From the Department of Mechanical Engineering:
+- Salman (Year II)
+- Atef Jamaludeen .N (Year III)
+- Mohamed Nibras .M (Year IV)
+
+From the Department of Computer Science and Engineering:
+- Vinitha .M (Year II)
+- Bhuvaneshwari .B (Year III)
+- Mahalakshmi .R (Year IV)
+
+From the Department of Information Technology:
+- Shalini .M (Year II)
+- Ganga .M (Year III)
+- Fouzia .M.A (Year IV)
+
+From the Department of Electronics and Communication Engineering:
+- Satheshkumar .V (Year II)
+- Assifa .A (Year III)
+- Vigneshwaran .V (Year IV)
+
+From the Department of Electrical and Electronics Engineering:
+- Divyasri .S (Year II)
+- Sathyan .S (Year III)
+- Sanjith .S (Year IV)
+
+SECTION: Contact Information
+For further inquiries, the college can be contacted at:
+Address: 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103
+Phone: +91 99400 04500
+Email: msajce.office@gmail.com

@@ -1,11 +1,29 @@
-[SECTION: Coding Learning Centre Objectives]
-The Coding Learning Centre at Mohamed Sathak A. J. College of Engineering focuses on equipping students with essential programming skills applicable across various domains. Key objectives include understanding programming languages such as C, C++, Java, and Python, and fostering a new problem-solving perspective. Students are prepared as competent data analysts through courses on Big Data and Hadoop, and they enhance their software testing abilities by learning to utilize tools like Selenium. Participation in global coding contests promotes competitive learning among students.
+SECTION: Online Learning Opportunities  
+The students of Mohamed Sathak A. J. College of Engineering will be able to understand the syntax and semantics of various programming languages such as C, C++, Java, and Python. The students will also gain a new perspective on problem solving by choosing appropriate programming domains for software product development. Furthermore, the curriculum aims to make students competent data analyzers or data scientists by learning Big Data and Hadoop.
 
-[SECTION: Networking Academy Partnership]
-Mohamed Sathak A. J. College of Engineering has established a strategic partnership with CISCO to launch the Networking Academy. This IT skills program provides students with a unique hands-on learning experience in modern networking, security, and cloud technologies through simulation tools. It offers professional certifications recognized globally, creating career pathways to over eight million networking jobs. The academy emphasizes critical courses including Network Essentials, CCNA, and more, positioning students for successful careers in technology. 
+SECTION: Software Development Skills  
+Students will develop the ability to design and implement software applications using basic constructs of C and C++. Additionally, they will develop software products intended for various industries across multiple programming platforms. The curriculum teaches students to understand key issues in big data management along with its applications in intelligent business and scientific computing. Moreover, students will be capable of testing and debugging various software products effectively, and they will be able to develop real-time web and mobile applications.
 
-[SECTION: Courses Offered at the Technology Centre]
-The Technology Centre at MSAJCE provides a rich array of courses covering essential and advanced topics in networking and software development. Offered courses include Network Essentials, Mobility Fundamentals, and various CCNA tracks. Additionally, students can engage in cybersecurity, IoT, data analytics, and programming courses tailored for both industry readiness and entrepreneurship. This diverse curriculum ensures that students are well-equipped to meet the evolving demands of the tech sector.
+SECTION: Networking Academy Partnership  
+Mohamed Sathak A. J. College of Engineering has partnered with Cisco, the world leaders in networking, to establish the Networking Academy. This collaboration provides a unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. The professional certifications earned through this academy are recognized by employers worldwide and open career pathways to connect to an estimated eight million networking jobs globally.
 
-[SECTION: Professional Certifications Available]
-The Coding Learning Centre offers professional certifications implemented by CISCO, including the CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are highly valued in the job market, ensuring that students gain recognition from employers worldwide. Completing these certification programs not only enhances students' resumes but also prepares them for impactful careers in information technology and networking.
+SECTION: Courses Offered  
+Under the Networking Academy, the following courses are offered:  
+- Network Essentials  
+- Mobility Fundamentals  
+- CCNA: Introduction to Networks  
+- CCNA: Switching, Routing, and Wireless Essentials  
+- CCNA: Enterprise Networking, Security and Automation or Networking Courses  
+- Security Courses  
+- IoT & Data Analytics Courses  
+- OS and IT Courses  
+- Programming Courses  
+- Entrepreneurship  
+
+SECTION: Certifications Available  
+The certifications available for students include:  
+- Cisco Certified Network Associate  
+- Implementing Cisco Enterprise Network Core Technologies  
+
+SECTION: Contact Information  
+For further inquiries, interested parties can reach out to Mohamed Sathak A. J. College of Engineering located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. They can contact the institution by calling +91 99400 04500 or emailing msajce.office@gmail.com for support or additional information.

@@ -1,20 +1,43 @@
-[SECTION: MSAJCE Placement Overview]
-The Mohamed Sathak A. J. College of Engineering (MSAJCE) prioritizes enhancing employability for its students by providing comprehensive placement services and resources. The Placement Cell organizes on-campus and off-campus recruitment drives and offers specialized training in aptitude, communication, and technical skills to prepare graduates for the competitive job market. They also arrange internships, industrial visits, and workshops led by industry experts to bridge gaps between academic knowledge and practical application. Key personnel managing these initiatives include Mr. S.V. Vinodh, the Placement Officer, and Mr. Ajin Sijo John, the Assistant Placement Officer. 
+SECTION: Overview
 
-[SECTION: Industry Institute Interaction Cell]
-MSAJCE’s Industry Institute Interaction Cell facilitates collaboration between students and industry, addressing the crucial gap between classroom knowledge and real-world applications. The cell focuses on signing Memorandums of Understanding (MoUs) with various industries to enhance the educational experience. These partnerships enable students to engage in internships and participate in value-added courses and workshops, thus ensuring they meet industry expectations and acquire relevant skills. The cell also invites industry experts for guest lectures, contributing to a well-rounded learning environment.
+The MSAJCE provides employment opportunities for students in reputed companies. They organize on and off-campus recruitment drives for students and train them in employability skills such as aptitude, communication, and technical skills. Value-added certification courses are conducted to gain domain-specific knowledge, and mock aptitude tests, mock interviews, and mock group discussions are arranged to prepare students for interviews. The college also facilitates in-plant training, internships, and industrial visits while organizing workshops on recent technologies by industrial experts to benefit students.
 
-[SECTION: Training Programs and Workshops]
-Throughout the academic years, MSAJCE hosts various training programs and workshops aimed at enhancing student skills. For instance, the Soft Skill Training Program, held every year, equips students with essential interpersonal skills to thrive in professional settings. In 2023, significant initiatives included a Placement Training on Aptitude Skills and multiple sessions focusing on programming, technical interviews, and soft skills. These workshops not only prepare students for immediate job placements but also encourage lifelong learning and adaptability.
+SECTION: Placement Committee
 
-[SECTION: Major Recruiters]
-MSAJCE collaborates with numerous reputed companies to provide diverse employment opportunities for its graduates. Notable industry partners include Lenovo, Zoho Tech, and Green Valleys Shelters Pvt. Ltd., which have hired significant numbers of students. The institution’s proactive approach to engaging with industry leaders ensures graduates possess the necessary skills to contribute effectively from day one. The ongoing relationships with these companies also facilitate industry visits and talks, further enriching the educational experience.
+Mr. S.V. Vinodh serves as the Placement Officer at MSAJCE. He is supported by Mr. Ajin Sijo John (Assistant Placement Officer), Mrs. N. Kavitha (Member), and Mr. V.A. Babu Charies Earnest (Member). The committee is dedicated to enhancing the employability of students through various initiatives.
 
-[SECTION: Student Higher Education Details]
-MSAJCE also emphasizes higher education pursuits among its graduates. A dedicated Higher Education Cell conducts regular counseling sessions and organizes seminars to inform students about potential paths for further studies. Recent graduates have headed to prestigious institutions such as Anna University and Amrita Vishwa Vidyapeetham to pursue specialized fields including Structural Engineering and Data Science. This initiative aims to maximize students' academic and career potential post-graduation.
+SECTION: Facilities
 
-[SECTION: Event Highlights]
-Annual events such as the Graduation Day and various academic seminars focus on inspiring students and showcasing industry innovations. The 2025 Graduation Day, held on 22 February, celebrates student achievements and serves as a networking platform for graduates entering the workforce. Additionally, seminars on topics like Cyber Security and Data Analytics, led by industry experts, prepare students by keeping them updated with current trends and best practices.
+MSAJCE features well-furnished air-conditioned rooms for written tests, group discussions, and face-to-face interviews. There are well-established computer labs for online training and examinations, air-conditioned auditoriums, seminar halls, and meeting halls, as well as dedicated AC rooms for conducting group discussions. Career counseling is available, guiding students to choose the best possible stream to meet their unique requirements, with mentors assisting them in focusing on their targets.
 
-[SECTION: Contact Information]
-For inquiries regarding placements, students and industry representatives can reach the Placement Officer, Mr. S.V. Vinodh, at MSAJCE. The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Chennai - 603103. He can be contacted via phone at +91-99409 02255 or email at placement@msajce-edu.in. This accessibility encourages ongoing communication between the institution and relevant stakeholders.
+SECTION: Training Events 2023-2024
+
+In the academic year 2023-2024, a placement training on aptitude skills is scheduled from 01.08.2023 to 06.08.2023, involving 65 students and organized by Nexon Technology.
+
+SECTION: Training Events 2022-2023
+
+For the academic year 2022-2023, key events include a soft skill training program held from 25.05.2023 to 07.05.2023 for 200 first-year students by Rubicon Technology; a one-week soft skill training program from 02.05.2023 to 06.05.2023 for 100 third-year students, also by Rubicon Technology; JAVA full stack development training from 06.03.2023 to 31.03.2023 for 40 students arranged by ICT Academy and Inspirysys Software Solution; and a soft skill training program held from 15.02.2023 to 09.02.2023 for 100 students, conducted by Nexon Technologies.
+
+SECTION: Student Activities
+
+Other student activities include an ice-breaking session on interview fear facilitated by Mr. Dennie John, HR at Doodleblue, for 65 students on 07.02.2023; an online technical session on "How to Crack Data Pattern Interview" led by Mr. J Jabin, Senior CFD Consultant at Data Pattern, for 20 participants on 10.11.2022; and a session on how to positively face HR interviews, again led by Mr. Dennie John, for 200 students on 23.09.2022.
+
+SECTION: Industry Partnerships
+
+The third Industry Institution Interaction Cell aims to bridge the gap between industry and academic institutions. They sign MoUs with industries for mutual benefit. The objectives also include organizing workshops, conferences, and seminars with joint participation from the institute and industries, as well as encouraging faculty to undergo training in various industries to upgrade their knowledge. Engaging industrial experts is emphasized, and industrial visits, internships, and projects are arranged for students.
+
+SECTION: MoUs Signed
+
+In 2023, MSAJCE signed MoUs with Automation Anywhere, REVATURE, and the Association of Muslim Professionals. Other partners include SkillSort Technical Solutions Pvt. Ltd., Aero Knotz Drones Pvt. Ltd., and Quazr Motors.
+
+SECTION: Student Higher Education Details 2022-2023
+
+Anandu Acharry .M.S, graduated from BE - CIVIL, joined Anna University for Environment Management. Veerakumar .M, also from BE - CIVIL, graduated from Mohamed Sathak A.J. College of Engineering and enrolled in ME - Structural Engineering. Shaafia Tasneem .N graduated in BE - CSE from St. Joseph College of Engineering, joining for ME - Computer Science. Muhammed Shibil .C.V graduated from BE - CSE at Amrita Vishwa Vidyapeetham for Data Science, and Jahangeer Nadhir Khan .P from BE - ECE at Loyola College for MBA.
+
+SECTION: Industry Visit Details
+
+MSAJCE plans several industry visits including ISRO Propulsion Research Complex in Mahendragiri, with 45 students from MECH, ECE, CSE, and IT scheduled for 07.09.2023, and Vikram Sarabhai Space Centre on 08.09.2023, with another trip fetching 45 students. Other institutes include the National Institute of Wind Energy and Mettur Power Station, with a commitment to expose students to practical engineering environments.
+
+SECTION: Placement Officer Contact
+
+Mr. S.V. Vinodh, the Placement Officer at Mohamed Sathak AJ College of Engineering, is reachable at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. He can be contacted via phone at +91-99409 02255 or +91-89037 66391 and through email at placement@msajce-edu.in. The official website for more information is www.msajce-edu.in.

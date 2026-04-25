@@ -1,14 +1,29 @@
-[SECTION: MSAJCE Networking Academy]
-Mohamed Sathak A. J. College of Engineering has established a partnership with Cisco to create the Networking Academy, an IT skills and career-building program. The academy offers unique hands-on experiences in networking, security, and cloud technologies, complemented by a comprehensive curriculum that includes 24 labs utilizing Cisco 4221 routers and 2960 switches. This program is designed to connect students with professional certifications, recognized by employers globally, paving the way for career opportunities in over eight million networking jobs worldwide.
+SECTION: Overview of MSAJCE and Cisco Partnership
+Mohamed Sathak A. J. College of Engineering has partnered with CISCO, the world leaders in networking, to establish the Networking Academy (NetAcad). This collaboration aims to provide IT skills and career-building opportunities through the Cisco Networking Academy program.
 
-[SECTION: Networking Course Offerings]
-The Cisco Networking Academy at MSAJCE provides a diverse range of courses, including Network Essentials, CCNA: Introduction to Networks, and IoT & Data Analytics Courses. With a structured approach, students learn foundational and advanced networking concepts such as Ethernet configuration, IP addressing, and network security fundamentals. The training emphasizes real-world applications to ensure students are job-ready.
+SECTION: Course Curriculum and Learning Outcomes
+Students will study the architecture, structure, functions, components, and models of the Internet and other computer networks. The curriculum utilizes the OSI and TCP layered models to examine the roles of protocols and services at the application, network, data link, and physical layers. Additionally, students will learn the principles of IP addressing and the fundamentals of Ethernet concepts, media, and operations, which provide a solid foundation for these studies. Labs utilize a "model Internet" to facilitate real data analysis without affecting production networks. Packet Tracer (PT) activities are designed to help students analyze protocol and network operations and build small networks in a simulated environment.
 
-[SECTION: Hands-On Learning Approach]
-The Networking Academy utilizes a simulated “model Internet” and the Packet Tracer tool to empower students with a practical understanding of network configurations. Students engage in building Local Area Networks (LANs), configuring routers and switches, and resolving issues within both IPv4 and IPv6 environments. This hands-on methodology is essential for developing essential troubleshooting skills and networking knowledge.
+SECTION: Skills Development in Networking
+The program enables students to build simple LANs, perform basic configurations for routers and switches, and implement IP addressing schemes. They will acquire the skills to configure and troubleshoot routers and switches, resolving common VLAN routing issues in both IPv4 and IPv6 networks. Students will also learn to configure WAN technologies and network services required by converged applications within a complex network.
 
-[SECTION: Course Certification and Skills Development]
-Upon completion of the training at MSAJCE's Networking Academy, students can earn the Cisco Certified Network Associate certification. This credential signifies proficiency in implementing and troubleshooting enterprise network core technologies, crucial for career advancement in the IT industry. The curriculum's design encourages critical thinking and practical application of networking concepts.
+SECTION: Enterprise Network Design
+Students will gain knowledge to effectively use simulation tools for designing enterprise networks and evaluating design alternatives. They will complete designs that support applications like electronic mail, centralized database access, and client-server applications. Various issues such as IP address assignments, the selection of internetworking equipment, and network performance will be addressed in the design process.
 
-[SECTION: Program Outcomes]
-The Cisco Networking Academy program equips students with the ability to build robust networks and implement complex designs necessary for modern applications. Key outcomes include acquiring skills in network design, security, and troubleshooting methodologies, ensuring that graduates are well-prepared for the dynamic challenges in the tech industry.
+SECTION: Hands-On Learning Experience
+The program offers a unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. Students will obtain professional certification recognized by employers worldwide, opening career pathways to an estimated eight million networking jobs around the globe through NetAcad.
+
+SECTION: Course Offerings
+Courses offered in the program include Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, CCNA: Switching, Routing, and Wireless Essentials, CCNA: Enterprise Networking, Security and Automation, Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship.
+
+SECTION: Certifications Available
+Certifications available through the program include CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies.
+
+SECTION: Lab Components
+The program incorporates 24 hands-on and paper-based labs utilizing the Packet Tracer tool, and Cisco 4221 routers and 2960 switches. Total duration of these labs amounts to 70 hours, providing students with practical experience in networking.
+
+SECTION: Contact Information
+For additional information, interested parties can reach out to the college at the following: 
+Address: 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103 
+Phone: +91 99400 04500 
+Email: msajce.office@gmail.com

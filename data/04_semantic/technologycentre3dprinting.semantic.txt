@@ -1,17 +1,42 @@
-[SECTION: 3D Printing Technology Center Overview]
-The Centre for 3D Printing and Additive Manufacturing at Mohamed Sathak A. J. College of Engineering focuses on equipping students with advanced knowledge and skills in 3D printing technologies. The curriculum covers essential aspects such as material selection, equipment, and techniques vital for developing products in an Industry 4.0 environment, emphasizing interdisciplinary applications in sectors like aerospace and healthcare.
+SECTION: Objectives of the 3D Printing Program  
+The students will be able to gain knowledge and skills related to 3D printing technologies. They will learn the selection of material, equipment, and development of a product for the Industry 4.0 environment. Additionally, they will understand the various software tools, processes, and techniques for digital manufacturing, and apply these techniques into various applications.
 
-[SECTION: Hands-On Learning and Practical Applications]
-Students are engaged in hands-on learning experiences that include developing CAD models for 3D printing, importing and exporting CAD data, and generating .stl files for manufacturing. They will learn to select appropriate materials and 3D printing processes to produce innovative products using Additive Manufacturing techniques.
+SECTION: Skills Developed in CAD  
+The students will develop CAD models for 3D printing. They will import and export CAD data and generate .stl files. The students will select a specific material for given applications, decide on a 3D printing process for those applications, and produce a product using 3D Printing or Additive Manufacturing (AM).
 
-[SECTION: Cisco Networking Academy Partnership]
-Mohamed Sathak A. J. College of Engineering has established a partnership with Cisco to create the Networking Academy (NetAcad), providing students with extensive training in networking, security, and cloud technologies. This program offers professional certifications recognized globally, thereby enhancing career pathways to access millions of networking jobs worldwide.
+SECTION: Networking Academy Collaboration  
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking, to establish the Networking Academy (NetAcad). This program provides a unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. It offers professional certification recognized by employers worldwide.
 
-[SECTION: Courses Offered in Networking]
-The Networking Academy provides a diverse curriculum, featuring courses such as Network Essentials, CCNA: Introduction to Networks, and IoT & Data Analytics Courses. These courses are designed to prepare students for evolving careers in technology and ensure they acquire skills necessary for modern IT challenges.
+SECTION: Career Pathways through Networking Academy  
+The Networking Academy provides career pathways to connect to an estimated eight million networking jobs around the world through NetAcad.
 
-[SECTION: Additive Manufacturing Academic Goals]
-The course objectives for the Additive Manufacturing program include understanding various software tools and techniques for digital manufacturing. Students will learn to apply these techniques through practical exercises that culminate in the production of 3D-printed products, enhancing both theoretical and practical knowledge.
+SECTION: Courses Offered in Networking  
+The courses offered include Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, CCNA: Switching, Routing, and Wireless Essentials, CCNA: Enterprise Networking, Security, and Automation or Networking Courses, Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship.
 
-[SECTION: Suggested Readings for Further Learning]
-To complement the 3D printing curriculum, students are encouraged to explore recommended texts, including "Additive Manufacturing Technologies" by Lan Gibson and "Understanding Additive Manufacturing" by Andreas Gebhardt. These resources provide in-depth insights into the fundamental principles and applications of additive manufacturing technologies.
+SECTION: Certifications Available  
+The available certifications include CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies.
+
+SECTION: Course Requirements and Duration  
+The prerequisites for the 3D Printing program include Computer Aided Design & Drafting and Engineering Materials. The total duration for the course details is 30 hours. 
+
+SECTION: Detailed Course Content  
+1. 3D Printing (Additive Manufacturing) - 6 Hours  
+Introduction, Process, Classifications, Advantages, Additive versus Conventional Manufacturing processes, Applications.  
+2. CAD for Additive Manufacturing - 4 Hours  
+CAD Data formats, Data translation, Data loss, and STL format.  
+3. Additive Manufacturing Techniques - 10 Hours  
+Stereo-Lithography, LOM, FDM, SLS, SLM, Binder Jet technology, Process, Process parameters, and Process Selection for various applications in domains such as Aerospace, Electronics, Health Care, Defence, Automotive, Construction, Food Processing, and Machine Tools.  
+4. Materials - 4 Hours  
+Polymers, Metals, Non-Metals, Ceramics, the process of selection for various applications, and desired properties of raw material types such as liquid, solid, wire, and powder.  
+5. Additive Manufacturing Equipment - 4 Hours  
+Process Equipment, Design, process parameters, Governing Bonding Mechanism, Common faults and troubleshooting, and Process Design.  
+6. Post Processing Techniques - 1 Hour  
+Support Removal, Sanding, Acetone treatment, and polishing.  
+7. Product Quality - 1 Hour  
+Inspection and testing, along with defect analysis and their causes. 
+
+SECTION: Practical Sessions  
+Students will engage in practical sessions which include 3D Modelling of a single component, Assembly of CAD modelled Components, Exercise on CAD Data Exchange, Generation of .stl files, Identification of a product for Additive Manufacturing and its process plan, Printing of the identified product on an available AM machine, Post-processing of the additively manufactured product, Inspection and defect analysis of the product, and comparison with a conventional counterpart.
+
+SECTION: Suggested Reading  
+The suggested books include "Additive Manufacturing Technologies" by Lan Gibson, David W. Rosen and Brent Stucker, "Understanding Additive Manufacturing" by Andreas Gebhardt, "3D Printing and Design" by Khanna Editorial, "3D Printing and Rapid Prototyping" by CK Chua and Kah Fai Leong, "Laser-Assisted Fabrication of Materials" by J.D. Majumdar and I. Manna, "Laser-Induced Materials and Processes for Rapid Prototyping" by L. Lu and others, and "Numerical Modelling of the Additive Manufacturing Processes of Titanium Alloy" by Zhiqiang Fan and Frank Liou.

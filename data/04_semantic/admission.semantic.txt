@@ -1,20 +1,33 @@
-[SECTION: Admission Overview]
-Mohamed Sathak A. J. College of Engineering (MSAJCE) offers various undergraduate, postgraduate, and research programs in engineering. The undergraduate programs include Civil, Computer Science, Electronics, and Mechanical Engineering, with a total of 60 sanctioned seats for Computer Science & Engineering. Additionally, 5% of seats are reserved for NRI candidates. Students can apply through the Tamil Nadu Engineering Admissions (TNEA) counseling process.
+SECTION: Programmes Offered
 
-[SECTION: Undergraduate Programmes]
-The undergraduate programs at MSAJCE include Civil Engineering (30 seats), Computer Science & Engineering (60 seats), and Mechanical Engineering (30 seats). Each program has equitable distribution between Government and Management Quota, ensuring accessibility to diverse applicants. Specific admission guidelines emphasize eligibility based on HSC (Academic) or equivalent performance in relevant subjects.
+Civil Engineering has a total sanctioned intake of 30, with 15 seats allocated for the Government quota and 15 seats for the Management quota. Computer Science & Engineering, which enjoys permanent affiliation, has a total sanctioned intake of 60, with 30 seats for the Government quota and 30 seats for the Management quota. Electronics & Communication Engineering also accommodates 60 students, with 30 in the Government quota and 30 in the Management quota. Electrical & Electronics Engineering has a total intake of 30, split evenly with 15 seats for both the Government and Management quotas. Mechanical Engineering, which also holds permanent affiliation, has 30 total seats, allocated as 15 for the Government quota and 15 for the Management quota. Information Technology has a total sanctioned intake of 60 seats divided equally between the Government and Management quotas, with 30 seats in each. The programme in Artificial Intelligence & Data Science offers an intake of 30, with a distribution of 15 seats each for the Government and Management quotas. Similarly, Computer Science & Business Systems provides for 30 total seats, again evenly split between the two quotas. The Cyber Security branch within Computer Science & Engineering has an equal total intake of 30, sharing the same quota allocation. The programme in Artificial Intelligence & Machine Learning offers a total of 60 seats, split equally between Government and Management quotas. The Electronics Engineering programme with a specialization in VLSI Design & Technology has an intake of 30, divided as 15 for each quota. Lastly, the ECE programme with a specialization in Advanced Communication Technology also has 30 total seats, with 15 for the Government quota and 15 for the Management quota.
 
-[SECTION: Postgraduate Programmes and Eligibility]
-MSAJCE offers postgraduate degrees such as M.E. in Computer Science & Engineering and Structural Engineering, with an intake of 9 and 18 seats, respectively. Admission is governed by TANCET scores and specific qualifications ensuring that only qualified candidates secure their places.
+SECTION: Post Graduate Programmes Offered
 
-[SECTION: Research Opportunities]
-The college provides Ph.D. programs specifically in Mechanical Engineering. Candidates must have a Master's degree in a relevant field along with substantial research experience, demonstrating the institution's commitment to fostering advanced academic pursuits and contributions to engineering research.
+In the realm of Post Graduate offerings, Computer Science & Engineering has a total sanctioned intake of 9, with 3 seats for the Government quota and 6 for the Management quota. The Structural Engineering programme offers a total of 18 seats, allocated as 6 for the Government quota and 12 for the Management quota. Additionally, the Mechanical Engineering programme is available but without specified numerical details in this context.
 
-[SECTION: Admission Contacts]
-Key contacts for admission-related inquiries include Dr. K.S. Srinivasan, Principal, reachable at 9150575066, and Dr. K.P. Santhosh Nathan, Head of Admission, available at 9840886992. They provide assistance for prospective students navigating the admission process, ensuring that all applicants receive adequate support.
+SECTION: Admission Contacts
 
-[SECTION: Scholarships and Financial Aid]
-MSAJCE offers various scholarships, including the Pragati Scholarship for girl students and the Saksham Scholarship for differently-abled individuals, emphasizing financial support for deserving candidates. Each scholarship program requires specific eligibility criteria, ensuring that assistance is directed to those in genuine need.
+Dr.K.S.Srinivasan, the Principal of MSAJCE in Chennai, can be reached at 9150575066 or via email at principal@msajce-edu.in. Mr.A.Abdul Gafoor serves as the Administrative Officer and is available at 9940319629, with his email being abdulgafoor@msajce-edu.in. Dr.K.P.Santhosh Nathan, the Physical Education Director and Head of Admission, can be contacted at 9840886992 or via email at ped.santhosh@msajce-edu.in. For inquiries regarding the Mechanical Engineering department, Mr.S.Syed Abuthahir, Assistant Professor, may be reached at 9944127339, with his email at mech.syedabuthahir@msajce-edu.in. Mr.B.Rizha Ur Rahman, another Assistant Professor in the Civil Engineering department, is available at 9790836981, and his email is civil.rizha@msajce-edu.in. Mrs.I.S.Suganthi, Assistant Professor of Electronics Engineering, can be contacted at 7299772958 or via email at ece.suganthi@msajce-edu.in. Dr.Vamsi Naga Mohan A., an Assistant Professor serving as the Coordinator for Admission for Students from Other States, can be reached at 9043358674 or 9502687344, with the email cse.vamsi@msajce-edu.in.
 
-[SECTION: Skill Development Courses]
-The college offers skill development courses in sectors such as Computer Science and Mechanical Engineering, facilitating practical training for students. Approved intakes include 30 candidates for machine learning and refrigeration technician roles, aligning educational offerings with job market demands, and enhancing employability.
+SECTION: Eligibility Criteria for Admission
+
+For the General Category, the minimum average marks required in Mathematics, Physics, and Chemistry combined is set at 45.00%. For students belonging to the Backward Class, including Backward Class Muslims, the required minimum is 40.00%. Similarly, for candidates in MBC & DNC, the required marks are also 40.00%, while those in the SC / SCA / ST categories must achieve a minimum of 40.00%. These criteria extend similarly for those qualifying through HSC Vocational subjects, where the same minimum percentages apply across the mentioned categories. 
+
+SECTION: Post Graduate Admission Criteria
+
+For the M.E. (Computer Science and Engineering) programme, candidates must possess a B.E. / B.Tech. in an appropriate field such as EEE, ECE, CSE, IT, I&C, E&I, or Electronics. They may also qualify with an M.C.A. or an integrated M.Sc. in IT or CSE covering a 10+2+3+3 year pattern. For the M.E. in Structural Engineering, a B.E. degree in Civil is mandated.
+
+SECTION: Ph.D. Admission Qualifications
+
+The Ph.D. program in Mechanical Engineering requires candidates to hold an M.E. / M.Tech. / M.S. (By Research) in the related branch of Engineering or Technology. Various educational qualifications and significant research experience criteria are specified for admission eligibility, particularly for candidates seeking to supplement their qualifications with substantial R&D experience. 
+
+SECTION: Skill Development Courses
+
+For the Skill Development Course in Computer Science and Engineering, a job role in Computer Hardware Network Maintenance is available with an approved intake of 30, at NSQF Level 4, requiring 1600 hours of training. In Mechanical Engineering, a Refrigeration and Air Conditioning Technician role is open with a similar intake, at NSQF Level 5, involving 3200 hours of training. 
+
+SECTION: Scholarships Available
+
+The Pragati scholarship scheme for Girl Students supports up to two girl children per family with an income less than 8 Lakh, awarded by AICTE for 50,000 per year and covering 800 scholarships available in Tamil Nadu. The Saksham scholarship scheme for specially-abled students, which requires a disability of not less than 40% and an income below 8 Lakh, offers the same financial assistance. The Merit cum based Scholarship for minority communities demands 50% marks in the final examination with an income limit of 2.5 Lakh, offering 20,000 per year plus 12,000 for hostellers and 6,000 for day scholars, with specific allocations for Muslim and Christian communities. The Central Sector Scheme, requiring 80% marks in the final examination and an income below 8 Lakh, provides 10,000 annually and covers 4,883 candidates. Financial assistance for the wards of Beedi/Mine/Cine workers is also available, stipulating an income below 10,000 per month, with a scholarship of 15,000 per year for all eligible candidates.
+
+Each section above comprehensively presents the information with no loss of details from all three sources.

@@ -1,11 +1,35 @@
-[SECTION: Academic Advisory Committee Overview]
-The Academic Advisory Committee at Mohamed Sathak A. J. College of Engineering (MSAJCE) is led by Dr. K.S. Srinivasan, the Principal, serving as the Chairman. The committee comprises several advisors, including Dr. K. Malathi from Anna University and Dr. N. Parthiban from SRM University, emphasizing a blend of academic leadership and industry experience. This structure aims to bridge the gap between academic practices and industry needs, fostering better educational outcomes for students.
+SECTION: Academic Advisory Committee
 
-[SECTION: Key Members of the Academic Advisory Committee]
-The Academic Advisory Committee features notable members like Dr. N. Kulasekaran, Head of Research at Valeo India Pvt. Ltd., and Mr. P. Parthasarathy, Senior Manager at Godrej & Boyce Manufacturing Co. Ltd. They bring practical insights into the committee's discussions. Additionally, alumni advisors such as Mr. Ahamed Jameel, a technical consultant at HCL, and Mr. N. Feroz Khan, General Manager at Maersk, greatly enhance the committee's perspective, ensuring alignment with current industry standards. 
+Dr. K.S. Srinivasan (Chairman) from MSAJCE, Chennai. Additional context: Principal of MSAJCE, contributes to the overall governance and academic leadership of the institution.
 
-[SECTION: Achievements and Events]
-The Academic Advisory Committee regularly engages in events such as the Graduation Day, scheduled for February 22, 2025. Activities like the AICTE-ATAL Sponsored Six Days Faculty Development Program further elevate academic standards. The committee’s proactive engagement with both current students and alumni encourages continuous improvement in educational practices, preparing graduates for successful careers.
+Dr. K. Malathi (Advisor) from ECE, Anna University, Chennai. Additional context: Professor at Anna University focusing on various aspects of electronic and communications engineering.
 
-[SECTION: Location and Contact Information]
-MSAJCE is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Chennai, Tamil Nadu - 603103. Interested stakeholders can reach out via phone at +91 99400 04500 or email at msajce.office@gmail.com for further inquiries regarding admissions, events, and academic advising. This makes it accessible for prospective students and industry partners to establish connections with the institution.
+Dr. N. Parthiban (Advisor) from CSE, SRM University, Chennai. Additional context: Professor specializing in computer science and engineering at SRM University, brings expertise in technical guidance.
+
+Dr. N. Kulasekaran (Advisor) from Valeo India Pvt. Ltd, Chennai. Additional context: Head of Research at Valeo India, provides industrial insights and research direction to the committee.
+
+Mr. P. Parthasarathy (Advisor) from Godrej & Boyce Manufacturing Co. Ltd., Chennai. Additional context: Senior Manager responsible for overseeing manufacturing processes, advises on practical applications of engineering principles.
+
+Dr. S. Thenmozhi (Advisor) from CIVIL, St. Joseph College of Engineering, Chennai. Additional context: Professor in Civil Engineering, her academic perspective enriches the advisory discussions.
+
+Mr. Ahamed Jameel A M T (Advisor) from HCL, Chennai. Additional context: Alumni and Technical Consultant at HCL, offers an alumni viewpoint alongside technical consulting advice.
+
+Mr. N. Feroz Khan (Advisor) from Maersk, Chennai. Additional context: Alumni and General Manager at Maersk, provides industry-related insights based on his extensive experience in logistics.
+
+Head - Administration (Member) from MSAJCE, Chennai. Additional context: Key administrative leader, responsible for the oversight and management of college operations.
+
+Head - Academics (Member) from MSAJCE, Chennai. Additional context: Oversees the academic policies and programs, ensuring educational standards are met.
+
+Head - Research (Member) from MSAJCE, Chennai. Additional context: Responsible for guiding research initiatives and fostering a robust research culture within the institution.
+
+Head - IQAC (Member) from MSAJCE, Chennai. Additional context: Oversees the Internal Quality Assurance Cell, implementing quality measures across various departments.
+
+Head - Student Affairs (Member) from MSAJCE, Chennai. Additional context: Manages student-related services and initiatives, advocating for student welfare and engagement.
+
+Head - Exam Cell (Member) from MSAJCE, Chennai. Additional context: Coordinates examination processes and ensures adherence to academic regulations.
+
+Head - All Departments (Member) from MSAJCE, Chennai. Additional context: Provides oversight and guidance across all departmental heads within the college.
+
+Head - Placement (Member) from MSAJCE, Chennai. Additional context: Coordinates placement activities and assists students in career opportunities, ensuring successful job placements.
+
+Head - Admission (Member) from MSAJCE, Chennai. Additional context: Manages the admission processes, ensuring a smooth enrollment procedure for new students.

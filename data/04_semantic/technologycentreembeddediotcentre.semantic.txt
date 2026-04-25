@@ -1,20 +1,32 @@
-[SECTION: Embedded and IoT Centre Overview]
-The Embedded and IoT Centre at Mohamed Sathak A. J. College of Engineering focuses on educating students about Smart Objects and IoT Architectures. Through hands-on training with Arduino and Raspberry Pi, students will learn about various IoT-related protocols, device integration, and cloud data management. This program aims to develop essential IoT infrastructure and provide real-time applications in sectors like industrial automation and healthcare.
+SECTION: Overview of the Embedded & IoT Centre
+Mohamed Sathak A J College of Engineering established the Embedded & IoT Centre to provide students with a comprehensive education in Internet of Things (IoT) related technologies. The Centre aims to teach students Smart Objects and IoT Architectures. The curriculum includes various IoT-related protocols and practical applications.
 
-[SECTION: Courses Offered in IoT]
-The Centre offers comprehensive courses such as "Introduction to IoT," covering architecture, design principles, and security aspects. Key courses include "Elements of IoT," focusing on hardware and software components, and "IoT Application Development," which introduces device data storage and integration. There are also case studies and mini-projects that encourage practical learning in areas like agriculture and home automation.
+SECTION: Objectives of the Centre
+The students will be able to learn the Smart Objects and IoT Architectures. The students will learn about various IOT-related protocols. The Centre encourages students to build simple IoT Systems using Arduino and Raspberry Pi. Students will be trained to understand data analytics and cloud in the context of IoT. Additionally, they will develop the IoT infrastructure for popular applications.
 
-[SECTION: Hands-on Practical Learning]
-Students engage in practical exercises using Arduino and Raspberry Pi, including coding for various sensors and data management techniques. They learn to interface components, write programs for data collection, and implement communication protocols like MQTT and Bluetooth. These hands-on experiences are designed to cement their theoretical knowledge while preparing them for real-world applications.
+SECTION: Learning Outcomes
+The students will be able to understand the concept of IoT. They will analyze various protocols for IoT. The programme includes designing a Proof of Concept (PoC) of an IoT system using Raspberry Pi/Arduino. Students will apply data analytics and utilize cloud offerings related to IoT. They will also analyze applications of IoT in real-time scenarios.
 
-[SECTION: Cisco Networking Academy Partnership]
-Mohamed Sathak A. J. College has partnered with Cisco to establish the Networking Academy. This program offers unique hands-on learning experiences in networking, security, and cloud technologies. Students gain access to professional certifications recognized worldwide, enhancing their pathways into an estimated eight million networking jobs globally.
+SECTION: Networking Academy Partnership
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking, to establish the Networking Academy (NetAcad). This collaboration provides students with unique hands-on learning experiences in the latest networking, security, and cloud technologies using simulation tools. 
 
-[SECTION: Certification Opportunities]
-The Embedded and IoT Centre emphasizes the value of certification, such as the CISCO Certified Network Associate. Students learn essential networking skills through courses like "CCNA: Introduction to Networks" and "CCNA: Switching, Routing, and Wireless Essentials," equipping them with the knowledge needed for successful careers in technology.
+SECTION: Professional Certification and Career Pathways
+Students will gain a professional certification recognized by employers worldwide. This certification opens career pathways to connect to an estimated eight million networking jobs globally through NetAcad.
 
-[SECTION: Suggested Reading Materials]
-To further enrich their learning, students can refer to suggested books like "Internet of Things: A Hands-on Approach" by Vijay Madisetti and "Designing the Internet of Things" by Adrian McEwen. These resources provide foundational knowledge as well as practical applications relevant to the rapidly evolving field of IoT. 
+SECTION: Courses Offered
+The Centre offers several courses including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, CCNA: Switching, Routing, and Wireless Essentials, and CCNA: Enterprise Networking, Security and Automation OR Networking Courses. Other courses include Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship.
 
-[SECTION: Contact Information]
-For more information about the Embedded and IoT Centre, prospective students can contact the college at +91 99400 04500 or via email at msajce.office@gmail.com. The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103.
+SECTION: Certifications
+Students can achieve certifications such as CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies.
+
+SECTION: IoT Course Details
+The IoT programme includes courses like Introduction to IoT (8 Hours), which covers the Architectural Overview, Design principles, IoT Applications, Sensing, Actuation, Basics of Networking, M2M and IoT Technology Fundamentals, Data management, Business processes in IoT, Everything as a Service (XaaS), Role of Cloud in IoT, and Security aspects in IoT. Another key course is Elements of IoT (9 Hours), focusing on Hardware and Software Components using Arduino and Raspberry Pi.
+
+SECTION: Practical Training
+The Centre emphasizes practical training through detailed sessions. Students will familiarize themselves with Arduino/Raspberry Pi and perform necessary software installations. Practical applications include interfacing LED/Buzzer with Arduino, using DHT11 sensors, and establishing Bluetooth communication.
+
+SECTION: Suggested Reading Material
+Recommended books include "Internet of Things: A Hands-on Approach" by Vijay Madisetti and Arshdeep Bahga, "Introduction to Internet of Things: A Practical Approach" by Dr. SRN Reddy, Rachit Thukral, and Manasi Mishra, and "Designing the Internet of Things" by Adrian McEwen.
+
+SECTION: Contact Information
+For inquiries, the college can be contacted at +91 99400 04500 or via email at msajce.office@gmail.com. The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103.

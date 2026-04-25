@@ -1,14 +1,39 @@
-[SECTION: Leadership of the Planning and Monitoring Board]
-The Planning and Monitoring Board at Mohamed Sathak A. J. College of Engineering (MSAJCE) is chaired by Mr. Mohamed Sathak, the Campus Director from Mohamed Sathak Trust, Chennai. Supporting him as the Member Secretary is the Principal of MSAJCE. The board consists of expert advisors including Dr. K.S. Badri Nathan, Dean of Educational Development at Sri Venkateswara College of Engineering, and Mr. Rajesh Ramanujam, General Manager at Ford Credit IT. Other advisors represent various sectors, contributing to the board's diversity and expertise.
+SECTION: Planning and Monitoring Board Overview
 
-[SECTION: Key Responsibilities of the Planning and Monitoring Board]
-The Planning and Monitoring Board at MSAJCE oversees critical academic and administrative functions, ensuring compliance with educational standards. This body is responsible for evaluating programs and monitoring academic performance, while also addressing grievances through the dedicated Grievance and Redressal Committee. The board aims to enhance educational quality through the implementation of effective policies and maintaining institutional distinctiveness.
+Mr. Mohamed Sathak (Chair Person) from Campus Director, Mohamed Sathak Trust, Chennai. Additional context: Oversees the overall functioning and strategic direction of the Planning and Monitoring Board.
 
-[SECTION: MSAJCE's Commitment to Students]
-Mohamed Sathak A. J. College of Engineering demonstrates a strong commitment to its students through comprehensive support systems, including a dedicated Grievance Cell and a Student Affairs department. The college promotes academic excellence by providing resources such as an online application form and fee payment options, facilitating easy access to education. In addition, initiatives like workshops and internship opportunities aim to prepare students effectively for their careers in engineering.
+Principal (Member Secretary) from MSAJCE, Chennai. Additional context: Facilitates the meetings and documentation of the Planning and Monitoring Board.
 
-[SECTION: Academic Calendar and Events]
-MSAJCE hosts significant events throughout the academic year, including the 18th Graduation Day scheduled for February 22, 2025, and various Faculty Development Programs like the AICTE-ATAL Sponsored six-day workshop. These events not only celebrate student achievements but also enhance academic growth and community engagement within the college.
+Dr. K.S. Badri Nathan (Advisor) from Dean-Educational Development, Sri Venkateswara College of Engineering, Chennai. Additional context: Provides insights on educational development and quality improvement.
 
-[SECTION: Contact Information for MSAJCE]
-For inquiries, Mohamed Sathak A. J. College of Engineering can be reached at +91 99400 04500 or via email at msajce.office@gmail.com. The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Chennai - 603103. This information is vital for prospective students and stakeholders seeking to connect with the institution.
+Mr. Rajesh Ramanujam (Advisor) from General Manager, Ford - Credit IT, Chennai. Additional context: Offers guidance on operational efficiencies and technology integration.
+
+Mr. Pradeep Kanagaraj (Advisor) from Associate Director, Hitachi, Chennai. Additional context: Shares expertise in industrial practices and technological advances.
+
+Mr. Abdul Jaleel (Advisor) from Alumni and Supply Chain Manager, Star Bucks, Chennai. Additional context: Advises on alumni relations and supply chain management strategies.
+
+Mr. A. Raju (Advisor) from Infra Technology Manager, CTS, Chennai. Additional context: Involves in discussions on infrastructure technology and its impacts on education.
+
+Mr. R. Ramalingam (Advisor) from Manager-HR, Versuni India Home Solutions Ltd, Chennai. Additional context: Provides insights into human resource management best practices and policies.
+
+Head - Administration (Member) from MSAJCE, Chennai. Additional context: Responsible for administrative oversight of the college's operations.
+
+Head - IQAC (Member) from MSAJCE, Chennai. Additional context: Works on ensuring quality assurance and enhancement in academic programs.
+
+Head - Academics (Member) from MSAJCE, Chennai. Additional context: Oversees academic policies and curriculum development.
+
+Head - Student Affairs (Member) from MSAJCE, Chennai. Additional context: Engages in student welfare and support initiatives.
+
+Head - Research (Member) from MSAJCE, Chennai. Additional context: Promotes research activities and opportunities within the institution.
+
+Head - Training and Placement (Member) from MSAJCE, Chennai. Additional context: Facilitates training and job placement services for students.
+
+Head - All the Departments (Member) from MSAJCE, Chennai. Additional context: Coordinates the activities of various academic departments.
+
+Head - Examcell (Member) from MSAJCE, Chennai. Additional context: Manages examination processes and integrity.
+
+Head - Alumni (Member) from MSAJCE, Chennai. Additional context: Focuses on building and maintaining strong alumni networks.
+
+Head - Admission (Member) from MSAJCE, Chennai. Additional context: Oversees the admission processes and related activities.
+
+Head - Hostel (Member) from MSAJCE, Chennai. Additional context: Manages hostel facilities and accommodations for students.

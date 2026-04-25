@@ -1,14 +1,37 @@
-[SECTION: Transport Facility Overview]
-The Mohamed Sathak A. J. College of Engineering (MSAJCE) offers a comprehensive transport facility to assist students and staff in accessing the campus with ease. The college operates 22 buses, one Tata ACE, and one ambulance, providing daily transportation from various locations, including Chennai, Chengalpattu, and Kanchipuram. This transport system supports local social service, sports, and educational activities, ensuring timely arrival for all users.
+SECTION: Transport Overview  
+The College is easily accessible from Chennai Central Railway Station, Tambaram Railway Station, and CMDA Bus station by the state-operated transport service. Furthermore, the College provides its own transportation for students and staff residing in and around the campus. The Institute has 22 buses, One Tata ACE, and One Ambulance for the benefit of students and staff.
 
-[SECTION: Transport Committee Details]
-The Transport Committee at MSAJCE oversees the smooth operation of the college bus services. Led by Dr. K. P. Santhosh Nathan, the Transport Convener, and assisted by Mr. A. Abdul Gafoor, the Assistant Transport Convener, this committee meets biannually to evaluate service performance and address operational concerns. The committee includes staff dedicated to ensuring the safe and efficient functioning of the transport system.
+SECTION: Transport Committee  
+Dr. K. P. SANTHOSH NATHAN (Transport Convener) from the Transport Department. Additional context: Responsible for overseeing transport operations and ensuring efficiency. Contact: 98408 86992.  
+Mr. A. ABDUL GAFOOR (Asst. Transport Convener) from the Transport Department. Additional context: Assists the Convener in managing transportation needs. Contact: 99403 19629.  
 
-[SECTION: MTC Bus Routes]
-MSAJCE provides various Metro Transport Corporation (MTC) bus routes to facilitate easy commutes. Key routes include Bus Route 19 from T. Nagar to Thiruporur via OMR, and Bus Route 519 also connecting T. Nagar with multiple daily services. These routes accommodate students traveling from key areas, enhancing access to the college.
+SECTION: MTC Bus Routes  
+The MTC buses passing through the College operate on several routes as follows:  
+1. Bus Route No. 19 starts from T. Nagar and ends at Thiruporur, via OMR, Madhiya Kailash, SRP, with a frequency of Daily.  
+2. Bus Route No. 519 starts from T. Nagar and ends at Thiruporur, via Saidapet, Adyar, SRP, with a frequency of Daily.  
+3. Bus Route No. 221H starts from Central and ends at Thiruporur, via Anna Salai, Saidapet, SRP, with a frequency of Daily.  
+4. Bus Route No. 102X starts from Broadway and ends at Thiruporur, via Marina, Adyar, OMR, with a frequency of Daily.  
+5. Bus Route No. 102S starts from Broadway and ends at Sipcot, via Marina, Adyar, OMR, with a frequency of Daily.  
+6. Bus Route No. 102 starts from Broadway and ends at Kelambakkam, via Marina, Adyar, OMR, with a frequency of Daily.  
+7. Bus Route No. B19 starts from Shollinganallur and ends at Kelambakkam, via Sipcot, OMR, with a frequency of Daily.  
+8. Bus Route No. 570 starts from CMBT and ends at Kelambakkam, via Vadapalani, Velachery, SRP, with a frequency of Daily.  
+9. Bus Route No. 570S starts from CMBT and ends at Sipcot, via Vadapalani, Velachery, SRP, with a frequency of Daily.  
+10. Bus Route No. 105 starts from Tambaram and ends at Siruseri, via Thalambur, with a frequency of Daily.  
 
-[SECTION: Scheduled Bus Timings]
-The college bus schedule includes early morning departures, such as Route AR 3 from Uthiramerur at 5:50 AM and Route R 22 from Nemilichery at 6:00 AM. These timely routes are designed to accommodate the academic schedules of students, ensuring reliable transportation from various starting points to MSAJCE.
+SECTION: College Bus Route Schedule  
+The following is the College Bus route schedule:  
+1. Bus Route AR 3 - UTHIRAMERUR departs at 5.50 AM.  
+2. Bus Route AR 4 - MOOLAKADAI departs at 6.10 AM.  
+3. Bus Route AR 5 - MMDA SCHOOL departs at 6.15 AM.  
+4. Bus Route AR 6 - ICF departs at 6.15 AM.  
+5. Bus Route AR 7 - CHUNAMBEDU departs at 5.25 AM.  
+6. Bus Route AR 8 - MANJAMBAKKAM departs at 5.50 AM.  
+7. Bus Route AR 9 - ENNORE departs at 6.15 AM.  
+8. Bus Route AR 10 - PORUR departs at 6.25 AM.  
+9. Bus Route R 22 - NEMILICHERY departs at 6.00 AM.  
 
-[SECTION: Contact Information]
-For any transport-related inquiries, MSAJCE can be contacted at +91 99400 04500 or via email at msajce.office@gmail.com. This contact information ensures that students and staff can easily reach out for assistance regarding transport services.
+SECTION: Transport Usage  
+The transport facilities are being utilized for local social service activities, sports, NCC/NSS activities, placement and training activities, as well as industrial visits and educational trips. The transport committee meets once every six months to ensure smooth operation, and the Principal along with the staff in charge of the buses attend these meetings.  
+
+SECTION: Contact Information  
+For further details or inquiries regarding transport services, one can contact the College at +91 99400 04500 or via email at msajce.office@gmail.com.

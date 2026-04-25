@@ -1,17 +1,42 @@
-[SECTION: MSAJCE Overview]
-Mohamed Sathak A. J. College of Engineering (MSAJCE) is a premier engineering institution located in Chennai, India. The college offers various undergraduate and postgraduate programs, including B.E., B.Tech, and M.E. MSAJCE is committed to providing quality education, supported by a dedicated faculty and modern infrastructure. With a focus on research and innovation, it aims to empower students through a robust curriculum and numerous extracurricular activities.
+SECTION: Overview of Departments
+"Department of Civil Engineering. Additional context: This department focuses on the design, construction, and maintenance of the physical and naturally built environment."
 
-[SECTION: Available Departments]
-MSAJCE offers diverse engineering disciplines including Civil Engineering, Computer Science and Engineering, Electrical and Electronic Engineering, and Mechanical Engineering. Additionally, specialized programs such as Artificial Intelligence and Data Science, along with cybersecurity-focused Computer Science streams, are available. This range of departments ensures a comprehensive education tailored to the evolving tech landscape.
+"Department of Computer Science and Engineering. Additional context: This department emphasizes the principles of computer science and engineering to develop software and hardware solutions."
 
-[SECTION: Graduation Events]
-The 18th Graduation Day at MSAJCE is scheduled for 22 February 2025, celebrating the achievements of its graduates. Notable events include the “Teachers & Engineers Day 2025” which aims to honor contributions in the field of engineering education. These events foster community building and celebrate academic accomplishments within the college.
+"Department of Electrical and Electronic Engineering. Additional context: This department covers the study and application of electricity, electronics, and electromagnetism."
 
-[SECTION: Admission Information]
-MSAJCE is currently accepting applications for the academic year 2026-2027, providing online application forms for prospective students. Interested candidates can find comprehensive details regarding admissions and eligibility criteria on the college’s official website. The institution encourages early applications to secure a place in its esteemed engineering programs.
+"Department of Electronic and Communication Engineering. Additional context: This department deals with the transmission of information across channels like electrical and optical networks."
 
-[SECTION: Campus Facilities]
-The MSAJCE campus features a comprehensive Learning Centre, hostel facilities, and various sports amenities. It promotes an inclusive environment for students, facilitating their overall development through clubs and professional societies. Additionally, there are resources for social services, enhancing the student experience beyond academics.
+"Department of Mechanical Engineering. Additional context: This department involves the design and manufacturing of mechanical systems."
 
-[SECTION: Contact Information]
-For inquiries, MSAJCE can be contacted at +91 99400 04500 or via email at msajce.office@gmail.com. Located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Chennai, the college is easily accessible for students and visitors alike. The administrative office is available to assist with admissions, grievances, and other college-related services.
+"Department of Information Technology. Additional context: This department focuses on the use of computer systems and networks to manage and process information."
+
+"Department of Artificial Intelligence and Data Science. Additional context: This department explores the development of algorithms and models to create intelligent behavior in software systems."
+
+"Department of Computer Science and Business Systems. Additional context: This department combines the principles of computer science and business management."
+
+"Department of Computer Science and Engineering with specialization in Cyber Security. Additional context: This department emphasizes the protection of computer systems and networks from information disclosure, theft, or damage."
+
+"Department of HONOR / MINOR. Additional context: This department offers students opportunities to pursue specialized studies in addition to their primary program."
+
+SECTION: Year One and Specialized Programs
+"First Year all Departments. Additional context: This encompasses introductory courses across all engineering disciplines for first-year students."
+
+SECTION: Advanced Studies in Engineering
+"Department of Artificial Intelligence & Machine Learning. Additional context: This department specializes in the creation and implementation of algorithms that allow computers to learn from data."
+
+"Department of ECE with specialization in Advanced Communication Technology. Additional context: This department focuses on the latest technologies in communication systems."
+
+"Department of Electronics Engineering with specialization in VLSI Design & Technology. Additional context: This department concentrates on the design and technology involved in very-large-scale integration (VLSI) circuitry."
+
+SECTION: Postgraduate Programs
+"Department of Computer Science and Engineering (Postgraduate). Additional context: This department offers advanced studies in the principles and applications of computer science and engineering."
+
+"Department of Structural Engineering (Postgraduate). Additional context: This department focuses on the design and analysis of structures that support or resist loads."
+
+SECTION: Contact Information
+"Location: 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. Additional context: This is the registered office of MSAJCE."
+
+"Phone: +91 99400 04500. Additional context: This is the primary contact number for inquiries at MSAJCE."
+
+"Email: msajce.office@gmail.com. Additional context: This is the official email address for communications related to college admissions and information."

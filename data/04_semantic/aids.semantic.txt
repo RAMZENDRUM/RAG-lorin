@@ -1,20 +1,26 @@
-[SECTION: Overview of B.Tech in Artificial Intelligence and Data Science]
-The B.Tech in Artificial Intelligence and Data Science at Mohamed Sathak A. J. College of Engineering (MSAJCE) is designed to equip students with a robust understanding of artificial intelligence (AI) and data science principles. This four-year program provides core technologies such as data mining, machine learning, and big data analytics. Students develop cross-disciplinary skills, making them proficient in statistics, computer science, and logical reasoning, preparing them for dynamic careers in industries like healthcare, e-commerce, and biotechnology.
+SECTION: Educational Objectives and Outcomes
+Graduates from the B.Tech in Artificial Intelligence and Data Science program will be prepared for analysing, designing, developing, and testing software solutions and products with creativity and sustainability. Additionally, graduates will be skilled in the use of modern tools for critical problem-solving and analyzing industrial and societal requirements. Furthermore, they will be equipped with managerial and leadership skills for career advancement and starting their own firms.
 
-[SECTION: Program Educational Objectives (PEOs)]
-The program aims to prepare graduates for the complexities of the AI and data science fields. PEO1 focuses on fostering creativity and sustainability in software solutions, while PEO2 emphasizes the importance of modern problem-solving tools for industrial applications. Additionally, PEO3 equips graduates with managerial and leadership skills, paving the way for entrepreneurial ventures in tech.
+SECTION: Program Specific Outcomes
+Engineering Graduates will be able to develop creative solutions by adapting emerging technologies and tools for real-time applications in industry. They will apply their acquired knowledge to develop software solutions and innovative mobile applications for various automation applications.
 
-[SECTION: Program Specific Outcomes (PSOs)]
-Graduates of the B.Tech in Artificial Intelligence and Data Science will develop innovative solutions utilizing emerging technologies for real-time applications in industry (PSO1). They will also be capable of applying their acquired knowledge to create sophisticated software solutions and mobile applications for automation (PSO2). These outcomes ensure that students are well-prepared for the demands of the job market.
+SECTION: Program Outcomes
+Engineering graduates will exhibit a comprehensive understanding of mathematics, science, engineering fundamentals, and their engineering specialization to solve complex engineering problems. They will identify, formulate, and analyze complex engineering problems to reach substantiated conclusions using principles from mathematics and natural sciences. Graduates will design solutions for such complex problems while considering public health, safety, and environmental factors. They will use research-based knowledge and methods to conduct investigations, analyze data, and synthesize information for valid conclusions. Graduates will demonstrate an ability to create and apply modern engineering tools while recognizing their limitations. They will also assess societal, health, and legal responsibilities relevant to professional engineering practice.
 
-[SECTION: Career Opportunities and Job Profiles]
-The demand for AI and data science professionals in India is projected to grow significantly by 2030. Graduates can pursue diverse roles such as Data Scientist, Machine Learning Engineer, and AI Research Scientist across various sectors including healthcare, finance, and e-commerce. These careers offer lucrative salaries, with entry-level positions starting at ₹6-12 lakhs per annum and experienced professionals earning significantly more.
+SECTION: Faculty Members
+Dr. NAGASUBRAMANIAN R (Head - PG) from Computer Science Engineering department. Additional context: Holds M.E. and Ph.D. qualifications.
+Dr. SUBRAMANIAN P (Head - UG) from the Wireless Sensor Networking and Image Processing department. Additional context: Holds M.E. and Ph.D. qualifications.
+Dr. PREMALATHA G (Associate Professor) from Image Processing and Machine Learning department. Additional context: Holds M.E. and Ph.D. qualifications.
+Mrs. SARANYA V (Assistant Professor) from the IOT and Cloud Computing department. Additional context: Holds M.Tech. and is pursuing a Ph.D.
+Mrs. SASIKALA L (Assistant Professor) from Computer Science and Engineering department. Additional context: Holds M.E. qualification.
+Mrs. KIRUTHIKA S (Assistant Professor) from Computer Science and Engineering department. Additional context: Holds M.E. qualification.
+Mrs. ASRIN MAHMOOTHA A (Assistant Professor) from Computer Science Engineering department. Additional context: Holds M.E. qualification.
+Mr. PRAVEENKUMAR P (Assistant Professor) from Computer Science Engineering department. Additional context: Holds M.E. qualification.
+Mr. RAJAKUMAR B (Assistant Professor) from IOT, AI, NLP, and Image Processing department. Additional context: Holds M.Tech. and is pursuing a Ph.D.
+Mr. RAJASEKAR R (Assistant Professor) from IOT and Network Security department. Additional context: Holds M.E. and is pursuing a Ph.D.
 
-[SECTION: Faculty Expertise]
-The faculty at MSAJCE includes highly qualified individuals with diverse specializations. Notable members include Dr. Nagasubramanian R, Head of PG in Computer Science Engineering, and Dr. Subramanian P, Head of UG focusing on Wireless Sensor Networking. Their extensive knowledge and research in AI and data science provide students with quality education and mentorship.
+SECTION: Laboratory Information
+C Programming Lab provides facilities for CS8261 - C Programming. Internet Programming Lab provides facilities for CS8661 - Internet Programming. Operating Systems Lab offers facilities for CS8461 - Operating Systems. Object Oriented Analysis and Design Lab provides facilities for CS8461 - Object Oriented Analysis and Design. Web Technology Lab provides facilities for IT8511 - Web Technology. Networks Lab offers facilities for CS8581 Networks Lab.
 
-[SECTION: Admission and Eligibility]
-To enroll in the B.Tech in Artificial Intelligence and Data Science, candidates must have completed the 10+2 education system with a pass in Physics, Chemistry, and Mathematics. The program has an intake of 30 students, divided equally between government and management quota seats. This structure ensures a competitive and diverse learning environment.
-
-[SECTION: Vision and Mission]
-MSAJCE's vision is to become a center of excellence in AI and Data Science education through sustainable practices. The mission includes imparting fundamental knowledge and critical thinking skills necessary for industry relevance, alongside fostering an environment of creativity and lifelong learning among students.
+SECTION: Course Information
+The B.E - 2021 Syllabus includes subjects like Discrete Mathematics (MA3354), Digital Principles and Computer Organization (CS3351), and Database Design and Management (AD3391). The curriculum covers areas such as Design and Analysis of Algorithms (AD3351), Data Exploration and Visualization (AD3301), and Artificial Intelligence (AL3391). Additional courses include Database Design and Management Laboratory (AD3381) and Artificial Intelligence Laboratory (AD3311).

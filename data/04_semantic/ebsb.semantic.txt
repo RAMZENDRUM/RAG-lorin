@@ -1,14 +1,19 @@
-[SECTION: Ek Bharat Shreshtha Bharat Initiative]
-Ek Bharat Shreshtha Bharat (EBSB) is an initiative launched by the Government of India to enhance unity in diversity. Introduced by Prime Minister Narendra Modi on 31st October 2015, it commemorates Sardar Vallabhbhai Patel's birth anniversary. The program promotes cultural exchange and mutual understanding between various states of India, pairing Tamil Nadu with Jammu & Kashmir. Mohamed Sathak A. J. College of Engineering has hosted two programs in collaboration with SSM College of Engineering, fostering cultural ties and educational collaboration.
+SECTION: EBSB Initiative Details
+Ek Bharat Shreshtha Bharat (EBSB) is an initiative launched by the Government of India to enhance unity in diversity of our nation, India. EBSB was launched by Prime Minister Shri Narendra Modi during the Rashtriya Ekta Divas held on 31st October, 2015, to commemorate the birth anniversary of Sardar Vallabhbhai Patel to establish a sustained and structured cultural connection between denizens of different regions of India. The EBSB programme aims to enhance interaction and promote mutual understanding between people of different states and union territories through the concept of state pairing. Tamil Nadu is paired with Jammu-Kashmir.
 
-[SECTION: Cultural Exchange Programs at MSAJCE]
-Mohamed Sathak A. J. College of Engineering has conducted cultural exchange programs as part of the Ek Bharat Shreshtha Bharat initiative. One significant program is the Cultural Exchange Program under EBSB, which aligns with the Azadi Ka Amrit Mahotsav celebrations. Another program focused on the iconic winter destination of Gulmarg, Kashmir, highlighting traditional art forms such as carpet weaving. These initiatives foster cultural understanding and promote best practices across India's diverse regions.
+SECTION: Cultural Exchange Programs
+Mohamed Sathak A J College of Technology, Chennai has conducted two programs with SSM College of Engineering, Parihaspora, Pattan, Baramulla, JK under the EBSB initiative. The first activity is titled "Cultural Exchange Program Under Ek Bharat Shreshtha Bharat & Azadi Ka Amrit Mahotsav," and it can be accessed at https://ekbharat.gov.in/activitycompleted/statepair_activity?statepair=Tamil+Nadu+%3a++Jammu-Kashmir+and+Ladakh&page=3. The second activity is "Winter Iconic destination-Gulmarg Kashmir & Traditional Art of Kashmir (Carpet Weaving)," which can be viewed at https://drive.google.com/file/d/1-YxlhVjgN0SWfHJ3OcTBjrmvaadGgn5w/view?usp=share_link.
 
-[SECTION: Student Achievers from Various Departments]
-The college recognizes its academic top performers across various engineering disciplines. In the Department of Civil Engineering, notable students include Mohamed Jassim (II year), Veera Kumar (III year), and Mohmood Naina (IV year). The Mechanical Engineering Department celebrates achievements by Salman (II year), Atef Jamaludeen (III year), and Mohamed Nibras (IV year). This recognition not only boosts student morale but also enhances the institution's reputation for academic excellence.
+SECTION: Academic Calendar
+The academic calendar for Higher Semester (Odd Semester - 2022-2023) is currently available, alongside the academic calendar for Higher Semester (Even Semester - 2021-2022) and First Year (Even Semester - 2021-2022) which are also accessible.
 
-[SECTION: MSAJCE Contact Information]
-For inquiries, individuals can reach Mohamed Sathak A. J. College of Engineering at +91 99400 04500 or via email at msajce.office@gmail.com. The campus is located at 34 Rajiv Gandhi Salai (OMR), Siruseri IT Park, Chennai - 603103. The college promotes open communication through various channels to support students and faculty alike.
+SECTION: Student Achievements
+The following students from various departments have excelled in their respective years: 
+- In the Department of Civil Engineering, Mohamed Jassim .M is in II year, Veera Kumar .M is in III year, and Mohmood Naina .M.H is in IV year.
+- In the Department of Mechanical Engineering, Salman is in II year, Atef Jamaludeen .N is in III year, and Mohamed Nibras .M is in IV year.
+- In the Department of Computer Science and Engineering, Vinitha .M is in II year, Bhuvaneshwari .B is in III year, and Mahalakshmi .R is in IV year.
+- In the Department of Information Technology, Shalini .M is in II year, Ganga .M is in III year, and Fouzia .M.A is in IV year.
+- In the Department of Electronics and Communication Engineering, Satheshkumar .V is in II year, Assifa .A is in III year, and Vigneshwaran .V is in IV year.
+- In the Department of Electrical and Electronics Engineering, Divyasri .S is in II year, Sathyan .S is in III year, and Sanjith .S is in IV year. 
 
-[SECTION: Academic Calendars]
-The academic calendar at MSAJCE includes important guidelines for higher semesters and first-year students. For the Odd Semester of 2022-2023, specific academic dates are provided, along with the Even Semester details for 2021-2022. These structured timelines ensure students are well-informed about their academic schedules, making it easier for them to plan their studies effectively.
+This comprehensive integration preserves every factual detail from the three sources while ensuring clarity and accessibility in the presented information.

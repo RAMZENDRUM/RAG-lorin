@@ -1,29 +1,32 @@
-[SECTION: Overview of AI and ML Program]
-The Artificial Intelligence and Machine Learning (AIML) program at Mohamed Sathak A. J. College of Engineering (MSAJCE) offers a comprehensive 4-year Bachelor of Technology (B.Tech) degree tailored to equip budding engineers with essential skills in AI technologies. The aim is to foster industry-relevant expertise in areas such as machine learning, neural networks, and data analysis. Students will engage in hands-on training with tools like Python and TensorFlow, addressing the growing demand for skilled AI professionals across sectors including healthcare and finance. 
+SECTION: Program Overview  
+Artificial Intelligence (AI) is a technology that enables machines to replicate human behavior, while Machine Learning (ML) is a subset of AI that allows machines to learn from past data without explicit programming. The B. Tech in Computer Science Engineering with a specialization in AI & ML provides budding engineers with comprehensive courses dedicated to the latest advancements in this field. This program enhances students' skills in programming, coding, database management, and web development, positioning them for future demands in various sectors including healthcare, finance, and security.
 
-[SECTION: Vision and Mission]
-MSAJCE envisions becoming a center of excellence for cultivating proficient Artificial Intelligence and Machine Learning Engineers. The mission emphasizes imparting fundamental knowledge in AI while nurturing critical thinking and ethical practices relevant to industry needs. The program aims to cultivate all-around competencies for career advancement, higher education, and self-employment opportunities.
+SECTION: Admission and Curriculum  
+The program duration is 4 years for regular students and 3 years for lateral entry students, with a total intake of 30 students (15 government and 15 management). Eligibility requires a 10+2 education with a pass in Physics, Chemistry, and Mathematics.
 
-[SECTION: Educational Objectives]
-The program educational objectives (PEOs) focus on preparing graduates who can creatively design and develop sustainable software solutions, utilize modern tools for problem-solving, and acquire managerial skills necessary for future leadership roles. These objectives align with a commitment to versatility and innovation in various professional landscapes.
+SECTION: Programme Educational Objectives (PEOs)  
+Graduates will be prepared to analyze, design, develop, and test software solutions creatively and sustainably. Graduates will possess skills using modern tools for problem-solving and analyzing industrial and societal needs. Graduates will develop managerial and leadership abilities for careers and entrepreneurship.
 
-[SECTION: Program Outcomes]
-The AIML curriculum promotes essential program outcomes (POs) such as applying mathematical and engineering principles to resolve complex problems, effective communication, and ethical responsibility. These outcomes prepare graduates not only for technical roles but also for impactful participation in diverse, multidisciplinary teams within society.
+SECTION: Program Specific Outcomes (PSOs)  
+Engineering graduates will be able to develop creative solutions using emerging technologies for real-time industry applications and apply acquired knowledge to create software solutions and innovative mobile apps for various automation needs.
 
-[SECTION: Career Opportunities]
-Graduates of the AIML program can expect robust career prospects including roles as Data Scientists, Machine Learning Engineers, and AI Research Scientists. The increasing adoption of AI technology across industries forecasts significant demand for skilled professionals, supported by an anticipated CAGR of 30-40% in the AI job market in India over the next five years.
+SECTION: Programme Outcomes (POs)  
+Graduates will apply mathematics and engineering knowledge to solve complex problems, analyze and review literature for engineering challenges, design solutions considering public safety and cultural contexts, and utilize research methods to reach valid conclusions. They will demonstrate modern tool usage, ethical practices, teamwork, effective communication, project management principles, and engage in lifelong learning.
 
-[SECTION: Faculty Expertise]
-The faculty at MSAJCE bring a wealth of knowledge and experience, with specializations ranging from Image Processing and Machine Learning to IoT and Cloud Computing. Leading the program are Dr. Nagasubramanian R. (Head - PG, Computer Science Engineering) and Dr. Subramanian P. (Head - UG, Wireless Sensor Networking). Their expertise significantly enhances the learning environment for students.
+SECTION: Faculty Members  
+Dr. NAGASUBRAMANIAN R (Head - PG, M.E., Ph.D., Computer Science Engineering) leads the postgraduate program. Dr. SUBRAMANIAN P (Head - UG, M.E., Ph.D., Wireless Sensor Networking and Image Processing) heads the undergraduate department. Dr. PREMALATHA G (Associate Professor, M.E., Ph.D., Image Processing and Machine Learning), Mrs. SARANYA V (Assistant Professor, M.Tech, Ph.D., IOT and Cloud Computing), and others also contribute significantly to the department.
 
-[SECTION: Key Courses]
-The AIML curriculum includes essential courses such as Discrete Mathematics, Artificial Intelligence, and Data Visualization. Specialized labs, including C Programming and Web Technology, provide practical experience vital for mastering the programming languages and technologies driving AI innovations. 
+SECTION: Labs and Facilities  
+The institution hosts various specialized labs, including the C Programming Lab for CS8261, Internet Programming Lab for CS8661, Operating Systems Lab for CS8461, Object Oriented Analysis and Design Lab, Web Technology Lab for IT8511, and Networks Lab for CS8581, catering to the needs of current engineering students.
 
-[SECTION: Expected Salary Trends]
-Salaries for AI/ML roles in India are on the rise, with entry-level positions typically ranging from ₹6-12 Lakhs per annum. Experienced professionals can earn significantly more, reflecting the high demand across various sectors like healthcare, finance, and IT. 
+SECTION: Curriculum Syllabus  
+Subjects offered include Discrete Mathematics (MA3354), Digital Principles and Computer Organization (CS3351), Database Design and Management (AD3391), Design and Analysis of Algorithms (AD3351), Data Exploration and Visualization (AD3301), and Artificial Intelligence (AL3391). Additional courses in Practical Labs support theoretical knowledge with hands-on experience.
 
-[SECTION: Job Market Insights]
-The AI job market is flourishing with significant opportunities arising from government initiatives and private sector investments in AI technology. Key industries such as healthcare and finance are leading the integration of AI solutions, creating a vast landscape for career growth in the coming years.
+SECTION: Career Prospects  
+Graduates will find opportunities as Big Data Engineers, Data Scientists, AI Engineers, and Machine Learning Engineers in reputed companies such as Microsoft, Amazon, Goldman Sachs, and Accenture. The program ensures industry relevance, preparing students for a wide range of exciting career pathways with lucrative salaries, often exceeding that of typical engineering roles. 
 
-[SECTION: Certifications and Skills for Upskilling]
-To stay competitive, aspiring AI professionals should consider obtaining certifications in relevant technologies such as TensorFlow and AWS Machine Learning. Upskilling in programming languages like Python and R is crucial for developing proficiency in model development and data manipulation.
+SECTION: Research and Development  
+India's AI and ML sectors are projected for substantial growth from 2025 to 2030 due to rising adoption across multiple industries, government initiatives supporting AI, and increased investments in startups. The course curriculum will also emphasize hands-on experience with powerful tools like Python, R, TensorFlow, Hadoop, and others essential for the evolving tech landscape. 
+
+SECTION: Contact Information  
+For inquiries, contact the institution at +91 99400 04500 or email msajce.office@gmail.com. The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103.

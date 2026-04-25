@@ -1,14 +1,86 @@
 [SECTION: Library Overview]
-The Library at Mohamed Sathak A. J. College of Engineering is a pivotal resource, spanning 8,978 square feet and fully computerized. It houses over 29,853 volumes, including 1,885 reference books, ensuring students and staff have access to a wide array of scholarly resources. The library subscribes to approximately 35 national journals, 20 magazines, and features 3,790 e-books, fulfilling the informational needs of its academic community. Key aspects include operational hours from 8 AM to 7 PM weekdays and 10 AM to 4 PM on Sundays.
+The library at Mohamed Sathak A. J. College of Engineering serves as the heart of the institution, fostering academic growth since its inception. It provides critical resources and services designed to meet the scholarly needs of students and staff. The library spans an area of 8978 square feet and is fully computerized, featuring over 29853 volumes, including 1885 reference books.
 
-[SECTION: Library Resources]
-The library's resources are extensive, featuring a total of 29,853 books, which include various categories such as e-journals (1,379), CD-ROMs (356), and project reports (260). It also offers access to numerous databases, including DELNET and J-Gate, enhancing the research capabilities of students and faculty alike. Regular updates ensure new titles and volumes are consistently added to cater to the evolving academic environments. 
+[SECTION: Collections and Resources]
+The library houses a diverse collection including:
+- 29853 total volumes.
+- 5628 titles.
+- 1885 reference books.
+- 35 national journals.
+- 20 magazines.
+- 3790 e-books.
+- 5 daily newspapers.
+- 106 back volumes.
+- 356 CD-ROMs.
+- 260 project reports.
+- 1379 e-journals via DELNET.
+- 1800 international journals in the Gale database.
 
-[SECTION: Membership and Borrowing Policies]
-All students and staff at MSAJCE are library members, with borrowing entitlements set as follows: UG and PG students can borrow up to 18 books for 30 days, while teaching staff can borrow 10 books. Regulations include penalties for overdue books, emphasizing the importance of returning materials promptly. This structured approach promotes responsible library use amongst the academic community.
+[SECTION: Library Working Hours]
+The library operates with the following hours:
+- Monday to Saturday: 8.00 A.M. to 7.00 P.M.
+- Sunday: 10.00 A.M. to 4.00 P.M.
+
+[SECTION: Departmental Journals]
+The library provides printed journals across various departments as follows:
+- Mechanical Engineering has 6 printed journals.
+- Electronics and Communication Engineering has 6 printed journals.
+- Electrical and Electronics Engineering has 6 printed journals.
+- Computer Science Engineering / Information Technology has 10 printed journals.
+- Civil Engineering has 4 printed journals.
+- Science & Humanities has 5 printed journals.
+The total number of printed journals across departments is 37.
+
+[SECTION: Open Access E-Journals]
+The library grants access to various open access e-journals, including but not limited to:
+1. Directory of Open Access Journals: http://doaj.org/
+2. BioMed Central: http://www.biomedcentral.com/journals
+3. Scientific Research Publishing: http://www.scirp.org/
+4. Core: https://www.core.ac.uk/
+5. Transstellar Journal Publication and Research Consultancy: http://www.tiprc.org/
+6. Science Publications: http://thescipub.com/
+7. Research India Publication: http://www.ripublication.com/
+8. International Association of Engineering and Management: http://www.iaeme.com/
+9. Seventh Sense Research Group: http://www.internationaljournalssrg.org/
+10. Google Scholar: https://www.scholar.google.com/
+
+[SECTION: E-Library Resources]
+The e-library is equipped with several academic databases and resources including:
+1. Delnet: https://delnet.in/
+2. J-Gate: https://jgateplus.com/
+3. National Digital Library: https://ndl.iitkgp.ac.in/
+4. World Digital Library: https://www.wdl.org/
+5. Shodhganga: https://shodhganga.inflibnet.ac.in/
+6. Shodhsindu: https://ess.inflibnet.ac.in/
+7. NPTEL Videos: http://www.nptelvideos.com/
+
+[SECTION: Rules & Regulations]
+All staff and students are library members. Eligibility details include:
+- UG and PG students can borrow 18 books for 30 days.
+- Teaching staff can borrow 10 books for 30 days.
+- Supporting and administrative staff can borrow 4 books for 30 days.
+Reference materials and periodicals are not available for borrowing. Silence must be maintained in the library.
 
 [SECTION: Library Committee]
-The Library Committee at MSAJCE, chaired by Dr. K.S. Srinivasan, Principal, is composed of various faculty members and student representatives. This diverse group is responsible for overseeing library operations and ensuring it meets the academic and research needs of the institution. The committee includes key positions such as the Library In-Charge, Dr. Kamalaselvan A., and Chief Librarian, Mr. S. Sudhakar, among other faculty and student representatives.
-
-[SECTION: E-Learning Resources]
-MSAJCE provides students with additional e-learning resources, leveraging platforms like NPTEL, Coursera, and MIT OpenCourseWare. These platforms cater to varied learning preferences and reinforce classroom teachings, allowing students to access a wealth of knowledge online. This investment in digital resources reflects the college's commitment to enhancing educational experiences through technology integration.
+The library committee is composed of the following members:
+- Dr. K. S. Srinivasan (Principal) serves as the Chairman.
+- Dr. A. Balakrishnan (Head - Academics) serves as a Member.
+- Dr. B. Janarthanan (Head - Research) serves as a Member.
+- Dr. I. Manju (Head - IQAC) serves as a Member.
+- Dr. Kamalaselvan A. (Library I/C) serves as the Secretary.
+- Mrs. Anusuya P. (AP / ECE & Library I/C) serves as the Member Secretary.
+- Mr. S. Sudhakar (Chief Librarian) serves as a Member.
+- Mr. John Anish (Librarian) serves as a Member.
+Student representatives include:
+- Mr. Arshad K. (III-Yr EEE Student Rep).
+- Ms. Swetha Maria Saustina S. (III-Yr EEE Student Rep).
+- Mr. Mohamed Nayeem B. (III-Yr ECE Student Rep).
+- Ms. D. Kamali (III-Yr EEE Student Rep).
+- Mr. Vasanthakumar N. (III-Yr MECH Student Rep).
+- Mr. Salman S. (III-Yr MECH Student Rep).
+- Mr. Musthaq J. (III-Yr CIVIL Student Rep).
+- Mr. Shanmugam S. (III-Yr CIVIL Student Rep).
+- Ms. Revathi U. (III-Yr IT Student Rep).
+- Mr. Imamm Jaffar J. (III-Yr IT Student Rep).
+- Mr. Elango V. (III-Yr CSE Student Rep).
+- Ms. Vasumathi A. (III-Yr CSE Student Rep).

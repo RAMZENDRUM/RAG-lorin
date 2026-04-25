@@ -1,14 +1,23 @@
-[SECTION: Amazon Web Services Education Initiative]
-Mohamed Sathak A.J. College of Engineering offers a comprehensive curriculum focused on Amazon Web Services (AWS) and cloud computing through its dedicated Technology Centre. Students will understand the fundamentals of building IT infrastructure on AWS, acquire knowledge of various cloud services, and learn to create and configure AWS services. This training aims to equip students with skills to build fault tolerant and highly available applications, while also embracing best practices to design optimal IT solutions.
+SECTION: Overview
 
-[SECTION: CISCO Networking Academy Partnership]
-The college has partnered with CISCO to establish the Networking Academy, known for its hands-on learning experience in networking, security, and cloud technologies. This professional certification program, recognized globally, opens up career pathways connecting students to an estimated eight million networking jobs worldwide. Courses include Network Essentials, CCNA certifications, and various security and programming courses, effectively preparing students for the demanding IT industry.
+Mohamed Sathak A. J. College of Engineering is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. For inquiries, contact +91 99400 04500 or via email at msajce.office@gmail.com.
 
-[SECTION: Academic Calendar and Events]
-The academic year at MSAJCE features pivotal events such as the 18th Graduation Day scheduled for February 22, 2025. Additionally, the institution regularly updates its educational initiatives for the 2026-2027 admission cycle, offering an online application form and fee payment options. Essential academic resources such as ESE timetables and internship report formats are also made available to support students' learning journeys.
+SECTION: Academic Objectives
 
-[SECTION: Student Life and Campus Services]
-At MSAJCE, student life is enriched by various facilities including a well-equipped Learning Centre (Library), hostel accommodations, and sports activities. The campus also promotes social services through clubs and societies, enhancing students' experiences and fostering community engagement. Various professional societies prepare students for real-world challenges, creating a balanced and dynamic learning environment.
+The students will be able to understand the fundamentals of building IT infrastructure on the AWS platform. The students will acquire knowledge of various cloud services provided by Amazon Web Services (AWS). The students will learn how to create and configure AWS services and to integrate various AWS services together to present a holistic cloud solution. The students will learn how these services work together to build fault-tolerant and highly available applications. The students will understand best practices and design patterns to architect optimal IT solutions on AWS.
 
-[SECTION: Contact Information]
-For inquiries, MSAJCE can be reached at +91 99400 04500 or via email at msajce.office@gmail.com. The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Chennai - 603103. Interested individuals can also access the college’s various online resources and administrative details through its official website.
+SECTION: Advanced Learning Opportunities
+
+The students will be able to create and configure AWS services and to integrate various AWS services together to present a holistic cloud solution. The students will build fault-tolerant and highly available applications on the cloud. The students will design patterns to architect optimal IT solutions on AWS.
+
+SECTION: Unique Learning Experience
+
+Mohamed Sathak A. J. College of Engineering offers a unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. The certification is professional and recognized by employers worldwide. The program provides career pathways to connect to an estimated eight million networking jobs around the world through the Networking Academy (NetAcad).
+
+SECTION: Courses Offered
+
+The college offers various courses including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, CCNA: Switching, Routing, and Wireless Essentials, CCNA: Enterprise Networking, Security and Automation or Networking Courses, Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship.
+
+SECTION: Certifications
+
+The certifications provided by the college include CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies.

@@ -1,20 +1,89 @@
-[SECTION: College Overview]
-Mohamed Sathak A. J. College of Engineering (MSAJCE) is a top-tier engineering institution in Chennai, offering Bachelor's and Master's programs in various fields of engineering. Founded with a vision to empower students through knowledge and innovation, MSAJCE aims to equip graduates with the skills needed to excel in competitive environments. The college is affiliated with Anna University and is approved by AICTE.
+SECTION: Institutional Overview  
+Mohamed Sathak A. J. College of Engineering offers various engineering programs like B.E, B.Tech, and M.E. The institution emphasizes a vision of delivering professional, innovative, and future-ready education to empower students. 
 
-[SECTION: Events and Celebrations]
-MSAJCE hosts numerous events to enrich student experience and community engagement. Major upcoming events include the "18th Graduation Day" scheduled for February 22, 2025, and the "Smart India Hackathon 2025" on September 11, 2025. Other notable programs include workshops on "Design Thinking" and "Photography & Video Editing," focusing on skill development and interdisciplinary learning.
+SECTION: Admissions  
+Admission is now open for the 2026-2027 academic year. Prospective students can fill out the Online Application Form available on the college website. 
 
-[SECTION: Alumni Success Stories]
-Alumni of MSAJCE are excelling in diverse fields, contributing significantly to global organizations. For instance, Mr. Purushothaman N, a 2005 graduate, is now an Assistant Vice President at Standard Chartered, highlighting how the strong technical foundation acquired at MSAJCE has shaped his career. Similarly, Ms. Sabana Yasmi S, also from the 2005 batch, has become a Vice President at DBS Bank, showcasing the efficacy of the college's mentorship and academic environment.
+SECTION: Academic Calendar  
+The Examination Registration for May-June 2025 is scheduled for the first and second-year as well as third and fourth-year students. The ESE Timetable for November-December 2025 has also been released.
 
-[SECTION: Career Development Opportunities]
-MSAJCE emphasizes career development through various initiatives. The college facilitates internships, workshops, and seminars aimed at enhancing student employability. With a dedicated placement cell, students receive guidance and opportunities to connect with reputable companies across sectors, ensuring a seamless transition from academia to industry.
+SECTION: Graduation Events  
+The 18th Graduation Day is set for 22 February 2025, with celebratory photos available for viewing. 
 
-[SECTION: Specialized Programs and Support]
-The college offers specialized programs, including AICTE-sponsored faculty development workshops, to continuously enhance academic quality. Additionally, MSAJCE boasts a robust grievance cell and support structures to ensure student welfare, emphasizing a holistic approach to learning and campus life. 
+SECTION: Significant Events  
+On 11 September 2025, the Smart India Hackathon 2025 (Internal Edition) is set to take place. A Social Media Awareness Program will be held on 02 September 2025, followed by a Life Skill Empowerment Program on 01 September 2025. 
 
-[SECTION: Contact and Location]
-For further inquiries, MSAJCE can be reached at +91 99400 04500 or via email at msajce.office@gmail.com. The college is located at 34 Rajiv Gandhi Salai, Siruseri IT Park, Chennai - 603103, providing an accessible and conducive environment for learning.
+SECTION: Alumni Testimonials  
+Mr. Purushothaman N (Assistant Vice President) from Batch 2001–2005 at Standard Chartered highlighted that the college built a strong technical foundation and professional discipline, aided by faculty support and practical exposure.  
+Ms. Sabana Yasmi S (Vice President) from Batch 2001–2005 at DBS Bank stated that the academic environment significantly contributed to her growth in the banking and financial services sector.  
+Mr. Saravanan Perumal (Senior Manager) from Batch 2001–2005 at LTI Mindtree noted that the college provided a balanced mix of theoretical knowledge and practical learning, essential for his long-term career in IT.  
+Mr. Ahamed Jameel A.M.T (Technical Consultant) from Batch 2001–2005 at HCL mentioned the value of hands-on learning opportunities in prepping for industry roles.
 
-[SECTION: Notable Testimonials]
-MSAJCE alumni often share transformative experiences that shaped their careers. For instance, Mr. Saravanan Perumal, a 2005 graduate, credits the balanced mix of theoretical and practical knowledge for his success as a Senior Manager at LTI Mindtree, exemplifying the impactful education received at MSAJCE.
+SECTION: Faculty Support  
+Mr. Feroz Khan N (General Manager) from Batch 2001–2005 at Maersk expressed that a strong academic base helped shape his professional journey and leadership growth.  
+Mr. Fayad Ahamed (Project Manager) from Batch 2001–2005 at Union Insurance Company, Dubai credited his academic journey for developing strong analytical thinking.  
+Mr. Mohammed Azeem (Senior Manager – Sales) from Batch 2001–2005 at Allied Motors, Dubai attributed his professional growth in sales to structured learning and teamwork during his studies.  
+Mr. Srikanth K (Technical Architect) from Batch 2001–2005 at TeleApps found that academic training and faculty guidance enabled a structured approach to problem-solving.
+
+SECTION: Career Growth  
+Mr. Majed Arafat (IT Consultant) from Batch 2001–2005 at TCS noticed a positive contribution to his career from strong technical fundamentals and faculty support.  
+Mr. Santhosh Kumar V (Technical Architect) from Batch 2001–2005 at HCL spoke about the significance of academic guidance in his development as a technical architect.  
+Mr. Syed Faiyaz Hussain (Digital Product Manager) from Batch 2002–2006 at Anthem, USA described the learning environment as crucial for developing analytical thinking skills.
+
+SECTION: Professional Development  
+Ms. Harini Raman (Business Analyst) from Batch 2002–2006 at IBM emphasized that strong analytical training and faculty support shaped her career.  
+Mr. Chandra Bose (Senior Delivery Manager) from Batch 2003–2007 at CMA CGM India highlighted the role of academic discipline in his growth into management roles.  
+Mr. Arun Natarajan (Principal Consultant) from Batch 2003–2007 at Emirates NBD spoke about how academic exposure supported his career progression in consulting.
+
+SECTION: Recent Alumni  
+Ms. Misbah Khairunissa A (Senior HR Manager) from Batch 2005–2009 at Savista attested that interpersonal skills and a professional outlook developed during her studies shaped her HR career.  
+Ms. Lakshmi Narayanan (HR Manager) from Batch 2005–2009 at Valeo stated that communication and teamwork values gained during college supported her HR career growth.  
+
+SECTION: Engineering Disciplines  
+Mr. Rahul Murali (Lead Product Manager) from Batch 2006–2010 at Thoughtworks detailed how analytical thinking influenced his career in product management.  
+Mr. Vinoth Kumar Manickam (Lead Developer) from Batch 2006–2010 at Striven credited his strong technical foundation for his growth as a developer.  
+Mr. Sathakathulla E (eApps Testing Lead) from Batch 2006–2010 at Hitachi Energy noted that quality-focused learning played a significant role in his testing career.  
+
+SECTION: Development Paths  
+Mr. Sakthi Ajay (Senior Consultant) from Batch 2007–2011 at Virtusa mentioned that technical foundation and professional approach aided his consulting growth.  
+Ms. Akila Rajesh (Sales & Marketing Head) from Batch 2008–2012 at Voora Property Developers expressed that communication skills and leadership exposure shaped her marketing career.  
+Mr. Nasarullah S (Tech Lead) from Batch 2009–2013 at Wipro Ltd highlighted how structured problem-solving and academic training supported his technical leadership.
+
+SECTION: Career Preparation  
+Mr. Marzook Ahamed (Assistant Manager) from Batch 2010–2014 at PIXELS – Dubai stated that professional discipline and workplace readiness gained in college bolstered his career.  
+Mr. Muhamed Samir (Cyber Security Manager) from Batch 2011–2015 at Fidelity National Financial emphasized that strong technical knowledge supported his cybersecurity career.  
+Ms. Sharmela (Senior Product Analyst) from Batch 2011–2015 at Photon Interactive reflected that analytical skills shaped her career in product analysis.  
+
+SECTION: Engineering Expertise  
+Mr. Vignesh (Senior BIM Modeler) from Batch 2011–2015 at MCC Engineering, Singapore emphasized attention to detail and technical foundation in his design growth.  
+Mr. Harish N (Technical Support Engineer) from Batch 2012–2016 at OPEX Technologies shared that strong problem-solving skills prepared him for customer-focused roles.  
+Mr. Ram Prabhu S (Senior QA Engineer) from Batch 2012–2016 at QBurst Technologies reiterated the impact of quality assurance practices on his professional growth.  
+
+SECTION: Software Engineering  
+Ms. Reshma Rahila S (Senior Software Engineer) from Batch 2013–2017 at Prodapt mentioned that structured software development training supported her engineering growth.  
+Mr. Mohammed Asif (QAQC Civil Inspector) from Batch 2013–2017 at Samsung C & T stated that strong civil engineering fundamentals helped his professional growth.  
+Mr. Syed Haja Shereef S (Recruitment Specialist) from Batch 2014–2018 at Scaleneworks stated communication skills developed during college supported his recruitment career.
+
+SECTION: Technical Fields  
+Mr. Shanthoshkumar J (Senior Software Engineer) from Batch 2014–2018 at Broadcom highlighted how a strong technical foundation supported his software industry growth.  
+Mr. Safeeq Ahamed S (Design Engineer) from Batch 2015–2019 at KONE Elevators stated engineering fundamentals supported his professional development.  
+Mr. Shaik Fathhullah S (Technical & Sales Engineer) from Batch 2015–2019 at DAYSTAR SOLAR credited technical knowledge for his growth in technical and sales roles.
+
+SECTION: Leadership  
+Mr. Md Mubarak (MEP Team Leader) from Batch 2016–2020 at EJADAH UAE stated that MEP systems knowledge enhanced his professional growth.  
+Mr. Md Junaid A (Estimation / Quantity Surveyor) from Batch 2016–2020 at ELEMEC LLC explained how estimation fundamentals supported his professional development.  
+Mr. Sabari Murugan (Associate Design Engineer) from Batch 2016–2020 at Wall Technology mentioned that analytical thinking shaped his engineering career.
+
+SECTION: Career Trajectories  
+Mr. Jawahar Shalim (Team Leader) from Batch 2017–2021 at Milkbasket attributed coordination skills gained during college to his leadership growth.  
+Mr. Abdul Mukshith A (Senior BIM Engineer) from Batch 2017–2021 at Micron Electricals emphasized BIM practices improved his engineering knowledge.  
+Mr. Mohamed Ali Hasan (Operation Head) from Batch 2017–2021 at Veena Jewellers stated that organizational skills shaped his operations career.
+
+SECTION: Engineering Fundamentals  
+Mr. Imran L (Site Engineer) from Batch 2017–2021 at Al Rasheediah, Abu Dhabi reported that civil engineering fundamentals were essential for his professional growth.  
+Mr. Shamsudeen A (Software Engineer) from Batch 2018–2022 at HCL credited software fundamentals for his IT career development.  
+Mr. Nadir Khan (Supply Chain Engineer) from Batch 2019–2023 at Inaithiram Impex stated process-oriented thinking contributed to his career in supply chain.
+
+SECTION: Software Development  
+Mr. Sathiyan (Software Engineer) from Batch 2019–2023 at Relevantz Technology expressed that software development skills developed during studies were crucial for his professional growth.  
+Mr. Md Zaid (Software Engineer) from Batch 2019–2023 at TCS indicated that strong software development foundation prepared him for the IT industry.

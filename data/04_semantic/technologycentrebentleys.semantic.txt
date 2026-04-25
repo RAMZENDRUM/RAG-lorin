@@ -1,11 +1,17 @@
-[SECTION: Bentley’s Building Information Modelling Centre]
-The Bentley’s Building Information Modelling (BIM) Centre at Mohamed Sathak A. J. College of Engineering is designed to equip students with essential theoretical knowledge and practical skills in BIM techniques. Students will learn to interpret 2D and 3D drawings, understand the National Building Code regulations, and prepare for actual work situations through hands-on training. Key activities include creating building designs using AutoCAD and simulating virtual models with Revit Architecture, ultimately enhancing their structural analysis capabilities.
+SECTION: Overview  
+MSAJCE (Mohamed Sathak A. J. College of Engineering) is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103, and can be contacted at +91 99400 04500 or msajce.office@gmail.com. The college offers various programs, including B.E, B.Tech, and M.E, positioning itself as one of the best top engineering colleges in Chennai.
 
-[SECTION: Cisco Networking Academy Partnership]
-Mohamed Sathak A. J. College of Engineering has established a partnership with Cisco to launch the Networking Academy (NetAcad). This program provides students with unique hands-on learning experiences in networking, security, and cloud technologies using advanced simulation tools. It prepares learners for industry-recognized professional certifications, connecting them to an estimated eight million networking jobs worldwide. Courses offered include Network Essentials and CCNA certifications, enhancing employability in the tech sector.
+SECTION: Objectives of Bentley's Building Information Modelling Centre  
+The students will be able to gain basic theoretical knowledge and practical skills of the BIM techniques. The students will be able to interpret 2D & 3D drawings and structural analysis. The students will be able to understand the regulations as per the National Building Code. The students will be able to prepare for actual work situations through practical training.
 
-[SECTION: Courses and Certifications Offered]
-The college offers a diverse range of courses aimed at developing students' networking skills, including essentials and advanced CCNA tracks. Notable courses are CCNA: Introduction to Networks, Security Courses, and IoT & Data Analytics Courses, all designed to meet industry demands. Certifications like CISCO Certified Network Associate further enhance students' qualifications, empowering them for successful careers in the tech industry.
+SECTION: Student Skills Development  
+The students will be able to prepare a component to meet desired needs within realistic constraints such as economic, environmental, social, ethical, and sustainability. The students will be able to create 2D drawings of buildings, industrial structures, and various framed structures using AUTOCAD software. The students will be able to create and simulate a virtual building model of design with intelligent building elements using REVIT ARCHITECTURE software. The students will be able to design and analyze different types of structures such as liquid retaining structures, bridge components, retaining walls, and industrial and commercial structures in the form of a 3D model and predict performance before construction using STAAD.Pro software.
 
-[SECTION: Practical Training Objectives]
-Students in the BIM Centre will gain the ability to prepare components that meet real-world economic, environmental, social, ethical, and sustainability constraints. They will learn to design and analyze structures such as retaining walls and industrial components through hands-on practice with software like STAAD.Pro. This curriculum is aimed at bridging the gap between theoretical knowledge and practical application in engineering roles.
+SECTION: Networking Academy Partnership  
+Mohamed Sathak A. J. College of Engineering has partnered with CISCO, the world leaders in networking, to establish the Networking Academy (NetAcad). Cisco Networking Academy is an IT skills and career-building program which provides a unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. The program offers professional certification recognized by employers worldwide. It also provides career pathways that connect to an estimated eight million networking jobs around the world.
+
+SECTION: Courses Offered  
+Courses offered include Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, CCNA: Switching, Routing, and Wireless Essentials, CCNA: Enterprise Networking, Security and Automation, or Networking Courses, Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship.
+
+SECTION: Certifications  
+The college offers certifications such as CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies.

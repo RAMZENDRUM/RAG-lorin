@@ -1,23 +1,55 @@
-[SECTION: Electronics and Communication Engineering Overview]
-The Electronics and Communication Engineering (ECE) program at Mohamed Sathak A. J. College of Engineering aims to equip students with knowledge in designing electronic systems that support a variety of applications, from telecommunications to consumer electronics. This field utilizes principles of science and mathematics to foster innovation in areas such as health care, automation, and advanced communication. The ECE program prepares graduates for careers in both hardware and software sectors, including roles as system engineers, software engineers, and research and development experts. Key search terms include "Electronics Engineering," "Communication Systems," and "Innovative Design."
+[SECTION: Overview]
+Electronics and Communication Engineering as the name implies deals with the use of electronics concepts and principles to transfer information from one place to another. The field employs science and mathematical concepts to solve practical problems, fostering new products to enhance human life. The development of ICT has revolutionized areas such as health care, automation, remote sensing, and advanced communication.
 
-[SECTION: Program Educational Objectives (PEOs)]
-The program’s Educational Objectives (PEOs) focus on developing graduates who can creatively design electronics and communication components, utilize modern problem-solving tools, and acquire managerial skills for career advancement or entrepreneurial ventures. These PEOs ensure that graduates are prepared to meet industry demands through a blend of creativity, technical skills, and leadership. Keywords relevant to this section include "PEOs," "Electronics Design," and "Managerial Skills."
+[SECTION: Programme Details]
+The B.E. in Electronics and Communication Engineering has a duration of 4 years for the regular program and 3 years for lateral entry, comprising 8 and 6 semesters respectively. The total intake is 60 seats, divided evenly between government and management quotas. Eligibility requires a 10+2 education with physics, chemistry, and mathematics.
 
-[SECTION: Program Specific Outcomes (PSOs)]
-The Engineering graduates from this program are equipped to analyze, develop, and provide cost-effective solutions for real-time industrial and societal challenges using Embedded and IoT tools. This focus on practical application ensures a strong alignment with current industry needs and technological advancements. Important terms here are "Embedded Systems," "IoT Solutions," and "Real-Time Problems."
+[SECTION: PEOs]
+The Programme Educational Objectives (PEOs) are as follows:
+Graduates will be prepared for designing Electronics and Communication components and systems with creativity and sustainability. Graduates will be skilled in the use of modern tools for critical problem-solving and analyzing industrial and societal requirements. Graduates will be equipped with managerial and leadership skills for career advancement and entrepreneurship.
 
-[SECTION: Program Outcomes (POs)]
-The program outcomes ensure that graduates apply engineering principles to solve complex problems while demonstrating ethical responsibilities, teamwork capabilities, and effective communication. The curriculum emphasizes modern tool usage, sustainable practices, and lifelong learning to adapt to the evolving technologies in the engineering field. Relevant keywords include "Engineering Ethics," "Teamwork," and "Lifelong Learning."
+[SECTION: PSOs]
+The Program Specific Outcomes (PSOs) state that Engineering Graduates will be able to apply the acquired knowledge to analyze, develop, and test creative solutions for Electronics and Communication Systems and provide cost-effective, eco-friendly solutions for real-time industrial and societal needs using Embedded and IoT tools.
 
-[SECTION: Job Opportunities in Electronics and Communication Engineering]
-Electronics and Communication Engineering graduates have expansive job opportunities in various sectors such as telecommunications, defense, and IT. Companies like TCS, ISRO, and DRDO seek skilled professionals for roles in signal processing, system design, and project management. The anticipated growth in this field indicates significant hiring in areas like RF Design and IoT. Essential keywords for this section include "Job Opportunities," "Hiring Sectors," and "Electronic Engineering Careers."
+[SECTION: POs]
+The Programme Outcomes (POs) include the ability to apply knowledge of mathematics, science, and engineering fundamentals to complex problems. Students will demonstrate skills in problem analysis, design and development of solutions, conduct investigations of complex problems, and use modern tools for engineering practices. They will also apply ethical principles, work effectively as individuals and in teams, communicate effectively, manage projects, and recognize the need for lifelong learning in technological contexts.
 
-[SECTION: Faculty and Their Specializations]
-The department boasts a qualified faculty, including Dr. Srinivasan K S, Principal and Professor specializing in VLSI Signal Processing, and other experts focused on areas like Image Processing and Embedded Systems. This diverse expertise enhances the learning experience and research opportunities for students. Key terms include "Faculty Specialization," "VLSI," and "Image Processing."
+[SECTION: Faculty Directory]
+The faculty members are as follows:
+Dr. SRINIVASAN K S (Principal / Professor) from Department of ECE, joined on 07.05.2019 with qualifications M.E., Ph.D. Additional context: Specializes in VLSI Signal Processing.
+Dr. MANJU I (Professor / HOD) from Department of ECE, joined on 13.05.2019 with qualifications M.E., Ph.D. Additional context: Specializes in VLSI Design.
+Dr. SIVARANJANI G (Assistant Professor) from Department of ECE, joined on 22.08.2022 with qualifications M.E., Ph.D. Additional context: Specializes in Image Processing.
+Dr. GOPALAKRISHNAN S (Assistant Professor) from Department of ECE, joined on 06.09.2023 with qualifications M.E., Ph.D. Additional context: Not specified.
+Mr. SYED ALI M (Assistant Professor) from Department of ECE, joined on 03.01.2007 with qualifications M.E. Additional context: Specializes in Applied Electronics.
+Mr. KAMARAJAN M (Assistant Professor) from Department of ECE, joined on 12.08.2020 with qualifications M.E. Additional context: Specializes in Image Processing.
+Mrs. JAYANTHI E (Assistant Professor) from Department of ECE, joined on 04.07.2011 with qualifications M.E. Additional context: Specializes in Embedded Systems.
+Mrs. SUGANTHI I (Assistant Professor) from Department of ECE, joined on 01.06.2012 with qualifications M.E. Additional context: Specializes in Image Processing.
+Mrs. PIRIYADHARSHINI S (Assistant Professor) from Department of ECE, joined on 06.01.2016 with qualifications M.E. Additional context: Specializes in Image Processing.
+Mrs. ANUSUYA S (Assistant Professor) from Department of ECE, joined on 04.04.2022 with qualifications M.E. Additional context: Specializes in Image Processing.
+Mr. ASHOKKUMAR M (Assistant Professor) from Department of ECE, joined on 07.09.2021 with qualifications M.E. Additional context: Specializes in Communication Systems.
+Mrs. ABIDA BEGAM S (Assistant Professor) from Department of ECE, joined on 08.05.2023 with qualifications M.E. Additional context: Not specified.
+Mrs. MURUGESHWARI B (Assistant Professor) from Department of ECE, joined on 24.07.2023 with qualifications M.E. Additional context: Not specified.
+Mr. RAJKAMAL N (Assistant Professor) from Department of ECE, joined on 18.07.2023 with qualifications M.E. Additional context: Not specified.
+Mrs. AJEETHA THASNEEM (Assistant Professor) from Department of ECE, joined on 19.07.2023 with qualifications M.E. Additional context: Not specified.
 
-[SECTION: Future Trends in Electronics and Communication Engineering]
-The forecast for job opportunities in ECE indicates significant growth driven by advancements in 5G/6G, semiconductor design, and AI applications. The demand for skilled professionals is expected to rise, focusing on areas such as automation, smart homes, and defense technologies. Important keywords include "Job Outlook 2025-2030," "5G Technology," and "AI in Engineering." 
+[SECTION: Job Outlook]
+The Job Outlook for Electronics & Communication Engineering (ECE) for the years 2025-2030 indicates promising opportunities influenced by major industry drivers such as 5G & 6G rollout, semiconductor and chip design, IoT, embedded systems, and advancements in AI and DSP.
 
-[SECTION: Value-Added Courses and Certifications]
-MSAJCE offers various value-added courses like LABVIEW, Embedded Systems, and Python Programming, aiming for students to acquire industry-relevant skills that enhance employability. The diverse offerings ensure that graduates are well-prepared for technological challenges and creative problem-solving in their careers. Relevant keywords include "Value-Added Courses," "Industry-Relevant Skills," and "Professional Development."
+[SECTION: Sector-Wise Job Growth Projections]
+- Telecom (5G/6G): 10-12% per year in RF Design, Protocol Testing, and Antenna Development.
+- Semiconductor/VLSI: 12-15% per year in areas such as RTL, Physical Design, DFT, ASIC/FPGA.
+- Embedded & IoT: 15-18% per year focusing on C/ARM/RTOS, PCB, and Sensor Integration.
+- Consumer Electronics: 8-10% per year in Firmware and Power Supply Design.
+- Aerospace & Defence: 6-8% per year in Radar, Avionics, and Secure Communication.
+- AI + DSP + Computer Vision: 10-14% per year in Image/Audio DSP and ML for signal processing.
+
+[SECTION: Lab Facilities]
+The following labs are available:
+1. Communication Lab: Courses offered include EC8561 - Communication System and EC8761 - Advanced Communication.
+2. DSP/VLSI Lab: Courses offered include EC8562 - Digital Signal Processing and EC8661 - VLSI Design.
+3. Electronics Lab: Various courses including GE8261 - Engineering Practices and EC8462 - Linear Integrated Circuits.
+4. Embedded Lab.
+5. Microprocessors & Microcontrollers Lab: Courses include EC8681 - Microprocessors and Microcontrollers for both ECE and EEE.
+
+[SECTION: Value Added Courses]
+The value-added courses offered include LABVIEW, Embedded & IoT, Introduction to IoT (CISCO), Robotic Process Automation, and Amazon AWS Beginners, each with varying durations.

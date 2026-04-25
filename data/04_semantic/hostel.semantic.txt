@@ -1,19 +1,25 @@
-[SECTION: Boys Hostel Facilities]
-The Boys Hostel at Mohamed Sathak A. J. College of Engineering is designed to accommodate 480 male students in a comfortable environment. It features well-furnished rooms with modern amenities, including cots, chairs, lamps, and Wi-Fi. Each room is shared by two students, ensuring a harmonious living space. Facilities such as a hygienic canteen, an entertainment hall with an LCD TV, and a reading room help enhance students' living conditions and support their academic focus.
+SECTION: Hostel Facilities
 
-[SECTION: Girls Hostel Overview]
-The Girls Hostel, located 5 KM away from the campus in Sholinganallur, accommodates 210 female students across 71 rooms. Each room accommodates up to three students and is equipped with essential modern amenities including individual cupboards, bath and toilet facilities, and study areas. With a serene atmosphere and nearby library access till 9:00 PM, the hostel fosters a conducive study environment while ensuring safety and comfort for its residents.
+Boys Hostel, which includes the campus, consists of 3 blocks with 233 non-AC rooms and 6 AC rooms, accommodating 2 persons per room. The facility offers essentials such as a cot, chair, lamp, fan, and water heater, along with Wi-Fi and a TV hall. It serves as a home away from home for 480 boy students.
 
-[SECTION: Hostel Mess Services]
-The hostel mess at MSAJCE serves both vegetarian and non-vegetarian meals under the management's supervision. With designated timings for breakfast, lunch, and dinner, it accommodates the dietary needs of students on working days and holidays. Mess services ensure a spacious dining area with separate sections for boys and girls, promoting a comfortable dining experience for all hostellers while aligning with the scheduled meal times.
+Girls Hostel at Sholinganallur is located 5 KM away from the campus and comprises 1 block with 71 rooms that can accommodate 3 girl students per room. Each room is equipped with modern amenities including a cot, mattress, individual cupboards, and furniture for study. The hostel emphasizes safety and comfort, providing bath and toilet facilities, as well as Wi-Fi access and TV hall.
 
-[SECTION: Mess Timings Schedule]
-- Breakfast is served from 07:00 AM to 08:00 AM during working days, and from 07:30 AM to 09:00 AM on holidays.
-- Lunch is available from 01:00 PM to 01:45 PM on working days, with timings extending to 12:30 PM to 02:00 PM during holidays.
-- Dinner is offered from 07:00 PM to 08:30 PM during working days, and from 07:00 PM to 09:00 PM on holidays.
+SECTION: Mess Timings 
 
-[SECTION: Study Hours and Rules]
-The hostel promotes an academic atmosphere with defined study hours to optimize learning. Morning study hours are from 05:00 AM to 07:00 AM, and evening from 06:00 PM to 07:00 PM, alongside additional study times on holidays. Strict rules ensure that students maintain cleanliness and refrain from undesirable activities, enhancing overall discipline within the hostel.
+For the hostel mess, breakfast is served on working days from 07:00 A.M. to 08:00 A.M., while on holidays, it is from 07:30 A.M. to 09:00 A.M. Lunch is provided from 01:00 P.M. to 01:45 P.M. on working days and from 12:30 P.M. to 02:00 P.M. on holidays. Dinner is available from 07:00 P.M. to 08:30 P.M. on working days and from 07:00 P.M. to 09:00 P.M. on holidays. 
 
-[SECTION: Canteen Committee Leadership]
-The canteen committee at MSAJCE is led by Dr. K. S. Srinivasan as President, with Dr. S. Vijayakumar as the Chief Organization Officer. The team includes Mr. Arun as the Manager and Dr. K.P. Santhosh Nathan heading Student Affairs. This leadership structure ensures the effective operation of services catering to students' dining and food preferences, enhancing their campus experience.
+SECTION: Study Hours 
+
+On working days, students have study hours scheduled in the evening from 04:30 P.M. to 06:00 P.M., and in the morning from 05:00 A.M. to 07:00 A.M. On holidays, there are study hours from 09:00 A.M. to 12:00 P.M. and from 01:00 P.M. to 06:00 P.M. The evening study hours on holidays are from 09:00 P.M. to 10:30 P.M.
+
+SECTION: Canteen Committee
+
+The Canteen Committee is led by Dr. K S Srinivasan (Principal) as President. Dr. S. Vijayakumar (Chief Organization Officer) serves as the Officer In-charge, and Mr. Arun (Manager) oversees operations. Dr. K.P. Santhosh Nathan is the Head of Student Affairs. Staff members include Dr. S Vijayakumar, Mr. Abdul Rashid (Cook), Mr. Kannan (Assistant Cook), and Mr. A. Abdul Gafoor and Mr. Shankar (Assistant Cooks). 
+
+SECTION: Rules for Hostellers 
+
+Students must occupy rooms assigned by the Warden (Principal) and must avoid undesirable activities such as alcohol consumption, tobacco use, gambling, and ragging. Students are responsible for maintaining room cleanliness. Parents should provide a list of authorized visitors, and no student is permitted to leave the hostel based solely on a phone call. Visitors are allowed on holidays from 11:00 A.M. to 6:00 P.M. 
+
+SECTION: Contact Information 
+
+For inquiries, contact MSAJCE at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. Phone: +91 99400 04500, Email: msajce.office@gmail.com.

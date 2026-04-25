@@ -1,23 +1,72 @@
-[SECTION: Overview of MSAJCE]
-The Mohamed Sathak A. J. College of Engineering (MSAJCE) in Chennai is dedicated to cultivating proficient engineers through innovative and sustainable educational practices. Established in 2000, the college emphasizes a collaborative approach, engaging students in various extracurricular activities like NSS, YRC, and more, promoting both academic excellence and societal responsibility.
+SECTION: College Overview
+The Mohamed Sathak A. J. College of Engineering (MSAJCE) is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. The college offers B.E. and B.Tech programs along with a Master of Engineering (M.E.) and is recognized as one of the best engineering colleges in Chennai. The college also boasts various facilities such as a learning center, hostel, and sports amenities. The contact number for the college is +91 99400 04500, and the official email is msajce.office@gmail.com.
 
-[SECTION: Program Information]
-MSAJCE offers a Bachelor of Engineering (B.E.) in Mechanical Engineering, with a duration of 4 years for regular students and 3 years for lateral entry. The program includes eight semesters and has a total intake of 120 students—60 from government and 60 from management. Eligibility criteria require candidates to pass their 10+2 exams in Physics, Chemistry, and Mathematics.
+SECTION: Mission and Vision
+The vision of MSAJCE is to be a center of excellence for transforming students into proficient engineers through sustainable problems. The mission outlines three key objectives: 
+M1. To impart fundamental knowledge and necessary skills in Science & Humanities through innovative teaching and learning methodologies.
+M2. To inculcate critical thinking, ethics, lifelong learning, and creativity needed for industry and society.
+M3. To cultivate students with all-round competencies for career, higher education, and self-employability.
 
-[SECTION: Educational Objectives]
-The Program Educational Objectives (PEOs) for mechanical engineering graduates at MSAJCE are threefold: first, to design innovative mechanical components while prioritizing sustainability; second, to equip students with modern problem-solving skills; and finally, to develop managerial and leadership capabilities essential for entrepreneurship. 
+SECTION: Educational Objectives
+The Programme Educational Objectives (PEOs) are as follows:
+PEO1. Graduates will be prepared for designing mechanical components and systems, with creativity and sustainability.
+PEO2. Graduates will be skilled in the use of modern tools for critical problem solving and analyzing industrial and societal requirements.
+PEO3. Graduates will be prepared with managerial and leadership skills for career and starting up their own firms.
 
-[SECTION: Specific Outcomes]
-The Program Specific Outcomes (PSOs) focus on applying mechanical engineering knowledge to solve industrial problems and creating eco-friendly components for society. Graduates will be adept at using modern tools for critical analyses, thereby addressing industrial challenges effectively.
+SECTION: Specific Outcomes
+The Programme Specific Outcomes (PSOs) include:
+PSO1. Apply the acquired knowledge in mechanical engineering to solve industrial problems using modern tools.
+PSO2. Develop cost-effective and eco-friendly mechanical components and systems needed for the industry and society.
 
-[SECTION: Graduate Outcomes]
-Engineering graduates from MSAJCE are expected to demonstrate a comprehensive understanding of mathematics and science, conduct complex problem analyses, and design effective solutions that consider public health, safety, and environmental concerns. They will also embody ethical practices and effective communication skills in professional settings.
+SECTION: Programme Outcomes
+The Programme Outcomes (PO) are as follows:
+PO1. Engineering knowledge: Apply the knowledge of mathematics, science, engineering fundamentals, and specialization in Mechanical Engineering for the solution of complex engineering problems.
+PO2. Problem analysis: Identify, formulate, research literature, and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences, and engineering sciences.
+PO3. Design/development of solutions: Design solutions for complex engineering problems and design system components or processes that meet specified needs with appropriate consideration for public health and safety, and cultural, societal, and environmental considerations.
+PO4. Conduct investigation of complex problems: Use research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of the information to provide valid conclusions.
+PO5. Modern tool usage: Create, select, and apply appropriate techniques, resources, and modern engineering and IT tools, including prediction and modeling to complex engineering activities, with an understanding of the limitations.
+PO6. The engineer and society: Apply reasoning informed by the contextual knowledge to assess societal, health, safety, legal, and cultural issues and the consequent responsibilities relevant to professional engineering practice.
+PO7. Environment and sustainability: Understand the impact of professional engineering solutions in societal and environmental contexts, and demonstrate the knowledge of, and need for sustainable development.
+PO8. Ethics: Apply ethical principles and commit to professional ethics and responsibilities and norms of the engineering practice.
+PO9. Individual and team work: Function effectively as an individual and as a member or leader in diverse teams and in multidisciplinary settings.
+PO10. Communication: Communicate effectively on complex engineering activities with the engineering community and with society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions.
+PO11. Project Management and Finance: Demonstrate knowledge and understanding of the engineering and management principles and apply these to one’s own work as a member and leader in a team, to manage projects and in a multidisciplinary environment.
+PO12. Life-long learning: Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change.
 
-[SECTION: Faculty Profiles]
-MSAJCE boasts a dedicated team of educators, including Dr. Ammu Qudsiya A., an Associate Professor with a Ph.D., who joined in December 2022, and several other qualified individuals, such as Mrs. Senthil Lakshmi and Dr. Kavitha J., both committed to fostering an enriching learning environment. 
+SECTION: Faculty Information
+Dr. AMMU QUDSIYA A (Associate Professor) from Department of Mechanical Engineering (Joined on 22.12.2022 with a Ph.D. and regular association). 
+Mrs. SENTHIL LAKSHMI (Assistant Professor) from Department of Mechanical Engineering (Joined on 24.06.2019 with an M.Phil. and regular association). 
+Dr. KAVITHA J (Assistant Professor) from Department of Mechanical Engineering (Joined on 24.07.2023 with a Ph.D. and regular association). 
+Mrs. SALMA BANU (Assistant Professor) from Department of Mechanical Engineering (Joined on 28.11.2022 with an M.Phil. and regular association). 
+Mrs. RAJESHWARI S (Assistant Professor) from Department of Mechanical Engineering (Joined on 21.07.2023 with an M.Phil. and regular association). 
+Dr. BALAKRISHNAN A (Associate Professor) from Department of Mechanical Engineering (Joined on 15.07.2013 with a Ph.D. and regular association). 
+Mrs. JANANI K (Assistant Professor) from Department of Mechanical Engineering (Joined on 29.08.2022 with an M.Phil. and regular association). 
+Dr. RAMYA B (Assistant Professor) from Department of Mechanical Engineering (Joined on 03.08.2023 with a Ph.D. and regular association). 
+Mrs. SHOBANA V (Assistant Professor) from Department of Mechanical Engineering (Joined on 11.10.2019 with an M.Phil. and regular association). 
+Dr. AMUDHA S (Assistant Professor) from Department of Mechanical Engineering (Joined on 22.05.2023 with a Ph.D. and regular association). 
+Mr. BASKAR B (Assistant Professor) from Department of Mechanical Engineering (Joined on 16.08.2023 with an M.Phil. and regular association). 
+Dr. MUTHUMARI M (Assistant Professor) from Department of Mechanical Engineering (Joined on 23.08.2023 with a Ph.D. and regular association). 
+Mrs. SAIPRIYA K (Assistant Professor) from Department of Mechanical Engineering (Joined on 27.06.2016 with an M.Phil. and regular association). 
+Mrs. USHA S (Assistant Professor) from Department of Mechanical Engineering (Joined on 17.07.2019 with an M.Phil. and regular association). 
+Mrs. BARVEEN FATHIMA M (Assistant Professor) from Department of Mechanical Engineering (Joined on 01.03.2022 with an M.Phil. and regular association). 
+Dr. RAMASUDHA (Assistant Professor) from Department of Mechanical Engineering (Joined on 20.03.2024 with a Ph.D. and regular association). 
 
-[SECTION: Research and Facilities]
-MSAJCE supports various research initiatives, equipped with advanced laboratories, including Physics and Chemistry labs for hands-on experience. The college enhances learning through innovative teaching methods, fostering critical thinking and creativity among students. 
+SECTION: Laboratory Facilities
+The Physics & Chemistry Lab at MSAJCE offers the facility and equipment needed for students enrolled in BS8161 - Physics & Chemistry courses. 
 
-[SECTION: Contact Information]
-For more inquiries, MSAJCE can be contacted via phone at +91 99400 04500 or through email at msajce.office@gmail.com. The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Chennai - 603103.
+SECTION: Subject Offerings
+The subjects offered at MSAJCE include:
+1. HS3151 - Professional English - I
+2. PH3151 - Engineering Physics
+3. CY3151 - Engineering Chemistry
+4. MA3151 - Matrices and Calculus
+5. GE3151 - Problem Solving and Python Programming
+6. HS8251 - Technical English
+7. MA8251 - Engineering Mathematics – II
+8. PH8253 - Physics for Electronics Engineering
+9. GE8291 - Environmental Science and Engineering
+10. PH8252 - Physics for Information Science
+11. PH8251 - Materials Science
+12. PH8201 - Physics For Civil Engineering
+
+Overall, MSAJCE provides a comprehensive educational experience with a focus on mechanical engineering, grounded in strong faculty expertise and a commitment to student development.

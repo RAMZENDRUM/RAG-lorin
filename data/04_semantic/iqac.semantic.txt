@@ -1,32 +1,31 @@
-**[SECTION: Internal Quality Assurance Cell (IQAC)]**  
-The Internal Quality Assurance Cell (IQAC) at Mohamed Sathak A. J. College of Engineering is vital for maintaining and enhancing quality standards. It develops systems for continuous improvement in both academic and administrative performance, ensuring systematic and catalytic action. The IQAC aims to foster a quality culture within the institution by promoting effective mechanisms for performance evaluation and accreditation, integrating best practices, and ensuring the execution of strategic enhancement initiatives.
+SECTION: Internal Quality Assurance Cell (IQAC)
 
----
+The Internal Quality Assurance Cell (IQAC) of Mohamed Sathak A.J. College of Engineering plays a pivotal role in the institutional framework, adhering to the guidelines set forth by the National Assessment and Accreditation Council (NAAC) for effective performance evaluation, assessment, and accreditation. Its primary aim is to ensure continuous quality enhancement within the institution towards achieving academic excellence. The IQAC works as a facilitator to internalize quality culture, create mechanisms for institutional effectiveness, and uphold academic and administrative standards. The cell emphasizes participation from all constituents of the institution, ensuring that quality becomes a shared commitment rather than a mere administrative exercise.
 
-**[SECTION: Governance and Leadership]**  
-The governance structure of MSAJCE reflects its commitment to its vision and mission. The effective leadership fosters decentralization and participation in management, facilitating a clear operational guideline and policy framework. Continuous reviews and the implementation of e-governance ensure that institutional functioning aligns seamlessly with educational standards and community needs, supporting both academic excellence and holistic student development.
+SECTION: Members of IQAC
 
----
+Dr. K.S. Srinivasan (Principal) from the Administration acts as the Chairperson of IQAC, leading the initiative for quality assurance and enhancement. Mr. Mohamed Sathak (Director) from the Management contributes to the strategic decisions and direction of IQAC. Additional key members include Mr. A. Abdul Gafoor (Admission Officer) from the Administration, Dr. G. Ramesh (Head – Administration) as a faculty representative, Dr. A. Balakrishnan (Head – Academics) also from the faculty, and Dr. A. Kamalaselvan (Head – TC) from the faculty. Furthermore, Dr. J. Jeha (HoD – EEE), Mr. D. Weslin (Assistant Professor – IT), Mr. M. Kamarajan (Assistant Professor - ECE), Mr. K.K. Vinothkumar (Assistant Professor – MECH), and Mr. C. Venkatesh (Assistant Professor EEE) represent various academic departments contributing to the committee's objectives. Notably, alumni members such as Mr. Veerakumar (Hathway Broadband) and Mr. E. Mohamed Sathak (Project Engineer, Hitachi Energy Ltd. Chennai) provide insights from industry experiences. Student representation is ensured by Ms. K. Shahidha (IV Year / CSE), while industrial perspectives are included through Mr. L. Chandrasekaran (Managing Director - Precision Instruments & Electronics Pvt. Ltd) and local society representation from Mr. Mohamed Arshath Ahmed (Senior Tech Lead, Tech Mahindra XDS). Dr. I. Manju (Professor – ECE) holds the Head position in IQAC, ensuring academic rigor in the quality processes.
 
-**[SECTION: Curricular Aspects]**  
-MSAJCE focuses on effective curriculum delivery, adhering to a meticulously planned academic calendar. The institution actively participates in curriculum development and assessments, with varied programs including Choice Based Credit System (CBCS) and multiple Add-on/Certificate courses. This commitment to integrating professional ethics and sustainability into the curriculum enables students to gain essential skills for real-world challenges.
+SECTION: Objectives of IQAC
 
----
+The IQAC aims to develop a systematic approach for consistent improvement in both academic and administrative performances of the institution. Key objectives include promoting internal quality culture and institutional best practices. Additionally, the IQAC focuses on creating mechanisms to ensure timely and efficient execution of academic and administrative tasks while maintaining the relevance and quality of various programs offered. 
 
-**[SECTION: Research and Innovation]**  
-The institution has cultivated an ecosystem that encourages research, innovation, and community engagement. Various initiatives support faculty and student research projects, bolstered by government and non-government grants. MSAJCE also organizes workshops and seminars on research methodology and intellectual property rights, ensuring that both staff and students partake in knowledge transfer and development, benefitting from collaboration with various industries and institutions.
+SECTION: Functions of IQAC
 
----
+Among the integral functions of the IQAC are the development and application of quality benchmarks for academic and administrative activities, the dissemination of information regarding quality parameters, the organization of workshops and seminars centered on quality improvement themes, and documentation of programs aimed at fostering enhancements in quality. The IQAC also acts as a nodal agency for quality-related activities, preparing the Annual Quality Assurance Report (AQAR) for submission to NAAC.
 
-**[SECTION: Student Support and Progression]**  
-MSAJCE provides extensive support services to enhance student progression. From scholarship opportunities to career counseling, the institution ensures a transparent grievance redressal system. With a high placement rate and substantial involvement in co-curricular activities, students are encouraged towards holistic development, contributing to a well-rounded educational experience.
+SECTION: Strategies of IQAC
 
----
+The IGQAC implements strategies to ensure that academic performance is progressive and efficient. This involves optimizing modern teaching methods and verifying the adequacy and functionality of support structures such as libraries and laboratories. The cell is also responsible for establishing industry connections for research sharing and networking, thereby enhancing both local and global research collaborations.
 
-**[SECTION: Infrastructure and Learning Resources]**  
-The infrastructure at MSAJCE is designed to support effective teaching and learning. Modern classrooms, laboratories, and library facilities with e-resources facilitate an enhanced educational experience. Continuous updates to IT resources and student-computer ratios ensure that all academic and extracurricular activities are executed optimally, creating an inclusive environment for learning.
+SECTION: Criteria for Evaluation
 
----
+The IQAC evaluates criteria across various domains such as curricular aspects, teaching-learning and evaluation processes, research, innovations, extension activities, infrastructure, student support, governance, and institutional values. Comprehensive assessments are conducted regularly to align institutional practices with quality standards mandated by NAAC, focusing on continuous improvement in education quality and institutional effectiveness.
 
-**[SECTION: Institutional Values and Best Practices]**  
-MSAJCE is committed to institutional values that promote gender equity, environmental sustainability, and social responsibility. With facilities for energy conservation, waste management, and community sensitization programs, the institution embodies a progressive ethos. Regular quality audits ensure adherence to these values, fostering a supportive and inclusive campus culture.
+SECTION: Member Rotations and Academic Years
+
+The composition of IQAC includes rotations among academic years with targeted representation across different disciplines. For instance, representatives for the academic years 2022-2023 and 2023-2024 include faculty members like Dr. I. Manju (Head - TC & IR), Dr. S. Vijayakumar (Senior Administrative Officer), and Dr. B. Muthukumar (Professor - CSE), elucidating the college's commitment to maintaining a diverse and representative quality assurance framework.
+
+SECTION: Conclusion
+
+In pursuit of enhancing the academic and administrative landscape, the IQAC at Mohamed Sathak A.J. College of Engineering stands as a crucial element contributing to the institution's overall effectiveness and adherence to quality benchmarks. This collaborative mechanism aims to embed a quality culture that not only emphasizes compliance but actively promotes innovation and continuous growth across all levels of education.

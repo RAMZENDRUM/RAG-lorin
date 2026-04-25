@@ -1,14 +1,23 @@
-[SECTION: Vision and Mission]
-Mohamed Sathak A. J. College of Engineering (MSAJCE) envisions becoming an eminent institute for higher education and research through innovative teaching-learning practices tailored to meet industrial and societal needs. The mission of MSAJCE includes imparting quality technical education, fostering professionally competent technocrats, and ensuring all-round sustainable development for students, enhancing their career and self-employability. Key values emphasize critical thinking, professional ethics, and civic responsibility.
+SECTION: Overview
+The Mohamed Sathak A. J. College of Engineering, located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103, is dedicated to being an eminent institute for higher education and research through innovative teaching-learning and sustainable practices that meet industrial and societal needs.
 
-[SECTION: Quality Policy]
-MSAJCE is dedicated to creating quality professionals by utilizing innovative teaching methods, engaging in research, and establishing strong industrial relations. The institute aims to nurture human values and ethics while continuously improving its educational standards to meet both industrial and societal needs effectively. This commitment is reflected in the college's approach toward holistic student development and higher education excellence.
+SECTION: Vision and Mission
+The vision of MSAJCE is "To be an eminent institute for higher education and research through innovative teaching-learning and sustainable practices to meet the industrial and societal needs." The mission of MSAJCE is to impart quality technical education by transforming students into professionally competent technocrats, nurturing students in all-round sustainable development for career and self-employability, and instilling critical thinking, professional ethics, and civic responsibilities through values.
 
-[SECTION: Contact and Location Information]
-Located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103, MSAJCE can be contacted via phone at +91 99400 04500. For queries, the official email address is msajce.office@gmail.com. The institute is approved by Anna University and AICTE, reinforcing its credibility as a leading engineering institution in Chennai.
+SECTION: Quality Policy
+MSAJCE is committed to creating quality professionals via innovative teaching, research, industrial relations, and nurturing human values and ethics. The approach is aim-focused on continual improvement to meet both industrial and societal needs.
 
-[SECTION: Admission and Enrollment]
-MSAJCE is currently accepting applications for the academic year 2026-2027. Prospective students can complete the online application form and make online fee payments through the college's website. This is an excellent opportunity for aspiring students to join one of the top engineering colleges in Chennai and pursue degrees such as B.E., B.Tech, and M.E.
+SECTION: Events and Announcements
+The college has several upcoming events, including the 18th Graduation Day scheduled for 22nd February 2025, and an AICTE-ATAL sponsored six-day FDP. Admission for the academic year 2026-2027 is currently open, along with an online application form and fee payment options available.
 
-[SECTION: Events and Celebrations]
-MSAJCE hosts various significant events, including the 18th Graduation Day scheduled for February 22, 2025, and celebrates Teachers & Engineers Day. These events are designed to honor student achievements and recognize teaching excellence. Photos and videos from these celebrations are shared on the college’s media platforms, enhancing community engagement.
+SECTION: Contact Information
+For further communication, you can reach MSAJCE at +91 99400 04500 or via email at msajce.office@gmail.com. For grievances, the designated email is grievance@msajce-edu.in.
+
+SECTION: Student and Faculty Services
+MSAJCE offers a feedback facility available in the AICTE Web Portal to enhance the experience of students and faculty at the institution. Additionally, services include various committees such as the Grievance Redressal Committee, Anti-Ragging Committee, and Women's Empowerment Cell.
+
+SECTION: Academic Structure
+The academic unfolding includes structured regulations, curriculum, and syllabus outlined for different engineering departments, along with facilities such as the Learning Centre (Library), Hostel, and Sports amenities available for students to ensure a well-rounded educational experience.
+
+SECTION: Institutional Distinctiveness
+MSAJCE's commitment to excellence is further demonstrated through frameworks like NAAC, IQAC, NIRF, and ARIIA which underline its dedication to quality education and research. The college also emphasizes industrial relations and ethical practices as foundational elements of its academic philosophy.

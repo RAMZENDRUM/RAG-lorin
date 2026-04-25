@@ -1,14 +1,23 @@
-[SECTION: Overview of MSAJCE]
-The Mohamed Sathak A.J. College of Engineering (MSAJCE), established on 5th July 2001 under the Mohamed Sathak Trust, is a premier engineering institution approved by AICTE, New Delhi, and affiliated with Anna University, Chennai. The college spans 70 acres within SIPCOT IT Park, Siruseri, surrounded by over 100 leading IT companies including TCS, CTS, and Infosys. MSAJCE aims to enhance technical education through state-of-the-art facilities and skill-based training to meet both industrial and societal needs.
+SECTION: Overview
+The Mohamed Sathak A.J. College of Engineering (MSAJCE) was established on 5th July 2001 under the aegis of Mohamed Sathak Trust. MSAJCE is approved by AICTE New Delhi and is affiliated to Anna University Chennai and the Government of Tamil Nadu. The campus is located inside the SIPCOT IT Park, Siruseri, spreading over 70 acres of greenery and is surrounded by multinational IT companies such as TCS, CTS, Intellect, Aspire, Steria, Polaris, and FSS.
 
-[SECTION: Infrastructure Facilities]
-MSAJCE offers excellent infrastructure, featuring spacious classrooms, laboratories, computer facilities with internet access, a well-stocked library, seminar halls, and an auditorium. The college emphasizes a balanced approach to education by supporting academic, co-curricular, and extracurricular activities. Its commitment to quality education is reinforced through training and resources that promote the overall development of students.
+SECTION: Infrastructure
+MSAJCE boasts good infrastructure facilities including spacious classrooms, drawing halls, laboratories, seminar halls, computer facilities with internet and Wi-Fi connectivity, a library, workshops, an auditorium, and a playground. The college is well connected by road, rail, and air from various parts of the country, enhancing accessibility for students and faculty.
 
-[SECTION: Faculty and Academic Excellence]
-The faculty at MSAJCE comprises qualified and experienced educators dedicated to fostering a high-quality learning environment. The college prides itself on its structured academic processes that enhance student learning. Through involvement in research and industrial projects, students gain competencies that prepare them for modern workplace challenges.
+SECTION: Faculty and Training
+A team of well-qualified and experienced faculty members supports the teaching and learning process at MSAJCE. The college emphasizes equal importance for academic, co-curricular, and extracurricular activities, offering various training programs to ensure the professional and overall transformation of the students.
 
-[SECTION: Opportunities at MSAJCE]
-MSAJCE offers a range of opportunities including internships, industrial visits, and guest lectures by industry experts. The institution also provides specialized programs in communication skills, language learning (English, German, Japanese), and value-added courses to bridge the gap between academic learning and industry requirements. These initiatives contribute to the college's strong placement record.
+SECTION: Industrial Collaboration and Opportunities
+MSAJCE is located in a green lush environment at Siruseri IT Park, surrounded by over 100 leading IT industries including TCS, CTS, Infosys, and HCL. The institute provides state-of-the-art facilities and industry-collaborative technology centers to facilitate hands-on experience for students.
 
-[SECTION: Student Activities and Development]
-At MSAJCE, students engage in professional societies and club activities that encourage innovative learning and cultural exchanges. The college supports various initiatives such as industrial hackathons and project competitions, which cultivate a collaborative and engaging educational atmosphere. MSAJCE's focus on extracurricular activities promotes holistic student development and prepares them for future challenges in their careers.
+SECTION: Academic Process and Learning
+The college implements a well-defined academic process that encourages smart learning. Students are involved in various research and industrial projects, including industrial hackathons and project competitions, fostering competency-based learning. Professional society and club activities further enable innovative learning among students.
+
+SECTION: Student Development Programs
+MSAJCE offers a Student Exchange Program for cultural learning along with internships, industrial visits, guest lectures, and seminars/webinars conducted by industrial experts to meet industrial expectations. A Communication Language Learning facility is available offering courses in English, German, and Japanese.
+
+SECTION: Value Added Education
+The college provides value-added courses and technology training to bridge the gap between the institute and industry, aiming for a good placement record. MSAJCE also supports students in pursuing higher education or becoming entrepreneurs.
+
+SECTION: Contact Information
+For more information, contact MSAJCE at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103, phone number +91 99400 04500, or via email at msajce.office@gmail.com.

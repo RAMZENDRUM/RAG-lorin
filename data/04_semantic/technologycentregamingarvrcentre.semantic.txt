@@ -1,14 +1,62 @@
-[SECTION: Gaming and AR/VR Centre at MSAJCE]
-The Gaming and AR/VR Centre at Mohamed Sathak A. J. College of Engineering provides students with hands-on learning experiences in designing and developing applications using Augmented Reality (AR) and Virtual Reality (VR). Students will be able to create 3D designs and animations, apply industry-standard tools, and develop applications across various fields such as gaming, architecture, and healthcare. This initiative aligns with global technological trends and enhances students' job readiness.
+SECTION: Overview of MSAJCE Technology Centre  
+Mohamed Sathak A J College of Engineering has established a Technology Centre focusing on Gaming and Augmented Reality (AR) and Virtual Reality (VR). The Centre aims to provide students with a comprehensive education in the technical and design aspects of AR and VR, enabling them to create 3D designs, visualizations, and animations for various objects and scenes. Additionally, students will apply AR and VR methods, tools, and equipment across different industries, educational sectors, and social contexts.
 
-[SECTION: Curriculum and Courses Offered]
-The curriculum for the Gaming and AR/VR Centre includes diverse subjects such as Introduction to Virtual Reality, Interactive Techniques, and Augmented and Mixed Reality. Each module spans approximately six hours and covers both theoretical concepts and practical applications. This structured approach empowers students with the knowledge to navigate the AR/VR landscape and engage in topics like VR hardware, visualization techniques, and physical simulations.
+SECTION: Learning Objectives  
+Upon completion of the program, the students will be able to:
+- Learn about the technical and design aspects of AR and VR.  
+- Create 3D design, visualization, and animation for various objects and scenes.  
+- Apply virtual and augmented reality methods, tools, and equipment in various fields like industry, education, and social life.  
+- Provide an overview of the concepts and working of AR-VR techniques.  
+- Build basic applications considering the technical and design aspects of AR and VR.  
+- Develop PC and mobile-based VR applications.  
+- Develop 3D visualization projects.  
+- Design applications in fields such as gaming, architecture, manufacturing, retail, and healthcare.
 
-[SECTION: Networking Academy Partnership with CISCO]
-MSAJCE has partnered with CISCO to offer the Networking Academy Program, which provides essential IT skills and certifications recognized worldwide. This initiative equips students with practical experience in networking, cybersecurity, and cloud technologies, fostering career pathways to the estimated eight million networking jobs globally. Courses include CCNA certifications and specialized training in IoT and data analytics, ensuring comprehensive professional development.
+SECTION: Networking Academy Partnership  
+MSAJCE has partnered with CISCO to establish the Networking Academy (NetAcad). This collaboration focuses on providing a unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. The program also aims at connecting students with an estimated eight million networking jobs around the world through NetAcad. 
 
-[SECTION: Practical Applications in VR]
-The practical components of the VR curriculum offer projects such as developing virtual classrooms, exploring human anatomy, and simulating physics concepts. These hands-on experiences are designed to deepen students' understanding and application of VR technology in real-world scenarios. For instance, students will participate in experiments using CRO-based simulations and build electronic circuits within a virtual environment.
+SECTION: Courses Offered  
+The following courses are available at MSAJCE’s Technology Centre:
+- Network Essentials  
+- Mobility Fundamentals  
+- CCNA: Introduction to Networks  
+- CCNA: Switching, Routing, and Wireless Essentials  
+- CCNA: Enterprise Networking, Security, and Automation OR Networking Courses  
+- Security Courses  
+- IoT & Data Analytics Courses  
+- OS and IT Courses  
+- Programming Courses  
+- Entrepreneurship  
 
-[SECTION: Certification Opportunities]
-Students at MSAJCE have the opportunity to earn certifications such as the CISCO Certified Network Associate, which enhances their employability in competitive job markets. The emphasis on hands-on training through simulation tools ensures that graduates are well-prepared for the technological demands of the industry, further supporting their career advancement in fields related to cyber technologies and networking.
+SECTION: Professional Certifications  
+Students can gain the following professional certification recognized by employers worldwide:
+- CISCO Certified Network Associate  
+- Implementing CISCO Enterprise Network Core Technologies  
+
+SECTION: Practical Learning Experiences  
+Students engage in numerous practical applications, which include:
+- Developing architecture for a house using Virtual Reality.  
+- Performing CRO-based experiments using Virtual Reality.  
+- Undertaking qualitative analysis in Chemistry using Virtual Reality.  
+- Carrying out assembly/disassembly of an engine using Virtual Reality.  
+- Exploring human anatomy using Virtual Reality.  
+- Simulation of various scenarios including circulation of blood in the heart, and flight dynamics of an aircraft.  
+- Building electronic circuits using Virtual Reality, utilizing basic electronic components.  
+- Developing the concept of a virtual classroom with multiplayer functionalities.  
+
+SECTION: Reference Texts  
+The recommended texts for the program are as follows:
+- Burdea, G. C. and P. Coffet. Virtual Reality Technology, Second Edition. Wiley-IEEE Press, 2003/2006.  
+- Alan B. Craig, Understanding Augmented Reality, Concepts and Applications, Morgan Kaufmann, 2013.  
+- Alan Craig, William Sherman and Jeffrey Will, Developing Virtual Reality Applications, Foundations of Effective Design, Morgan Kaufmann, 2009.  
+- John Vince, Virtual Reality Systems, Pearson Education Asia, 2007.  
+- Anand R., Augmented and Virtual Reality, Khanna Publishing House, Delhi.  
+- Adams, Visualizations of Virtual Reality, Tata McGraw Hill, 2000.  
+- Grigore C. Burdea, Philippe Coiffet, Virtual Reality Technology, Wiley Inter Science, 2nd Edition, 2006.  
+- William R. Sherman, Alan B. Craig, Understanding Virtual Reality: Interface, Application and Design, Morgan Kaufmann, 2008.  
+
+SECTION: Contact Information  
+Mohamed Sathak A J College of Engineering,  
+34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103  
+Contact Number: +91 99400 04500  
+Email: msajce.office@gmail.com  

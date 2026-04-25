@@ -1,25 +1,109 @@
-```markdown
-[SECTION: Mohamed Sathak A. J. College of Engineering Overview]
-Mohamed Sathak A. J. College of Engineering (MSAJCE) is a premier educational institution located in Chennai, established with a vision to foster engineering excellence. The college offers degree programs in B.E, B.Tech, and M.E, and is affiliated with Anna University. MSAJCE emphasizes a holistic educational approach, integrating academic rigor with extracurricular activities to prepare students for real-world challenges.
+SECTION: PROFESSIONAL SOCIETIES
 
-[SECTION: Leadership and Faculty]
-Dr. K.S. Srinivasan serves as the Principal of MSAJCE, leading the institution's commitment to academic excellence. He is supported by a dedicated faculty, including Dr. I. Manju, a Professor in the ECE department, and Dr. D. Weslin, an Associate Professor and the CSI Student Branch Counsellor. These leaders cultivate a supportive environment that encourages student engagement and professional development.
+Dr. K.S. SRINIVASAN (Principal) from Mohamed Sathak A. J. College of Engineering. Additional context: Contact number 9150575066, Email: principal@msajce-edu.in.
 
-[SECTION: Professional Societies and Recognition]
-MSAJCE hosts various professional societies, including the Computer Society of India (CSI), the Institute of Electrical and Electronics Engineers (IEEE), and the Indian Society of Heating, Refrigerating and Air Conditioning Engineers (ISHRAE). The college received recognition as the Best Supporting College by the CSI Kancheepuram Chapter, highlighting its commitment to industry collaboration and student support.
+Dr. I. Manju (Nominee Professor) from Department of ECE. Additional context: Contact number 9949055026, Email: ece.manju@msajce-edu.in.
 
-[SECTION: Student Leadership and Involvement]
-The student leadership at MSAJCE is robust with key positions filled by notable individuals. Yogesh R is the President from the IT department for the 2022-2026 batch, while Saqlin Mustaq M serves as Vice President from the AI&DS department for the 2023-2027 batch. This dynamic leadership fosters a spirit of collaboration and innovation among students.
+Dr. D. Weslin (CSI Student Branch Counsellor Associate Professor) from Department of IT. Additional context: Contact number 9715202533, Email: it.weslin@msajce-edu.in.
 
-[SECTION: Workshops and Learning Opportunities]
-MSAJCE organizes various workshops and lectures for skill enhancement. Noteworthy events include a guest lecture on "Voice over IP" by Mr. Anbazhagan A.T., and an interactive session on "Innovation & Invention in AI Technology" led by Ms. Anisha Udhayakumar. These activities provide students with exposure to current industry trends and technical advancements.
+SECTION: CSI OFFICE BEARERS
 
-[SECTION: Engineering Competitions and Events]
-The college actively participates in engineering competitions, such as the BAJA SAE India and SUPRA SAEINDIA events. These competitions are crucial for practical learning and industry exposure, allowing students to apply theoretical knowledge to real-world challenges while enhancing their teamwork and leadership skills.
+Yogesh R (President) from IT (Batch 2022-2026). 
 
-[SECTION: ISHRAE Involvement and Activities]
-The Indian Society of Heating, Refrigerating and Air Conditioning Engineers (ISHRAE) at MSAJCE endorses professional development in HVAC&R. It organizes workshops, seminars, and networking opportunities, enabling students to connect with esteemed professionals and stay informed about industry standards and innovations.
+Saqlin Mustaq M (Vice president) from AI&DS (Batch 2023-2027). 
 
-[SECTION: Facilities and Campus Life]
-The MSAJCE campus offers comprehensive facilities, including a well-equipped library, modern hostels, and various extracurricular amenities. The college promotes a vibrant campus life, allowing students to thrive academically while engaging in sports, clubs, and community service initiatives.
-```
+Abu Jabar Mubarak (Secretary) from CS&BS (Batch 2022-2026). 
+
+Hanuram PR (Joint Secretary) from CSE (Batch 2023-2027). 
+
+Shivam Vishwakarma (Joint Secretary) from CSE (Batch 2023-2027). 
+
+Navadharshan (Treasurer) from CSCS (Batch 2023-2027). 
+
+Akram Bilal (Executive Member) from AI&DS (Batch 2022-2026). 
+
+Zeenath Nisha (Executive Member) from IT (Batch 2023-2027). 
+
+SECTION: WORKSHOP ACTIVITIES
+
+CSI Inaugural Function was conducted by Dr. Murugan (President CSI Kancheepuram Chapter, Principal, Valliammai College of Engineering) on 28.02.23 with 200 participants. Coordinated by Mrs. Viswajaa S (AP/IT) and Mr. Pandiyan G (AP/CSE).
+
+A Guest Lecture on Voice over IP was presented by Mr. Anbazhagan A T (Technical Lead, Cognizant) on 22.03.23 with 100 participants. Coordinated by Mrs. Gayathiri (AP/CSE) and Mrs. Aiswarya M.S (AP/IT).
+
+A Guest Lecture on Digital Marketing was conducted by Mr. J. Mohammed Afroze (CEO, Digital, Chennai) on 17.03.23 with 110 participants. Coordinated by Mr. Rajasekar R (AP/CSE) and Mrs. Aysha Surfeen M.A (AP/IT).
+
+An Interactive Session on Innovation & Invention in AI Technology was led by Ms. Anisha Udhayakumar (AI Evangelist, Intel Corporation) on 10.03.23 with 100 participants. Coordinated by Mr. Vigneshwaran (TPO) and Mr. Hamer Shield J M.
+
+The Benefits of CSI Membership were explained by Dr. M. Senthil Kumar (Secretary, CSI Kancheepuram Chapter) on 20.02.20 with 200 participants. Coordinated by Mrs. S. Kayalvizhi and Mrs. Bapitha Rani.
+
+SECTION: STUDENT BRANCH ACTIVITIES
+
+Participation in regional conferences, workshops, and competitions is a major focus.
+
+Development of leadership, interpersonal, and team-building skills is emphasized.
+
+Scholarships and project/design programs, along with student paper contests, are organized.
+
+Establishment of a Student Branch Library with IEEE's publications has been achieved.
+
+Access to IEEE online services and resources is provided, as well as website establishment.
+
+Organizing various awareness programs to school students and the public is undertaken.
+
+Improving the standard of education is a continuous effort.
+
+Training students in emerging areas to meet new opportunities is prioritized.
+
+Encouraging outside-the-classroom studies, practical work, and seminars is promoted.
+
+Better employment outcomes for students upon course completion is targeted, along with a substantial increase in IETE membership.
+
+SECTION: IETE BRANCH COUNSELORS
+
+Dr. I. Manju is the Branch Counselor 1.
+
+Mrs. S. Anusuya is the Branch Counselor 2.
+
+SECTION: IETE EVENT PARTICIPATION
+
+The event titled Signal and Power Integrity in Semiconductor Industry was conducted by Mr. Zakir Hussain (M.E. Analog Design Engineer, Microchip India PVT Ltd, Bangalore) on 27-06-2020, attended by 100 participants.
+
+Cyber Physical Systems and its Applications using LABVIEW was led by Mr. K. Prakash (M.E. Application Engineer, Optithought) on 24/06/20, with 100 participants.
+
+The Art of Thinking Big was delivered by Mr. Aadil Ibrahim (Alumnus, Founder of Cameraman) on 11/06/20, engaging 160 participants.
+
+Embedded & IOT Boot Camp took place from 27/05/20 to 29/05/20, with various speakers including Dr. A.L. Vallikannu, Dr. Athif Shah, and Mr. M. Prabakaran, attended by 75 participants.
+
+Scope of Electronics Engineer in Various Domain was presented by Mr. Sankaralingam (Principal Engineer, Valeo) and Mrs. Suganya-Jasmine (Infotech) on 30/01/2019, attracting 63 participants.
+
+Inter Department Technical Quiz was coordinated by Mr. M.L. Syed Ali and convened by Dr. E. Dhiravidachelvi on 12/02/20, with participation from 200 students.
+
+IETE - Technical & Non-Technical Connections was led by Ms. E. Jayanthi and convened by Dr. E. Dhiravidachelvi on 01/09/2018, engaged 300 participants.
+
+The Project Expo was coordinated by Ms. I.S. Suganthi and convened by Dr. E. Dhiravidachelvi on 23/03/2018, with 70 participants.
+
+A seminar on Recent Trends in Optical Fibre Communication was conducted by Dr. A. Sadagopan (Asst. General Manager (Rtd) BSNL) on 16/08/2017, attended by 97 participants.
+
+SECTION: SAE STUDENT CLUB
+
+The SAE-INDIA collegiate club associated with MSAJCE was inaugurated on 21.02.2020 and the SAE-INDIA Southern section TIER-II event was conducted on the same date.
+
+Mr. S. Deepakkumar (Faculty Incharge) is supervising the student members which includes Syed N. Zaheer Abbas (President), Chandrasekar G (Vice President), Muhammad Zahan Faaieq J (Secretary), Shahila P (Joint Secretary), and Abdullah B (Treasurer).
+
+SECTION: SAE ACTIVITIES
+
+The events conducted in the academic year 2019-2020 are the Inauguration of the SAE Collegiate Club on 21.02.2020 and the SAEISS - Student Convention Tier - II Event on the same date.
+
+SECTION: ISHRAE BRANCH ACTIVITIES
+
+ISHRAE actively promotes networking opportunities to interact with other professionals and industry leaders.
+
+ISHRAE provides forums for professional development and continuous training on fundamentals and latest technologies.
+
+Easy access to ISHRAE technical publications, workshops, and training programs is ensured.
+
+Members have opportunities to work in the Chapter Working Committee to promote HVAC&R sciences in India.
+
+ISHRAE offers platforms for marketing and launching new products through exhibitions.
+
+International exposure is accessible through international associates.

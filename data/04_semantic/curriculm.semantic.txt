@@ -1,14 +1,7 @@
-[SECTION: Departments at MSAJCE]
-The Mohamed Sathak A. J. College of Engineering (MSAJCE) offers a diverse range of engineering programs across multiple departments. These include Civil Engineering, Computer Science and Engineering, Electrical and Electronic Engineering, and Mechanical Engineering, among others. Specialized programs such as Computer Science w/s in Artificial Intelligence and Machine Learning, Cyber Security, and Data Science are also available to meet the demands of modern technology.
+SECTION: Departments Offered
 
-[SECTION: Academic Opportunities and Admissions]
-MSAJCE is currently accepting applications for the 2026-2027 academic year. Prospective students can fill out the online application form and complete the online fee payment through the college's official website. Key events such as the 18th Graduation Day scheduled for February 22, 2025, highlight MSAJCE's commitment to student achievement and success.
+Civil Engineering is one of the departments at MSAJCE. Computer Science and Engineering is also offered, along with Computer Science and Engineering w/s in Artificial Intelligence and Machine Learning. Additionally, there is a specialization in Computer Science and Engineering w/s in Cyber Security. The Electrical and Electronic Engineering department is part of the curriculum. Electronic and Communication Engineering is offered as well, which includes a specialization w/s in Advanced Communication Technology. Mechanical Engineering is also available to students. Furthermore, the institution provides a course in Artificial Intelligence and Data Science. Students can pursue Computer Science and Business Systems. Another offering includes Electronics Engineering w/s in VLSI Design and Technology, while Information Technology is also part of the academic program.
 
-[SECTION: Institutional Support and Policies]
-The college has multiple governance and advisory bodies including a Governing Council and Academic Advisory Committee, designed to ensure quality standards. MSAJCE is equipped with grievance and counseling cells to support students, alongside policies that reinforce its mission of educational excellence and student welfare.
+SECTION: Additional Academic Offerings
 
-[SECTION: Contact Information]
-For inquiries, the college can be reached at +91 99400 04500 or via email at msajce.office@gmail.com. The institution is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. This contact information facilitates prospective students, faculty, and stakeholders in engaging with MSAJCE effectively.
-
-[SECTION: Achievements and Celebrations]
-The college recently celebrated notable events including Teachers’ and Engineers’ Day and has documented significant occasions like the Graduation Day through photos available online. These events showcase MSAJCE's vibrant campus life and dedication to honoring its educators and graduates.
+For Regulations 2024 - PG, the curriculum includes Computer Science and Engineering and Structural Engineering, reinforcing the college's commitment to providing up-to-date educational paths for graduate students.

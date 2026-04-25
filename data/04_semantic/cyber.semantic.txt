@@ -1,17 +1,38 @@
-[SECTION: Overview of Cybersecurity Program at MSAJCE]
-The B.E. in Computer Science and Engineering with a specialization in Cyber Security at Mohamed Sathak A. J. College of Engineering (MSAJCE) focuses on equipping students with essential skills for defending computer systems, networks, and data against cyber threats. The program emphasizes hands-on learning through labs and real-world projects, addressing the industry's growing demand for cybersecurity professionals. Key features include specialized curricula covering security principles, ethical hacking, and digital forensics, along with a vision to transform students into proficient specialists through sustainable practices.
+SECTION: PROGRAMME OVERVIEW  
+The B.E. Computer Science and Engineering with Specialization in Cyber Security (CSCS) is an undergraduate engineering degree program focused on equipping students with the knowledge and skills needed to protect computer systems, networks, and data from cyber threats and attacks. This course is designed to address the increasing demand for cybersecurity professionals given the reliance on digital infrastructure across sectors. Objective: To develop experts in the field of information security, ethical hacking, and digital forensics.
 
-[SECTION: Programme Educational Objectives (PEOs)]
-The Cyber Security program at MSAJCE aims to prepare graduates with vital competencies: PEO1 emphasizes creativity and sustainability in analyzing and developing software solutions, while PEO2 focuses on modern tool usage for critical problem-solving in industrial contexts. Lastly, PEO3 aims to equip graduates with managerial and leadership skills necessary for career advancement and entrepreneurship in the cybersecurity field.
+SECTION: KEY FEATURES  
+The program features a specialized curriculum that focuses on security principles, network security, cryptography, ethical hacking, and digital forensics, incorporating foundational courses such as Data Structures, Algorithms, and Operating Systems. It includes hands-on learning labs and simulation environments for penetration testing, secure coding, and threat analysis, along with capstone projects, internships, and real-world problem-solving.
 
-[SECTION: Programme Outcomes (PO)]
-Graduates of the Cyber Security program will achieve numerous outcomes, including the ability to apply mathematical and scientific principles to complex engineering problems (PO1), identify and analyze engineering issues critically (PO2), and design effective solutions while considering public health and environmental factors (PO3). They will also be skilled in modern tool usage (PO5), able to communicate effectively about engineering concepts (PO10), and aware of the ethical responsibilities associated with engineering practice (PO8).
+SECTION: VISION AND MISSION  
+Vision: To be a center of excellence for transforming students into proficient Cyber Security Specialists through sustainable practices.  
+Mission 1: To impart core fundamental knowledge and necessary skills in Cyber Security through innovative teaching and learning methodology.  
+Mission 2: To inculcate critical thinking, ethics, lifelong learning, and creativity needed for industry and society.  
+Mission 3: To cultivate students with all-round competencies for career, higher education, and self-employability.
 
-[SECTION: Placement Opportunities and Market Demand]
-The cybersecurity sector in India is projected to experience substantial growth from 2025 to 2030, driven by the rise in cyber threats and digitization across industries. MSAJCE collaborates with top recruiters like government agencies, IT firms, and financial institutions to prepare graduates for roles such as Cybersecurity Analyst, Security Architect, and Cloud Security Specialist. These positions require expertise in network security, incident response, and compliance with data protection regulations.
+SECTION: PROGRAMME EDUCATIONAL OBJECTIVES (PEOs)  
+Graduates will be prepared for analysing, designing, developing and testing the software solutions and products with creativity and sustainability. Graduates will be skilled in the use of modern tools for critical problem-solving and analyzing industrial and societal requirements. Graduates will be prepared with managerial and leadership skills for career and starting up their own firms.
 
-[SECTION: Faculty Expertise]
-The Cyber Security program at MSAJCE is supported by a distinguished faculty, including Dr. Nagasubramanian R, Head of PG, specializing in Computer Science Engineering, and Dr. Subramanian P, Head of UG, focusing on Wireless Sensor Networking and Image Processing. Other faculty members, like Dr. Premalatha G and Mrs. Saranya V, bring expertise in areas like Machine Learning and IoT, enriching students' learning experiences.
+SECTION: PROGRAMME SPECIFIC OUTCOMES (PSOs)  
+Engineering Graduates will be able to develop creative solutions by adapting emerging technologies/tools for real-time applications of Industry. They will apply the acquired knowledge to develop software solutions and innovative mobile apps for various automation applications.
 
-[SECTION: Additional Learning Resources]
-To enhance cybersecurity skills, students at MSAJCE are encouraged to explore diverse resources such as online courses, Capture The Flag (CTF) challenges, and participation in cybersecurity communities like Reddit and Stack Exchange. Furthermore, conferences like DEFCON and webinars provide opportunities for networking and staying updated on current cybersecurity trends and technologies.
+SECTION: PROGRAMME OUTCOMES (POs)  
+Graduates will demonstrate ability in Engineering Knowledge by applying mathematics, science, and engineering fundamentals to solve complex engineering problems. Graduates will identify, formulate, review literature, and analyze complex engineering problems using first principles of mathematics, natural sciences, and engineering sciences. Graduates will be able to design solutions for complex engineering problems while considering public health, safety, and cultural, societal, and environmental considerations.
+
+SECTION: LAB FACILITIES  
+C Programming Lab offers courses like CS8261 - C Programming. Internet Programming Lab offers CS8661 - Internet Programming. Operating Systems Lab provides CS8461 - Operating Systems. Object Oriented Analysis and Design Lab offers CS8461 - Object Oriented Analysis and Design. Web Technology Lab provides IT8511 - Web Technology. Networks Lab offers CS8581 Networks Lab.
+
+SECTION: FACULTY MEMBERS  
+Dr. NAGASUBRAMANIAN R (Head - PG) from Computer Science Engineering. Additional context: Ph.D. holder specialized in Computer Science Engineering.  
+Dr. SUBRAMANIAN P (Head - UG) from Wireless Sensor Networking and Image Processing. Additional context: Ph.D. holder focusing on Wireless Sensor Networks.  
+Dr. PREMALATHA G (Associate Professor) from Image Processing and Machine Learning. Additional context: Ph.D. holder specializing in Image Processing and Machine Learning.  
+Mrs. SARANYA V (Assistant Professor) from IOT and Cloud Computing. Additional context: Holds M.Tech., and Ph.D., focusing on IOT and Cloud.  
+Mrs. SASIKALA L (Assistant Professor) from Computer Science and Engineering. Additional context: Holder of M.E. specializing in Computer Science and Engineering.  
+Mrs. KIRUTHIKA S (Assistant Professor) from Computer Science and Engineering. Additional context: Holder of M.E. specializing in Computer Science and Engineering.  
+Mrs. ASRIN MAHMOOTHA A (Assistant Professor) from Computer Science Engineering. Additional context: Holder of M.E. specializing in Computer Science Engineering.  
+Mr. PRAVEENKUMAR P (Assistant Professor) from Computer Science Engineering. Additional context: Holder of M.E., specialized in Computer Science Engineering.  
+Mr. RAJAKUMAR B (Assistant Professor) from IOT, AI, NLP and Image Processing. Additional context: M.Tech. holder with specialization in IOT and AI.  
+Mr. RAJASEKAR R (Assistant Professor) from IOT, Network Security. Additional context: Ph.D. holder focusing on IOT and Network Security.  
+
+SECTION: PLACEMENT OPPORTUNITIES  
+With the growing demand for cybersecurity professionals, the Cyber Security sector in India is expected to experience strong growth over the next five years (2025–2030). Key drivers for employment growth include increasing cyber threats, government initiatives like the Personal Data Protection Bill and National Cyber Security Strategy, and the rapid digitization of businesses and digital transformation initiatives.
