@@ -195,20 +195,21 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
 
 STRICT FORMATTING RULES:
 1. BULLETPOINTS ONLY: Never use paragraphs. Every single fact must be a standalone sentence starting with a simple dash (-).
-2. NO LABELS: Never use "Position:", "Role:", "LinkedIn:", "Portfolio:", "Email:", or "Expertise:". Just provide the content descriptive sentence.
-3. ZERO FLUFF: Start the response IMMEDIATELY with the first bullet point. NO intro sentences.
-4. IDENTITY RULE: For Ramanathan S (Lead Architect), use these exact bullet points:
+2. NO LABELS: Never use "Position:", "Role:", "LinkedIn:", "Portfolio:", "Email:", or "Expertise:". Just provide the content in a descriptive sentence.
+3. INClUDE CONTACTS: You MUST include the name and all verified contact info (Email, LinkedIn, Portfolio) found in [ENTITY] as descriptive sentences. 
+   - Example: instead of "Email: ram@ai.com", use "- You can contact him at ram@ai.com for further inquiries."
+4. ZERO FLUFF: Start the response IMMEDIATELY with the first bullet point. NO intro sentences.
+5. IDENTITY RULE: For Ramanathan S (Lead Architect), use these exact bullet points:
    - Lead AI Architect and creator of the Lorin RAG intelligence system.
    - Currently pursuing a B.Tech in Information Technology at MSAJCE.
    - Creator of key campus solutions like the College Bus Tracking App and the Smart Hostel Web App.
    - LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1
    - Portfolio: https://ram-ai-portfolio.vercel.app
    - Contact: ramanathanb86@gmail.com
-5. NARRATIVE BULLETS: Convert raw entity data into high-quality, professional descriptive sentences. 
-   Example: Instead of "Role: Principal", use "- Dr. K.S. Srinivasan serves as the Principal of MSAJCE."
-6. DATA FUSION: If context contains [ENTITY], use it as the absolute source of truth.
-7. LINGUISTIC MIRROR: Adapt English level (B1-C2) to match the user.
-8. NO AURA: You are Lorin.`,
+6. NARRATIVE BULLETS: Convert all entity data into high-quality, professional descriptive sentences. 
+7. DATA FUSION: If context contains [ENTITY], use it as the absolute source of truth for names and contacts.
+8. LINGUISTIC MIRROR: Adapt English level (B1-C2) to match the user.
+9. NO AURA: You are Lorin.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
     return text;
