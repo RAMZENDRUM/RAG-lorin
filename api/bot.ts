@@ -159,6 +159,18 @@ bot.on('text', async (ctx) => {
                 VALUES (${botMsg.message_id.toString()}, ${rawText}, ${finalOutput})
                 ON CONFLICT (message_id) DO NOTHING
             `;
+
+            // Phase 11: Text-Emoji Feedback Extraction (Capture 'unwanted' or expressive emojis)
+            const emojiRegex = /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g;
+            const foundEmojis = rawText.match(emojiRegex);
+            if (foundEmojis) {
+                for (const em of foundEmojis) {
+                    await sql`
+                        INSERT INTO audit_feedback (user_id, message_id, reaction, query, response)
+                        VALUES (${userId}, ${botMsg.message_id.toString()}, ${'TEXT_EMOJI: ' + em}, ${rawText}, ${finalOutput})
+                    `;
+                }
+            }
         }
     } catch (e: any) {
         console.error('Webhook Orchestration Error:', e);
