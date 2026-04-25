@@ -91,10 +91,13 @@ export function rewriteQuery(t: string, intent: Intent, profile: UserProfile, hi
 }
 
 // ─────────────────────────────────────────────
-// STAGE 2 — Hybrid Retrieval
+// STAGE 2 — Hybrid Retrieval (DEEP FUSION UPGRADE)
 // ─────────────────────────────────────────────
 export async function hybridRetrieve(rewrittenQuery: string, rawText: string, openai: any, db?: any, limit: number = 20): Promise<KnowledgeChunk[]> {
     let entityContext = "";
+    let namesToSearch: string[] = [];
+
+    // 1. Database Entity Lock
     try {
         if (db) {
             const clean = rewrittenQuery.replace(/who|is|the|about|tell/gi, '').trim();
@@ -104,20 +107,37 @@ export async function hybridRetrieve(rewrittenQuery: string, rawText: string, op
                 WHERE name % ${clean} 
                 OR name ILIKE ${'%' + clean + '%'}
                 ORDER BY similarity(name, ${clean}) DESC
-                LIMIT 5
+                LIMIT 3
             `;
             if (results?.length > 0) {
-                entityContext = results.map((r: any) => `[ENTITY]: ${r.name} | ${r.role} | ${r.email} | ${r.linkedin} | ${r.portfolio} | ${r.context}`).join('\n\n');
+                entityContext = results.map((r: any) => {
+                    namesToSearch.push(r.name);
+                    return `[ENTITY]: Name: ${r.name} | Role: ${r.role} | Email: ${r.email} | LinkedIn: ${r.linkedin} | Portfolio: ${r.portfolio} | Context: ${r.context}`;
+                }).join('\n\n');
             }
         }
     } catch (e) { console.warn('DB Search Fail:', e); }
 
+    // 2. Vector Search (Primary)
     const qdrant = new QdrantClient({ url: process.env.QDRANT_URL!, apiKey: process.env.QDRANT_API_KEY! });
     const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: rewrittenQuery });
     const qResults = await qdrant.search('lorin_msajce_knowledge', { vector: embedding, limit, with_payload: true });
 
+    // 3. TARGETED VECTOR BOOST: Search specifically for found entity names in vector DB
+    let extraChunks: KnowledgeChunk[] = [];
+    if (namesToSearch.length > 0) {
+        for (const name of namesToSearch) {
+            const { embedding: nameEmbed } = await embed({ model: openai.embedding('text-embedding-3-small'), value: `About ${name} MSAJCE` });
+            const deepResults = await qdrant.search('lorin_msajce_knowledge', { vector: nameEmbed, limit: 3, with_payload: true });
+            deepResults.forEach(r => extraChunks.push({ content: r.payload?.content as string || '', source: 'Qdrant-Deep' }));
+        }
+    }
+
     const chunks: KnowledgeChunk[] = qResults.map(r => ({ content: r.payload?.content as string || '', source: r.payload?.source as string || '' }));
-    if (entityContext) chunks.unshift({ content: entityContext, source: 'DB' });
+    
+    // Merge everything
+    if (entityContext) chunks.unshift({ content: entityContext, source: 'Supabase-Entity' });
+    if (extraChunks.length > 0) chunks.push(...extraChunks);
     
     return chunks;
 }
@@ -143,7 +163,7 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], ope
 // STAGE 4 — Context Builder
 // ─────────────────────────────────────────────
 export function buildContext(retrievedContext: string, history: ShortTermMemory[], profile: UserProfile): string {
-    return `User History (Last 10 msgs): ${history.slice(-10).map(m => m.content).join(' | ')}\n\nKnowledge:\n${retrievedContext}`;
+    return `User History (Last 10 msgs): ${history.slice(-10).map(m => m.content).join(' | ')}\n\nKnowledge Context:\n${retrievedContext}`;
 }
 
 // ─────────────────────────────────────────────
@@ -166,28 +186,26 @@ export function agentDecide(
 }
 
 // ─────────────────────────────────────────────
-// STAGE 6 — Grounded Generation
+// STAGE 6 — Grounded Generation (DYNAMISM UPGRADE)
 // ─────────────────────────────────────────────
 export async function generateGrounded(builtContext: string, rawText: string, agentFlags: AgentFlags, googleFormUrl: string, openai: any) {
     const { text } = await generateText({
         model: openai('gpt-4o-mini'),
         system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
-Talk like a real human—be helpful and approachable.
 
-STRICT FORMATTING RULES:
-1. NO LABELS: Never use "Position:", "Role:", "LinkedIn:", "Portfolio:", "Expertise:", or "Email:". Just provide the content.
-2. NARRATIVE BULLETS: Convert raw data into high-quality, professional descriptive sentences starting with a dash (-).
-3. ZERO FLUFF: Start the response IMMEDIATELY with the facts. NO intro sentences like "Here is an overview" or "I'd be happy to help".
-4. IDENTITY RULE: For Ramanathan S (Lead Architect), use these exact points:
-   - Lead AI Architect and creator of the Lorin RAG intelligence system.
-   - Creator of innovative campus projects including the College Bus Tracking App and Smart Hostel Web App.
-   - Currently pursuing a B.Tech in Information Technology at MSAJCE.
-   - LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1
-   - Portfolio: https://ram-ai-portfolio.vercel.app
-   - Contact: ramanathanb86@gmail.com
-5. DATA FUSION: If context contains [ENTITY], you MUST prioritize that data as the absolute truth.
-6. LINGUISTIC MIRROR: Adapt your English level (B1-C2) to match the user's question perfectly.
-7. PLAIN TEXT: Use only simple dashes (-) for lists. No bolding or headers.`,
+STRICT IDENTITY FUSION RULES:
+1. DEEP ANALYZE: Review all [ENTITY] and [Knowledge Context] chunks together.
+2. NARRATIVE THRESHOLD: 
+   - If you have enough info for 2-3 solid sentences about a person, create a high-quality NARRATIVE paragraph starting with a dash (-).
+   - If you only have raw data (Name/Role/Email) and MISSING deep context, use a Semi-Structured layout (but STILL NO robot labels).
+3. NO LABELS: Never use "Position:", "Role:", "LinkedIn:", "Portfolio:", "Expertise:", or "Email:". Just provide the content.
+4. ZERO FLUFF: Start immediately.
+5. IDENTITY PRIORITY: For Ramanathan S (Lead Architect), provide a rich, narrative summary of his works (Bus App, Hostel App, RAG).
+6. LINGUISTIC MIRROR: Adapt English level (B1-C2) to user.
+7. NO AURA: You are Lorin. 
+
+Example Narrative format:
+- Ramanathan S is the Lead AI Architect at MSAJCE, responsible for building the Lorin RAG intelligence system. He is currentyly pursuing B.Tech IT and has developed key campus solutions like the College Bus Tracking App and the Smart Hostel Web App. You can reach him at ramanathanb86@gmail.com or view his portfolio at https://ram-ai-portfolio.vercel.app.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
     return text;
@@ -215,6 +233,8 @@ export async function orchestrate(
 ): Promise<{ answer: string }> {
     const googleFormUrl = "https://forms.gle/msajce-enquiry";
     const rewritten = rewriteQuery(rawText, intent, profile, shortTerm);
+    
+    // Deep Hybrid Retrieval with targeted vector lookup for entities
     const chunks = await hybridRetrieve(rewritten, rawText, openai, sql);
     
     if (injectedContext) chunks.unshift({ content: injectedContext, source: 'SYSTEM' });
