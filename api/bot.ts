@@ -27,11 +27,21 @@ if (DB_URL) {
     try {
         sql = postgres(DB_URL, { ssl: 'require' });
         console.log("✅ Database linked successfully.");
+        
+        // Ensure feedback table exists
+        sql`
+            CREATE TABLE IF NOT EXISTS audit_feedback (
+                id SERIAL PRIMARY KEY,
+                user_id TEXT,
+                message_id TEXT,
+                reaction TEXT,
+                created_at TIMESTAMPTZ DEFAULT NOW()
+            );
+        `.catch(e => console.error("⚠️ Feedback Table Init Failed:", e));
+        
     } catch (e) {
         console.error("⚠️ Database binding failed:", e);
     }
-} else {
-    console.warn("🔔 Running in disconnected mode (No DATABASE_URL).");
 }
 
 const bot = new Telegraf(BOT_TOKEN!);
@@ -138,3 +148,26 @@ export default async function handler(req: any, res: any) {
         res.status(200).send('Lorin Webhook is Active 🤖');
     }
 }
+
+// Stage 10: Feedback Loop (Reactions)
+bot.on('message_reaction', async (ctx) => {
+    try {
+        const userId = ctx.from?.id.toString();
+        const msgId = ctx.messageReaction.message_id.toString();
+        const reaction = ctx.messageReaction.new_reaction[0];
+        
+        let reactionType = 'unknown';
+        if (reaction && 'emoji' in reaction) reactionType = reaction.emoji;
+
+        console.log(`⭐ Feedback received from ${userId}: ${reactionType}`);
+
+        if (sql && userId) {
+            await sql`
+                INSERT INTO audit_feedback (user_id, message_id, reaction)
+                VALUES (${userId}, ${msgId}, ${reactionType})
+            `;
+        }
+    } catch (e) {
+        console.error('⚠️ Feedback Capture Failed:', e);
+    }
+});
