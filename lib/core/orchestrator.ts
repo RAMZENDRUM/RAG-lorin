@@ -310,7 +310,7 @@ export async function orchestrate(
         metadata: {
             latency_ms,
             match_score: topScore,
-            intent: intent.category,
+            intent: intent, // intent is a string type
             tokens: 0, // Placeholder
             cost: 0,   // Placeholder
             retrieval_source: chunks[0]?.source || 'None',

@@ -8,7 +8,7 @@ dotenv.config();
 
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN!);
-const ADMIN_ID = "6004664402"; // Your Telegram ID for reporting
+const ADMIN_ID = (process.env.ADMIN_IDS || "").split(",")[0]; 
 
 async function generateSundayReport() {
     console.log('🚀 Generating Sunday Intelligence Report...');

@@ -1,85 +1,71 @@
-# Lorin: The 9-Stage Orchestrated RAG Assistant 🦾🎓
+# Lorin: The Unified Institutional Intelligence Suite for MSAJCE 🦾🎓
 
-**Lorin** is a production-grade, high-fidelity RAG (Retrieval-Augmented Generation) system designed as a digital concierge for Mohamed Sathak A.J. College of Engineering (MSAJCE). Unlike standard RAG implementations, Lorin utilizes a specialized **9-stage orchestration pipeline** to handle complex, vague, and context-dependent queries from students and parents.
+**Lorin** is a production-grade AI Campus Buddy and Institutional Concierge engineered specifically for the **Mohamed Sathak A.J. College of Engineering (MSAJCE).** 
 
----
-
-## 🚀 Key Features
-
-- **9-Stage Orchestration**: A sophisticated pipeline that moves from Intent Classification to Query Rewriting, Hybrid Retrieval, and Reranking before generating a response.
-- **Dual-Fidelity Knowledge Mining**: A custom ingestion engine combining Structural (BeautifulSoup) and Narrative (Trafilatura) scraping to ensure 100% data parity for complex tables and administrative roles.
-- **Hybrid Retrieval Engine**: Seamlessly blends Qdrant Vector search (semantic) with Supabase pgvector/keyword matching for precise entity resolution.
-- **Parallel Multi-Engine Sync**: A high-speed ingestion pipeline that utilizes parallel workers across multiple LLM providers (OpenRouter + Vercel) to maintain zero-latency knowledge updates.
-- **Auto-Grounding & Source Trust**: Every response is grounded in verified metadata, automatically injecting source-linked URLs (e.g., official department pages) into the final reply.
+Born from the need to solve institutional information fragmentation, Lorin transforms static college data into a living, proactive intelligence layer that supports students, parents, and administration with 24/7 human-like conversational precision.
 
 ---
 
-## 🏗️ System Architecture
-
-Lorin is built on a **Modular Multi-Layer Architecture**:
-
-### 1. Intelligence Layer (`lib/core/orchestrator.ts`)
-The "Brain" of the system. It doesn't just "search"—it reasons. It classifies the user's intent (Admin, Placement, Faculty), rewrites vague queries (e.g., "Tell me more about him"), and reranks retrieved chunks to minimize LLM hallucinations.
-
-### 2. Retrieval Layer (`lib/core/retrieve.ts`)
-A dual-engine system using **Qdrant** for high-speed semantic search and **Supabase** for keyword-heavy institutional lookups.
-
-### 3. Interface Layer (`bot/` & `api/`)
-A multi-modal interface deployed via **Telegram** and hosted on **Vercel Edge Functions** for 24/7 global availability and near-zero cold starts.
+## 🌟 The Mission: "Soul-Aware" RAG
+Information in educational institutions is often siloed—split between websites, PDFs, and departmental spreadsheets. **Lorin** provides a **Unified Knowledge Interface (UKI)** that:
+- **Democratizes Access:** Instant cut-off, fee, and faculty data via Telegram.
+- **Ensures Alpha Supremacy:** Hard-locking the developer's identity to prevent hallucinations regarding the system's architect.
+- **Drives Strategic Advocacy:** Using grounded institutional facts to defend the college's reputation against skepticism.
 
 ---
 
-## 🛠️ Tech Stack
+## 🏗️ The Architectural Evolution
+Lorin has evolved from a simple chatbot into a **9-Stage Orchestrated Ecosystem.**
 
-- **Model Engine**: GPT-4o-mini (Orchestration) + text-embedding-3-small (1536 dim)
-- **Vector Store**: Qdrant Cloud (Primary)
-- **Database**: Supabase / PostgreSQL (Hybrid Search & Long-Term Memory)
-- **Framework**: Vercel AI SDK, Telegraf (Telegram)
-- **Data Ingestion**: Playwright, BeautifulSoup, Trafilatura
-- **Deployment**: Vercel Serverless
+### 1. The Ingestion Odyssey (Data Mining)
+We utilize a multi-modal scraping and extraction pipeline to ensure 100% data fidelity:
+- **Rendering & Scraping:** Playwright and BeautifulSoup for dynamic college portals.
+- **Structural Integrity:** Cheerio and Trafilatura for extracting complex administrative tables and narrative text.
+- **Deep Document Parsing:** Integration with Llama-Parse to ingest high-fidelity PDF manuals and academic regulations.
 
----
+### 2. The Orchestration Brain (Orchestrator 2.0)
+The system doesn't just "retrieve"—it reasons through a proprietary pipeline:
+- **Intent Calibration:** Classifying if a user is asking about admissions, transport, or faculty.
+- **Neural Context Rewriting:** Resolving pronouns and vague queries into actionable search vectors.
+- **Hybrid Retrieval (Dual-Engine):** Seamlessly blending **Qdrant Vector** (Semantic) and **Supabase Keyword** (Entity) search.
+- **Targeted Defense Mode:** Fact-based advocacy addressing institutional criticism with precision.
 
-## 🌊 System Flow
-
-1. **User Query** → Received via Telegram Bot.
-2. **Intent Classification** → Orchestrator identifies if the user is asking about admissions, fees, or leadership.
-3. **Query Expansion** → Resolves pronouns (e.g., "who is he?") based on conversation history.
-4. **Hybrid Search** → Simultaneous pull from Qdrant and Supabase.
-5. **Reranking** → Scores retrieved data for factual relevance.
-6. **Grounded Response** → Generates an answer strictly using the master knowledge base with source-link injection.
-
----
-
-## 💻 Developer Setup
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/yourusername/RAG-lorin.git
-
-# 2. Install dependencies
-npm install
-
-# 3. Environment Setup
-cp .env.example .env
-# Update with your Qdrant, Supabase, and OpenAI credentials
-
-# 4. Ingest Master Knowledge
-npx tsx ingestion/ingest.ts
-
-# 5. Run Locally
-npm run dev
-```
+### 3. The Forensic Shield (SaaS auditing)
+Sunday morning dispatches provide a "strategic command center" via three forensic channels:
+- **Audit Forensics:** Full telemetry (latency, cost, tokens).
+- **Developer Optimization:** Targeted RAG gap analysis.
+- **Institutional ROI:** Management-level summary of human deflection and trend analytics.
 
 ---
 
-## 🌟 Use Cases
-- **Institutional Onboarding**: Helping prospective parents understand cutoff marks and fee structures.
-- **Administrative Automation**: Providing instant contact details for HODs and administrative officers.
-- **Placement Intelligence**: Giving students instant access to company-wise recruitment history and job statistics.
+## 🛠️ The Technical Arsenal
+| Component | Technology |
+| :--- | :--- |
+| **Model Engine** | GPT-4o-mini / Gemini-1.5-Pro (via OpenRouter & Vercel AI) |
+| **Vector Memory** | Qdrant Cloud (1536-dim semantic embeddings) |
+| **Hybrid Database** | Supabase (PostgreSQL + pgvector) |
+| **Interface** | Telegraf / Grammy (Telegram Protocol) |
+| **Orchestration** | Vercel Edge Runtime & Serverless Logic |
+| **Data Mining** | Playwright, Cheerio, Axios, Trafilatura, BeautifulSoup |
+| **Infrastructure** | Node.js (via Vercel), SMTP (Nodemailer), pg-promise |
 
 ---
 
-### 👨‍💻 Developer
-**Ramanathan S** (B.Tech IT, MSAJCE)  
-[LinkedIn](https://www.linkedin.com/in/ramanathan-s-it) | [Portfolio](https://ramanathan-portfolio.vercel.app)
+## 🚀 The Development Protocol
+Lorin is a reflection of **Strategic Engineering**.
+1. **Understand** institutional needs.
+2. **Mine** data with high-fidelity scrapers.
+3. **Orchestrate** intelligence layers for persona and defense.
+4. **Audit** conversational success with forensic precision.
+
+---
+
+## 👨‍💻 Visionary Architect
+**Ramanathan S**  
+*Lead Architect | Student Innovator at MSAJCE*  
+Bridging the gap between institutional data and human conversation through high-fidelity AI orchestration.
+
+[LinkedIn](https://www.linkedin.com/in/ramanathan-s-76a0a02b1) | [Portfolio](https://ram-ai-portfolio.vercel.app) | [Strategic Audit Protocol](docs/SUNDAY_REPORT_STRUCTURE.md)
+
+---
+*Lorin is an autonomous institutional asset. Systems are hard-locked under the Alpha Supremacy Identity Protocol.*

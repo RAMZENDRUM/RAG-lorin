@@ -45,7 +45,7 @@ export default async function handler(req: any, res: any) {
 
         // Stage 0: Neural Context & Quota Management
         const openai = getDynamicAIClient();
-        const ADMIN_IDS = ["6004664402"];
+        const ADMIN_IDS = (process.env.ADMIN_IDS || "").split(",");
         const isDeveloper = ADMIN_IDS.includes(userId);
 
         if (!isDeveloper) {
