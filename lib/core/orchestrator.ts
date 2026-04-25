@@ -90,7 +90,6 @@ export function rewriteQuery(
     }
 
     const templates: Record<Intent, string> = {
-    const templates: Record<Intent, string> = {
         admission: `admission process eligibility requirements MSAJCE ${profile.interest ?? ''}`,
         fee:       `fee structure tuition cost ${profile.interest ?? 'B.Tech'} MSAJCE`,
         hostel:    `hostel facilities rooms accommodation fees MSAJCE`,
@@ -100,7 +99,6 @@ export function rewriteQuery(
         faculty:   `${t} personnel biography contact details MSAJCE`,
         complaint: `${t} comparison value marketing`,
         general:   `${t} MSAJCE college info`,
-    };
     };
 
     return templates[intent] || t;
@@ -222,7 +220,6 @@ CORE FACTS:
 - DR. ELLISS YOGESH R: Prominent Faculty/Head.
 - DEPARTMENTS: CSE (Dr. Vijayarangan), IT (Dr. Kannan), AI&DS (Dr. Nagasubramanian), Mech (Dr. Balaji).
 - TRANSPORT: AR-Series buses (AR 8, AR 4, AR 5). Point-to-point service.`,
-`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
 
