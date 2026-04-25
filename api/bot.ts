@@ -20,13 +20,20 @@ const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const DB_URL = process.env.DATABASE_URL;
 const GOOGLE_FORM_URL = "https://forms.gle/your-admission-form";
 
-if (!DB_URL) {
-    throw new Error("CRITICAL: DATABASE_URL is missing in environment variables!");
+// Initialization - Safe Database Handle
+let sql: any = null;
+if (DB_URL) {
+    try {
+        sql = postgres(DB_URL, { ssl: 'require' });
+        console.log("✅ Database linked successfully.");
+    } catch (e) {
+        console.error("⚠️ Database binding failed:", e);
+    }
+} else {
+    console.warn("🔔 Running in disconnected mode (No DATABASE_URL).");
 }
 
-// Initialization
 const bot = new Telegraf(BOT_TOKEN!);
-const sql = postgres(DB_URL, { ssl: 'require' });
 
 // Multi-Key Vercel Helper
 function getDynamicAIClient() {

@@ -19,9 +19,11 @@ export interface UserProfile {
 // ── Fetch Memory (Unified with correctly named tables) ────────────────────────
 export async function fetchMemory(
     userId: string,
-    db: ReturnType<typeof postgres>
+    db: any
 ): Promise<{ shortTerm: ShortTermMemory[]; profile: UserProfile }> {
     try {
+        if (!db) throw new Error("Database not connected");
+
         const [shortTermRows, profileRows] = await Promise.all([
             db<ShortTermMemory[]>`
                 SELECT role, content, created_at
@@ -60,9 +62,10 @@ export async function fetchMemory(
 export async function updateProfile(
     userId: string,
     updates: Partial<UserProfile>,
-    db: ReturnType<typeof postgres>
+    db: any
 ): Promise<void> {
     try {
+        if (!db) return; // Silent skip if no DB
         await db`
             INSERT INTO user_profiles (user_id, name, interest, stage, last_seen, strikes, blocked_until)
             VALUES (${userId}, ${updates.name ?? null}, ${updates.interest ?? null}, ${updates.stage ?? 'unknown'}, NOW(), ${updates.strikes ?? 0}, ${updates.blocked_until ?? null})
