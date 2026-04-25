@@ -54,12 +54,21 @@ bot.on('text', async (ctx) => {
         // Dynamically instantiate the AI client per message to guarantee rotation
         const openai = getDynamicAIClient();
 
-        // Stage 0: Context
-        const { shortTerm, profile } = await fetchMemory(userId, sql);
+        // Stage 0: Context (With failure protection)
+        let shortTerm = [];
+        let profile = { user_id: userId, name: null, interest: null, stage: 'unknown', last_seen: new Date(), strikes: 0, blocked_until: null };
+        
+        try {
+            const memory = await fetchMemory(userId, sql);
+            shortTerm = memory.shortTerm;
+            profile = memory.profile;
+        } catch (memErr) {
+            console.warn('⚠️ Memory Fetch Failed (Falling back to local):', memErr);
+        }
         
         // Stage 1-2: Classification & Expansion
         const intent = classifyIntent(rawText);
-        const rewrittenQuery = rewriteQuery(rawText, intent, profile, shortTerm);
+        const rewrittenQuery = rewriteQuery(rawText, intent, profile as any, shortTerm);
         
         // Stage 3-4: Hybrid Search (High-Recall for People)
         const isIdentity = intent === 'faculty' || /who|tell me about|contact|professor|dr\.|mr\./i.test(rawText);
@@ -80,14 +89,19 @@ bot.on('text', async (ctx) => {
         const answer = await generateGrounded(finalContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
         const finalOutput = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks, rawText);
 
-        // Memory & Audit
-        const newInterest = extractInterest(rawText);
-        await updateProfile(userId, { 
-            interest: newInterest || profile.interest || undefined,
-        }, sql);
+        // Memory & Audit (Non-Blocking)
+        try {
+            const newInterest = extractInterest(rawText);
+            await updateProfile(userId, { 
+                interest: newInterest || profile.interest || undefined,
+            }, sql);
 
-        await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${rawText})`;
-        await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'assistant', ${finalOutput})`;
+            await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${rawText})`;
+            await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'assistant', ${finalOutput})`;
+        } catch (dbErr: any) {
+            console.warn('⚠️ Database Operation Failed:', dbErr.message);
+            // We continue anyway so the user gets an answer
+        }
 
         await ctx.reply(finalOutput, { parse_mode: 'Markdown' });
 
