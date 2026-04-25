@@ -221,6 +221,10 @@ bot.on('message_reaction', async (ctx) => {
         console.log(`⭐ Feedback received: ${reactionType}`);
 
         if (sql && userId) {
+            const unwantedEmojis = ['👎', '💩', '🤮', '🤡', '😠', '😡', '😱'];
+            const isUnwanted = unwantedEmojis.includes(reactionType);
+            const finalTag = isUnwanted ? `UNWANTED_REACTION: ${reactionType}` : reactionType;
+
             // Fetch query context from registry
             const registry = await sql`SELECT query, response FROM message_registry WHERE message_id = ${msgId} LIMIT 1`;
             const q = registry[0]?.query || 'UNKNOWN_QUERY';
@@ -228,11 +232,15 @@ bot.on('message_reaction', async (ctx) => {
 
             await sql`
                 INSERT INTO audit_feedback (user_id, message_id, reaction, query, response)
-                VALUES (${userId}, ${msgId}, ${reactionType}, ${q}, ${r})
+                VALUES (${userId}, ${msgId}, ${finalTag}, ${q}, ${r})
             `;
 
-            // Instant Gratitude Response
-            await ctx.reply("Thank you for your feedback! This will help me improve and serve you better. 🙏✨");
+            // Adaptive Response
+            if (isUnwanted) {
+                await ctx.reply("I'm sorry! I see you're not satisfied with this answer. 😔 Could you please tell me what was wrong or missing? Your feedback helps me grow smarter!");
+            } else {
+                await ctx.reply("Thank you for the support! I'm glad I could help. 🙏✨");
+            }
         }
     } catch (e) {
         console.error('⚠️ Feedback Capture Failed:', e);
