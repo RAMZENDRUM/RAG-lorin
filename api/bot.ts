@@ -90,6 +90,22 @@ bot.on('text', async (ctx) => {
         const userId = ctx.from.id.toString();
         const rawText = ctx.message.text;
 
+        // Stage 0: Deep Feedback Capture (Detect replies to apologies/feedback requests)
+        const isReply = !!ctx.message.reply_to_message;
+        const repliedText = (ctx.message.reply_to_message as any)?.text || "";
+        const isFeedbackReply = isReply && /sorry|not satisfied|what was wrong|anything missing|helpful/i.test(repliedText);
+
+        if (isFeedbackReply) {
+            console.log(`📝 Captured clarification feedback from ${userId}: ${rawText}`);
+            if (sql) {
+                await sql`
+                    INSERT INTO audit_feedback (user_id, reaction, query, response)
+                    VALUES (${userId}, 'FEEDBACK_CLARIFICATION', ${rawText}, ${repliedText})
+                `;
+            }
+            return ctx.reply("Thank you for the detailed feedback! I have shared this with my developers to help improve my future answers. 🙏✨");
+        }
+
         // Deduplication Check (Prevent Loops)
         if (sql) {
             const alreadyProcessed = await sql`SELECT update_id FROM processed_updates WHERE update_id = ${updateId}`;
