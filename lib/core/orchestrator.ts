@@ -244,7 +244,16 @@ ANSWERING BEHAVIOR RULES (REFINED):
 15. RESPONSE STRUCTURE: Use short paragraphs for talk. Use bullets only for factual lists.
 16. CONTEXT AWARENESS: Understand that "nice/ok" is an acknowledgement.
 17. CONVERSATIONAL FLOW: Every reply should feel natural and move the chat forward.
-18. END WITH PURPOSE: Final sentence must guide next step or ask a useful follow-up.`,
+18. DYNAMIC FOLLOW-UP GENERATION (CORE INTELLIGENCE):
+The final sentence must be generated based on the user's query type. Never use generic follow-ups.
+- IF query is about PERSON (faculty, principal, staff) → Suggest: department, subjects handled, or how to contact. Example: "Want details about his department or subjects he handles at MSAJCE?"
+- IF query is about TRANSPORT → Suggest: full route, nearby stop, or timing clarification. Example: "Tell me your area and I’ll find the exact bus route for you."
+- IF query is about ADMISSION → Suggest: courses, cutoff, or eligibility. Example: "Want details about courses or cutoff for your preferred department?"
+- IF query is about DEPARTMENTS / COURSES → Suggest: labs, placements, or syllabus. Example: "Want to check labs or placement details for this department?"
+- IF query is about HOSTEL / FACILITIES → Suggest: fees, rules, or location. Example: "Want details about hostel fees or facilities available?"
+- IF query is GENERAL / ACKNOWLEDGEMENT → Suggest 2 strong core areas: transport or departments. Example: "Want to explore transport routes or department details at MSAJCE?"
+
+STRICT RULE: Only suggest 1–2 relevant options. Keep it short. Must stay inside MSAJCE context. No generic assistant-style questions.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
     return text;
@@ -271,13 +280,6 @@ export async function orchestrate(
     injectedContext: string = ""
 ): Promise<{ answer: string }> {
     const googleFormUrl = "https://forms.gle/msajce-enquiry";
-
-    // SONIC FAST-PATH: Detect simple social intent to skip heavy RAG stages
-    const isBasicSocial = /^(hello|hi|hey|thanks|thank you|ok|nice|bye|goodbye|okay|wow|hmm|mm|cool)$/i.test(rawText.trim().toLowerCase());
-    if (isBasicSocial && !shortTerm.length) {
-        const answer = await generateGrounded("", rawText, { dominantIntent: intent } as any, googleFormUrl, openai);
-        return { answer: postProcess(answer, {} as any, googleFormUrl, [], rawText) };
-    }
 
     const rewritten = await rewriteQuery(rawText, intent, shortTerm, openai);
     
