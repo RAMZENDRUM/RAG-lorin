@@ -51,13 +51,44 @@ if (DB_URL) {
             );
         `.catch(e => console.error("⚠️ Registry Table Init Failed:", e));
 
-        // Anti-Loop Deduplication Table
+        // Anti-Loop Deduplication Table (The Loop Shield)
         sql`
             CREATE TABLE IF NOT EXISTS processed_updates (
                 update_id BIGINT PRIMARY KEY,
                 created_at TIMESTAMPTZ DEFAULT NOW()
             );
         `.catch(e => console.error("⚠️ Deduplication Table Init Failed:", e));
+
+        // Management Analytics: Interest Map (What are they looking for?)
+        sql`
+            CREATE TABLE IF NOT EXISTS analytics_interest (
+                id SERIAL PRIMARY KEY,
+                department TEXT,
+                intent TEXT,
+                created_at TIMESTAMPTZ DEFAULT NOW()
+            );
+        `.catch(e => console.error("⚠️ Interest Table Init Failed:", e));
+
+        // Management Analytics: Knowledge Gaps (What are we missing?)
+        sql`
+            CREATE TABLE IF NOT EXISTS analytics_gaps (
+                id SERIAL PRIMARY KEY,
+                query TEXT,
+                confidence_score FLOAT,
+                created_at TIMESTAMPTZ DEFAULT NOW()
+            );
+        `.catch(e => console.error("⚠️ Gaps Table Init Failed:", e));
+
+        // Developer Analytics: Performance (How fast/cheap are we?)
+        sql`
+            CREATE TABLE IF NOT EXISTS audit_performance (
+                id SERIAL PRIMARY KEY,
+                update_id BIGINT,
+                stage_seconds FLOAT,
+                intent TEXT,
+                created_at TIMESTAMPTZ DEFAULT NOW()
+            );
+        `.catch(e => console.error("⚠️ Performance Table Init Failed:", e));
         
     } catch (e) {
         console.error("⚠️ Database binding failed:", e);
@@ -129,6 +160,8 @@ bot.on('text', async (ctx) => {
             console.warn('⚠️ Memory Fetch Failed (Falling back to local):', memErr);
         }
         
+        const startTime = Date.now();
+        
         // Stage 1-2: Neural Classification & Expansion
         const intent = await classifyIntent(rawText, openai);
         const rewrittenQuery = rewriteQuery(rawText, intent, profile as any, shortTerm);
@@ -137,8 +170,26 @@ bot.on('text', async (ctx) => {
         const isIdentity = intent === 'faculty' || /who|tell me about|contact|professor|dr\.|mr\./i.test(rawText);
         const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql, isIdentity ? 50 : 15);
         
-        // Stage 4.5: Reranking
-        const context = await rerankResults(rewrittenQuery, chunks, openai);
+        // Stage 4.5: Reranking (Get Confidence)
+        const { context, topScore } = await rerankResults(rewrittenQuery, chunks, openai);
+        
+        // Phase 12: Analytics Injection
+        if (sql) {
+            const processingTimeSec = (Date.now() - startTime) / 1000;
+            
+            // 1. Interest Map
+            const deptRegex = /cse|it|ece|eee|mech|civil|aiml|aids|cyber|csbs/i;
+            const detectedDept = rawText.match(deptRegex)?.[0] || 'GENERAL';
+            sql`INSERT INTO analytics_interest (department, intent) VALUES (${detectedDept.toUpperCase()}, ${intent})`.catch(() => {});
+
+            // 2. Knowledge Gaps (If rerank score is low)
+            if (topScore < 0.5) {
+                sql`INSERT INTO analytics_gaps (query, confidence_score) VALUES (${rawText}, ${topScore})`.catch(() => {});
+            }
+
+            // 3. Performance (Developer Intel)
+            sql`INSERT INTO audit_performance (update_id, stage_seconds, intent) VALUES (${updateId}, ${processingTimeSec}, ${intent})`.catch(() => {});
+        }
         
         // Stage 5-6: Framing
         const lastSeenTime = profile.last_seen instanceof Date 

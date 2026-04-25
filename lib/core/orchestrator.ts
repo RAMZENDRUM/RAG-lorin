@@ -204,29 +204,28 @@ export async function rerankResults(
     query: string,
     chunks: KnowledgeChunk[],
     openai: any
-): Promise<string> {
+): Promise<{ context: string, topScore: number }> {
     const rawQuery = query.toLowerCase();
-    
-    // Extract potential names from query (simple heuristic)
     const nameKeywords = query.split(' ').filter(w => w.length > 3 && !['who', 'is', 'the', 'msajce', 'personnel', 'about', 'tell'].includes(w.toLowerCase()));
 
-    // Sort by name presence first
-    const sorted = [...chunks].sort((a, b) => {
-        let scoreA = 0;
-        let scoreB = 0;
-        const lowA = a.content.toLowerCase();
-        const lowB = b.content.toLowerCase();
-
+    const scored = chunks.map(c => {
+        let score = 0;
+        const lowC = c.content.toLowerCase();
         for (const kw of nameKeywords) {
-            if (lowA.includes(kw.toLowerCase())) scoreA += 10;
-            if (lowB.includes(kw.toLowerCase())) scoreB += 10;
+            if (lowC.includes(kw.toLowerCase())) score += 1;
         }
-
-        return scoreB - scoreA;
+        // Normalize score (simple count for now)
+        return { ...c, score: score / (nameKeywords.length || 1) };
     });
 
+    const sorted = scored.sort((a, b) => b.score - a.score);
+    const topScore = sorted.length > 0 ? sorted[0].score : 0;
     const relevant = sorted.slice(0, 10).map(c => c.content).join('\n\n---\n\n');
-    return relevant || 'No high-confidence data found.';
+
+    return {
+        context: relevant || 'No high-confidence data found.',
+        topScore
+    };
 }
 
 // ─────────────────────────────────────────────
