@@ -133,6 +133,8 @@ export async function hybridRetrieve(
                     FROM msajce_entities 
                     WHERE name % ${rawQueryClean} 
                     OR name ILIKE ${'%' + tokens.join('%') + '%'}
+                    OR role ILIKE ${'%' + tokens.join('%') + '%'}
+                    OR context ILIKE ${'%' + tokens.join('%') + '%'}
                     OR name ILIKE ${'%' + tokens[0] + '%'}
                     ORDER BY score DESC
                     LIMIT 5
