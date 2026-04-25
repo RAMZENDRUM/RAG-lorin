@@ -100,13 +100,15 @@ export async function hybridRetrieve(rewrittenQuery: string, rawText: string, op
     // 1. Database Entity Lock
     try {
         if (db) {
-            const clean = rewrittenQuery.replace(/who|is|the|about|tell/gi, '').trim();
+            // Sharpen the name lookup - isolate core subject
+            const coreName = rawText.replace(/who|is|the|about|tell|me|more|abt|he/gi, '').trim();
             const results = await db`
                 SELECT name, role, department, context, type, phone, email, linkedin, portfolio
                 FROM msajce_entities 
-                WHERE name % ${clean} 
-                OR name ILIKE ${'%' + clean + '%'}
-                ORDER BY similarity(name, ${clean}) DESC
+                WHERE name % ${coreName} 
+                OR name ILIKE ${'%' + coreName + '%'}
+                OR name % ${rawText}
+                ORDER BY similarity(name, ${coreName}) DESC
                 LIMIT 3
             `;
             if (results?.length > 0) {
@@ -199,9 +201,10 @@ STRICT FORMATTING RULES:
 3. BULLETPOINTS FOR DATA: Use high-quality, professional narrative bullets starting with a dash (-) for main facts. 
 4. NO ROBOT LABELS: Never use "Position:", "Role:", "LinkedIn:", "Portfolio:", "Email:", or "Expertise:". Convert these into descriptive sentences.
 5. INClUDE CONTACTS: Weave verified contact info found in [ENTITY] into the narrative segments.
-6. DATA FUSION: If context contains [ENTITY], use it as the absolute source of truth.
-7. LINGUISTIC MIRROR: Adapt English level (B1-C2) to match the user.
-8. NO AURA: You are Lorin.`,
+6. DATA FUSION: If context contains [ENTITY], use it as the absolute source of truth for names and contacts.
+7. NO GUESSING: If you find no specific info about a person in the context, NEVER say they are "likely a person of interest" or "might hold significance." Instead, politely ask for their role or department to help narrow down the search.
+8. LINGUISTIC MIRROR: Adapt English level (B1-C2) to match the user.
+9. NO AURA: You are Lorin.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
     return text;
