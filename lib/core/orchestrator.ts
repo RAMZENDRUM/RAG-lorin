@@ -122,20 +122,18 @@ export async function hybridRetrieve(
             const rawQueryClean = rewrittenQuery.replace(/who|is|the|msajce|personnel|about|tell/gi, '').trim();
             const tokens = rawQueryClean.split(' ').filter(t => t.length > 2);
             
-            if (tokens.length > 0) {
-                // Search for ALL variations + specific owner boost
                 const results = await sql`
                     SELECT name, role, department, batch, context, 
                     CASE 
                         WHEN role ILIKE '%Developer%' OR name ILIKE '%Ramanathan%' THEN similarity(name, ${rawQueryClean}) + 0.5
+                        WHEN role ILIKE '%AR-%' OR role ILIKE '%R-%' THEN similarity(name, ${rawQueryClean}) + 0.3
                         ELSE similarity(name, ${rawQueryClean}) 
                     END as score
                     FROM msajce_entities 
                     WHERE name % ${rawQueryClean} 
                     OR name ILIKE ${'%' + tokens.join('%') + '%'}
                     OR role ILIKE ${'%' + tokens.join('%') + '%'}
-                    OR context ILIKE ${'%' + tokens.join('%') + '%'}
-                    OR name ILIKE ${'%' + tokens[0] + '%'}
+                    OR context ILIKE ANY (${tokens.map(t => '%' + t + '%')})
                     ORDER BY score DESC
                     LIMIT 5
                 `;
@@ -143,8 +141,9 @@ export async function hybridRetrieve(
                 if (results && results.length > 0) {
                     entityContext = results.map((r: any) => {
                         const isOwner = r.role?.toLowerCase().includes('developer');
+                        const isCollegeBus = r.role?.toLowerCase().includes('ar-') || r.role?.toLowerCase().includes('r-');
                         const isStudent = r.batch || r.role?.toLowerCase().includes('student') || r.role?.toLowerCase().includes('president') || r.role?.toLowerCase().includes('secretary');
-                        const label = isOwner ? '[OWNER/DEVELOPER ENTITY]' : (isStudent ? '[STUDENT ENTITY]' : '[FACULTY/OFFICIAL ENTITY]');
+                        const label = isOwner ? '[OWNER/DEVELOPER ENTITY]' : (isCollegeBus ? '[COLLEGE BUS ENTITY]' : (isStudent ? '[STUDENT ENTITY]' : '[FACULTY/OFFICIAL ENTITY]'));
                         return `${label}: Name: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch} | Context: ${r.context}`;
                     }).join('\n\n');
                 }
