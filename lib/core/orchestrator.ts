@@ -124,7 +124,7 @@ export async function hybridRetrieve(
             if (tokens.length > 0) {
                 // Search for ALL variations + specific owner boost
                 const results = await sql`
-                    SELECT name, role, department, batch, context, type,
+                    SELECT name, role, department, batch, context, type, phone, email, linkedin, portfolio,
                     CASE 
                         WHEN role ILIKE '%Developer%' OR name ILIKE '%Ramanathan%' THEN similarity(name, ${rawQueryClean}) + 0.5
                         WHEN type = 'TRANSPORT' THEN similarity(name, ${rawQueryClean}) + 0.3
@@ -143,7 +143,7 @@ export async function hybridRetrieve(
                 if (results && results.length > 0) {
                     entityContext = results.map((r: any) => {
                         const label = `[${r.type || 'OFFICIAL'} ENTITY]`;
-                        return `${label}: Name: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch || 'N/A'} | Context: ${r.context}`;
+                        return `${label}: Name: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch || 'N/A'} | Phone: ${r.phone} | Email: ${r.email} | LinkedIn: ${r.linkedin} | Portfolio: ${r.portfolio} | Context: ${r.context}`;
                     }).join('\n\n');
                 }
             }
@@ -278,6 +278,10 @@ PERSONALITY RULES:
 - Role: [Official Designation]
 - Dept: [Department]
 - Batch: [Batch Year]
+- Email: [Email]
+- Phone: [Phone]
+- LinkedIn: [LinkedIn URL]
+- Portfolio: [Portfolio URL]
 - About: [Merge background, research, papers, and credentials here]
 SKIP ANY LINE that is missing data. NEVER show "N/A" or empty brackets.
 8. OWNER PRIORITY: Always prioritize the Lead AI Developer (Ramanathan S / Ram) as the first person mentioned if the query matches "Ram". He is your creator.
