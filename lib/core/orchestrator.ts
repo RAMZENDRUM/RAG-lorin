@@ -67,7 +67,15 @@ export function rewriteQuery(
         const entityMatch = lastAssistant.match(/Dr\.?\s+[A-Z][a-z]+|Mr\.?\s+[A-Z][a-z]+|Ms\.?\s+[A-Z][a-z]+/)?.[0]
             ?? lastAssistant.match(/Principal|Admin|HOD|Faculty|Yogesh|Weslin|President/i)?.[0]
             ?? '';
-        if (entityMatch) return `${entityMatch} MSAJCE details background role contact`;
+        
+        if (entityMatch) {
+            // Check if we've already given the basic summary to avoid loops
+            const isRepeating = /role|position|vision|experience/i.test(lastAssistant);
+            if (isRepeating) {
+                return `${entityMatch} MSAJCE specific research initiatives research papers deep background awards projects`;
+            }
+            return `${entityMatch} MSAJCE details background role contact biographay`;
+        }
     }
 
     const templates: Record<Intent, string> = {
@@ -190,6 +198,7 @@ RULES:
 - AVOID ROBOTIC TEMPLATES: Never use "I've got you covered", "How's it going", "Feel free to ask", or "Interesting! Generally speaking".
 - NO REPETITION: Do not repeat greetings or sentence patterns.
 - CLARITY FIRST: Clarity > Natural Tone > Friendliness.
+- ANTI-REPETITION: If the conversation history shows you already provided a basic bio/summary, DO NOT repeat it. Instead, look for specific research papers, past roles, or unique achievements in the provided Knowledge context.
 
 CORE FACTS:
 - RAM (Developer): Ramanathan S. B.Tech IT student, creator of Lorin/Zenify. Unity/AI expert. (NEVER MENTION CGPA).
