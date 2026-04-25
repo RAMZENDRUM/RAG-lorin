@@ -77,9 +77,23 @@ export async function classifyIntent(text: string, openai: any): Promise<Intent>
 }
 
 // ─────────────────────────────────────────────
-// STAGE 1 — Smart Refiner (Query Expansion)
+// STAGE 1 — Smart Refiner (Neural Expansion)
 // ─────────────────────────────────────────────
-export function rewriteQuery(t: string, intent: Intent, profile: UserProfile, history: ShortTermMemory[]): string {
+export async function rewriteQuery(t: string, intent: Intent, history: ShortTermMemory[], openai: any): Promise<string> {
+    // If the query is very short, use AI to resolve what "it/him/yes/more" means
+    if (t.split(' ').length < 3 && history.length > 0) {
+        try {
+            const { text: expanded } = await generateText({
+                model: openai.chat('gpt-4o-mini'),
+                system: `You are a query expansion engine. Using the conversation history, transform the short user message into a descriptive search query. 
+                User said: "${t}"
+                Respond ONLY with the expanded query.`,
+                prompt: `History: ${history.slice(-3).map(m => m.content).join(' | ')}\nUser: ${t}`,
+            });
+            return expanded.trim();
+        } catch { return t; }
+    }
+
     const templates: Record<string, string> = {
         admission: `${t} admission procedure criteria cutoff MSAJCE`,
         transport: `${t} transport bus routes pickup MSAJCE`,
@@ -230,7 +244,7 @@ export async function orchestrate(
     injectedContext: string = ""
 ): Promise<{ answer: string }> {
     const googleFormUrl = "https://forms.gle/msajce-enquiry";
-    const rewritten = rewriteQuery(rawText, intent, profile, shortTerm);
+    const rewritten = await rewriteQuery(rawText, intent, shortTerm, openai);
     
     // Deep Hybrid Retrieval with targeted vector lookup for entities
     const chunks = await hybridRetrieve(rewritten, rawText, openai, sql);
