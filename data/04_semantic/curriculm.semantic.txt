@@ -1,7 +1,0 @@
-SECTION: Departments Offered
-
-Civil Engineering is one of the departments at MSAJCE. Computer Science and Engineering is also offered, along with Computer Science and Engineering w/s in Artificial Intelligence and Machine Learning. Additionally, there is a specialization in Computer Science and Engineering w/s in Cyber Security. The Electrical and Electronic Engineering department is part of the curriculum. Electronic and Communication Engineering is offered as well, which includes a specialization w/s in Advanced Communication Technology. Mechanical Engineering is also available to students. Furthermore, the institution provides a course in Artificial Intelligence and Data Science. Students can pursue Computer Science and Business Systems. Another offering includes Electronics Engineering w/s in VLSI Design and Technology, while Information Technology is also part of the academic program.
-
-SECTION: Additional Academic Offerings
-
-For Regulations 2024 - PG, the curriculum includes Computer Science and Engineering and Structural Engineering, reinforcing the college's commitment to providing up-to-date educational paths for graduate students.

@@ -1,8 +1,0 @@
-[SECTION: Communication Language Learning Centre Objectives]
-The Communication Language Learning Centre at Mohamed Sathak A. J. College of Engineering aims to equip students with proficiency in foreign languages, enhancing their communication skills in Listening, Speaking, Reading, and Writing (LSRW). These skills are crucial for achieving employability standards at the international level. The center fosters students to become expert bilinguals, focusing on work ethic and business etiquette essential for career advancement.
-
-[SECTION: Networking Academy Partnership]
-Mohamed Sathak A. J. College of Engineering has established a partnership with CISCO to launch the Networking Academy (NetAcad). This initiative offers a unique, hands-on learning experience in modern networking, security, and cloud technologies through simulation tools. Graduates gain professional certifications recognized globally, opening pathways to approximately eight million networking jobs.
-
-[SECTION: Courses Offered in Networking Academy]
-The Networking Academy at MSAJCE offers a variety of courses including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, and various Security and IoT & Data Analytics Courses. This curriculum is designed to provide students with the necessary skills and knowledge to thrive in the networking industry. Certifications like CISCO Certified Network Associate are also available, ensuring students are job-ready upon completion.
