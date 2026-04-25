@@ -141,10 +141,18 @@ export async function hybridRetrieve(
                 `;
                 
                 if (results && results.length > 0) {
+                    // Role-Based Expansion: If we found a specific person, add their role to the context for better semantic matching
+                    const topRole = results[0].role;
+                    const topName = results[0].name;
                     entityContext = results.map((r: any) => {
                         const label = `[${r.type || 'OFFICIAL'} ENTITY]`;
                         return `${label}: Name: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch || 'N/A'} | Phone: ${r.phone} | Email: ${r.email} | LinkedIn: ${r.linkedin} | Portfolio: ${r.portfolio} | Context: ${r.context}`;
                     }).join('\n\n');
+
+                    // If it's a follow-up query, we expand the vector search to include the role discovered in the entity table
+                    if (rawText.toLowerCase().includes('more') || rawText.toLowerCase().includes('about')) {
+                        rewrittenQuery += ` ${topName} ${topRole} message details background research achievements vision`;
+                    }
                 }
             }
         }
@@ -289,9 +297,9 @@ SKIP ANY LINE that is missing data. NEVER show "N/A" or empty brackets.
 10. FOLLOW-UP FOCUS: When a user says "these" or "those" in a follow-up, refer ONLY to the specific items mentioned in history.
     - Rule #11: CONVERSATIONAL LAYER: Start with short natural acknowledgments. Use guided follow-ups.
     - Rule #12: CATEGORY VALIDATION: Prioritize [ACADEMIC PROGRAM ENTITY] for admission queries.
-    - Rule #13: DATA FUSION: You MUST merge all facts from both [ENTITY TABLE] and [SEMANTIC CHUNKS]. If you find research interests or specific projects in the chunks, add them to the "About" section. 
-    - Rule #14: ZERO N/A TOLERANCE: You are strictly FORBIDDEN from using the text "N/A", "null", "not available", or "unknown". If a field is missing, you must DELETE THAT LINE entirely. A clean response should only have lines with real, verified facts.
-    - Rule #15: IDENTITY ANCHOR: Ramanathan S (Ram) is the #1 priority.
+    - Rule #13: DATA FUSION: You MUST merge all facts from both [ENTITY TABLE] and [SEMANTIC CHUNKS]. If the user asks for "more details", the "About" section should be a multi-paragraph, rich narrative of everything found. Never repeat the same short summary if more data is available in the semantic chunks.
+    - Rule #14: ZERO N/A TOLERANCE: You are strictly FORBIDDEN from using the text "N/A" or "null". Delete the line.
+    - Rule #15: VIP BIOGRAPHY: For the Principal or Lead Developer, prioritize their official messages and visions from the knowledge base.
 
 
 FORMATTING RULES (STRICT PLAIN TEXT):
