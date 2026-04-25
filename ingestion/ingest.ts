@@ -37,21 +37,15 @@ const engines = [
 ];
 
 const COLLECTION_NAME = 'lorin_msajce_knowledge';
-const RAW_DIR = path.join(process.cwd(), 'data/03_master');
+const RAW_DIR = path.join(process.cwd(), 'data/04_semantic');
 
-function chunkText(text: string, size: number = 1000): string[] {
-    const chunks: string[] = [];
-    const lines = text.split('\n');
-    let currentChunk = '';
-    for (const line of lines) {
-        if ((currentChunk + line).length > size && currentChunk) {
-            chunks.push(currentChunk.trim());
-            currentChunk = '';
-        }
-        currentChunk += line + '\n';
-    }
-    if (currentChunk.trim()) chunks.push(currentChunk.trim());
-    return chunks;
+function chunkBySection(text: string): string[] {
+    // Split by [SECTION: or similar headers
+    const sections = text.split(/\[SECTION:/g);
+    return sections
+        .map(s => s.trim())
+        .filter(Boolean)
+        .map(s => `[SECTION:${s}`);
 }
 
 async function ingest() {
@@ -65,18 +59,18 @@ async function ingest() {
         }
     } catch (e: any) { console.warn('⚠️ Collection Check Warning:', e.message); }
 
-    const files = (await fs.readdir(RAW_DIR)).filter(f => f.endsWith('.master.txt'));
+    const files = (await fs.readdir(RAW_DIR)).filter(f => f.endsWith('.semantic.txt'));
     const allData: { content: string, metadata: any }[] = [];
     
     for (const file of files) {
         const content = await fs.readFile(path.join(RAW_DIR, file), 'utf-8');
-        const chunks = chunkText(content);
+        const chunks = chunkBySection(content);
         chunks.forEach((c, idx) => {
             allData.push({
                 content: c,
                 metadata: {
                     source: file,
-                    url: `https://www.msajce-edu.in/${file.replace('.master.txt', '.php')}`,
+                    url: `https://www.msajce-edu.in/${file.replace('.semantic.txt', '.php')}`,
                     chunk_idx: idx,
                     id: crypto.randomBytes(16).toString('hex')
                 }

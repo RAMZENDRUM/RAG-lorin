@@ -26,7 +26,13 @@ const HARD_LINK_MAP: Record<string, string> = {
     "admin": "https://www.msajce-edu.in/administration.php",
     "governing council": "https://www.msajce-edu.in/governingcouncil.php",
     "transport": "https://www.msajce-edu.in/transport.php",
-    "placement": "https://www.msajce-edu.in/placement.php"
+    "placement": "https://www.msajce-edu.in/placement.php",
+    "it": "https://www.msajce-edu.in/it.php",
+    "cse": "https://www.msajce-edu.in/cse.php",
+    "aids": "https://www.msajce-edu.in/aids.php",
+    "aiml": "https://www.msajce-edu.in/aiml.php",
+    "cyber": "https://www.msajce-edu.in/cyber.php",
+    "csbs": "https://www.msajce-edu.in/csbs.php"
 };
 
 // No robotic filler acknowledgments allowed.
@@ -36,14 +42,19 @@ const HARD_LINK_MAP: Record<string, string> = {
 // ─────────────────────────────────────────────
 export function classifyIntent(text: string): Intent {
     const t = text.toLowerCase();
+    
+    // Explicit Identity Detection (Highest Priority)
+    if (/(who|tell|about|contact|info|details|profile|is|the)\s+(dr|mr|ms|mrs|prof)?\.?\s*[a-z]+/.test(t)) return 'faculty';
+    if (/faculty|staff|hod|professor|dr\.|mr\.|principal|gafoor|srinivasan|president|secretary|coordinator|usha|weslin|yogesh/.test(t)) return 'faculty';
+
     if (/admiss|join|apply|enrol|seat|cutoff|counsell/.test(t)) return 'admission';
     if (/fee|fees|cost|tuition|payment/.test(t)) return 'fee';
     if (/hostel|room|accommo|stay|pg/.test(t)) return 'hostel';
     if (/transport|bus|route|pick.?up|drop/.test(t)) return 'transport';
     if (/place|recruit|company|package|salary|job/.test(t)) return 'placement';
     if (/department|dept|cse|it|ece|eee|mech|civil|ai|cyber|csbs/.test(t)) return 'department';
-    if (/faculty|staff|hod|professor|dr\.|mr\.|principal|gafoor|srinivasan|president|secretary|coordinator/.test(t)) return 'faculty';
     if (/complaint|problem|issue|wrong|bad|waste|worst|other/.test(t)) return 'complaint';
+    
     return 'general';
 }
 
@@ -65,19 +76,20 @@ export function rewriteQuery(
     if (isPronounQuery && shortTerm.length > 0) {
         const lastAssistant = [...shortTerm].reverse().find(h => h.role === 'assistant')?.content ?? '';
         const entityMatch = lastAssistant.match(/Dr\.?\s+[A-Z][a-z]+|Mr\.?\s+[A-Z][a-z]+|Ms\.?\s+[A-Z][a-z]+/)?.[0]
-            ?? lastAssistant.match(/Principal|Admin|HOD|Faculty|Yogesh|Weslin|President/i)?.[0]
+            ?? lastAssistant.match(/Principal|Admin|HOD|Faculty|Yogesh|Weslin|Usha|President/i)?.[0]
             ?? '';
         
         if (entityMatch) {
             // Check if we've already given the basic summary to avoid loops
             const isRepeating = /role|position|vision|experience/i.test(lastAssistant);
             if (isRepeating) {
-                return `${entityMatch} MSAJCE specific research initiatives research papers deep background awards projects`;
+                return `${entityMatch} MSAJCE specific research initiatives department contact credentials projects`;
             }
-            return `${entityMatch} MSAJCE details background role contact biographay`;
+            return `${entityMatch} MSAJCE details background role contact biography`;
         }
     }
 
+    const templates: Record<Intent, string> = {
     const templates: Record<Intent, string> = {
         admission: `admission process eligibility requirements MSAJCE ${profile.interest ?? ''}`,
         fee:       `fee structure tuition cost ${profile.interest ?? 'B.Tech'} MSAJCE`,
@@ -85,9 +97,10 @@ export function rewriteQuery(
         transport: `transport bus routes pickup drop Manjambakkam Velachery MSAJCE`,
         placement: `placement companies recruiters packages MSAJCE`,
         department: `departments engineering programs MSAJCE`,
-        faculty:   `${t} faculty leadership secretary MSAJCE`,
+        faculty:   `${t} personnel biography contact details MSAJCE`,
         complaint: `${t} comparison value marketing`,
-        general:   `${t} MSAJCE Mohamed Sathak Chennai`,
+        general:   `${t} MSAJCE college info`,
+    };
     };
 
     return templates[intent] || t;
@@ -202,9 +215,14 @@ RULES:
 
 CORE FACTS:
 - RAM (Developer): Ramanathan S. B.Tech IT student, creator of Lorin/Zenify. Unity/AI expert. (NEVER MENTION CGPA).
-- PRINCIPAL: Dr. K. S. Srinivasan.
+- PRINCIPAL: Dr. K. S. Srinivasan. (Very prominent).
 - ADMIN: Mr. A. Abdul Gafoor.
+- MS. S. USHA: AP/English, Convener of Grievance Redressal Committee. (sh.usha@msajce-edu.in)
+- DR. D. WESLIN: Associate Professor IT, CSI Student Branch Counsellor. (it.weslin@msajce-edu.in)
+- DR. ELLISS YOGESH R: Prominent Faculty/Head.
+- DEPARTMENTS: CSE (Dr. Vijayarangan), IT (Dr. Kannan), AI&DS (Dr. Nagasubramanian), Mech (Dr. Balaji).
 - TRANSPORT: AR-Series buses (AR 8, AR 4, AR 5). Point-to-point service.`,
+`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
 

@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const COLLECTION_NAME = 'lorin_knowledge';
+const COLLECTION_NAME = 'lorin_msajce_knowledge';
 const qdrant = new QdrantClient({
     url: process.env.QDRANT_URL,
     apiKey: process.env.QDRANT_API_KEY
