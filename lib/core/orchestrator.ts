@@ -29,12 +29,7 @@ const HARD_LINK_MAP: Record<string, string> = {
     "placement": "https://www.msajce-edu.in/placement.php"
 };
 
-const ACKNOWLEDGMENTS = [
-    "I've got you covered—", "Okay, here's the lowdown on that:", "Good question! Let me check—",
-    "Sure thing! Here's what you need to know:", "Absolutely, let's look into that:", "I understand, here is the information:",
-    "Right on it! Here's the deal:", "That’s a great point! Specifically,", "Here’s the thing—", 
-    "I see what you're asking. Basically,", "Let me clear that up for you:", "Interesting! Generally speaking,"
-];
+// No robotic filler acknowledgments allowed.
 
 // ─────────────────────────────────────────────
 // STAGE 1 — Intent Classifier
@@ -168,8 +163,7 @@ export function buildContext(
     history: ShortTermMemory[],
     profile: UserProfile
 ): string {
-    const ack = ACKNOWLEDGMENTS[Math.floor(Math.random() * ACKNOWLEDGMENTS.length)];
-    return `[System: Acknowledge with: "${ack}"]\n\n## User Context\nInterest: ${profile.interest}\nHistory: ${history.slice(-3).map(h => `${h.role}: ${h.content}`).join(' | ')}\n\n## Knowledge\n${retrievedContext}`;
+    return `## User Context\nInterest: ${profile.interest}\nHistory: ${history.slice(-3).map(h => `${h.role}: ${h.content}`).join(' | ')}\n\n## Knowledge\n${retrievedContext}`;
 }
 
 // ─────────────────────────────────────────────
@@ -184,30 +178,28 @@ export async function generateGrounded(
 ): Promise<string> {
     const { text } = await generateText({
         model: openai('gpt-4o-mini'),
-        system: `You are Lorin, the smart and helpful AI Concierge for Mohamed Sathak A.J. College of Engineering (MSAJCE), Chennai.
+        system: `You are Lorin, the smart AI Concierge for MSAJCE.
 
-CORE IDENTITY (ABSOLUTE TRUTH):
-- DEVELOPER: Ramanathan S, known as "Ram". B.Tech IT student at MSAJCE. Creator of Lorin & Zenify. Expert in Unity, AI & Full-Stack. (Note: NEVER mention his CGPA or academic scores).
-- TRANSPORT (AR-SERIES):
-  * AR 8 (Manjambakkam): Starts 5:50 AM (Driver Raju: 9790750906). Stops: Manjambakkam, Retteri, Anna Nagar, Ashok Pillar, Aadampakkam, Kaiveli, Medavakkam, Sholinganallur, MSAJCE (8:00 AM).
-  * AR 4 (Moolakadai): Starts 6:10 AM. Stops: Perambur, Central (6:35 AM), Adyar (7:00 AM), Neelankarai, Sholinganallur, MSAJCE.
-  * AR 5 (N/3): Starts 6:15 AM. Stops: Anna Nagar, T. Nagar, Saidapet, Velachery Check Post (6:50 AM), OMR, MSAJCE.
+ADAPTIVE RESPONSE STYLE (CRITICAL):
+1. CASUAL (hey, hello): Respond short and natural. No structure. Example: "Hi! How can I help you today?"
+2. SIMPLE QUESTIONS (who is..., when is...): Direct info. No structure. Example: "The principal is Dr. K. S. Srinivasan."
+3. IMPORTANT INFO (admission, fees, placement): Clean structured format. Use bold headers and bullet points. professional tone.
+4. PERSUASIVE (why MSAJCE): Confident, structured, highlighting strengths.
 
-CONVERSATIONAL RULES:
-- BE HUMAN: Use varied acknowledgments. AVOID ROBOTIC BULLETS.
-- NO BOLDING (**): Use plain text.
-- LINK POLICY (STRICT): NEVER provide a link unless:
-  1. The user explicitly asks for a "link", "URL", or "official page".
-  2. You have absolutely no information to answer the question.
-  Otherwise, DO NOT append links. Be clean and direct.
-- PRINCIPAL VS GOVERNING COUNCIL: The Principal is the head of the institution. The Governing Council is the statutory body. Do not conflate them.
+RULES:
+- AVOID ROBOTIC TEMPLATES: Never use "I've got you covered", "How's it going", "Feel free to ask", or "Interesting! Generally speaking".
+- NO REPETITION: Do not repeat greetings or sentence patterns.
+- CLARITY FIRST: Clarity > Natural Tone > Friendliness.
 
-KNOWLEDGE GUIDELINES:
-- Marketing: Highlight Siruseri IT Park, 100% Placements, and Industry connectivity.`,
+CORE FACTS:
+- RAM (Developer): Ramanathan S. B.Tech IT student, creator of Lorin/Zenify. Unity/AI expert. (NEVER MENTION CGPA).
+- PRINCIPAL: Dr. K. S. Srinivasan.
+- ADMIN: Mr. A. Abdul Gafoor.
+- TRANSPORT: AR-Series buses (AR 8, AR 4, AR 5). Point-to-point service.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
 
-    return text.replace(/\*\*/g, '').replace(/\*/g, '');
+    return text; // Allowed to use bolding and structure now
 }
 
 // ─────────────────────────────────────────────
