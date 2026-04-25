@@ -38,24 +38,28 @@ const HARD_LINK_MAP: Record<string, string> = {
 // No robotic filler acknowledgments allowed.
 
 // ─────────────────────────────────────────────
-// STAGE 1 — Intent Classifier
+// STAGE 0 — Neural Intent Classifier (LLM Powered)
 // ─────────────────────────────────────────────
-export function classifyIntent(text: string): Intent {
-    const t = text.toLowerCase();
+export async function classifyIntent(text: string, openai: any): Promise<Intent> {
+    const { text: intent } = await generateText({
+        model: openai.chat('gpt-4o-mini'),
+        system: `Classify the user intent into exactly ONE category: 
+- 'faculty': Questions about people, roles, names, professors, principal, or contact info.
+- 'admission': Questions about joining, applying, seats, or cutoff.
+- 'department': Course details, engineering branches, labs.
+- 'fee': Costs, payments, scholarships.
+- 'transport': Bus routes, pickups.
+- 'hostel': Rooms, rules, stay.
+- 'placement': Job interviews, recruiters, packages.
+- 'complaint': Negative feedback or support.
+- 'general': Anything else.
+Respond with ONLY the category name.`,
+        prompt: text,
+    });
     
-    // Explicit Identity Detection (Highest Priority)
-    if (/(who|tell|about|contact|info|details|profile|is|the)\s+(dr|mr|ms|mrs|prof)?\.?\s*[a-z]+/.test(t)) return 'faculty';
-    if (/faculty|staff|hod|professor|dr\.|mr\.|principal|gafoor|srinivasan|president|secretary|coordinator/.test(t)) return 'faculty';
-
-    if (/admiss|join|apply|enrol|seat|cutoff|counsell/.test(t)) return 'admission';
-    if (/fee|fees|cost|tuition|payment/.test(t)) return 'fee';
-    if (/hostel|room|accommo|stay|pg/.test(t)) return 'hostel';
-    if (/transport|bus|route|pick.?up|drop/.test(t)) return 'transport';
-    if (/place|recruit|company|package|salary|job/.test(t)) return 'placement';
-    if (/department|dept|cse|it|ece|eee|mech|civil|ai|cyber|csbs/.test(t)) return 'department';
-    if (/complaint|problem|issue|wrong|bad|waste|worst|other/.test(t)) return 'complaint';
-    
-    return 'general';
+    const validIntents: Intent[] = ['admission', 'faculty', 'department', 'hostel', 'transport', 'fee', 'placement', 'complaint', 'general'];
+    const cleaned = intent.trim().toLowerCase() as Intent;
+    return validIntents.includes(cleaned) ? cleaned : 'general';
 }
 
 // ─────────────────────────────────────────────

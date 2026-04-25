@@ -74,8 +74,8 @@ bot.on('text', async (ctx) => {
             console.warn('⚠️ Memory Fetch Failed (Falling back to local):', memErr);
         }
         
-        // Stage 1-2: Classification & Expansion
-        const intent = classifyIntent(rawText);
+        // Stage 1-2: Neural Classification & Expansion
+        const intent = await classifyIntent(rawText, openai);
         const rewrittenQuery = rewriteQuery(rawText, intent, profile as any, shortTerm);
         
         // Stage 3-4: Hybrid Search (High-Recall for People)
