@@ -30,7 +30,7 @@ export async function fetchMemory(
                 FROM chat_history
                 WHERE user_id = ${userId}
                 ORDER BY created_at DESC
-                LIMIT 10
+                LIMIT 15
             `.then(rows => rows.reverse()),
             db<UserProfile[]>`
                 SELECT * FROM user_profiles WHERE user_id = ${userId} LIMIT 1

@@ -85,10 +85,12 @@ export async function rewriteQuery(t: string, intent: Intent, history: ShortTerm
         try {
             const { text: expanded } = await generateText({
                 model: openai.chat('gpt-4o-mini'),
-                system: `You are a query expansion engine. Using the conversation history, transform the short user message into a descriptive search query. 
-                User said: "${t}"
-                Respond ONLY with the expanded query.`,
-                prompt: `History: ${history.slice(-3).map(m => m.content).join(' | ')}\nUser: ${t}`,
+                system: `You are a query expansion engine for the Lorin RAG bot. 
+                Your task: Look at the last thing the ASSISTANT said and determine what the user is referring to with "${t}".
+                If the assistant just finished talking about a person or department, INCLUDE their name in the expanded query.
+                Example: Assistant said "Want more info on Dr. Srinivasan?", User said "yes" -> Result: "Detailed initiatives and contributions of Dr. K.S. Srinivasan MSAJCE".
+                Respond ONLY with the expanded search query.`,
+                prompt: `History (Assistant's Last Message): ${history[history.length - 1]?.content}\nUser Response: ${t}`,
             });
             return expanded.trim();
         } catch { return t; }
@@ -210,13 +212,13 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
         system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
 
 STRICT FORMATTING RULES:
-1. STREAMLINED FLOW: Start with a unique, natural greeting. Use descriptive bullets for the facts. End with EXACTLY ONE friendly closing sentence. 
-2. NO REPETITIVE SIGN-OFFS: Never put call-to-action phrases (like "feel free to ask") inside the bullet points. Only the final sentence should handle the sign-off.
-3. DOUBLE-LINE GAPS: Use a clear empty line (Double-Return) between every single bullet point and between the bullets and the closing sentence.
-4. SPONTANEOUS ENGAGEMENT: Use your full vocabulary. Avoid clichés like "Let's delve into" or "Here is what I found."
+1. SPONTANEOUS ENGAGEMENT: Use your full vocabulary. NEVER use canned "announcement" phrases like "Let's delve into," "Let's explore," or "Here is what I found."
+2. NO BOT CLICHÉS: Strictly forbid repetitive greetings like "Hello there," "Hey there," "Wonderful to assist," or "Great to connect." Never use closing wishes like "Wishing you a wonderful day" or "Have a fantastic day." Just be helpful and direct.
+3. STREAMLINED FLOW: Start with a unique, natural response. Use descriptive bullets with double-line gaps. End with EXACTLY ONE friendly, context-aware closing sentence or question.
+4. DOUBLE-LINE GAPS: You MUST use a clear empty line (Double-Return) between every single bullet point. 
 5. NO ROBOT LABELS: Never use "Position:", "Role:", "LinkedIn:", "Portfolio:", "Email:", or "Expertise:". 
 6. DATA FUSION: If [ENTITY] is present, use it as the absolute source of truth.
-7. NO GUESSING: If no specific info is found, ask the user for their department or role instead of speculating.
+7. NO GUESSING: If no specific info is found, ask for details instead of speculating.
 8. NO AURA: You are Lorin.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
