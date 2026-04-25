@@ -41,7 +41,8 @@ export async function classifyIntent(text: string, openai: any): Promise<Intent>
             prompt: text,
         });
         const i = intent.toLowerCase().trim() as Intent;
-        return ['admission', 'faculty', 'department', 'hostel', 'transport', 'fee', 'placement', 'complaint', 'general'].includes(i) ? i : 'general';
+        const validIntents: Intent[] = ['admission', 'faculty', 'department', 'hostel', 'transport', 'fee', 'placement', 'complaint', 'general'];
+        return validIntents.includes(i) ? i : 'general';
     } catch { return 'general'; }
 }
 
@@ -85,7 +86,7 @@ export async function hybridRetrieve(rewrittenQuery: string, rawText: string, op
     const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: rewrittenQuery });
     const qResults = await qdrant.search('lorin_msajce_knowledge', { vector: embedding, limit, with_payload: true });
 
-    const chunks = qResults.map(r => ({ content: r.payload?.content as string || '', source: r.payload?.source as string || '' }));
+    const chunks: KnowledgeChunk[] = qResults.map(r => ({ content: r.payload?.content as string || '', source: r.payload?.source as string || '' }));
     if (entityContext) chunks.unshift({ content: entityContext, source: 'DB' });
     
     return chunks;
@@ -109,9 +110,35 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], ope
 }
 
 // ─────────────────────────────────────────────
-// STAGE 4 — Grounded Generation
+// STAGE 4 — Context Builder
 // ─────────────────────────────────────────────
-export async function generateGrounded(ctx: string, raw: string, openai: any) {
+export function buildContext(retrievedContext: string, history: ShortTermMemory[], profile: UserProfile): string {
+    return `User History (Last 10 msgs): ${history.slice(-10).map(m => m.content).join(' | ')}\n\nKnowledge:\n${retrievedContext}`;
+}
+
+// ─────────────────────────────────────────────
+// STAGE 5 — Agent Decision Logic
+// ─────────────────────────────────────────────
+export function agentDecide(
+    intent: Intent,
+    rawText: string,
+    context: string,
+    lastSeen: any,
+    googleFormUrl: string
+): AgentFlags {
+    return {
+        showForm: intent === 'admission' || rawText.toLowerCase().includes('apply'),
+        askClarify: rawText.split(' ').length < 3 && !context,
+        dominantIntent: intent,
+        isMarketingMode: false,
+        isAbuseDetected: false
+    };
+}
+
+// ─────────────────────────────────────────────
+// STAGE 6 — Grounded Generation
+// ─────────────────────────────────────────────
+export async function generateGrounded(builtContext: string, rawText: string, agentFlags: AgentFlags, googleFormUrl: string, openai: any) {
     const { text } = await generateText({
         model: openai('gpt-4o-mini'),
         system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
@@ -121,9 +148,16 @@ export async function generateGrounded(ctx: string, raw: string, openai: any) {
 - Identity Rule: If [ENTITY] exists, use it as total truth.
 - Follow-up Rule: Respect history (who 'him/her' is).
 - Language: Adaptive (B1-C2).`,
-        prompt: `Context:\n${ctx}\n\nUSER: ${raw}`,
+        prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
     return text;
+}
+
+// ─────────────────────────────────────────────
+// STAGE 7 — Post-Processor
+// ─────────────────────────────────────────────
+export function postProcess(answer: string, agentFlags: AgentFlags, googleFormUrl: string, chunks: KnowledgeChunk[], raw: string): string {
+    return answer; // Basic version for now
 }
 
 // ─────────────────────────────────────────────
@@ -139,14 +173,18 @@ export async function orchestrate(
     updateId: string,
     injectedContext: string = ""
 ): Promise<{ answer: string }> {
+    const GOOGLE_FORM_URL = "https://forms.gle/msajce-enquiry";
     const rewritten = rewriteQuery(rawText, intent, profile, shortTerm);
     const chunks = await hybridRetrieve(rewritten, rawText, openai, sql);
     
     if (injectedContext) chunks.unshift({ content: injectedContext, source: 'SYSTEM' });
 
     const { context } = await rerankResults(rewritten, chunks, openai);
-    const builtContext = `User History: ${shortTerm.slice(-3).map(m => m.content).join(' | ')}\n\nKnowledge:\n${context}`;
+    const builtContext = buildContext(context, shortTerm, profile);
     
-    const answer = await generateGrounded(builtContext, rawText, openai);
-    return { answer };
+    const agentFlags = agentDecide(intent, rawText, context, profile.last_seen, GOOGLE_FORM_URL);
+    const answer = await generateGrounded(builtContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
+    const finalAnswer = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks, rawText);
+    
+    return { answer: finalAnswer };
 }
