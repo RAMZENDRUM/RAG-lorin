@@ -19,7 +19,7 @@ const openai = createOpenAI({
     apiKey: process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY, 
     baseURL: 'https://openrouter.ai/api/v1' 
 });
-const GOOGLE_FORM_URL = "https://forms.gle/mock-enquiry";
+const GOOGLE_FORM_URL = "https://forms.gle/bx2S4iPtJLipA9866";
 
 const testQuestions = [
     "Who is the Principal of MSAJCE?",

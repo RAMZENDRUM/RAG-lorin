@@ -18,7 +18,7 @@ dotenv.config();
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const DB_URL = process.env.DATABASE_URL;
-const GOOGLE_FORM_URL = "https://forms.gle/your-admission-form";
+const GOOGLE_FORM_URL = "https://forms.gle/bx2S4iPtJLipA9866";
 
 // Initialization - Safe Database Handle
 let sql: any = null;

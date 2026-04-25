@@ -20,7 +20,7 @@ dotenv.config();
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const DATABASE_URL = process.env.DATABASE_URL!;
-const GOOGLE_FORM_URL = "https://forms.gle/your-admission-form";
+const GOOGLE_FORM_URL = "https://forms.gle/bx2S4iPtJLipA9866";
 
 if (!BOT_TOKEN) {
     console.error('TELEGRAM_BOT_TOKEN is missing');
@@ -106,7 +106,7 @@ bot.on('text', async (ctx) => {
         };
 
         // Write to persistent audit log for the Sunday Report
-        await sql`INSERT INTO lorin_audit_logs (data) VALUES (${auditTrail})`;
+        await sql`INSERT INTO lorin_audit_logs (data) VALUES (${JSON.stringify(auditTrail)})`;
         await fs.appendFile(path.join(process.cwd(), 'logs', 'audit.jsonl'), JSON.stringify(auditTrail) + '\n');
 
         await updateProfile(userId, { 
