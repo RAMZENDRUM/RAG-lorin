@@ -1,0 +1,16 @@
+Here is the transformed data, structured into clean, human-readable English sentences, with each section limited to 150 words or less:
+
+[SECTION: Introduction to Information Technology]
+The Department of Information Technology at MSAJCE plays a vital role in every aspect of human life. Information technology is the study and use of systems for storing, retrieving, and processing information. With the introduction of computers, the business world has changed forever, ensuring smooth running of businesses. The department offers a B.Tech program in Information Technology, with a duration of 4 years and an intake of 60 students.
+
+[SECTION: Faculty Members]
+Dr. Kannan S is a Professor in the Department of Information Technology, with a specialization in Computer Science and Engineering. Dr. Weslin D is an Associate Professor, and Mrs. Aysha Sufreena M A is an Assistant Professor, specializing in Software Engineering. Other faculty members include Ms. Priya R, Mr. Hamer Shield J M, and Mrs. Jeba Malar M, who are all dedicated to imparting knowledge to students.
+
+[SECTION: Job Opportunities]
+The IT industry in India is expected to grow at an annual rate of 7-10% over the next five years, with a high demand for Cloud engineers, AI specialists, Cybersecurity experts, and Data analysts. Job opportunities are available in various MNCs, public and private sectors, with roles such as Cloud Engineer, Data Scientist, AI Engineer, and Cybersecurity Expert.
+
+[SECTION: Course Materials]
+The department offers various courses, including Problem Solving and Python Programming, Matrix and Calculus, and Programming in C. The courses are designed to provide students with a strong foundation in Information Technology, with resources such as lesson plans, question banks, and lecture notes available online.
+
+[SECTION: Lab Facilities]
+The department has well-equipped labs, including a Data Structures Lab, Object-Oriented Programming Lab, and Security Lab. The labs provide students with hands-on experience in various areas of Information Technology, with facilities such as virtual links, ICT tools, and soft copies of lab records.

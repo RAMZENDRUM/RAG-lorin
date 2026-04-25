@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to Civil Engineering]
+The Department of Civil Engineering at Mohamed Sathak A.J. College of Engineering is one of the pioneer departments of the institute, established in 2007. Civil engineers conceive, design, construct, supervise, operate, and maintain infrastructure projects and systems in the public and private sector. The department offers undergraduate and postgraduate programs in civil engineering, with a focus on sustainable practices and innovative teaching methodologies.
+
+[SECTION: Faculty Members]
+Dr. Mohamed Adil Haque is a Professor in the Civil Engineering department, specializing in Structural Engineering. Dr. Elliss Yogesh R is also a Professor in the department, with a specialization in Environmental Engineering. Other faculty members include Dr. Someswaran R, Mr. Rizha Ur Rahman, and Mrs. Janaki V, who bring a wealth of experience and knowledge to the department.
+
+[SECTION: Program Educational Objectives]
+The program educational objectives of the Civil Engineering department include preparing graduates to design and detail civil engineering components and systems with creativity and sustainability. Graduates will also be skilled in using modern tools for critical problem-solving and analyzing industrial and societal requirements. Additionally, graduates will be prepared with managerial and leadership skills for careers and starting their own firms.
+
+[SECTION: Employment Opportunities]
+Fresh graduates in Civil Engineering can find employment opportunities in government sectors, construction and infrastructure firms, and consulting companies. Postgraduates can pursue careers in design, research, academia, and international projects. Top recruiters include AECOM, WSP, and NHAI consultants. The department also provides opportunities for students to interact with industry experts and alumni, enhancing their career prospects.
+
+[SECTION: Laboratory Facilities]
+The Civil Engineering department has well-equipped laboratories, including the Concrete and Highway Engineering Lab, Soil Mechanics Lab, and Hydraulic Engineering Lab. These labs provide hands-on experience for students to experiment and learn, with virtual links and ICT tools available for enhanced learning.
+
+[SECTION: Academic Curriculum]
+The department follows the Anna University regulation and syllabus, with a comprehensive curriculum that includes subjects such as Strength of Materials, Fluid Mechanics, Surveying, and Construction Materials. The curriculum is designed to provide a strong foundation in civil engineering principles, as well as specialized knowledge in areas such as structural engineering and environmental engineering.

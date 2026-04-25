@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to Electrical and Electronics Engineering]
+The Department of Electrical and Electronics Engineering at Mohamed Sathak A. J. College of Engineering offers a 4-year B.E. program in Electrical and Electronics Engineering. The program aims to provide students with a strong foundation in electrical engineering and prepare them for careers in the field. Dr. Jeha J, a Professor in the department, has a Ph.D. in Electrical Engineering and specializes in Power Systems. Dr. Devikala S, another Professor, has a Ph.D. in Electrical Engineering and has published several research papers in the field.
+
+[SECTION: Faculty Members]
+The faculty members in the Electrical and Electronics Engineering department are highly qualified and experienced. Dr. Kamalaselan A, an Assistant Professor, has a Ph.D. in Electrical Engineering and specializes in High Voltage Engineering. Mr. Chintala Venkatesh, an Assistant Professor, has a Ph.D. in Electrical Engineering and specializes in Power Electronics and Drives. Ms. Anupreyaa K, an Assistant Professor, has an M.E. in Electrical Engineering and teaches courses in Control and Instrumentation Engineering.
+
+[SECTION: Program Objectives]
+The program objectives of the B.E. in Electrical and Electronics Engineering program are to prepare graduates for designing Electrical and Electronics components and systems with creativity and sustainability, and to provide them with managerial and leadership skills for career and starting up own firms. The program also aims to provide students with a strong foundation in electrical engineering and prepare them for higher education and research.
+
+[SECTION: Employment Opportunities]
+The employment opportunities for graduates in Electrical and Electronics Engineering are promising, with a projected job growth rate of 10-12% per year in the Renewable Energy sector. The key roles in demand include Grid Engineer, Inverter Designer, and SCADA. The Semiconductor and Electronics sector also offers promising employment opportunities, with a projected job growth rate of 12-15% per year. The key roles in demand include VLSI, PCB Design, and ASIC/FPGA Engineers.
+
+[SECTION: Research and Development]
+The department has a strong research focus, with several faculty members publishing research papers in reputable journals. The department also offers several research projects and internships to students, providing them with hands-on experience in the field. Dr. Jeha J has published several research papers in the field of Power Systems, and Dr. Kamalaselan A has published research papers in the field of High Voltage Engineering.
+
+[SECTION: Infrastructure and Facilities]
+The department has state-of-the-art infrastructure and facilities, including several laboratories and research centers. The department also has several industry partnerships, providing students with opportunities for internships and job placement. The college has a strong alumni network, with several alumni working in top companies in the field. Mr. Suresh N, an Assistant Professor, has an M.E. in Electrical Engineering and has industry experience in Control and Instrumentation Engineering.

@@ -11,6 +11,12 @@ const qdrant = new QdrantClient({
     apiKey: process.env.QDRANT_API_KEY
 });
 
+// Bridge to OpenRouter for 1536 embeddings
+const openrouter = createOpenAI({
+    apiKey: process.env.OPENROUTER_API_KEY,
+    baseURL: 'https://openrouter.ai/api/v1',
+});
+
 function getOpenAI() {
     const keys = [
         process.env.VERCEL_AI_KEY,
@@ -57,8 +63,11 @@ export async function performLorinRetrieval(
         const targetQuery = await resolveIdentityFast(rawQuery, history);
         
         // 2. VECTOR SEARCH (Single high-speed call)
-        const { embedding } = await embed({ model: openai.embedding('text-embedding-3-small'), value: targetQuery });
-        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 6, with_payload: true });
+        const { embedding } = await embed({ 
+            model: openrouter.embedding('openai/text-embedding-3-small'), 
+            value: targetQuery 
+        });
+        const results = await qdrant.search(COLLECTION_NAME, { vector: embedding, limit: 10, with_payload: true });
 
         const context = results.length > 0 
             ? results.map(r => r.payload?.content).join('\n\n') 
@@ -69,8 +78,9 @@ export async function performLorinRetrieval(
             model: openai('gpt-4o-mini'),
             system: `You are Lorin, the smart MSAJCE Concierge. 
             Facts: Principal=Dr. K. S. Srinivasan. Admin=Mr. Abdul Gafoor.
-            Rules: Use context. If "him" refers to someone in history, stay on that subject. 
-            Style: Bold Headers, Bullet points.`,
+            Rules: Use search context ONLY. If you find multiple people with similar names in context, LIST THEM ALL CLEARLY. 
+            NEVER ask the user for more details if the answer is in the context. Just give all possible matches.
+            Style: Professional, Bold Headers, Bullet points.`,
             prompt: `History Context: ${JSON.stringify(history.slice(-2))}\nSearch Context: ${context}\nQuestion: ${rawQuery}`
         });
 

@@ -1,0 +1,16 @@
+Here is the transformed data in the required format:
+
+[SECTION: Research and Development Cell]
+The Research and Development Cell at Mohamed Sathak A.J. College of Engineering aims to nurture research culture in the College by promoting research in newly emerging and challenging areas of Engineering, Technology, Science, and Humanities. Dr. B. Janarthanan, Head-Research, MSAJCE, Chennai, is the convener of the cell. The cell's objectives include encouraging students and faculty to carry out research, creating zeal among them towards research and innovation, and assisting students in applying for funding.
+
+[SECTION: Research Advisory Committee]
+The Research Advisory Committee is headed by Dr. B. Janarthanan, Professor, MSAJCE, and consists of esteemed members such as Dr. Srinivasan, Secretary, TNSCST, Chennai, and Dr. Parthiban, Associate Professor, NIT, Trichy. The committee advises on research matters and provides guidance to the Research and Development Cell. Dr. K.S. Srinivasan, Principal, MSAJCE, is the head of the institution and plays a crucial role in promoting research.
+
+[SECTION: List of Supervisors]
+The college has a list of supervisors who guide research projects. Dr. K.S. Srinivasan, with an Anna University Ref. No. of 1440364, specializes in VLSI Design, Digital Signal, and Image Processing. Dr. I. Manju, with an Anna University Ref. No. of 3040008, specializes in VLSI Design and Video Processing. Dr. B. Janarthanan, with an Anna University Ref. No. of 2620054, specializes in Machine Design, Mechanical Vibrations, and Vehicle Dynamics.
+
+[SECTION: Publications and Patents]
+The faculty and students of MSAJCE have published numerous papers and filed patents. Dr. E. Dhiravidachelvi has published a book titled "Fundamentals of Electrical Measuring Instruments" with an ISBN of 978-93-83409-35-8. Dr. K.S. Srinivasan has published several books, including "Wireless Sensor Networks" with an ISBN of 978-81-954927-4-9. Mr. S.Senthil Pandi has filed a patent for a "Computer implemented method of image classification with extreme learning machine" with a patent number of 201941054497 A.
+
+[SECTION: Institution Innovation Council]
+The Institution Innovation Council (IIC) at MSAJCE is headed by Dr. K.S. Srinivasan, Principal, and consists of members such as Dr. B. Janarthanan, Professor, MSAJCE, and Dr. I. Manju, Professor, MSAJCE. The IIC organizes various activities, including workshops, seminars, and hackathons, to promote innovation and entrepreneurship among students and faculty. Dr. R.Senthilkumar, Associate Professor, is a member of the IIC and plays an active role in promoting innovation.

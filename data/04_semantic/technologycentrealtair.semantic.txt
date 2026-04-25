@@ -1,0 +1,16 @@
+Here is the transformed data in clean, structured, chunk-optimized knowledge blocks:
+
+[SECTION: Introduction to MSAJCE]
+Mohamed Sathak A J College of Engineering is a leading institution that offers various programs in engineering and technology. The college is located in Chennai and has partnered with prominent companies like CISCO to provide students with hands-on learning experiences. Dr. ELLISS YOGESH R is not mentioned in the provided data, however, the college has a team of experienced faculty members who specialize in various fields of engineering.
+
+[SECTION: Technology Centre]
+The Technology Centre at MSAJCE is equipped with state-of-the-art facilities and software, including Altair and CATIA. The centre offers training and certification programs in computer-aided engineering (CAE) and other related fields. Students can gain practical experience in handling 2D drafting and 3D modeling software systems, and comprehend, design, analyze, and suggest novel materials, products, and solutions for contemporary manufacturing issues.
+
+[SECTION: Networking Academy]
+MSAJCE has partnered with CISCO to establish the Networking Academy (NetAcad), which provides students with unique hands-on learning experiences in the latest networking, security, and cloud technologies. The program offers professional certification recognized by employers worldwide and career pathways to connect to an estimated eight million networking jobs around the world. The Networking Academy is led by experienced faculty members, including those from the department of computer science and engineering.
+
+[SECTION: Courses Offered]
+The Networking Academy at MSAJCE offers a range of courses, including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, and CCNA: Switching, Routing, and Wireless Essentials. The academy also offers courses in security, IoT and data analytics, operating systems, and programming, as well as entrepreneurship. These courses are designed to provide students with a comprehensive understanding of networking and related technologies.
+
+[SECTION: Certifications]
+The Networking Academy at MSAJCE offers various certifications, including CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and can enhance a student's career prospects in the field of networking and related technologies. The faculty members at MSAJCE, including those from the Networking Academy, are dedicated to helping students achieve these certifications and succeed in their careers.

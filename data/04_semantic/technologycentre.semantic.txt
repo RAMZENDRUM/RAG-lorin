@@ -1,0 +1,15 @@
+Here is the transformed clean, structured, chunk-optimized knowledge block:
+
+[SECTION: Technology Centre]
+The Technology Centre at MSAJCE was established in 2019-2020 to educate, train, and up-skill students in niche technologies. The centre provides an ambient learning environment for research and innovation, with state-of-the-art facilities and collaborations with industry and government organizations. Dr. ELLISS YOGESH R, a Professor in the Civil Engineering department, is one of the key personnel involved in the centre's initiatives. The centre offers various courses and training programs designed based on the recommendations of AICTE and India Skill Report 2020.
+
+[SECTION: Centre for 3D Printing and Additive Manufacturing]
+The Centre for 3D Printing and Additive Manufacturing is one of the technology centres established at MSAJCE. This centre provides training and education in 3D printing and additive manufacturing, with a focus on emerging industrial demands. The centre is equipped with state-of-the-art facilities and provides an ideal environment for research and innovation.
+
+[SECTION: Industry Collaborations]
+MSAJCE's Technology Centre has collaborations with various industries, including Automation Anywhere, Godrej Inc, Ford, Palo Alto systems, Amazon Web Services, and National Instruments. These collaborations provide students with opportunities for certifications, onsite and offsite projects, and internships. The centre's collaborations are designed to provide students with hands-on experience and exposure to emerging industrial demands.
+
+[SECTION: Centre for Embedded & IOT]
+The Centre for Embedded & IOT is another technology centre established at MSAJCE. This centre provides training and education in embedded systems and Internet of Things (IOT), with a focus on emerging industrial demands. The centre is equipped with state-of-the-art facilities and provides an ideal environment for research and innovation.
+
+Note: I have removed noise, rewritten fragments into clean sentences, and formatted the text into blocks with a maximum of 150 words per block. I have also preserved names and context, and written full sentences for each person mentioned. Let me know if you need further assistance!

@@ -1,0 +1,13 @@
+Here is the transformed data in the required format:
+
+[SECTION: Academic Advisory Committee]
+The Academic Advisory Committee at Mohamed Sathak A.J. College of Engineering is chaired by Dr. K.S. Srinivasan, Principal of MSAJCE, Chennai. Dr. K. Malathi, Professor of ECE at Anna University, Chennai, serves as an advisor to the committee. The committee also includes Dr. N. Parthiban, Professor of CSE at SRM University, Chennai, and Dr. N. Kulasekaran, Head of Research at Valeo India Pvt. Ltd, Chennai, as advisors.
+
+[SECTION: Committee Members]
+The committee consists of 17 members, including Dr. S. Thenmozhi, Professor of CIVIL at St. Joseph College of Engineering, Chennai, and Mr. Ahamed Jameel A M T, Alumni and Technical Consultant at HCL, Chennai. Other members include Mr. N. Feroz Khan, Alumni and General Manager at Maersk, Chennai, and various department heads from MSAJCE, Chennai.
+
+[SECTION: Department Heads]
+The department heads who are part of the committee include the Head of Administration, Head of Academics, Head of Research, Head of IQAC, Head of Student Affairs, Head of Exam Cell, Head of All Departments, Head of Placement, and Head of Admission. These department heads bring their expertise and knowledge to the committee to ensure the academic excellence of MSAJCE.
+
+[SECTION: Institutional Overview]
+Mohamed Sathak A.J. College of Engineering is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. The institution has a strong vision and mission, and its management is committed to providing quality education to its students. The college has received approvals from Anna University and AICTE, and it has a robust grievance cell and anti-ragging committee in place.

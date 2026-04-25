@@ -1,0 +1,22 @@
+Here is the transformed data in the required format:
+
+[SECTION: Sports Club]
+The Sports Club at Mohamed Sathak AJ College of Engineering aims to promote sportsmanship, foster friendships, and improve health among students. The club encourages students to participate in various sports activities, including cricket, football, volleyball, basketball, and rugby. Dr. S. Viswajaa, AP - IT, is the staff coordinator of the club.
+
+[SECTION: Fine Arts Club]
+The Fine Arts Club, also known as Artful Aesthetics, is led by S. Viswajaa, AP - IT, and has Kishore. P as its student president and Laksha as its student vice-president. The club's motto is to inspire and enable students to develop their talents and skills in dance, art, singing, music, and acting. The club conducts various events and activities to promote artistic expression and relaxation among students.
+
+[SECTION: Science Club]
+The Science Club at Mohamed Sathak AJ College of Engineering aims to promote interest, understanding, and knowledge of the scientific world among students and the local community. The club is divided into three sections: Physics, Chemistry, and General, and conducts various activities, including experiments, seminars, and workshops. The club's objective is to guide students in developing an independent, logical, and creative mind.
+
+[SECTION: Tamil Mandalam]
+The Tamil Mandalam at Mohamed Sathak AJ College of Engineering aims to promote Tamil language and culture among students. The club's motto is to inspire and enable students to express their thoughts, feelings, and creativity through various visual art forms. The club conducts various events and activities, including competitions, functions, and exhibitions, to promote Tamil language and culture.
+
+[SECTION: Coding Club]
+The Coding Club at Mohamed Sathak AJ College of Engineering aims to promote programming abilities and computer science knowledge among students. The club's objective is to conduct coding contests, workshops, and technical discussions to help students develop their skills and prepare for internships and job placement. The club is led by a team of students and staff members who are passionate about coding and computer science.
+
+[SECTION: Robotic Club]
+The Robotic Club at Mohamed Sathak AJ College of Engineering aims to promote technological thinking and innovation among students. The club's objective is to encourage young people to become the driving force in the robotics industry and provide them with professional engineering skills. The club conducts various activities, including robotics education initiatives, brief training sessions, and robotics basics workshops.
+
+[SECTION: Energy and Eco Club]
+The Energy and Eco Club at Mohamed Sathak AJ College of Engineering aims to promote responsible and sustainable energy use and environmental conservation among students. The club's objective is to raise awareness about energy conservation and environmental protection and to encourage students to participate in activities that promote sustainability. The club conducts various events and activities, including seminars, workshops, and exhibitions, to promote energy and environmental conservation.

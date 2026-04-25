@@ -1,0 +1,143 @@
+--- SOURCE: https://www.msajce-edu.in/technologycentre3dprinting.php ---
+MSAJCE | Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
+Teachers & Engineers Day 2025 Celebration Photos New |
+Internship Report Format - 2025 New |
+Internship Report Format - 2025 - Download Here |
+18th Graduation Day 22 Feb 2025 Photos New |
+Admission 2026 - 2027 Flyer New |
+AICTE-ATAL Sponsored Six Days FDP New |
+17th Graduation Day Photos New |
+Admission Open 2026-2027 - Online Application Form |
+Grievance Cell - grievance@msajce-edu.in |
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal New
+Grievance and Redressal Committee
+Centre for 3D Printing and Additive Manufacturing
+Centre for 3D Printing and Additive Manufacturing
+To gain knowledge and skills related to 3D printing technologies.
+To learn the selection of material, equipment and development of a product for Industry 4.0 environment.
+To understand the various software tools, process and techniques for digital manufacturing.
+To apply these techniques into various applications.
+Develop CAD models for 3D printing.
+Import and Export CAD data and generate .stl file.
+Select a specific material for the given application.
+Select a 3D printing process for an application.
+Produce a product using 3D Printing or Additive Manufacturing (AM).
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking to establish
+the Networking Academy(NetAcad).
+Cisco Networking Academy is an IT skills and career building program which provides
+Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools
+Professional certification recognized by employers worldwide
+Career pathways to connect to an estimated eight million networking jobs around the world through Netacad
+CCNA: Switching, Routing, and Wireless Essentials
+CCNA: Enterprise Networking, Security and Automation
+CISCO Certified Network Associate
+Implementing CISCO Enterprise Network Core Technologies
+Drafting Engineering Materials TOTAL:
+(Additive Manufacturing) (6 Hours)
+Process, Classifications, Advantages, Additive v/s Conventional Manufacturing
+formats, Data translation, Data loss, STL format.
+Stereo- Lithography, LOM, FDM, SLS, SLM, Binder Jet
+Process, Process parameter, Process Selection for various
+Additive Manufacturing Application Domains: Aerospace,
+Electronics, Health Care, Defence, Automotive, Construction,
+Polymers, Metals, Non-Metals, Ceramics Process, Process
+parameter, Process Selection for various applications.
+Various forms of raw material- Liquid, Solid, Wire,
+Powder; Powder Preparation and their desired properties,
+Equipment- Design and process parameters
+Processing: Requirement and Techniques
+Support Removal, Sanding, Acetone treatment, polishing,
+3D Modelling of a single component.
+Assembly of CAD modelled Components
+Identification of a product for Additive Manufacturing
+Printing of identified product on an available AM
+Post processing of additively manufactured product.
+Inspection and defect analysis of the additively
+Comparison of Additively manufactured product with
+conventional manufactured counterpart.
+Lan Gibson, David W. Rosen and Brent Stucker, “Additive
+Manufacturing Technologies: Rapid Prototyping to Direct Digital Manufacturing”,
+Andreas Gebhardt, “Understanding Additive Manufacturing:
+Rapid Prototyping, Rapid Tooling, Rapid Manufacturing”, Hanser Publisher, 2011.
+Khanna Editorial, “3D Printing and Design”, Khanna
+CK Chua, Kah Fai Leong, “3D Printing and Rapid
+Prototyping- Principles and Applications”, World Scientific, 2017.
+J.D. Majumdar and I. Manna, “Laser-Assisted Fabrication
+of Materials”, Springer Series in Material Science, 2013.
+L. Lu, J. Fuh and Y.S. Wong, “Laser-Induced Materials and
+Processes for Rapid Prototyping”, Kulwer Academic Press, 2001.
+Zhiqiang Fan And Frank Liou, “Numerical Modelling of the
+Additive Manufacturing (AM) Processes of Titanium Alloy”, InTech, 2012
+AICTE Scholarship/Fellowship Schemes
+© 2023 MSAJCE All Rights Reserved | 1635387 Visitors
+| To gain knowledge and skills related to 3D printing technologies.
+| To learn the selection of material, equipment and development of a product for Industry 4.0 environment.
+| To understand the various software tools, process and techniques for digital manufacturing.
+| To apply these techniques into various applications.
+| Develop CAD models for 3D printing.
+| Import and Export CAD data and generate .stl file.
+| Select a specific material for the given application.
+| Select a 3D printing process for an application.
+| Produce a product using 3D Printing or Additive Manufacturing (AM).
+| Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools
+| Professional certification recognized by employers worldwide
+| Career pathways to connect to an estimated eight million networking jobs around the world through Netacad
+| CCNA: Introduction to Networks
+| CCNA: Switching, Routing, and Wireless Essentials
+| CCNA: Enterprise Networking, Security and Automation OR Networking Courses
+| CISCO Certified Network Associate
+| Implementing CISCO Enterprise Network Core Technologies
+| To gain knowledge and skills related to 3D printing technologies. | |
+| To learn the selection of material, equipment and development of a product for Industry 4.0 environment. | |
+| To understand the various software tools, process and techniques for digital manufacturing. | |
+| To apply these techniques into various applications. |
+### The students will be able to
+| Develop CAD models for 3D printing. | |
+| Import and Export CAD data and generate .stl file. | |
+| Select a specific material for the given application. | |
+| Select a 3D printing process for an application. | |
+| Produce a product using 3D Printing or Additive Manufacturing (AM). |
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking to establish
+the Networking Academy(NetAcad).
+Cisco Networking Academy is an IT skills and career building program which provides
+| Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools | |
+| Professional certification recognized by employers worldwide | |
+| Career pathways to connect to an estimated eight million networking jobs around the world through Netacad |
+| CCNA: Introduction to Networks | |
+| CCNA: Switching, Routing, and Wireless Essentials | |
+CCNA: Enterprise Networking, Security and Automation OR Networking Courses |
+| IoT & Data Analytics Courses | |
+| CISCO Certified Network Associate | |
+| Implementing CISCO Enterprise Network Core Technologies |
+Computer Aided Design & Drafting Engineering Materials **TOTAL: 30 HOURS**
+**1.3D Printing (Additive Manufacturing) (6 Hours)**
+- Introduction, Process, Classifications, Advantages, Additive v/s Conventional Manufacturing processes, Applications.
+**2. CAD for Additive Manufacturing (4 Hours) **
+- CAD Data formats, Data translation, Data loss, STL format.
+**3.Additive Manufacturing Techniques (10 Hours)**
+- Stereo- Lithography, LOM, FDM, SLS, SLM, Binder Jet technology.
+- Process, Process parameter, Process Selection for various applications.
+- Additive Manufacturing Application Domains: Aerospace, Electronics, Health Care, Defence, Automotive, Construction, Food Processing, Machine Tools
+- Polymers, Metals, Non-Metals, Ceramics Process, Process parameter, Process Selection for various applications.
+- Various forms of raw material- Liquid, Solid, Wire, Powder; Powder Preparation and their desired properties, Polymers and their properties.
+**5. Additive Manufacturing Equipment (4 Hours) **
+- Process Equipment- Design and process parameters
+- Common faults and troubleshooting
+**6. Post Processing: Requirement and Techniques (1 Hour)**
+Support Removal, Sanding, Acetone treatment, polishing,
+** 7. Product Quality (1 Hour)**
+- 3D Modelling of a single component.
+- Assembly of CAD modelled Components
+- Exercise on CAD Data Exchange.
+- Identification of a product for Additive Manufacturing and its process plan.
+- Printing of identified product on an available AM machine.
+- Post processing of additively manufactured product.
+- Inspection and defect analysis of the additively manufactured product.
+- Comparison of Additively manufactured product with conventional manufactured counterpart.
+- Lan Gibson, David W. Rosen and Brent Stucker, “Additive Manufacturing Technologies: Rapid Prototyping to Direct Digital Manufacturing”, Springer, 2010.
+- Andreas Gebhardt, “Understanding Additive Manufacturing: Rapid Prototyping, Rapid Tooling, Rapid Manufacturing”, Hanser Publisher, 2011.
+- Khanna Editorial, “3D Printing and Design”, Khanna Publishing House, Delhi.
+- CK Chua, Kah Fai Leong, “3D Printing and Rapid Prototyping- Principles and Applications”, World Scientific, 2017.
+- J.D. Majumdar and I. Manna, “Laser-Assisted Fabrication of Materials”, Springer Series in Material Science, 2013.
+- L. Lu, J. Fuh and Y.S. Wong, “Laser-Induced Materials and Processes for Rapid Prototyping”, Kulwer Academic Press, 2001.
+- Zhiqiang Fan And Frank Liou, “Numerical Modelling of the Additive Manufacturing (AM) Processes of Titanium Alloy”, InTech, 2012

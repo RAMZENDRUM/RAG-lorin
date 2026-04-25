@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: Overview of MSAJCE]
+MSAJCE, or Mohamed Sathak A. J. College of Engineering, is a top engineering college in Chennai. The college offers various undergraduate and postgraduate programs in engineering. Dr. K.S.Srinivasan is the Principal of MSAJCE, Chennai. Mr.A.Abdul Gafoor is the Administrative Officer, and Dr.K.P.Santhosh Nathan is the Physical Education Director and Head of Admissions.
+
+[SECTION: Undergraduate Programs]
+MSAJCE offers several undergraduate programs, including Civil Engineering, Computer Science and Engineering, Electronics and Communication Engineering, and Mechanical Engineering. The total sanctioned intake for each program varies, with Government Quota and Management Quota seats available. For example, the Civil Engineering program has a total sanctioned intake of 30, with 15 Government Quota seats and 15 Management Quota seats. Dr. Vamsi Naga Mohan A. is the Coordinator for admissions for students from other states.
+
+[SECTION: Postgraduate Programs]
+The college also offers postgraduate programs, including Computer Science and Engineering, and Structural Engineering. The total sanctioned intake for each program varies, with Government Quota and Management Quota seats available. For instance, the Computer Science and Engineering program has a total sanctioned intake of 9, with 3 Government Quota seats and 6 Management Quota seats. Mr.S.Syed Abuthahir is an Assistant Professor in the Mechanical Engineering department.
+
+[SECTION: Research Programs]
+MSAJCE also offers research programs, including a Ph.D. in Mechanical Engineering. The eligibility criteria for the program include a Master's degree or equivalent in the relevant field. Mrs.I.S.Suganthi is an Assistant Professor in the Electronics and Communication Engineering department. Dr. K.P.Santhosh Nathan is also involved in the research programs at the college.
+
+[SECTION: Admission Process]
+The admission process for MSAJCE involves applying through the Tamil Nadu Engineering Admissions (TNEA) Counselling. Students who have completed their Plus 2 or Diploma can apply for admission to the B.E./B.Tech. programs. The eligibility criteria for admission include a minimum average percentage in Mathematics, Physics, and Chemistry. Mr.B.Rizha Ur Rahman is an Assistant Professor in the Civil Engineering department. 
+
+[SECTION: Admission Contact]
+For admission-related queries, students can contact Dr.K.S.Srinivasan, the Principal of MSAJCE, or Dr.K.P.Santhosh Nathan, the Physical Education Director and Head of Admissions. They can also reach out to Mr.A.Abdul Gafoor, the Administrative Officer, or other faculty members like Mr.S.Syed Abuthahir and Mrs.I.S.Suganthi. Dr. Vamsi Naga Mohan A. can be contacted for admissions-related queries from students from other states.

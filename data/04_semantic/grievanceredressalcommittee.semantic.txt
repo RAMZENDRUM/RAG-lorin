@@ -1,0 +1,16 @@
+Here is the transformed data in the required format:
+
+[SECTION: Grievance Redressal Committee]
+The Grievance Redressal Committee at MSAJCE is responsible for addressing complaints and grievances from students, faculty, and staff. Ms. S. Usha, AP/English, MSAJCE, Chennai, serves as the Convener of the committee. The Principal of MSAJCE, Chennai, is the Co-Convener, providing guidance and support to the committee.
+
+[SECTION: Committee Members]
+The committee comprises a diverse group of members, including Mrs. Adhilakshmi Logamurthy, Advocate and Legal Consultant, who serves as an External Member. Mr. Hussain Basha, NGO-1, MasterMind Consultraining, Chennai, and Dr. Ushaa Eswaran, NGO-2, are also External Members, bringing their expertise to the committee. Dr. O.S. Ayisha, Vice Principal, MSCAS, Chennai, is another External Member, providing valuable insights.
+
+[SECTION: Committee Roles]
+The committee has several members with distinct roles, including the Head of Academics, MSAJCE, Chennai, who serves as a Member. The Head of Administration, MSAJCE, Chennai, is also a Member, ensuring effective administration and support. Dr. K.P. Santhoshnathan, PED, MSAJCE, Chennai, is a Member, providing technical expertise to the committee.
+
+[SECTION: Student Representatives]
+The committee includes student representatives, such as Mr. S. Salman, IV Mech, Mr. Poo. Satheeshkumar, IV ECE, Ms. W. Karishma, III CSE, and Ms. V. Abinaya, III ECE, who serve as Members. These students bring a unique perspective to the committee, ensuring that student concerns are addressed.
+
+[SECTION: Contact Information]
+For any grievances or complaints, students, faculty, and staff can contact the committee through the email address grievance@msajce-edu.in. Alternatively, they can reach out to the Convener, Ms. S. Usha, at sh.usha@msajce-edu.in, or the Co-Convener, the Principal, at Principal@msajce-edu.in.

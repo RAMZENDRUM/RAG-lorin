@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.64",
+    "@ai-sdk/groq": "^3.0.35",
     "@ai-sdk/openai": "latest",
     "@google/generative-ai": "^0.24.1",
     "@llamaindex/llama-cloud": "^2.4.1",
+    "@openrouter/ai-sdk-provider": "^2.8.0",
     "@qdrant/js-client-rest": "^1.7.0",
     "ai": "^6.0.168",
     "axios": "^1.6.0",

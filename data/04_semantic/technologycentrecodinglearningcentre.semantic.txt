@@ -1,0 +1,16 @@
+Here is the transformed data into clean, structured, chunk-optimized knowledge blocks:
+
+[SECTION: Introduction to Coding Learning Centre]
+The Mohamed Sathak A J College of Engineering has established a Coding Learning Centre to provide students with hands-on experience in programming languages such as C, C++, Java, and Python. The centre aims to make students competent data analysts or data scientists by learning Big Data and Hadoop. The centre also prepares students for competitive-based learning by participating in global level coding contests. This initiative is part of the college's effort to provide industry-relevant skills to its students.
+
+[SECTION: Objectives of the Coding Learning Centre]
+The Coding Learning Centre at Mohamed Sathak A J College of Engineering has several objectives, including designing and implementing software applications using C and C++ basic constructs. The centre also aims to develop software products for industries in various programming platforms and understand key issues in big data management. Additionally, the centre focuses on testing and debugging various software products effectively and developing real-time web and mobile applications.
+
+[SECTION: Partnership with CISCO]
+Mohamed Sathak A J College of Engineering has partnered with CISCO to establish the Networking Academy (NetAcad). The Networking Academy is an IT skills and career building program that provides unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. The program offers professional certification recognized by employers worldwide and career pathways to connect to an estimated eight million networking jobs around the world.
+
+[SECTION: Courses Offered]
+The Coding Learning Centre at Mohamed Sathak A J College of Engineering offers various courses, including Network Essentials, Mobility Fundamentals, and CCNA: Introduction to Networks. The centre also offers courses in Security, IoT & Data Analytics, OS and IT, Programming, and Entrepreneurship. These courses are designed to provide students with industry-relevant skills and knowledge in the field of computer science and engineering.
+
+[SECTION: Certifications]
+The Coding Learning Centre at Mohamed Sathak A J College of Engineering offers certifications such as CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and provide students with a competitive edge in the job market. The centre's focus on providing industry-relevant skills and certifications is part of its effort to make its students industry-ready.

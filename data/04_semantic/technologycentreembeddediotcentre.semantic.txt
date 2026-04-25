@@ -1,0 +1,16 @@
+Here is the cleaned and structured data:
+
+[SECTION: Introduction to Embedded & IoT Centre]
+The Mohamed Sathak A J College of Engineering has a dedicated Embedded & IoT Centre that offers various courses and training programs in the field of Internet of Things (IoT). The centre is equipped with the latest technologies and tools, including Arduino and Raspberry Pi. The centre's objective is to provide students with hands-on experience in designing and developing IoT systems.
+
+[SECTION: Courses Offered]
+The Embedded & IoT Centre offers a range of courses, including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, and CCNA: Switching, Routing, and Wireless Essentials. The centre also offers courses in IoT & Data Analytics, OS and IT, Programming, and Entrepreneurship. Dr. SRN Reddy, a renowned expert in the field of IoT, has authored a book titled "Introduction to Internet of Things: A practical Approach" that is recommended for students.
+
+[SECTION: Certifications]
+The centre provides opportunities for students to earn professional certifications, including CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and can open up career pathways for students. Vijay Madisetti, Arshdeep Bahga, and other experts in the field have written books on IoT that are suggested for further reading.
+
+[SECTION: Practical Experience]
+The centre provides students with hands-on experience in designing and developing IoT systems using Arduino and Raspberry Pi. Students can work on various projects, including interfacing LED/Buzzer, Push button/Digital sensor, DHT11 sensor, and motor using relay. They can also learn to write programs to upload and retrieve data from thingspeak cloud and create TCP and UDP servers. Pethuru Raj and Anupama C. Raman have written a book titled "The Internet of Things: Enabling Technologies, Platforms, and Use Cases" that provides further insight into the field.
+
+[SECTION: Resources]
+The centre provides access to various resources, including books, websites, and online courses. Some of the suggested books include "Internet of Things" by Jeeva Jose, "Designing the Internet of Things" by Adrian McEwen, and "Getting Started with the Internet of Things" by Cuno Pfister. The centre also recommends websites such as https://nptel.ac.in/courses/106105077 and https://aima.cs.berkeley.edu for further learning. Raj Kamal, an expert in the field, has written a book titled "Internet of Things: Architecture and Design" that is recommended for students.

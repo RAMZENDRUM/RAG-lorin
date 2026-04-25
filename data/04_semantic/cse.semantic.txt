@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to Computer Science and Engineering]
+The Computer Science and Engineering department at Mohamed Sathak A. J. College of Engineering is one of the most popular courses among engineering students. It focuses on programming, computation, analysis of algorithms, and software engineering to develop solid understanding of computer systems and accessories. Dr. MOHAN E, a Professor in the department, has a Ph.D. in Computer Science and Engineering and is responsible for teaching and research.
+
+[SECTION: Faculty Members]
+Dr. VIJAYARANGAN R, a Professor in the Computer Science and Engineering department, has a Ph.D. in Computer Science and Engineering and specializes in Network Security and Data Science. Dr. JEYANTHI S, an Associate Professor, has a Ph.D. in Computer Science and Engineering and specializes in Data Science and Machine Learning. Dr. PARAMESH J, a Professor, has a Ph.D. in Computer Science and Engineering and is known for his research in Artificial Intelligence.
+
+[SECTION: Course Curriculum]
+The Bachelor of Engineering in Computer Science and Engineering is a four-year course with eight semesters. The course covers topics such as Programming in C, Data Structures, Computer Organization, and Software Engineering. The department also offers a Master of Engineering in Computer Science and Engineering, which is a two-year course with four semesters. Dr. NAGASUBRAMANIAN R, a Professor, teaches courses on Network Security and Data Science.
+
+[SECTION: Research and Development]
+The Computer Science and Engineering department has a strong research focus, with faculty members publishing papers in international conferences and journals. The department also has a number of research labs, including the C Programming Lab, Internet Programming Lab, and Operating Systems Lab. Mr. VIMALATHITHAN S, an Assistant Professor, is responsible for the C Programming Lab and has a specialization in Image Security and Network Security.
+
+[SECTION: Career Opportunities]
+The employment opportunities for Computer Science and Engineering graduates are highly promising, with a growing demand for technological innovation across multiple industries. Dr. PREMALATHA M, an Associate Professor, has a Ph.D. in Computer Science and Engineering and specializes in Artificial Intelligence and Image Processing. The department has a strong placement record, with many students being placed in top companies such as TCS, Infosys, and Wipro.
+
+[SECTION: Alumni and Industry Connections]
+The Computer Science and Engineering department has a strong alumni network, with many graduates going on to work in top companies or start their own businesses. The department also has strong industry connections, with many companies visiting the campus for recruitment. Mrs. AISHWARYA M S, an Assistant Professor, has a specialization in Artificial Intelligence and Web Technology and is responsible for maintaining industry connections.

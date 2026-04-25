@@ -1,0 +1,16 @@
+Here is the cleaned and structured data in the required format:
+
+[SECTION: Introduction to Cyber Security Academy]
+The Cyber Security Academy at Mohamed Sathak A J College of Engineering is a partnered program with CISCO, the world leaders in networking, to establish the Networking Academy (NetAcad). This program provides students with unique hands-on learning experiences in the latest networking, security, and cloud technologies using simulation tools. The academy offers professional certification recognized by employers worldwide and career pathways to connect to an estimated eight million networking jobs around the world through Netacad. Dr. ELLISS YOGESH R is not mentioned in the provided data, however, the program is led by experienced faculty members.
+
+[SECTION: Courses Offered]
+The Cyber Security Academy offers a range of courses, including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, CCNA: Switching, Routing, and Wireless Essentials, and CCNA: Enterprise Networking, Security and Automation. Additionally, the academy offers Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship. These courses are designed to provide students with a comprehensive understanding of cyber security concepts and practices.
+
+[SECTION: Certifications]
+The Cyber Security Academy offers certifications such as CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and provide students with a competitive edge in the job market. The certifications are awarded to students who successfully complete the program and demonstrate a thorough understanding of cyber security concepts and practices.
+
+[SECTION: Fundamentals of Cyber Security]
+The Fundamentals of Cyber Security course covers security trends, legal, ethical, and professional aspects of security, and the need for security at multiple levels. The course also covers security policies, model of network security, and OSI security architecture. Students learn about the importance of security in the digital age and how to protect against cyber threats. The course is taught by experienced faculty members who have expertise in cyber security.
+
+[SECTION: Cyber Security Concepts]
+The Cyber Security Concepts course covers classical encryption techniques, substitution techniques, transposition techniques, steganography, and foundations of modern cryptography. Students also learn about essential terminologies such as CIA, risks, breaches, threats, attacks, and exploits. The course provides students with a comprehensive understanding of cyber security concepts and practices, and how to apply them in real-world scenarios. The faculty members use case studies and examples to illustrate key concepts and principles.

@@ -1,0 +1,13 @@
+Here is the transformed data in the required format:
+
+[SECTION: Governing Council]
+The Governing Council of Mohamed Sathak A.J. College of Engineering is led by Alhaj. S.M. Yousuf Sahib, who serves as the Chairman of the Mohamed Sathak Trust, Chennai. Janaba. S.M.H. Sharmila is the Secretary of the Mohamed Sathak Trust, Chennai, and a member of the council. Janab. P.R.L. Hamid Ibrahim, Executive Director of the Mohamed Sathak Trust, Chennai, is also a member of the council.
+
+[SECTION: University Nominees]
+Dr. T.V. Gopal, Professor of Computer Science and Engineering at Anna University, Chennai, serves as the University Nominee on the Governing Council. Dr. S. Murugavel, Professor at TPGIT Vellore, is the DOTE Nominee on the council.
+
+[SECTION: Members]
+The Governing Council also includes members from various industries and institutions, including Dr. B. Anbu Thambi, Head of Strategy and Partnerships at L & T EduTech, Chennai, and Mr. Arul Rajkumar, VP of IT Operations at Ford Motors Pvt. Ltd. Dr. R. Subramani, Director at IBM, Chennai, and Dr. G. Kulanthaivelu, Professor and Head of ECE at NITTTR, Chennai, are also members of the council.
+
+[SECTION: College Representatives]
+The Principal of MSAJCE, Chennai, serves as the Member Secretary of the Governing Council. Other college representatives on the council include the Head of Administration, Head of Academics, Head of IQAC, Head of Admission, Head of Student Affairs, Head of Research, and Head of Examcell, all from MSAJCE, Chennai.

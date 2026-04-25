@@ -1,0 +1,19 @@
+Here is the structured and formatted output:
+
+[SECTION: Introduction to MSAJCE]
+MSAJCE, or Mohamed Sathak A. J. College of Engineering, is a renowned institution offering various engineering programs, including Artificial Intelligence and Machine Learning. The college is committed to providing quality education and fostering innovation. Dr. Nagasubramanian R, the Head of PG, and Dr. Subramanian P, the Head of UG, are some of the key faculty members.
+
+[SECTION: Artificial Intelligence and Machine Learning Department]
+The Department of Artificial Intelligence and Machine Learning at MSAJCE is dedicated to providing students with a comprehensive understanding of AI and ML concepts. The department offers a B.Tech program in CSE with specialization in AIML, which is an ideal choice for students who want to enhance their knowledge of computer technologies. Dr. Premalatha G, an Associate Professor, specializes in Image Processing and Machine Learning, while Mrs. Saranya V, an Assistant Professor, has expertise in IoT and Cloud Computing.
+
+[SECTION: Faculty Members]
+The faculty members at MSAJCE are highly qualified and experienced. Dr. Nagasubramanian R is the Head of PG, and his area of specialization is Computer Science Engineering. Dr. Subramanian P is the Head of UG, and his area of specialization is Wireless Sensor Networking and Image Processing. Other notable faculty members include Mrs. Sasikala L, Mrs. Kiruthika S, and Mr. Praveenkumar P, who are all Assistant Professors in the Computer Science and Engineering department.
+
+[SECTION: Program Educational Objectives]
+The Program Educational Objectives (PEOs) of the B.Tech program in CSE with specialization in AIML at MSAJCE include preparing graduates for analyzing, designing, developing, and testing software solutions and products with creativity and sustainability. The program also aims to equip graduates with managerial and leadership skills for their careers and future endeavors. The PEOs are designed to ensure that graduates are industry-ready and can apply their knowledge and skills to real-world problems.
+
+[SECTION: Placement Details]
+MSAJCE has a strong placement record, with many students being placed in top companies. The college has a dedicated placement cell that works closely with industry partners to provide job opportunities for students. Some of the top recruiters include Google, Microsoft, Amazon, and TCS. The placement process is designed to ensure that students are well-prepared for the industry and can make a smooth transition from academia to professional life.
+
+[SECTION: Infrastructure]
+MSAJCE has a state-of-the-art infrastructure, with modern labs, classrooms, and library facilities. The college is located in a sprawling campus in Chennai, with easy access to public transportation. The infrastructure is designed to provide students with a comfortable and conducive learning environment, with all the necessary amenities and resources. The college also has a strong focus on research and development, with many research projects and collaborations with industry partners.

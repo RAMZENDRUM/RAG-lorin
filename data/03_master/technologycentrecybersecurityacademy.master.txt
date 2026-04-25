@@ -1,0 +1,117 @@
+--- SOURCE: https://www.msajce-edu.in/technologycentrecybersecurityacademy.php ---
+MSAJCE | Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
+Teachers & Engineers Day 2025 Celebration Photos New |
+Internship Report Format - 2025 New |
+Internship Report Format - 2025 - Download Here |
+18th Graduation Day 22 Feb 2025 Photos New |
+Admission 2026 - 2027 Flyer New |
+AICTE-ATAL Sponsored Six Days FDP New |
+17th Graduation Day Photos New |
+Admission Open 2026-2027 - Online Application Form |
+Grievance Cell - grievance@msajce-edu.in |
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal New
+Grievance and Redressal Committee
+Cyber Security Academy – Palo Alto Systems
+Cyber Security Academy – Palo Alto Systems
+Essentials I & II: learn the general security concepts involved in maintaining a secure network computing environment,the nature and scope of today’s cybersecurity challenges, strategies for network defense & next-generation cybersecurity solutions.
+Cyber Security Foundation:learn the fundamentals of cybersecurity, identify the concepts required to recognize and potentially mitigate attacks against enterprise networks & mission critical infrastructure.
+Gateway I &II : Learn fundamental tenants of networking and concepts involved in maintaining a secure network computing environment.
+Formulate an industry-standard design to protect infrastructure against cybersecurity threats, Apply advanced filtering methodologies such as user, application, and content ID to protect against all known and unknown attack vectors,deploy a variety of security methodologies as well as technologies and concepts used for implementing a secure network environment.
+Cyber Security Foundation:Apply the fundamentals of cybersecurity, identify the concepts required to recognize and potentially mitigate attacks against enterprise networks & mission critical infrastructure.
+Gateway 1 : Demonstrate knowledge of interconnected technology in daily communication, Identify systems that need protection , Apply physical, logical, and virtual addressing to various sized networks through the use of subnet mask schemes.
+Examine cybersecurity landscape environments, attack threat vectors, exposure, vulnerabilities, and risk factors, • Apply the knowledge and skills necessary to plan, design, implement, troubleshoot, and maintain network infrastructure environmentsn.
+Essentials II:Demonstrate ability to assess and harden endpoints based on security policies, use
+advanced malware research and analysis to provide enhanced protection for enterprise networks, Examine mobile and cloud-based connection technologies.
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking to establish
+the Networking Academy(NetAcad).
+Cisco Networking Academy is an IT skills and career building program which provides
+Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools
+Professional certification recognized by employers worldwide
+Career pathways to connect to an estimated eight million networking jobs around the world through Netacad
+CCNA: Switching, Routing, and Wireless Essentials
+CCNA: Enterprise Networking, Security and Automation
+CISCO Certified Network Associate
+Implementing CISCO Enterprise Network Core Technologies
+Fundamentals of cyber security (4 hours)
+Security trends – Legal, Ethical and Professional Aspects of Security,
+Need for Security at Multiple levels, Security Policies – Model of network
+security - OSI security architecture.
+Classical encryption techniques: substitution techniques,
+transposition techniques, steganography- Foundations of modern cryptography:
+perfect security – information theory – product cryptosystem – cryptanalysis.
+Essential Terminologies: CIA, Risks, Breaches, Threats, Attacks, Exploits.
+Information Gathering (Social Engineering, Foot Printing & Scanning).
+like nmap, zenmap, Port Scanners, Network scanners.
+Asymmetric key Cryptography-Message Authentication, Digital
+Signatures, Applications of Cryptography. Overview of Firewalls- Types of
+Firewalls, User Management, VPN Security
+Calculate the message digest of a text using the SHA-1 algorithm.
+Infrastructure based security (6 Hours)
+Network packet Sniffing, Network Design Simulation. DOS/ DDOS attacks.
+Asset Management and Audits, Vulnerabilities and Attacks. Intrusion detection
+and Prevention Techniques, Host based Intrusion prevention Systems, Security
+Information Management, Network Session Analysis, System Integrity
+Implement the sniffing using any tool.
+Demonstrate intrusion detection system (ids) using any tool eg. Snort
+Automated Attack and Penetration Tools Exploring N-Stalker
+Explanation of Malware, Types of Malware: Virus, Worms, Trojans,
+Rootkits, Robots, Adware’s, Spywares, Ransom wares, Zombies etc., OS Hardening
+(Process Management, Memory Management, Task Management, Windows Registry/
+services another configuration), Malware Analysis.
+3. IGNOU security certificate c
+AICTE Scholarship/Fellowship Schemes
+© 2023 MSAJCE All Rights Reserved | 1635387 Visitors
+| Essentials I & II: learn the general security concepts involved in maintaining a secure network computing environment,the nature and scope of today’s cybersecurity challenges, strategies for network defense & next-generation cybersecurity solutions.
+| Cyber Security Foundation:learn the fundamentals of cybersecurity, identify the concepts required to recognize and potentially mitigate attacks against enterprise networks & mission critical infrastructure.
+| Gateway I &II : Learn fundamental tenants of networking and concepts involved in maintaining a secure network computing environment.
+| Essentials I : Formulate an industry-standard design to protect infrastructure against cybersecurity threats, Apply advanced filtering methodologies such as user, application, and content ID to protect against all known and unknown attack vectors,deploy a variety of security methodologies as well as technologies and concepts used for implementing a secure network environment.
+| Cyber Security Foundation:Apply the fundamentals of cybersecurity, identify the concepts required to recognize and potentially mitigate attacks against enterprise networks & mission critical infrastructure.
+| Gateway 1 : Demonstrate knowledge of interconnected technology in daily communication, Identify systems that need protection , Apply physical, logical, and virtual addressing to various sized networks through the use of subnet mask schemes.
+| Gateway II : Examine cybersecurity landscape environments, attack threat vectors, exposure, vulnerabilities, and risk factors, • Apply the knowledge and skills necessary to plan, design, implement, troubleshoot, and maintain network infrastructure environmentsn.
+| Essentials II:Demonstrate ability to assess and harden endpoints based on security policies, use advanced malware research and analysis to provide enhanced protection for enterprise networks, Examine mobile and cloud-based connection technologies.
+| Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools
+| Professional certification recognized by employers worldwide
+| Career pathways to connect to an estimated eight million networking jobs around the world through Netacad
+| CCNA: Introduction to Networks
+| CCNA: Switching, Routing, and Wireless Essentials
+| CCNA: Enterprise Networking, Security and Automation OR Networking Courses
+| CISCO Certified Network Associate
+| Implementing CISCO Enterprise Network Core Technologies
+| Essentials I & II: learn the general security concepts involved in maintaining a secure network computing environment,the nature and scope of today’s cybersecurity challenges, strategies for network defense & next-generation cybersecurity solutions. | |
+| Cyber Security Foundation:learn the fundamentals of cybersecurity, identify the concepts required to recognize and potentially mitigate attacks against enterprise networks & mission critical infrastructure. | |
+| Gateway I &II : Learn fundamental tenants of networking and concepts involved in maintaining a secure network computing environment. |
+### The students will be able to
+| Essentials I : Formulate an industry-standard design to protect infrastructure against cybersecurity threats, Apply advanced filtering methodologies such as user, application, and content ID to protect against all known and unknown attack vectors,deploy a variety of security methodologies as well as technologies and concepts used for implementing a secure network environment. | |
+| Cyber Security Foundation:Apply the fundamentals of cybersecurity, identify the concepts required to recognize and potentially mitigate attacks against enterprise networks & mission critical infrastructure. | |
+| Gateway 1 : Demonstrate knowledge of interconnected technology in daily communication, Identify systems that need protection , Apply physical, logical, and virtual addressing to various sized networks through the use of subnet mask schemes. | |
+| Gateway II : Examine cybersecurity landscape environments, attack threat vectors, exposure, vulnerabilities, and risk factors, • Apply the knowledge and skills necessary to plan, design, implement, troubleshoot, and maintain network infrastructure environmentsn. | |
+| Essentials II:Demonstrate ability to assess and harden endpoints based on security policies, use advanced malware research and analysis to provide enhanced protection for enterprise networks, Examine mobile and cloud-based connection technologies. |
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking to establish
+the Networking Academy(NetAcad).
+Cisco Networking Academy is an IT skills and career building program which provides
+| Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools | |
+| Professional certification recognized by employers worldwide | |
+| Career pathways to connect to an estimated eight million networking jobs around the world through Netacad |
+| CCNA: Introduction to Networks | |
+| CCNA: Switching, Routing, and Wireless Essentials | |
+CCNA: Enterprise Networking, Security and Automation OR Networking Courses |
+| IoT & Data Analytics Courses | |
+| CISCO Certified Network Associate | |
+| Implementing CISCO Enterprise Network Core Technologies |
+**Fundamentals of cyber security (4 hours)**
+Security trends – Legal, Ethical and Professional Aspects of Security, Need for Security at Multiple levels, Security Policies – Model of network security - OSI security architecture.
+**Cyber Security Concepts (4 Hours)**
+Classical encryption techniques: substitution techniques, transposition techniques, steganography- Foundations of modern cryptography: perfect security – information theory – product cryptosystem – cryptanalysis. Essential Terminologies: CIA, Risks, Breaches, Threats, Attacks, Exploits. Information Gathering (Social Engineering, Foot Printing & Scanning).
+Lab session using Tools like nmap, zenmap, Port Scanners, Network scanners.
+**Security algorithms (4 hours)**
+Asymmetric key Cryptography-Message Authentication, Digital Signatures, Applications of Cryptography. Overview of Firewalls- Types of Firewalls, User Management, VPN Security
+Calculate the message digest of a text using the SHA-1 algorithm.
+**Infrastructure based security (6 Hours)**
+Network packet Sniffing, Network Design Simulation. DOS/ DDOS attacks. Asset Management and Audits, Vulnerabilities and Attacks. Intrusion detection and Prevention Techniques, Host based Intrusion prevention Systems, Security Information Management, Network Session Analysis, System Integrity Validation
+Implement the sniffing using any tool.
+Demonstrate intrusion detection system (ids) using any tool eg. Snort or any other s/w.
+Automated Attack and Penetration Tools Exploring N-Stalker
+Explanation of Malware, Types of Malware: Virus, Worms, Trojans, Rootkits, Robots, Adware’s, Spywares, Ransom wares, Zombies etc., OS Hardening (Process Management, Memory Management, Task Management, Windows Registry/ services another configuration), Malware Analysis.
+1. Anna University CNS Lab syllabus
+2. AICTE emerging technology syllabus
+3. IGNOU security certificate c

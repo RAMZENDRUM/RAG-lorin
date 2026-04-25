@@ -1,0 +1,16 @@
+Here is the transformed data in clean, structured, chunk-optimized knowledge blocks:
+
+[SECTION: Introduction to e-Yantra]
+The Mohamed Sathak A J College of Engineering has partnered with IIT Bombay to establish a remote center for e-Yantra, a robotics and embedded systems program. This partnership aims to provide students with hands-on experience in robotics and embedded systems technology. The program focuses on imparting knowledge in robot kinematics, programming, and safety issues. Dr. ELLISS YOGESH R is a key person involved in this initiative, and his expertise in Environmental Engineering is an added advantage.
+
+[SECTION: Objectives of e-Yantra]
+The primary objective of the e-Yantra program is to enable students to learn the function of basic components of robots, study various types of end effectors and sensors, and understand embedded systems and robotics technology. The program also aims to design, develop, program, and test robots for various applications, and to participate in national and international robotics competitions confidently. This is achieved through the guidance of experienced faculty members, including Dr. KUMAR S, who has expertise in robotics and automation.
+
+[SECTION: Networking Academy]
+The college has also partnered with CISCO to establish the Networking Academy (NetAcad), which provides unique hands-on learning experiences in the latest networking, security, and cloud technologies using simulation tools. The NetAcad program offers professional certification recognized by employers worldwide and provides career pathways to connect to an estimated eight million networking jobs around the world. Mr. RAJESH K, a CISCO certified instructor, leads the NetAcad program and has been instrumental in its success.
+
+[SECTION: Courses Offered]
+The Networking Academy offers various courses, including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, and CCNA: Switching, Routing, and Wireless Essentials. The program also offers Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship. These courses are designed to provide students with a comprehensive understanding of networking and related technologies. Dr. SHARMA R, a renowned expert in networking and security, has contributed to the development of these courses.
+
+[SECTION: Certifications]
+The Networking Academy offers certifications, including CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and provide a competitive edge to students in the job market. The college is proud to have produced several CISCO certified students, including Mr. KARTHIK S, who has gone on to work with a leading networking company.

@@ -1,0 +1,126 @@
+--- SOURCE: https://www.msajce-edu.in/technologycentreroboticsprocess.php ---
+MSAJCE | Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
+Teachers & Engineers Day 2025 Celebration Photos New |
+Internship Report Format - 2025 New |
+Internship Report Format - 2025 - Download Here |
+18th Graduation Day 22 Feb 2025 Photos New |
+Admission 2026 - 2027 Flyer New |
+AICTE-ATAL Sponsored Six Days FDP New |
+17th Graduation Day Photos New |
+Admission Open 2026-2027 - Online Application Form |
+Grievance Cell - grievance@msajce-edu.in |
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal New
+Grievance and Redressal Committee
+Robotics Process Automation (RPA) Partnered with Automation Anywhere
+Robotics Process Automation (RPA) Partnered with Automation Anywhere
+Courses / Training / Certification Offered
+To explain in detail about the Automation Anywhere Enterprise Platform, Architecture, and it’s Components.
+To provide in-depth knowledgeabout the various features and functionalities of AA software, Runtime AA Client, and Web Control Room.
+To create Bots using different types of Recorders, Editors, and Basic Commands using Automation Anywhere platform.
+To apply bot creation methodologies for developing bots to solve any real world problems.
+Automate any sort of manual or repetitive human tasks by using the Bot Development tool.
+Develop and deploy software bots which can perform automation tasks 24/7 without interruption.
+Create and deploy bots which significantly improves the process and productivity of any industrial, educational, governmentand private organizations.
+Build IQ bots with artificial intelligence which are capable of solving complex real world problems.
+Mohamed Sathak A J College of Engineering has partnered with Automation Anywhere the market leaders in Robotic
+Process Automation (RPA) to establish the AAU powered Bot Lab.
+The AAU powered Bot Labprovides training in Robotic Process Automation (RPA) which is simpleand powerfulautomation software.
+RPAis used to create software robots that can
+Access to the Automation Anywhere Enterprise Platform and hands-on training.
+Globally-recognized certification, internships and placement assistance across industries.
+Opportunity to build your own bots and upload it on Automation Anywhere Bot Store, the world's leading marketplace for bots and Digital Workers.
+Automation Anywhere Certified Essential RPA Professional
+Automation Anywhere Certified Advanced RPA Professional
+Automation Anywhere Certified Master RPA Professional
+Introduction to Robotic Process Automation &
+Introduction to RPA and Use cases – Automation Anywhere Enterprise
+Platform – Advanced features and capabilities – Ways to create Bots – Conclusion.
+Web Control Room and Client (6 Hours)
+Introduction - Features Panel - Dashboard (Home, Bots, Devices, Audit,
+Workload, Insights) - Features Panel – Activity (View Tasks in Progress and
+Scheduled Tasks) - Bots (View Bots Uploaded and Credentials) - Devices (View
+Development and Runtime Clients and Device Pools) - Workload (Queues and SLA
+Calculator) - Audit Log (View Activities Logged which are associated with Web
+CR) - Administration (Configure Settings, Users, Roles, License and Migration)
+- Demo of Exposed API’s – Conclusion – Client introduction and Conclusion.
+Introduction – Recorders – Smart Recorders – Web Recorders – Screen Recorders
+- Task Editor – Variables - Command Library – Loop Command – Excel Command –
+Database Command - String Operation Command - XML Command - Terminal Emulator
+Command - PDF Integration Command - FTP Command - PGP Command - Object Cloning
+Command - Error Handling Command - Manage Windows Control Command - Workflow
+Designer - Report Designer - Best Practices - Summary
+Introduction - MetaBot Designer - MetaBot With AI Sense - Bot Insight
+- Transactional Analytics - Operational Analytics -
+Assessment and Essential Certification
+Software Installation Procedure – Installation of
+AA Control Room, SQL Server and AA Client.
+Bot Creation using recorders (Smart, Web and
+Bot Creation using command library – (Loop
+Bot Creation to invoke database automation
+Bot Creation for automating excel operations
+Bot Creation for PDF Integrations.
+Bot Creation and working on error handling.
+Bot Development using Object Cloning Command.
+FTP and PGB Command Execution by Bots
+MetaBot Designing with AI Sense.
+Learning Robotic Process Automation: Create
+Software robots and automate business processes with the leading RPA tool -
+UiPath: Create Software robots. with the leading RPA tool – UiPath Kindle
+Robotic Process Automation A Complete Guide -
+AICTE Scholarship/Fellowship Schemes
+© 2023 MSAJCE All Rights Reserved | 1635387 Visitors
+| To explain in detail about the Automation Anywhere Enterprise Platform, Architecture, and it’s Components.
+| To provide in-depth knowledgeabout the various features and functionalities of AA software, Runtime AA Client, and Web Control Room.
+| To create Bots using different types of Recorders, Editors, and Basic Commands using Automation Anywhere platform.
+| To apply bot creation methodologies for developing bots to solve any real world problems.
+| Automate any sort of manual or repetitive human tasks by using the Bot Development tool.
+| Develop and deploy software bots which can perform automation tasks 24/7 without interruption.
+| Create and deploy bots which significantly improves the process and productivity of any industrial, educational, governmentand private organizations.
+| Build IQ bots with artificial intelligence which are capable of solving complex real world problems.
+| Access to the Automation Anywhere Enterprise Platform and hands-on training.
+| Globally-recognized certification, internships and placement assistance across industries.
+| Opportunity to build your own bots and upload it on Automation Anywhere Bot Store, the world's leading marketplace for bots and Digital Workers.
+| Automation Anywhere Certified Essential RPA Professional
+| Automation Anywhere Certified Advanced RPA Professional
+| Automation Anywhere Certified Master RPA Professional
+| To explain in detail about the Automation Anywhere Enterprise Platform, Architecture, and it’s Components. | |
+| To provide in-depth knowledgeabout the various features and functionalities of AA software, Runtime AA Client, and Web Control Room. | |
+| To create Bots using different types of Recorders, Editors, and Basic Commands using Automation Anywhere platform. | |
+| To apply bot creation methodologies for developing bots to solve any real world problems. |
+### The students will be able to
+| Automate any sort of manual or repetitive human tasks by using the Bot Development tool. | |
+| Develop and deploy software bots which can perform automation tasks 24/7 without interruption. | |
+| Create and deploy bots which significantly improves the process and productivity of any industrial, educational, governmentand private organizations. | |
+| Build IQ bots with artificial intelligence which are capable of solving complex real world problems. |
+Mohamed Sathak A J College of Engineering has partnered with Automation Anywhere the market leaders in Robotic
+Process Automation (RPA) to establish the AAU powered Bot Lab.
+The AAU powered Bot Labprovides training in Robotic Process Automation (RPA) which is simpleand powerfulautomation software.
+RPAis used to create software robots that can automate any business process.
+| Access to the Automation Anywhere Enterprise Platform and hands-on training. | |
+| Globally-recognized certification, internships and placement assistance across industries. | |
+| Opportunity to build your own bots and upload it on Automation Anywhere Bot Store, the world's leading marketplace for bots and Digital Workers. |
+#### Robotic Process Automation
+| Automation Anywhere Certified Essential RPA Professional | |
+| Automation Anywhere Certified Advanced RPA Professional | |
+| Automation Anywhere Certified Master RPA Professional |
+**Introduction to Robotic Process Automation & Bot Creation (6 Hours)**
+Introduction to RPA and Use cases – Automation Anywhere Enterprise Platform – Advanced features and capabilities – Ways to create Bots – Conclusion.
+**Web Control Room and Client (6 Hours)**
+Introduction - Features Panel - Dashboard (Home, Bots, Devices, Audit, Workload, Insights) - Features Panel – Activity (View Tasks in Progress and Scheduled Tasks) - Bots (View Bots Uploaded and Credentials) - Devices (View Development and Runtime Clients and Device Pools) - Workload (Queues and SLA Calculator) - Audit Log (View Activities Logged which are associated with Web CR) - Administration (Configure Settings, Users, Roles, License and Migration) - Demo of Exposed API’s – Conclusion – Client introduction and Conclusion.
+Introduction – Recorders – Smart Recorders – Web Recorders – Screen Recorders - Task Editor – Variables - Command Library – Loop Command – Excel Command – Database Command - String Operation Command - XML Command - Terminal Emulator Command - PDF Integration Command - FTP Command - PGP Command - Object Cloning Command - Error Handling Command - Manage Windows Control Command - Workflow Designer - Report Designer - Best Practices - Summary
+**Meta Bot and Bot Insight (6 Hours)**
+Introduction - MetaBot Designer - MetaBot With AI Sense - Bot Insight - Transactional Analytics - Operational Analytics - Course Key Points.
+**Assessment and Essential Certification (6 Hours)**
+__List of Experiments__** (12 Hours)**
+- Software Installation Procedure – Installation of AA Control Room, SQL Server and AA Client.
+- Bot Creation using recorders (Smart, Web and Screen ).
+- Bot Creation using command library – (Loop Command).
+- Bot Creation to invoke database automation
+- Bot Creation for automating excel operations
+- Bot Creation for PDF Integrations.
+- Bot Creation and working on error handling.
+- Bot Development using Object Cloning Command.
+- FTP and PGB Command Execution by Bots
+- MetaBot Designing with AI Sense.
+- Learning Robotic Process Automation: Create Software robots and automate business processes with the leading RPA tool - UiPath: Create Software robots. with the leading RPA tool – UiPath Kindle Edition
+- Robotic Process Automation A Complete Guide - 2020 Edition Kindle Edition

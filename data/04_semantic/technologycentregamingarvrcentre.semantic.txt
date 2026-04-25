@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to AR and VR Centre]
+The Mohamed Sathak A J College of Engineering has established a Technology Centre, which includes a Gaming and AR/VR Centre. This centre provides students with hands-on experience in the latest technologies, including augmented and virtual reality. The centre's objective is to provide an overview of the concepts and working of AR-VR techniques. The students will be able to learn about the technical and design aspects of AR and VR.
+
+[SECTION: Courses Offered]
+The Gaming and AR/VR Centre offers various courses, including Network Essentials, Mobility Fundamentals, and CCNA: Introduction to Networks. The centre also provides certifications, such as CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These courses and certifications are designed to provide students with the skills and knowledge required to succeed in the industry.
+
+[SECTION: Virtual Reality Courses]
+The centre offers several courses related to virtual reality, including Introduction to Virtual Reality, Interactive Techniques in Virtual Reality, and Visual Computation in Virtual Reality. These courses cover topics such as computer graphics, real-time computer graphics, and flight simulation. The students will be able to develop basic applications considering the technical and design aspects of AR and VR.
+
+[SECTION: Augmented and Mixed Reality]
+The centre also offers courses on Augmented and Mixed Reality, which cover topics such as taxonomy, technology, and features of augmented reality. The students will be able to design various applications in the field like Gaming, Architecture, Manufacturing, Retail, and Healthcare. The centre's resources include textbooks, online resources, and AICTE-approved courses.
+
+[SECTION: Practical Sessions]
+The centre provides practical sessions, including developing architecture of a house using Virtual Reality, performing CRO-based experiments, and undertaking qualitative analysis in Chemistry. The students will be able to explore human anatomy, simulate circulation of blood in the heart, and build electronic circuits using Virtual Reality. These practical sessions are designed to provide students with hands-on experience in the latest technologies.
+
+[SECTION: Resources]
+The centre's resources include textbooks, such as "Virtual Reality Technology" by Burdea and Coffet, and online resources, such as www.vresources.org and www.vrac.iastate.edu. The centre also has partnerships with institutions, such as IIT Varanasi, India, and AICTE. These resources provide students with access to the latest information and technologies in the field of AR and VR.

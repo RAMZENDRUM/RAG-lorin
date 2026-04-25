@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to MSAJCE]
+Mohamed Sathak A. J. College of Engineering, also known as MSAJCE, is a top engineering college in Chennai. The college offers various programs, including B.E, B.Tech, M.E, and Admissions. MSAJCE has a strong focus on research and development, with a dedicated research center and various research initiatives.
+
+[SECTION: Academic Departments]
+The college has several academic departments, including Civil Engineering, Computer Science and Engineering, Electrical and Electronic Engineering, Electronic and Communication Engineering, Mechanical Engineering, Information Technology, Artificial Intelligence and Data Science, Computer Science and Business Systems, and Computer Science and Engineering with a specialization in Cyber Security. These departments offer a range of programs and specializations, including HONOR and MINOR programs.
+
+[SECTION: Faculty and Staff]
+Dr. ELLISS YOGESH R is a Professor in the Civil Engineering department, specializing in Environmental Engineering. The college also has a team of experienced faculty members and staff, including Principals, Governing Council members, and committee members, who work together to ensure the smooth operation of the college.
+
+[SECTION: Campus and Facilities]
+The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. The campus has a range of facilities, including a library, hostel, transport, sports, and campus radio. The college also has a strong focus on social services and has various clubs and societies, including professional societies and alumni associations.
+
+[SECTION: Research and Development]
+The college has a dedicated research center and various research initiatives, including a Technology Centre and a Centre of Excellence. The college also offers various research programs and has a strong focus on innovation and entrepreneurship, with an incubation center and various industry partnerships.
+
+[SECTION: Contact and Admission]
+For more information about the college and its programs, please contact the admission office at +91 99400 04500 or email msajce.office@gmail.com. The college also has an online application form and fee payment system, making it easy for students to apply and enroll in their desired programs.

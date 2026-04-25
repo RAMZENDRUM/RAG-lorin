@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: About the College]
+The Mohamed Sathak A. J. College of Engineering is a top engineering college in Chennai, approved by Anna University and AICTE. The college offers various programs such as B.E, B.Tech, M.E, and has a strong focus on research and development. Dr. AMMU QUDSIYA A is an Associate Professor at the college, having joined on 22.12.2022 with a Ph.D. qualification. Dr. BALAKRISHNAN A is another Associate Professor, who has been with the college since 15.07.2013, also holding a Ph.D. degree.
+
+[SECTION: Department of Science and Humanities]
+The Department of Science and Humanities was established in the year 2000 and provides a strong foundation for students to pursue their engineering careers. The department has well-experienced faculty members, including Dr. KAVITHA J, who joined on 24.07.2023 as an Assistant Professor with a Ph.D. qualification. Mrs. SAIPRIYA K is another Assistant Professor, who has been with the department since 27.06.2016, holding an M.Phil. degree.
+
+[SECTION: Faculty Members]
+The college has a diverse group of faculty members, including Dr. RAMYA B, who joined on 03.08.2023 as an Assistant Professor with a Ph.D. qualification. Mrs. SHOBANA V is another Assistant Professor, who has been with the college since 11.10.2019, holding an M.Phil. degree. Dr. MUTHUMARI M is an Assistant Professor, who joined on 23.08.2023 with a Ph.D. qualification.
+
+[SECTION: Programs Offered]
+The college offers various programs, including B.E in Mechanical Engineering, which is a 4-year regular program with 8 semesters. The program has an intake of 120 students, with 60 seats under government quota and 60 under management quota. Dr. AMUDHA S is an Assistant Professor, who has been with the college since 22.05.2023, holding a Ph.D. degree.
+
+[SECTION: Research and Development]
+The college has a strong focus on research and development, with various research projects and collaborations. Dr. RESHMI K V is an Assistant Professor, who joined on 29.08.2022 with an M.Phil. qualification. Dr. NAZEEMA A is another Assistant Professor, who joined on 20.3.2024 with a Ph.D. qualification.
+
+[SECTION: Placement Details]
+The college has a good placement record, with many students placed in various companies. The placement details for the years 2018-2019, 2017-2018, 2016-2017, and 2015-2016 are available on the college website. Mrs. BARVEEN FATHIMA M is an Assistant Professor, who has been with the college since 01.03.2022, holding an M.Phil. degree. Dr. BALAJI D is an Associate Professor, who joined on 23.10.2019 with a Ph.D. qualification.

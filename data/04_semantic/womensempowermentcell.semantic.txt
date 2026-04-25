@@ -1,0 +1,13 @@
+Here is the transformed data in the required format:
+
+[SECTION: Women's Empowerment Cell]
+The Women's Empowerment Cell at Mohamed Sathak A. J. College of Engineering is dedicated to promoting gender equality and empowering women. Mrs. S. Sudha, an Assistant Professor in the Mathematics department, serves as the Coordinator of the cell. She can be reached at sh.sudha@msajce-edu.in. The cell aims to create a supportive environment for women students and staff.
+
+[SECTION: Cell Members]
+The Women's Empowerment Cell has a team of dedicated members, including Mrs. Janaki, an Assistant Professor in the Civil Engineering department, who can be contacted at civil.janaki@msajce-edu.in. Other members include Ms. S. Usha, an Assistant Professor in the English department, who can be reached at sh.usha@msajce-edu.in, and Mrs. S. Abida Begam, an Assistant Professor in the Electronics and Communication Engineering department, who can be contacted at ece.abida@msajce-edu.in.
+
+[SECTION: Student Representatives]
+The Women's Empowerment Cell also has student representatives, including Ms. Abinaya Bharathi, a fourth-year student in the Computer Science and Engineering department, and Ms. Abinaya, a third-year student in the Electronics and Communication Engineering department. These students play a vital role in promoting the cell's objectives and activities among their peers.
+
+[SECTION: Contact Information]
+For more information about the Women's Empowerment Cell, you can contact Mrs. Muthu Pandeeswari, an Assistant Professor in the Computer Science and Engineering department, at cse.muthupandeeswari@msajce-edu.in, or Ms. Gayathri, an Assistant Professor in the Electrical and Electronics Engineering department, at eee.gayathri@msajce-edu.in. Additionally, Mrs. N. Sathya, an Assistant Professor in the Mathematics department, can be reached at sh.sathya@msajce-edu.in.

@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to MSAJCE]
+The Mohamed Sathak A J College of Engineering is an institution that offers various courses in engineering and technology. The college is approved by AICTE and has a strong focus on skill development and industry readiness. Dr. ELLISS YOGESH R is not mentioned in the provided data, however, the college has a team of dedicated faculty members who work towards providing quality education to students.
+
+[SECTION: Kaushal Augmentation and Restructuring Mission of AICTE (KARMA)]
+AICTE has initiated the Kaushal Augmentation and Restructuring Mission of AICTE (KARMA) to address the dual challenge of scarcity of skilled manpower in jobs and low skill level of those who are presently in jobs. The scheme aims to create skilled and certified workforce, encourage institutions to make the best use of available infrastructure, and provide domain-specific demand-led skill training activities.
+
+[SECTION: Three Skilling Models Under Karma]
+AICTE has proposed three Models for Skilling of In-school students/school dropouts, students perusing Technical Education: Model 1 targets school dropouts, Model 2 targets advance level skilling of students already studying in AICTE approved Technical institutions, and Model 3 integrates School Education with Higher Education for skilling students. Mohamed Jassim.M, Veera Kumar.M, and Mohmood Naina.M.H are some of the students who have benefited from these models.
+
+[SECTION: Courses Offered by MSAJCE]
+The Mohamed Sathak A J College of Engineering was approved by AICTE to conduct 5 courses in model 2, including AI -Machine learning Developer, Refrigeration and Air Conditioning Technician, and Additive Manufacturing Technician (3D Printing). Salman, Atef Jamaludeen.N, and Mohamed Nibras.M are some of the students who are part of these courses.
+
+[SECTION: Academic Toppers]
+The college has a list of academic toppers, including Vinitha.M, Bhuvaneshwari.B, and Mahalakshmi.R from the Department of Computer Science and Engineering, and Shalini.M, Ganga.M, and Fouzia.M.A from the Department of Information Technology. Satheshkumar.V, Assifa.A, and Vigneshwaran.V are some of the toppers from the Department of Electronics and Communication Engineering.
+
+[SECTION: National Innovation and Startup Policy]
+The college has a strong focus on innovation and startup policy, with a dedicated Entrepreneurship Development Cell. Divyasri.S, Sathyan.S, and Sanjith.S are some of the students who have benefited from this policy.

@@ -1,0 +1,16 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to Mohamed Sathak A J College of Engineering]
+Mohamed Sathak A J College of Engineering is a reputable institution that offers various programs in engineering and technology. The college has partnered with CISCO to establish the Networking Academy, providing students with hands-on learning experiences in networking, security, and cloud technologies. Dr. ELLISS YOGESH R is not mentioned in the provided data, however, the college has a team of dedicated faculty members who specialize in various fields of engineering. The college is committed to providing quality education and preparing students for successful careers.
+
+[SECTION: Bentley’s Building Information Modelling Centre]
+The Bentley’s Building Information Modelling Centre at Mohamed Sathak A J College of Engineering offers students the opportunity to gain theoretical and practical knowledge of BIM techniques. The centre aims to equip students with the skills to interpret 2D and 3D drawings, understand regulations as per the National Building Code, and prepare them for actual work situations through practical training. The centre uses software such as AUTOCAD, REVIT ARCHITECTURE, and STAAD.Pro to provide students with hands-on experience.
+
+[SECTION: Cisco Networking Academy]
+The Cisco Networking Academy at Mohamed Sathak A J College of Engineering is an IT skills and career building program that provides students with unique hands-on learning experiences in the latest networking, security, and cloud technologies. The program offers professional certification recognized by employers worldwide and career pathways to connect to an estimated eight million networking jobs around the world. The academy offers various courses, including Network Essentials, Mobility Fundamentals, and CCNA: Introduction to Networks.
+
+[SECTION: Courses Offered]
+The Cisco Networking Academy at Mohamed Sathak A J College of Engineering offers a range of courses, including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, and CCNA: Switching, Routing, and Wireless Essentials. The academy also offers Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship. These courses are designed to provide students with the skills and knowledge required to succeed in the industry.
+
+[SECTION: Certifications]
+The Cisco Networking Academy at Mohamed Sathak A J College of Engineering offers various certifications, including CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and provide students with a competitive edge in the job market. The certifications are a testament to the student's skills and knowledge in networking, security, and cloud technologies.

@@ -1,0 +1,17 @@
+Here is the transformed data in the required format:
+
+
+[SECTION: Transport Facility]
+The college provides its own transportation for students and staff residing in and around the campus, with 22 buses, one Tata ACE, and one ambulance. The transport facility is available from various places in Chennai, Chengalpattu, Kanchipuram, and Thiruvallur districts to the institute on all working days. Dr. K. P. Santhosh Nathan, the Transport Convener, heads a transport committee to ensure the smooth operation of buses. The committee meets once in six months, attended by the Principal and staff in-charge of the buses.
+
+
+[SECTION: Transport Committee]
+Dr. K. P. Santhosh Nathan is the Transport Convener, and Mr. A. Abdul Gafoor is the Assistant Transport Convener. They work together to ensure the smooth functioning of the buses. The transport committee meets regularly to discuss and address any issues related to the transportation facilities.
+
+
+[SECTION: MTC Bus Routes]
+Several MTC buses pass through the college from different locations, including T. Nagar, Central, Broadway, and Tambaram. These buses operate on a daily frequency, passing through various routes such as OMR, Madhiya Kailash, SRP, and Marina. The college is easily accessible by state-operated transport services.
+
+
+[SECTION: College Bus Routes]
+The college has its own bus routes, with nine routes operating at different times, including AR 3 - Uthiramerur, AR 4 - Moolakadai, and R 22 - Nemilichery. These buses cater to the transportation needs of students and staff, providing a convenient and safe mode of transportation to and from the college.

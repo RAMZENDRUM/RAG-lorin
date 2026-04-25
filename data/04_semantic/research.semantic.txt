@@ -1,0 +1,22 @@
+Here is the transformed data in the required format:
+
+[SECTION: Research and Development]
+The Research and Development Cell at MSAJCE aims to nurture research culture in the College by promoting research in newly emerging and challenging areas of Engineering, Technology, Science, and Humanities. Dr. B. Janarthanan, Head-Research at MSAJCE, Chennai, is the Convener of the Research Advisory Committee. The committee includes advisors such as Dr. Srinivasan, Secretary of TNSCST, Chennai, and Dr. Parthiban, Associate Professor at NIT, Trichy.
+
+[SECTION: Research Objectives]
+The Research and Development Cell has several objectives, including encouraging students and faculty members to carry out research in various fields, creating zeal among students and faculty towards research and innovation, and assisting students in applying for funding for research projects. The cell also aims to work closely with industries to understand their needs and promote Institute-Industry Collaboration.
+
+[SECTION: Research Advisory Committee]
+The Research Advisory Committee includes members such as Dr. Somashekhar S Hiremath, Associate Professor at IIT Madras, Chennai, and Dr. Sabitha Ramakrishnan, Professor at MIT, Chennai. All Ph.D. qualified faculty members are also part of the committee. The committee provides guidance and support to students and faculty members in their research endeavors.
+
+[SECTION: Patents and Publications]
+Dr. E. Dhiravidachelvi has filed several patents, including one for a disaster management system using IoT and cloud computing techniques. Other faculty members, such as Mr. K. Vairaperumal and Mrs. D. Hema Sumitha, have also filed patents for their innovative ideas. The college has also published several research papers in various journals and conferences, showcasing the research capabilities of its students and faculty.
+
+[SECTION: National Innovation and Start-up Policy]
+MSAJCE has a National Innovation and Start-up Policy (NISP) that aims to promote innovation and entrepreneurship among its students and faculty. The policy has a vision to cater to the needs of student entrepreneurs and introduce a culture of entrepreneurship inside the campus. The policy includes short-term and long-term objectives, such as developing an ecosystem for innovation and entrepreneurship, improving innovation and creative thinking among students, and providing incubation facilities for start-ups.
+
+[SECTION: Thrust Areas]
+The college has identified several thrust areas for research and development, including strategies for promoting innovation and entrepreneurship, creating an innovation pipeline, building organizational capacity, and collaboration with industries. The college also focuses on pedagogy and learning interventions for supporting innovations and start-ups.
+
+[SECTION: Key Performance Indicators]
+The college has set key performance indicators (KPIs) to measure the success of its research and development initiatives. These KPIs include the number of start-ups established, the number of patents filed, and the number of research papers published. The college also tracks the number of students and faculty members involved in research and innovation activities.

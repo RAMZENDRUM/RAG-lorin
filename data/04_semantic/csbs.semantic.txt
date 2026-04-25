@@ -1,0 +1,16 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to Computer Science and Business Systems]
+The B.Tech in Computer Science and Business System (CSBS) is a specialized undergraduate engineering program designed to blend core computer science education with insights into business systems and management. This program aims to enhance the relevance of the Computer Science program in India to meet the future demands of the IT industry. Dr. NAGASUBRAMANIAN R, Head of PG, and Dr. SUBRAMANIAN P, Head of UG, are key faculty members responsible for the program's development and implementation.
+
+[SECTION: Program Objectives and Outcomes]
+The program's objective is to produce graduates who are not only technically sound in computer science but also understand the fundamentals of business, economics, and management. The program-specific outcomes include developing creative solutions by adapting emerging technologies and applying acquired knowledge to develop software solutions and innovative mobile apps. Dr. PREMALATHA G, Associate Professor, specializes in Image Processing and Machine Learning, and plays a crucial role in shaping the program's curriculum.
+
+[SECTION: Faculty and Their Specializations]
+The faculty members of the Computer Science and Business Systems department are highly qualified and have diverse specializations. Dr. NAGASUBRAMANIAN R specializes in Computer Science Engineering, while Dr. SUBRAMANIAN P specializes in Wireless Sensor Networking and Image Processing. Other faculty members, such as Mrs. SARANYA V and Mr. RAJAKUMAR B, specialize in IOT and Cloud Computing, and IOT, AI, NLP, and Image Processing, respectively.
+
+[SECTION: Laboratory Facilities and Courses Offered]
+The department has well-equipped laboratories, including the C Programming Lab, Internet Programming Lab, and Operating Systems Lab. These labs offer courses such as CS8261 - C Programming, CS8661 - Internet Programming, and CS8461 - Operating Systems. Mrs. KIRUTHIKA S, Assistant Professor, is responsible for the C Programming Lab, and Mr. PRAVEENKUMAR P, Assistant Professor, is responsible for the Internet Programming Lab.
+
+[SECTION: Placement and Career Opportunities]
+The program offers excellent placement opportunities, with top recruiters including TCS, Infosys, Wipro, and Accenture. The department also has a strong focus on entrepreneurship, with Mr. RAJASEKAR R, Assistant Professor, specializing in IOT and Network Security, and guiding students in developing innovative projects and startups. The program's emphasis on business systems and management prepares students for careers in IT services, e-commerce, financial services, and healthcare.

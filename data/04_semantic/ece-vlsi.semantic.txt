@@ -1,0 +1,16 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to MSAJCE]
+Mohamed Sathak A. J. College of Engineering (MSAJCE) is a top engineering college in Chennai, offering various programs in engineering, including B.E, B.Tech, M.E, and more. The college is dedicated to providing quality education and research opportunities to its students. MSAJCE has a strong focus on innovation and entrepreneurship, with various initiatives and programs to support start-ups and industry partnerships.
+
+[SECTION: VLSI Design and Technology]
+The B.Tech in Electronics Engineering with specialization in VLSI Design and Technology is a unique program offered by MSAJCE. This program aims to cater to the exponential rise in demand for semiconductor talent in India and globally. The curriculum covers a range of topics, including semiconductor device fundamentals, analog and digital circuits, VLSI circuits and design, and more. Dr. Nagasubramanian R, the head of the PG department, and Dr. Subramanian P, the head of the UG department, are some of the faculty members who specialize in computer science engineering and wireless sensor networking.
+
+[SECTION: Faculty and Research]
+The faculty at MSAJCE includes experienced professionals like Dr. Premalatha G, who specializes in image processing and machine learning, and Mrs. Saranya V, who has expertise in IoT and cloud computing. The college also has a strong research focus, with various labs and facilities available for students and faculty to work on projects and research papers. The college has a virtual lab facility, where students can access various tools and software, including C programming, internet programming, and operating systems.
+
+[SECTION: Placement and Career Opportunities]
+MSAJCE has a strong placement record, with many students placed in top companies like Intel, TSMC, and Qualcomm. The college also provides opportunities for higher education, with many students pursuing M.E, M.Tech, and MBA degrees. The average annual salary for VLSI engineers in India is around Rs 14 lakhs, with opportunities for career growth and advancement in the field. Companies like Intel, Global Foundries, and Samsung are some of the top recruiters of VLSI engineers.
+
+[SECTION: Infrastructure and Facilities]
+MSAJCE has a state-of-the-art infrastructure, with modern facilities and equipment. The college is located in the Siruseri IT Park, Chennai, and has a sprawling campus with all necessary amenities. The college has a strong focus on innovation and entrepreneurship, with various initiatives and programs to support start-ups and industry partnerships. The college has a web team that maintains the college website and provides updates on news and events.

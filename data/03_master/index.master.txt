@@ -1,504 +1,195 @@
 --- SOURCE: https://www.msajce-edu.in/ ---
-[[ STRUCTURED DATA (BS4) ]]
-URL: https://www.msajce-edu.in/
-STRUCTURED TEXT:
 Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
-NAAC|
-IQAC|
-NIRF|
-ARIIA |
-Online Application Form  |
-Online Fee Payment   |
-Students Corner   |
-College Video
-9940004500
-What's New
-Teachers & Engineers Day 2025 Celebration Photos  New  |
-ESE Timetable June 2025 New  |
-Internship Report Format - 2025 New  |
-Internship Report Format - 2025 - Download Here    |
-18th Graduation Day 22 Feb 2025 Photos  New  |
-Admission 2026 - 2027 Flyer  New |
-AICTE-ATAL Sponsored Six Days FDP  New |
-17th Graduation Day Photos  New  |
-Admission Open 2026-2027 - Online Application Form    |
-Online Fee Payment  New  |
-Grievance Cell - grievance@msajce-edu.in     |
-The Feedback Facility of Students and Faculty Available in the AICTE Web Portal  New
-About Us
-An Overview
-Vision and Mission
-Management
-Principal Message
-Statutory body
-Governing Council
-Planning & Monitoring Board
-Academic Advisory Committe
+Teachers & Engineers Day 2025 Celebration Photos New |
+Internship Report Format - 2025 New |
+Internship Report Format - 2025 - Download Here |
+18th Graduation Day 22 Feb 2025 Photos New |
+Admission 2026 - 2027 Flyer New |
+AICTE-ATAL Sponsored Six Days FDP New |
+17th Graduation Day Photos New |
+Admission Open 2026-2027 - Online Application Form |
+Grievance Cell - grievance@msajce-edu.in |
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal New
 Grievance and Redressal Committee
-Anti-Ragging Committee & Squad
-Womens Empowerment Cell
-Functional Committees
-MSAJCE Policies
-Mandatory Disclosure
-Group of Institutions
-Admission
-Academics
-Regulations
-Curriculum and Syllabus
-Department
-Technology Centre
-Research
-COE
-ESE Timetable Nov - Dec 2025
-ESE NOV-DEC 2025 RESULTS
-EXAM REGISTRATION MAY-JUN'25
-I & II YEAR
-III & IV YEAR
-Placement
-Life at MSAJCE
-Learning Centre (Library)
-Hostel
-Transport
-Sports
-Campus Radio
-Social Services
-Clubs & Societies
-Professional Socities
-Alumni
-AICTE Scholarship
-Incubation
-Social Media Icons
-News & Events
-11
-Sep
-2025
 Smart India Hackathon 2025 ( Internal Edition )
-02
-Social Media Awareness Program
-01
-Life Skill Empowerment Program
-30
-July
-SATHAK GRAND MASTER -
-A State Level Chess Tournament
-18 & 19
 Workshop on Design Thinking 2025
-10
-Mar
-TedX 2025
-8
 Sheros 2025 - International Women's Day Celebration
-Feb
 Alumni Meet (For 2005 to 2020 Passed Out Batches)
-08
-Nov
-2024
 Workshop on Basics of Photography & Video Editing Organizing PHOTOGRAPHY CLUB
-Alumni Testimonials
 Our alumni share how their academic journey shaped their professional careers
 across industries and global organizations.
-Mr. Purushothaman N
-Batch: 2001–2005
 Assistant Vice PresidentStandard Chartered
 My time at the college helped me build a strong technical foundation and professional discipline.
 The faculty support and practical exposure played an important role in shaping my career.
-Ms. Sabana Yasmi S
-Vice PresidentDBS Bank
 The academic environment and mentoring contributed significantly to my professional growth
 and helped me adapt in the banking and financial services sector.
-Mr. Saravanan Perumal
-Senior ManagerLTI Mindtree
 The college provided a balanced mix of theoretical knowledge and practical learning,
 which has been instrumental in my long-term career development in IT.
-Mr. Ahamed Jameel A.M.T
-Technical ConsultantHCL
 The guidance from faculty members and hands-on learning opportunities were valuable
 in preparing me for industry roles.
-Mr. Feroz Khan N
-General ManagerMaersk
 A strong academic base and disciplined approach helped shape my professional journey
-and leadership growth.
-Mr. Fayad Ahamed
 Project ManagerUnion Insurance Company, Dubai
 My academic journey helped me develop strong analytical thinking and professional responsibility,
 preparing me for project management roles.
-Mr. Mohammed Azeem
 Senior Manager – SalesAllied Motors, Dubai
 Structured learning and teamwork during my studies supported my professional growth
-in sales and management roles.
-Mr. Srikanth K
-Technical ArchitectTeleApps
 The academic training and faculty guidance helped me build a structured
 approach to problem-solving and leadership.
-Mr. Majed Arafat
-IT ConsultantTCS
 Strong technical fundamentals and faculty support contributed positively
 to my career development in IT.
-Mr. Santhosh Kumar V
-Technical ArchitectHCL
 Academic guidance and practical exposure supported my growth
 into technical architect roles.
-Mr. Syed Faiyaz Hussain
-Batch: 2002–2006
 Digital Product ManagerAnthem, USA
 The learning environment helped me develop analytical thinking
-and a strong product mindset.
-Ms. Harini Raman
-Business AnalystIBM
 Strong analytical training and faculty support shaped my career
-as a business analyst.
-Mr. Chandra Bose
-Batch: 2003–2007
 Senior Delivery ManagerCMA CGM India
 Academic discipline and strong fundamentals supported my growth
 into delivery and management roles.
-Mr. Arun Natarajan
 Principal ConsultantEmirates NBD
 Academic exposure and professional ethics supported my career
 progression in consulting and finance.
-Ms. Misbah Khairunissa A
-Batch: 2005–2009
-Senior HR ManagerSavista
 Interpersonal skills and professional outlook developed during my studies
-shaped my HR career.
-Ms. Lakshmi Narayanan
-HR ManagerValeo
 Communication, teamwork, and professional values gained during college
-supported my HR career growth.
-Mr. Rahul Murali
-Batch: 2006–2010
 Lead Product ManagerThoughtworks
 Analytical thinking and collaborative learning shaped my career
-in product management.
-Mr. Vinoth Kumar Manickam
-Lead DeveloperStriven
 Strong technical foundation and problem-solving skills supported
-my growth as a developer.
-Mr. Sathakathulla E
 eApps Testing LeadHitachi Energy
 Quality-focused learning and discipline shaped my professional growth
-in testing practices.
-Mr. Sakthi Ajay
-Batch: 2007–2011
-Senior ConsultantVirtusa
 Technical foundation and professional approach supported my growth
-in consulting roles.
-Ms. Akila Rajesh
-Batch: 2008–2012
 Sales & Marketing HeadVoora Property Developers
 Communication skills and leadership exposure shaped my growth
-in sales and marketing.
-Mr. Nasarullah S
-Batch: 2009–2013
-Tech LeadWipro Ltd
 Structured problem-solving and academic training supported my
-technical leadership growth.
-Mr. Marzook Ahamed
-Batch: 2010–2014
 Assistant ManagerPIXELS – Dubai
 Professional discipline and workplace readiness gained during college
 supported my career development.
-Mr. Muhamed Samir
-Batch: 2011–2015
 Cyber Security ManagerFidelity National Financial
 Strong technical knowledge and responsible problem-solving
 supported my cybersecurity career.
-Ms. Sharmela
 Senior Product AnalystPhoton Interactive
 Analytical skills and structured learning shaped my career
-in product analysis.
-Mr. Vignesh
 Senior BIM ModelerMCC Engineering, Singapore
 Attention to detail and technical foundation supported my growth
-in BIM and design roles.
-Mr. Harish N
-Batch: 2012–2016
 Technical Support EngineeriOPEX Technologies
 Strong problem-solving skills and technical training prepared me
-for customer-focused roles.
-Mr. Ram Prabhu S
 Senior QA EngineerQBurst Technologies
 Quality assurance practices and disciplined learning shaped
-my professional growth.
-Ms. Reshma Rahila S
-Batch: 2013–2017
 Senior Software EngineerProdapt
 Structured software development training supported my career
-growth as an engineer.
-Mr. Mohammed Asif
 QAQC Civil InspectorSamsung C & T
 Strong civil engineering fundamentals and quality practices
 supported my professional growth.
-Mr. Syed Haja Shereef S
-Batch: 2014–2018
 Recruitment SpecialistScaleneworks
 Communication skills and professional approach supported my
-growth in recruitment.
-Mr. Shanthoshkumar J
 Senior Software EngineerBroadcom
 Strong technical foundation and discipline supported my growth
-in the software industry.
-Mr. Safeeq Ahamed S
-Batch: 2015–2019
-Design EngineerKONE Elevators
 Engineering fundamentals and design principles supported my
-professional development.
-Mr. Shaik Fathhullah S
 Technical & Sales EngineerDAYSTAR SOLAR
 Technical knowledge and communication skills supported my
 growth in technical and sales roles.
-Mr. Md Mubarak
-Batch: 2016–2020
-MEP Team LeaderEJADAH UAE
 MEP systems knowledge and leadership exposure supported my
-professional growth.
-Mr. Md Junaid A
 Estimation / Quantity SurveyorELEMEC LLC
 Estimation and costing fundamentals supported my professional
-development.
-Mr. Sabari Murugan
 Associate Design EngineerWall Technology
 Design fundamentals and analytical thinking supported my
-engineering career.
-Mr. Jawahar Shalim
-Batch: 2017–2021
-Team LeaderMilkbasket
 Coordination skills and teamwork shaped my leadership growth.
-Mr. Abdul Mukshith A
 Senior BIM EngineerMicron Electricals
 BIM practices and engineering design knowledge supported my
-Mr. Mohamed Ali Hasan
-Operation HeadVeena Jewellers
 Organizational skills and disciplined learning shaped my
-operations career.
-Mr. Imran L
 Site EngineerAl Rasheediah, Abu Dhabi
 Civil engineering fundamentals and site exposure supported
-Mr. Shamsudeen A
-Batch: 2018–2022
-Software EngineerHCL
 Software fundamentals and problem-solving skills supported
-my IT career.
-Mr. Nadir Khan
-Batch: 2019–2023
 Supply Chain EngineerInaithiram Impex
 Process-oriented thinking and engineering fundamentals supported
-my supply chain career.
-Mr. Sathiyan
 Software EngineerRelevantz Technology
 Software development skills and analytical thinking shaped
-Mr. Md Zaid
-Software EngineerTCS
 Strong software development foundation and faculty guidance
 prepared me for the IT industry.
 MSAJCE-ians Learn to Stay Ahead
 By delivering professional, innovative, and future-ready solutions in education,
 MSAJCE empowers students with knowledge, skills, and values to excel in a competitive world.
-0
-Happy Students
-Achievements
-Team Staff
-Awards Won
-News Updates
-Testimonials
-Placed Student
-34, Rajiv Gandhi Salai (OMR),
-Siruseri IT Park, Siruseri,
-Chennai - 603103
-+91 99400 04500
-msajce.office@gmail.com
-Connect With Us
-MSAJCE Links
-News Letter
-Anna University Approval
-AICTE Approval
-Code of Conduct
-Best Practices
-Grievance Cell
-Web Links
-College Management System
-Academic Calendar
-EBSB
-UBA
-KARMA
-Spoken Tutorial
-Balance Sheet
-Useful Links
 AICTE Scholarship/Fellowship Schemes
-Annual Report AY2023-2024
-Graduation Day
-Institutional Distinctiveness
 © 2023 MSAJCE All Rights Reserved | 1635387 Visitors
-Maintained by : WebTeam MSAJCE
-x
-TABLE DATA:
---- TABLE 1 ---
---- TABLE 2 ---
---- TABLE 3 ---
---- TABLE 4 ---
---- TABLE 5 ---
---- TABLE 6 ---
---- TABLE 7 ---
---- TABLE 8 ---
---- TABLE 9 ---
-[[ NARRATIVE DATA (TRAFILATURA) ]]
-MARKDOWN CONTENT:
-## News & Events
--
-11 Sep 2025
 [Smart India Hackathon 2025 ( Internal Edition )](uploads/news-events/063.jpg) -
-02 Sep 2025
 [Social Media Awareness Program](uploads/news-events/009.jpg) -
-01 Sep 2025
 [Life Skill Empowerment Program](uploads/news-events/007.jpg) -
-30 July 2025
 [SATHAK GRAND MASTER - A State Level Chess Tournament](uploads/news-events/Chess2025.jpeg) -
-18 & 19 July 2025
 [Workshop on Design Thinking 2025](uploads/news-events/.jpg) -
-10 Mar 2025
 [TedX 2025](uploads/news-events/003.png) -
-8 Mar 2025
 [Sheros 2025 - International Women's Day Celebration](uploads/news-events/womensday2025.JPG) -
-02 Feb 2025
 [Alumni Meet (For 2005 to 2020 Passed Out Batches)](uploads/news-events/AlumniMeet.jpg) -
-08 Nov 2024
 [Workshop on Basics of Photography & Video Editing Organizing PHOTOGRAPHY CLUB](uploads/news-events/Photography2024.jpg)
-## Sports
-## PLACEMENT
-## Alumni Testimonials
 Our alumni share how their academic journey shaped their professional careers across industries and global organizations.
-##### Mr. Purushothaman N
 Batch: 2001–2005**Standard Chartered**
 My time at the college helped me build a strong technical foundation and professional discipline. The faculty support and practical exposure played an important role in shaping my career.
-##### Ms. Sabana Yasmi S
-Batch: 2001–2005**DBS Bank**
 The academic environment and mentoring contributed significantly to my professional growth and helped me adapt in the banking and financial services sector.
-##### Mr. Saravanan Perumal
 Batch: 2001–2005**LTI Mindtree**
 The college provided a balanced mix of theoretical knowledge and practical learning, which has been instrumental in my long-term career development in IT.
-##### Mr. Ahamed Jameel A.M.T
-Batch: 2001–2005**HCL**
 The guidance from faculty members and hands-on learning opportunities were valuable in preparing me for industry roles.
-##### Mr. Feroz Khan N
-Batch: 2001–2005**Maersk**
 A strong academic base and disciplined approach helped shape my professional journey and leadership growth.
-##### Mr. Fayad Ahamed
 Batch: 2001–2005**Union Insurance Company, Dubai**
 My academic journey helped me develop strong analytical thinking and professional responsibility, preparing me for project management roles.
-##### Mr. Mohammed Azeem
 Batch: 2001–2005**Allied Motors, Dubai**
 Structured learning and teamwork during my studies supported my professional growth in sales and management roles.
-##### Mr. Srikanth K
-Batch: 2001–2005**TeleApps**
 The academic training and faculty guidance helped me build a structured approach to problem-solving and leadership.
-##### Mr. Majed Arafat
-Batch: 2001–2005**TCS**
 Strong technical fundamentals and faculty support contributed positively to my career development in IT.
-##### Mr. Santhosh Kumar V
 Academic guidance and practical exposure supported my growth into technical architect roles.
-##### Mr. Syed Faiyaz Hussain
 Batch: 2002–2006**Anthem, USA**
 The learning environment helped me develop analytical thinking and a strong product mindset.
-##### Ms. Harini Raman
-Batch: 2002–2006**IBM**
 Strong analytical training and faculty support shaped my career as a business analyst.
-##### Mr. Chandra Bose
 Batch: 2003–2007**CMA CGM India**
 Academic discipline and strong fundamentals supported my growth into delivery and management roles.
-##### Mr. Arun Natarajan
 Batch: 2003–2007**Emirates NBD**
 Academic exposure and professional ethics supported my career progression in consulting and finance.
-##### Ms. Misbah Khairunissa A
-Batch: 2005–2009**Savista**
 Interpersonal skills and professional outlook developed during my studies shaped my HR career.
-##### Ms. Lakshmi Narayanan
-Batch: 2005–2009**Valeo**
 Communication, teamwork, and professional values gained during college supported my HR career growth.
-##### Mr. Rahul Murali
 Batch: 2006–2010**Thoughtworks**
 Analytical thinking and collaborative learning shaped my career in product management.
 ##### Mr. Vinoth Kumar Manickam
-Batch: 2006–2010**Striven**
 Strong technical foundation and problem-solving skills supported my growth as a developer.
-##### Mr. Sathakathulla E
 Batch: 2006–2010**Hitachi Energy**
 Quality-focused learning and discipline shaped my professional growth in testing practices.
-##### Mr. Sakthi Ajay
-Batch: 2007–2011**Virtusa**
 Technical foundation and professional approach supported my growth in consulting roles.
-##### Ms. Akila Rajesh
 Batch: 2008–2012**Voora Property Developers**
 Communication skills and leadership exposure shaped my growth in sales and marketing.
-##### Mr. Nasarullah S
-Batch: 2009–2013**Wipro Ltd**
 Structured problem-solving and academic training supported my technical leadership growth.
-##### Mr. Marzook Ahamed
 Batch: 2010–2014**PIXELS – Dubai**
 Professional discipline and workplace readiness gained during college supported my career development.
-##### Mr. Muhamed Samir
 Batch: 2011–2015**Fidelity National Financial**
 Strong technical knowledge and responsible problem-solving supported my cybersecurity career.
-##### Ms. Sharmela
 Batch: 2011–2015**Photon Interactive**
 Analytical skills and structured learning shaped my career in product analysis.
-##### Mr. Vignesh
 Batch: 2011–2015**MCC Engineering, Singapore**
 Attention to detail and technical foundation supported my growth in BIM and design roles.
-##### Mr. Harish N
 Batch: 2012–2016**iOPEX Technologies**
 Strong problem-solving skills and technical training prepared me for customer-focused roles.
-##### Mr. Ram Prabhu S
 Batch: 2012–2016**QBurst Technologies**
 Quality assurance practices and disciplined learning shaped my professional growth.
-##### Ms. Reshma Rahila S
-Batch: 2013–2017**Prodapt**
 Structured software development training supported my career growth as an engineer.
-##### Mr. Mohammed Asif
 Batch: 2013–2017**Samsung C & T**
 Strong civil engineering fundamentals and quality practices supported my professional growth.
-##### Mr. Syed Haja Shereef S
 Batch: 2014–2018**Scaleneworks**
 Communication skills and professional approach supported my growth in recruitment.
-##### Mr. Shanthoshkumar J
-Batch: 2014–2018**Broadcom**
 Strong technical foundation and discipline supported my growth in the software industry.
-##### Mr. Safeeq Ahamed S
 Batch: 2015–2019**KONE Elevators**
 Engineering fundamentals and design principles supported my professional development.
-##### Mr. Shaik Fathhullah S
 Batch: 2015–2019**DAYSTAR SOLAR**
 Technical knowledge and communication skills supported my growth in technical and sales roles.
-##### Mr. Md Mubarak
-Batch: 2016–2020**EJADAH UAE**
 MEP systems knowledge and leadership exposure supported my professional growth.
-##### Mr. Md Junaid A
-Batch: 2016–2020**ELEMEC LLC**
 Estimation and costing fundamentals supported my professional development.
-##### Mr. Sabari Murugan
 Batch: 2016–2020**Wall Technology**
 Design fundamentals and analytical thinking supported my engineering career.
-##### Mr. Jawahar Shalim
-Batch: 2017–2021**Milkbasket**
-##### Mr. Abdul Mukshith A
+Coordination skills and teamwork shaped my leadership growth.
 Batch: 2017–2021**Micron Electricals**
 BIM practices and engineering design knowledge supported my professional growth.
-##### Mr. Mohamed Ali Hasan
 Batch: 2017–2021**Veena Jewellers**
 Organizational skills and disciplined learning shaped my operations career.
-##### Mr. Imran L
 Batch: 2017–2021**Al Rasheediah, Abu Dhabi**
 Civil engineering fundamentals and site exposure supported my professional growth.
-##### Mr. Shamsudeen A
-Batch: 2018–2022**HCL**
 Software fundamentals and problem-solving skills supported my IT career.
-##### Mr. Nadir Khan
 Batch: 2019–2023**Inaithiram Impex**
 Process-oriented thinking and engineering fundamentals supported my supply chain career.
-##### Mr. Sathiyan
 Batch: 2019–2023**Relevantz Technology**
 Software development skills and analytical thinking shaped my professional growth.
-##### Mr. Md Zaid
-Batch: 2019–2023**TCS**
 Strong software development foundation and faculty guidance prepared me for the IT industry.
 ## MSAJCE-ians Learn to Stay Ahead
 By delivering professional, innovative, and future-ready solutions in education, MSAJCE empowers students with knowledge, skills, and values to excel in a competitive world.

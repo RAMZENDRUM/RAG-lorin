@@ -1,0 +1,25 @@
+Here is the cleaned and structured data in the required format:
+
+[SECTION: Introduction to MSAJCE]
+MSAJCE, also known as Mohamed Sathak A. J. College of Engineering, is a top engineering college in Chennai. The college offers various programs, including B.E, B.Tech, M.E, and admissions are open for the upcoming academic year. Dr. Nagasubramanian R is the Head of the Postgraduate department, and Dr. Subramanian P is the Head of the Undergraduate department.
+
+[SECTION: Department of Artificial Intelligence and Data Science]
+The Department of Artificial Intelligence and Data Science at MSAJCE offers a B.Tech program in Artificial Intelligence and Data Science. Dr. Premalatha G is an Associate Professor in the department, specializing in Image Processing and Machine Learning. The program aims to provide students with core technologies, machine learning, and big data analytics, enabling them to pursue careers in healthcare, business, and other areas.
+
+[SECTION: Faculty Members]
+The faculty members of the Department of Artificial Intelligence and Data Science include Dr. Nagasubramanian R, who is the Head of the Postgraduate department and specializes in Computer Science Engineering. Dr. Subramanian P is the Head of the Undergraduate department and specializes in Wireless Sensor Networking and Image Processing. Other faculty members include Dr. Premalatha G, Mrs. Saranya V, Mrs. Sasikala L, and Mr. Praveenkumar P, who specialize in various areas of computer science and engineering.
+
+[SECTION: Laboratories and Facilities]
+The college has several laboratories, including the C Programming Lab, Internet Programming Lab, Operating Systems Lab, and Networks Lab. These labs provide students with hands-on experience and training in various programming languages and technologies. The college also offers virtual links and ICT tools to support student learning.
+
+[SECTION: Curriculum and Syllabus]
+The college follows the Anna University syllabus for its B.E programs. The curriculum includes courses such as Discrete Mathematics, Digital Principles and Computer Organization, and Artificial Intelligence. The college also provides lesson plans, question banks, and lecture notes to support student learning.
+
+[SECTION: Placement Details]
+The college has a strong placement record, with many students placed in top companies. The placement details are available on the college website, and the college also provides training and support to students to help them prepare for placements.
+
+[SECTION: News and Events]
+The college has a news and events section on its website, which provides updates on student activities, alumni association, and other college events. The college also has a social media presence and provides links to useful websites and resources.
+
+[SECTION: AI and Data Science Growth in India]
+The Artificial Intelligence and Data Science sectors in India are expected to experience explosive growth over the next five years. The demand for professionals in these fields is expected to increase, with key drivers including increased AI adoption across industries, government support and initiatives, and the rising demand for data-driven decision making. Key job roles in AI and Data Science include Data Scientist, Machine Learning Engineer, AI Research Scientist, and Data Analyst.

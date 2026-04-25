@@ -1,0 +1,16 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to CISCO Networking Academy]
+The CISCO Networking Academy is an IT skills and career building program that provides a unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. The program offers professional certification recognized by employers worldwide and career pathways to connect to an estimated eight million networking jobs around the world through Netacad. Mohamed Sathak A J College of Engineering has partnered with CISCO to establish the Networking Academy. The academy provides students with the opportunity to gain practical experience in networking and related technologies.
+
+[SECTION: Courses Offered]
+The CISCO Networking Academy offers a range of courses, including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, and CCNA: Switching, Routing, and Wireless Essentials. The academy also offers courses in security, IoT and data analytics, operating systems, and programming. Students can choose from a variety of courses to suit their interests and career goals. The courses are designed to provide students with a comprehensive understanding of networking concepts and technologies.
+
+[SECTION: Certifications]
+The CISCO Networking Academy offers several certifications, including the CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and can help students advance their careers in networking. The certifications are designed to validate students' skills and knowledge in networking and related technologies. Students who earn these certifications can demonstrate their expertise and commitment to the field of networking.
+
+[SECTION: CCNAv7 - Introduction to Networks]
+The CCNAv7 - Introduction to Networks course is a comprehensive course that covers the basics of networking, including network components, topologies, and protocols. The course includes 17 modules, each covering a specific topic in networking, such as networking today, protocol and models, physical layer, and network security fundamentals. The course is designed to provide students with a thorough understanding of networking concepts and technologies. Students who complete this course can gain a solid foundation in networking and prepare themselves for more advanced courses.
+
+[SECTION: Labs and Simulations]
+The CISCO Networking Academy provides students with access to 24 hands-on and paper-based labs, using the Packet Tracer Tool and Cisco 4221 routers and 2960 switches. The labs and simulations are designed to provide students with practical experience in networking and related technologies. Students can use the labs and simulations to practice and reinforce their understanding of networking concepts and technologies. The labs and simulations are an essential part of the learning experience, allowing students to apply theoretical concepts to real-world scenarios.

@@ -1,0 +1,25 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to 3D Printing]
+The Mohamed Sathak A J College of Engineering offers a course on 3D printing and additive manufacturing, which aims to provide students with knowledge and skills related to 3D printing technologies. The course covers topics such as the selection of material, equipment, and development of a product for Industry 4.0 environment. Students will also learn about various software tools, processes, and techniques for digital manufacturing.
+
+[SECTION: Course Objectives]
+The students will be able to gain knowledge and skills related to 3D printing technologies, learn the selection of material, equipment, and development of a product for Industry 4.0 environment, and understand the various software tools, process, and techniques for digital manufacturing. They will also be able to apply these techniques into various applications, develop CAD models for 3D printing, and produce a product using 3D printing or additive manufacturing.
+
+[SECTION: Partnership with CISCO]
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking, to establish the Networking Academy (NetAcad). The Networking Academy is an IT skills and career building program that provides unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools.
+
+[SECTION: Courses Offered]
+The college offers various courses, including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, CCNA: Switching, Routing, and Wireless Essentials, and CCNA: Enterprise Networking, Security, and Automation. The college also offers Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship.
+
+[SECTION: Certifications]
+The college offers certifications such as CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and provide career pathways to connect to an estimated eight million networking jobs around the world through Netacad.
+
+[SECTION: Pre-Requisites]
+The pre-requisites for the course include Computer Aided Design & Drafting Engineering Materials, with a total of 30 hours of instruction. The course covers topics such as 3D printing, CAD for additive manufacturing, additive manufacturing techniques, materials, additive manufacturing equipment, post-processing, and product quality.
+
+[SECTION: Faculty]
+The faculty at Mohamed Sathak A J College of Engineering are dedicated to providing students with a comprehensive education in 3D printing and additive manufacturing. Dr. ELLISS YOGESH R is a Professor in the Civil Engineering department, specializing in Environmental Engineering. Note: There is no information provided about the faculty members, this section is not fully filled as per the input data. 
+
+[SECTION: Conclusion]
+In conclusion, the Mohamed Sathak A J College of Engineering offers a comprehensive course on 3D printing and additive manufacturing, which provides students with knowledge and skills related to 3D printing technologies. The college has partnered with CISCO to provide students with unique hands-on learning experiences and career building programs. The course covers various topics, including CAD, additive manufacturing techniques, materials, and product quality, and provides certifications recognized by employers worldwide.

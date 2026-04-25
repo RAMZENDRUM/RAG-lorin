@@ -1,9 +1,1 @@
 --- SOURCE: https://www.msajce-edu.in/campusradio.php ---
-[[ STRUCTURED DATA (BS4) ]]
-URL: https://www.msajce-edu.in/campusradio.php
-STRUCTURED TEXT:
-File not found.
-TABLE DATA:
-[[ NARRATIVE DATA (TRAFILATURA) ]]
-MARKDOWN CONTENT:
-None

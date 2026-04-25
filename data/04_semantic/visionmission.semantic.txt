@@ -1,0 +1,13 @@
+Here is the cleaned and structured data in the required format:
+
+[SECTION: Vision and Mission]
+The vision of Mohamed Sathak A. J. College of Engineering is to be an eminent institute for higher education and research through innovative teaching-learning and sustainable practices to meet the industrial and societal needs. The mission of MSAJCE is to impart quality technical education by transforming students into professionally competent technocrats. The college aims to nurture students in all-round sustainable development, for career and self employability. The institution seeks to inculcate critical thinking, professional ethics with civic responsibilities by instilling values.
+
+[SECTION: Quality Policy]
+MSAJCE is committed to creating quality professionals through innovative teaching, research, industrial relations, and nurturing human values and ethics to meet the industrial and societal needs on a continual improvement basis. The college strives to provide a high-quality education that equips students with the skills and knowledge required to succeed in their careers. The institution's quality policy is focused on achieving excellence in all aspects of its operations.
+
+[SECTION: College Overview]
+Mohamed Sathak A. J. College of Engineering is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. The college can be contacted at +91 99400 04500 or via email at msajce.office@gmail.com. The institution is approved by Anna University and AICTE, and it offers a range of undergraduate and postgraduate programs in engineering and technology.
+
+[SECTION: Governance]
+The governance of MSAJCE is overseen by a statutory body, a governing council, and a planning and monitoring board. The college also has an academic advisory committee, a grievance and redressal committee, and an anti-ragging committee and squad. The institution has a women's empowerment cell and several functional committees that oversee various aspects of its operations.

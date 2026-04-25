@@ -1,0 +1,153 @@
+--- SOURCE: https://www.msajce-edu.in/technologycentregamingarvrcentre.php ---
+MSAJCE | Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
+Teachers & Engineers Day 2025 Celebration Photos New |
+Internship Report Format - 2025 New |
+Internship Report Format - 2025 - Download Here |
+18th Graduation Day 22 Feb 2025 Photos New |
+Admission 2026 - 2027 Flyer New |
+AICTE-ATAL Sponsored Six Days FDP New |
+17th Graduation Day Photos New |
+Admission Open 2026-2027 - Online Application Form |
+Grievance Cell - grievance@msajce-edu.in |
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal New
+Grievance and Redressal Committee
+Learn about the technical and design aspects of AR and VR.
+Create 3D design, Visualization and Animation for various objects and scenes.
+Apply virtual and Augmented reality methods , tools and equipments in various field of industry, education and social life.
+Provide an overview of the concepts and working of AR-VR techniques.
+Build basic applications considering the technical and design aspects of AR and VR.
+Develop PC/Mobile based VR applications.
+Develop 3D Visualization and Visualization projects.
+Design various applications in the field like Gaming, Architecture, Manufacturing, Retail, Health care, etc.
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking to establish
+the Networking Academy(NetAcad).
+Cisco Networking Academy is an IT skills and career building program which provides
+Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools
+Professional certification recognized by employers worldwide
+Career pathways to connect to an estimated eight million networking jobs around the world through Netacad
+CCNA: Switching, Routing, and Wireless Essentials
+CCNA: Enterprise Networking, Security and Automation
+CISCO Certified Network Associate
+Implementing CISCO Enterprise Network Core Technologies
+Introduction to Virtual Reality (6 hours)
+Fundamental Concept and Components of Virtual Reality. Primary Features and
+Present Development on Virtual Reality. Computer graphics, Real time computer
+graphics, Flight Simulation, Virtual environment requirement, benefits of
+virtual reality, Historical development of VR, Scientific Landmark 3D Computer
+Graphics: Introduction, The Virtual world space, positioning the virtual
+observer, the perspective projection, human vision, stereo perspective
+projection, 3D clipping, Colour theory, Simple 3D modelling, Illumination
+models, Reflection models, Shading algorithms, Radiosity, Hidden Surface Removal,
+From 2D to 3D, 3D space curves, 3D boundary representation Geometrical
+Transformations: Introduction, Frames of reference, Modeling transformations,
+Instances, Picking, Flying, Scaling the VE, Collision detection Generic VR
+system: Introduction, Virtual environment, Computer environment, VR technology,
+Model of interaction, VR Systems.
+Environment: Introduction, The dynamics of numbers, Linear and Nonlinear
+interpolation, the animation of objects, linear and non-linear translation,
+shape & object inbetweening, free from deformation, particle system.
+Physical Simulation: Introduction, Objects falling in a gravitational field,
+Rotating wheels, Elastic collisions, projectiles, simple pendulum, springs,
+Flight dynamics of an aircraft.
+features of augmented reality, difference between AR and VR, Challenges with
+AR, AR systems and functionality, Augmented reality methods, visualization
+techniques for augmented reality, wireless displays in educational augmented reality
+applications, mobile projection interfaces, marker-less tracking for augmented
+reality, enhancing interactivity in AR environments, evaluating AR systems.
+Output Interface in Virtual Reality: (6 hours)
+the eye, the ear, the somatic senses. VR Hardware: Introduction, sensor
+hardware, Head-coupled displays, Acoustic hardware, Integrated VR systems. VR
+Software: Introduction, Modeling virtual world, Physical simulation, VR
+toolkits, Introduction to VRML, Input -- Tracker, Sensor, Digital Glove,
+Movement Capture, Video-based Input, 3D Menus & 3DScanner etc. Output --
+Visual /Auditory / Haptic Devices.
+Production. VR Technology in Physical Exercises and Games. Demonstration of
+Developing architecture of a house using Virtual Reality.
+Perform CRO based experiment using Virtual Reality.
+Undertaking qualitative analysis in Chemistry using Virtual Reality.
+Carry out assembly/disassembly of an engine using Virtual Reality.
+Explore human anatomy using Virtual Reality.
+Simulation of circulation of blood in heart.
+Simulation of Fight/Vehicle/Space Station.
+Building Electronic circuit using Virtual Reality, given basic electronic
+>> Developing concept of Virtual
+Burdea, G. C. and P. Coffet. Virtual Reality Technology, Second Edition.
+>> Alan B. Craig, Understanding
+Augmented Reality, Concepts and Applications, Morgan Kaufmann, 2013.
+Alan Craig, William Sherman and Jeffrey Will, Developing Virtual Reality
+Applications, Foundations of Effective Design, Morgan Kaufmann, 2009.
+John Vince, “Virtual Reality Systems “, Pearson Education Asia, 2007.
+Anand R., “Augmented and Virtual Reality”, Khanna Publishing House, Delhi.
+Adams, “Visualizations of Virtual Reality”, Tata McGraw Hill, 2000.
+Coiffet , “Virtual Reality Technology”, Wiley Inter Science, 2nd Edition, 2006.
+William R. Sherman, Alan B. Craig, “Understanding Virtual Reality: Interface,
+Application and Design”, Morgan Kaufmann, 2008.
+AICTE Scholarship/Fellowship Schemes
+© 2023 MSAJCE All Rights Reserved | 1635387 Visitors
+| Learn about the technical and design aspects of AR and VR.
+| Create 3D design, Visualization and Animation for various objects and scenes.
+| Apply virtual and Augmented reality methods , tools and equipments in various field of industry, education and social life.
+| Provide an overview of the concepts and working of AR-VR techniques.
+| Build basic applications considering the technical and design aspects of AR and VR.
+| Develop PC/Mobile based VR applications.
+| Develop 3D Visualization and Visualization projects.
+| Design various applications in the field like Gaming, Architecture, Manufacturing, Retail, Health care, etc.
+| Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools
+| Professional certification recognized by employers worldwide
+| Career pathways to connect to an estimated eight million networking jobs around the world through Netacad
+| CCNA: Introduction to Networks
+| CCNA: Switching, Routing, and Wireless Essentials
+| CCNA: Enterprise Networking, Security and Automation OR Networking Courses
+| CISCO Certified Network Associate
+| Implementing CISCO Enterprise Network Core Technologies
+| Learn about the technical and design aspects of AR and VR. | |
+| Create 3D design, Visualization and Animation for various objects and scenes. | |
+| Apply virtual and Augmented reality methods , tools and equipments in various field of industry, education and social life. | |
+| Provide an overview of the concepts and working of AR-VR techniques. |
+### The students will be able to
+| Build basic applications considering the technical and design aspects of AR and VR. | |
+| Develop PC/Mobile based VR applications. | |
+| Develop 3D Visualization and Visualization projects. | |
+| Design various applications in the field like Gaming, Architecture, Manufacturing, Retail, Health care, etc. |
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking to establish
+the Networking Academy(NetAcad).
+Cisco Networking Academy is an IT skills and career building program which provides
+| Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools | |
+| Professional certification recognized by employers worldwide | |
+| Career pathways to connect to an estimated eight million networking jobs around the world through Netacad |
+| CCNA: Introduction to Networks | |
+| CCNA: Switching, Routing, and Wireless Essentials | |
+CCNA: Enterprise Networking, Security and Automation OR Networking Courses |
+| IoT & Data Analytics Courses | |
+| CISCO Certified Network Associate | |
+| Implementing CISCO Enterprise Network Core Technologies |
+**Introduction to Virtual Reality (6 hours)**
+** **Introduction, Fundamental Concept and Components of Virtual Reality. Primary Features and Present Development on Virtual Reality. Computer graphics, Real time computer graphics, Flight Simulation, Virtual environment requirement, benefits of virtual reality, Historical development of VR, Scientific Landmark 3D Computer Graphics: Introduction, The Virtual world space, positioning the virtual observer, the perspective projection, human vision, stereo perspective projection, 3D clipping, Colour theory, Simple 3D modelling, Illumination models, Reflection models, Shading algorithms, Radiosity, Hidden Surface Removal, Realism-Stereographic image.
+**Interactive Techniques in Virtual Reality (6 hours)**
+** **Introduction, From 2D to 3D, 3D space curves, 3D boundary representation Geometrical Transformations: Introduction, Frames of reference, Modeling transformations, Instances, Picking, Flying, Scaling the VE, Collision detection Generic VR system: Introduction, Virtual environment, Computer environment, VR technology, Model of interaction, VR Systems.
+**Visual Computation in Virtual Reality: (6 hours) **
+Animating the Virtual Environment: Introduction, The dynamics of numbers, Linear and Nonlinear interpolation, the animation of objects, linear and non-linear translation, shape & object inbetweening, free from deformation, particle system. Physical Simulation: Introduction, Objects falling in a gravitational field, Rotating wheels, Elastic collisions, projectiles, simple pendulum, springs, Flight dynamics of an aircraft.
+**Augmented and Mixed Reality (6 hours) **
+Taxonomy, technology and features of augmented reality, difference between AR and VR, Challenges with AR, AR systems and functionality, Augmented reality methods, visualization techniques for augmented reality, wireless displays in educational augmented reality applications, mobile projection interfaces, marker-less tracking for augmented reality, enhancing interactivity in AR environments, evaluating AR systems.
+**Multiple Models of Input and Output Interface in Virtual Reality: (6 hours) **
+Human factors: Introduction, the eye, the ear, the somatic senses. VR Hardware: Introduction, sensor hardware, Head-coupled displays, Acoustic hardware, Integrated VR systems. VR Software: Introduction, Modeling virtual world, Physical simulation, VR toolkits, Introduction to VRML, Input -- Tracker, Sensor, Digital Glove, Movement Capture, Video-based Input, 3D Menus & 3DScanner etc. Output -- Visual /Auditory / Haptic Devices.
+**Application of VR in Digital Entertainment (6 hours) **
+VR Technology in Film & TV Production. VR Technology in Physical Exercises and Games. Demonstration of Digital Entertainment by VR.
+**List of Practical’s (9 hours) **
+>> Developing architecture of a house using Virtual Reality.
+>> Perform CRO based experiment using Virtual Reality.
+>> Undertaking qualitative analysis in Chemistry using Virtual Reality.
+>> Carry out assembly/disassembly of an engine using Virtual Reality.
+>> Explore human anatomy using Virtual Reality.
+>> Simulation of circulation of blood in heart.
+>> Simulation of Fight/Vehicle/Space Station.
+>> Building Electronic circuit using Virtual Reality, given basic electronic components.
+>> Developing concept of Virtual class room with multiplayer.
+>> Burdea, G. C. and P. Coffet. Virtual Reality Technology, Second Edition. Wiley-IEEE Press, 2003/2006.
+>> Alan B. Craig, Understanding Augmented Reality, Concepts and Applications, Morgan Kaufmann, 2013.
+>> Alan Craig, William Sherman and Jeffrey Will, Developing Virtual Reality Applications, Foundations of Effective Design, Morgan Kaufmann, 2009.
+>> John Vince, “Virtual Reality Systems “, Pearson Education Asia, 2007.
+>> Anand R., “Augmented and Virtual Reality”, Khanna Publishing House, Delhi.
+>> Adams, “Visualizations of Virtual Reality”, Tata McGraw Hill, 2000.
+>> Grigore C. Burdea, Philippe Coiffet , “Virtual Reality Technology”, Wiley Inter Science, 2nd Edition, 2006.
+>> William R. Sherman, Alan B. Craig, “Understanding Virtual Reality: Interface, Application and Design”, Morgan Kaufmann, 2008.

@@ -1,0 +1,135 @@
+--- SOURCE: https://www.msajce-edu.in/technologycentreembeddediotcentre.php ---
+MSAJCE | Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
+Teachers & Engineers Day 2025 Celebration Photos New |
+Internship Report Format - 2025 New |
+Internship Report Format - 2025 - Download Here |
+18th Graduation Day 22 Feb 2025 Photos New |
+Admission 2026 - 2027 Flyer New |
+AICTE-ATAL Sponsored Six Days FDP New |
+17th Graduation Day Photos New |
+Admission Open 2026-2027 - Online Application Form |
+Grievance Cell - grievance@msajce-edu.in |
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal New
+Grievance and Redressal Committee
+Smart Objects and IoT Architectures.
+To learn about the various IOT-related protocols.
+To build the simple IoT Systems using Arduino and Raspberry Pi.
+To learn the data analytics and cloud in the context of
+the IoT infrastructure for popular applications.
+To analyze various protocols for
+To design a PoC of an IoT system using Rasperry Pi/Arduino.
+use cloud offerings related to IoT.
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking to establish
+the Networking Academy(NetAcad).
+Cisco Networking Academy is an IT skills and career building program which provides
+Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools
+Professional certification recognized by employers worldwide
+Career pathways to connect to an estimated eight million networking jobs around the world through Netacad
+CCNA: Switching, Routing, and Wireless Essentials
+CCNA: Enterprise Networking, Security and Automation
+CISCO Certified Network Associate
+Implementing CISCO Enterprise Network Core Technologies
+1. Introduction to IoT (8 Hours)
+Architectural Overview, Design principles and needed capabilities, IoT Applications, Sensing, Actuation, Basics of Networking, M2M and IoT Technology Fundamentals- Devices and gateways, Data management, Business processes in IoT, Everything as a Service(XaaS), Role of Cloud in IoT, Security aspects in IoT.
+Hardware Components- Computing (Arduino, Raspberry Pi), Communication, Sensing, Actuation, I/O interfaces. Software Components- Programming API’s (using Python/Node.js/Arduino) for Communication Protocols-MQTT, ZigBee, Bluetooth, CoAP, UDP, TCP.
+Solution framework for IoT applications- Implementation of Device integration, Data acquisition and integration, Device data storage- Unstructured data storage on cloud/local server, Authentication, authorization of devices.
+IoT case studies and mini projects based on Industrial automation, Transportation, Agriculture, Healthcare, Home Automation
+1. Familiarization with Arduino/Raspberry Pi and perform necessary software installation.
+2. To interface LED/Buzzer with Arduino/Raspberry Pi and write a program to turn ON LED for 1 sec after every 2 seconds.
+3. To interface Push button/Digital sensor (IR/LDR) with Arduino/Raspberry Pi and write a program to turn ON LED when push button is pressed or at sensor detection.
+4. To interface DHT11 sensor with Arduino/Raspberry Pi and write a program to print temperature and humidity readings.
+5. To interface motor using relay with Arduino/Raspberry Pi and write a program to turn ON motor when push button is pressed.
+6. To interface OLED with Arduino/Raspberry Pi and write a program to print temperature and humidity readings on it.
+7. To interface Bluetooth with Arduino/Raspberry Pi and write a program to send sensor data to smartphone using Bluetooth.
+8. To interface Bluetooth with Arduino/Raspberry Pi and write a program to turn LED ON/OFF when ‘1’/’0’ is received from smartphone using Bluetooth.
+9. Write a program on Arduino/Raspberry Pi to upload temperature and humidity data to thingspeak cloud.
+10. Write a program on Arduino/Raspberry Pi to retrieve temperature and humidity data from thingspeak cloud.
+11. To install MySQL database on Raspberry Pi and perform basic SQL queries.
+12. Write a program on Arduino/Raspberry Pi to publish temperature data to MQTT broker.
+Write a program on Arduino/Raspberry Pi to subscribe to MQTT broker for temperature data and print it.
+14. Write a program to create TCP server on Arduino/Raspberry Pi and respond with humidity data to TCP client when requested.
+15. Write a program to create UDP server on Arduino/Raspberry Pi and respond with humidity data to UDP client when requested.
+1. Vijay Madisetti, Arshdeep Bahga, Ïnternet of Things, “A Hands on Approach”, University Press
+2. Dr. SRN Reddy, Rachit Thukral and Manasi Mishra, “Introduction to Internet of Things: A practical Approach”, ETI Labs
+3. Pethuru Raj and Anupama C. Raman, “The Internet of Things: Enabling Technologies, Platforms, and Use Cases”, CRC Press
+4. Jeeva Jose, “Internet of Things”, Khanna Publishing House, Delhi
+5. Adrian McEwen, “Designing the Internet of Things”, Wiley
+6. Raj Kamal, “Internet of Things: Architecture and Design”, McGraw Hill 7. Cuno Pfister, “Getting Started with the Internet of Things”, O Reilly Media
+https://nptel.ac.in/courses/106105077
+https://nptel.ac.in/courses/106106126
+https://ai.berkeley,edu/project_overview.html (for Practicals)
+AICTE Scholarship/Fellowship Schemes
+© 2023 MSAJCE All Rights Reserved | 1635387 Visitors
+| To learn the Smart Objects and IoT Architectures.
+| To learn about the various IOT-related protocols.
+| To build the simple IoT Systems using Arduino and Raspberry Pi.
+| To learn the data analytics and cloud in the context of IoT.
+| To develop the IoT infrastructure for popular applications.
+| To understand the concept of IoT.
+| To analyze various protocols for IoT.
+| To design a PoC of an IoT system using Rasperry Pi/Arduino.
+| To apply data analytics and use cloud offerings related to IoT.
+| To analyze applications of IoT in real time scenario.
+| Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools
+| Professional certification recognized by employers worldwide
+| Career pathways to connect to an estimated eight million networking jobs around the world through Netacad
+| CCNA: Introduction to Networks
+| CCNA: Switching, Routing, and Wireless Essentials
+| CCNA: Enterprise Networking, Security and Automation OR Networking Courses
+| CISCO Certified Network Associate
+| Implementing CISCO Enterprise Network Core Technologies
+| To learn the Smart Objects and IoT Architectures. | |
+| To learn about the various IOT-related protocols. | |
+| To build the simple IoT Systems using Arduino and Raspberry Pi. | |
+| To learn the data analytics and cloud in the context of IoT. | |
+| To develop the IoT infrastructure for popular applications. |
+### The students will be able to
+| To understand the concept of IoT. | |
+| To analyze various protocols for IoT. | |
+| To design a PoC of an IoT system using Rasperry Pi/Arduino. | |
+| To apply data analytics and use cloud offerings related to IoT. | |
+| To analyze applications of IoT in real time scenario. |
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking to establish
+the Networking Academy(NetAcad).
+Cisco Networking Academy is an IT skills and career building program which provides
+| Unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools | |
+| Professional certification recognized by employers worldwide | |
+| Career pathways to connect to an estimated eight million networking jobs around the world through Netacad |
+| CCNA: Introduction to Networks | |
+| CCNA: Switching, Routing, and Wireless Essentials | |
+CCNA: Enterprise Networking, Security and Automation OR Networking Courses |
+| IoT & Data Analytics Courses | |
+| CISCO Certified Network Associate | |
+| Implementing CISCO Enterprise Network Core Technologies |
+**1. Introduction to IoT (8 Hours) **
+Architectural Overview, Design principles and needed capabilities, IoT Applications, Sensing, Actuation, Basics of Networking, M2M and IoT Technology Fundamentals- Devices and gateways, Data management, Business processes in IoT, Everything as a Service(XaaS), Role of Cloud in IoT, Security aspects in IoT.
+**2. Elements of IoT (9 Hours) **
+Hardware Components- Computing (Arduino, Raspberry Pi), Communication, Sensing, Actuation, I/O interfaces. Software Components- Programming API’s (using Python/Node.js/Arduino) for Communication Protocols-MQTT, ZigBee, Bluetooth, CoAP, UDP, TCP.
+**3. IoT Application Development (18 Hours) **
+Solution framework for IoT applications- Implementation of Device integration, Data acquisition and integration, Device data storage- Unstructured data storage on cloud/local server, Authentication, authorization of devices.
+**4. IoT Case Studies (10 Hours)**
+IoT case studies and mini projects based on Industrial automation, Transportation, Agriculture, Healthcare, Home Automation
+1. Familiarization with Arduino/Raspberry Pi and perform necessary software installation.
+2. To interface LED/Buzzer with Arduino/Raspberry Pi and write a program to turn ON LED for 1 sec after every 2 seconds.
+3. To interface Push button/Digital sensor (IR/LDR) with Arduino/Raspberry Pi and write a program to turn ON LED when push button is pressed or at sensor detection.
+4. To interface DHT11 sensor with Arduino/Raspberry Pi and write a program to print temperature and humidity readings.
+5. To interface motor using relay with Arduino/Raspberry Pi and write a program to turn ON motor when push button is pressed.
+6. To interface OLED with Arduino/Raspberry Pi and write a program to print temperature and humidity readings on it.
+7. To interface Bluetooth with Arduino/Raspberry Pi and write a program to send sensor data to smartphone using Bluetooth.
+8. To interface Bluetooth with Arduino/Raspberry Pi and write a program to turn LED ON/OFF when ‘1’/’0’ is received from smartphone using Bluetooth.
+9. Write a program on Arduino/Raspberry Pi to upload temperature and humidity data to thingspeak cloud.
+10. Write a program on Arduino/Raspberry Pi to retrieve temperature and humidity data from thingspeak cloud.
+11. To install MySQL database on Raspberry Pi and perform basic SQL queries.
+12. Write a program on Arduino/Raspberry Pi to publish temperature data to MQTT broker.
+Write a program on Arduino/Raspberry Pi to subscribe to MQTT broker for temperature data and print it.
+14. Write a program to create TCP server on Arduino/Raspberry Pi and respond with humidity data to TCP client when requested.
+15. Write a program to create UDP server on Arduino/Raspberry Pi and respond with humidity data to UDP client when requested.
+1. Vijay Madisetti, Arshdeep Bahga, Ïnternet of Things, “A Hands on Approach”, University Press
+2. Dr. SRN Reddy, Rachit Thukral and Manasi Mishra, “Introduction to Internet of Things: A practical Approach”, ETI Labs
+3. Pethuru Raj and Anupama C. Raman, “The Internet of Things: Enabling Technologies, Platforms, and Use Cases”, CRC Press
+4. Jeeva Jose, “Internet of Things”, Khanna Publishing House, Delhi
+5. Adrian McEwen, “Designing the Internet of Things”, Wiley
+6. Raj Kamal, “Internet of Things: Architecture and Design”, McGraw Hill 7. Cuno Pfister, “Getting Started with the Internet of Things”, O Reilly Media
+https://nptel.ac.in/courses/106105077
+https://nptel.ac.in/courses/106106126
+https://ai.berkeley,edu/project_overview.html (for Practicals)

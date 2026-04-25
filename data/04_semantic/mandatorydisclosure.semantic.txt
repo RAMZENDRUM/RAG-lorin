@@ -1,0 +1,16 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to MSAJCE]
+Mohamed Sathak AJ College of Engineering is a top engineering college in Chennai, offering various courses such as B.E, B.Tech, M.E, and more. The college has a strong focus on research and development, with a dedicated Technology Centre and Research department. The college is accredited by NAAC and has a strong reputation for producing high-quality engineers.
+
+[SECTION: Administration and Governance]
+The college is managed by a governing council, which includes a principal and a team of administrators. The college also has a statutory body, an academic advisory committee, and a grievance and redressal committee to ensure that the needs of students and faculty are met. The principal of the college is responsible for overseeing the day-to-day operations and ensuring that the college's vision and mission are achieved.
+
+[SECTION: Academics and Curriculum]
+The college offers a range of academic programs, including undergraduate and postgraduate courses in engineering and technology. The curriculum is designed to be relevant to the industry, with a focus on practical skills and hands-on learning. The college also has a strong focus on research and development, with a dedicated research department and a technology centre.
+
+[SECTION: Facilities and Infrastructure]
+The college has a range of facilities, including a learning centre, hostel, transport, sports, and campus radio. The college also has a strong focus on social services, with a range of clubs and societies for students to get involved in. The college's infrastructure is designed to support the needs of students and faculty, with a range of amenities and services available.
+
+[SECTION: Contact and Location]
+The college is located at 34, Rajiv Gandhi Salai (OMR), Siruseri IT Park, Siruseri, Chennai - 603103. The college can be contacted at +91 99400 04500 or via email at msajce.office@gmail.com. The college also has a website and social media presence, making it easy for students and faculty to stay connected and up-to-date with the latest news and events.

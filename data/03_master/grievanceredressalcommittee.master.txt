@@ -1,205 +1,31 @@
 --- SOURCE: https://www.msajce-edu.in/grievanceredressalcommittee.php ---
-[[ STRUCTURED DATA (BS4) ]]
-URL: https://www.msajce-edu.in/grievanceredressalcommittee.php
-STRUCTURED TEXT:
 MSAJCE | Mohamed Sathak A. J. College of Engineering | B.E | B.Tech | M.E | Admissions | Best Top Engineering College In Chennai
-NAAC|
-IQAC|
-NIRF|
-ARIIA |
-Online Application Form  |
-Online Fee Payment   |
-Students Corner   |
-College Video
-9940004500
-What's New
-Teachers & Engineers Day 2025 Celebration Photos  New  |
-ESE Timetable June 2025 New  |
-Internship Report Format - 2025 New  |
-Internship Report Format - 2025 - Download Here    |
-18th Graduation Day 22 Feb 2025 Photos  New  |
-Admission 2026 - 2027 Flyer  New |
-AICTE-ATAL Sponsored Six Days FDP  New |
-17th Graduation Day Photos  New  |
-Admission Open 2026-2027 - Online Application Form    |
-Online Fee Payment  New  |
-Grievance Cell - grievance@msajce-edu.in     |
-The Feedback Facility of Students and Faculty Available in the AICTE Web Portal  New
-About Us
-An Overview
-Vision and Mission
-Management
-Principal Message
-Statutory body
-Governing Council
-Planning & Monitoring Board
-Academic Advisory Committe
+Teachers & Engineers Day 2025 Celebration Photos New |
+Internship Report Format - 2025 New |
+Internship Report Format - 2025 - Download Here |
+18th Graduation Day 22 Feb 2025 Photos New |
+Admission 2026 - 2027 Flyer New |
+AICTE-ATAL Sponsored Six Days FDP New |
+17th Graduation Day Photos New |
+Admission Open 2026-2027 - Online Application Form |
+Grievance Cell - grievance@msajce-edu.in |
+The Feedback Facility of Students and Faculty Available in the AICTE Web Portal New
 Grievance and Redressal Committee
-Anti-Ragging Committee & Squad
-Womens Empowerment Cell
-Functional Committees
-MSAJCE Policies
-Mandatory Disclosure
-Group of Institutions
-Admission
-Academics
-Regulations
-Curriculum and Syllabus
-Department
-Technology Centre
-Research
-COE
-ESE Timetable Nov - Dec 2025
-ESE NOV-DEC 2025 RESULTS
-EXAM REGISTRATION MAY-JUN'25
-I & II YEAR
-III & IV YEAR
-Placement
-Life at MSAJCE
-Learning Centre (Library)
-Hostel
-Transport
-Sports
-Campus Radio
-Social Services
-Clubs & Societies
-Professional Socities
-Alumni
-AICTE Scholarship
-Incubation
 Complaints/Grievance Redressal / Disciplinary / Vishaka Committee / Posh Cell
-Home
-Statutory Committees
+Complaints/Grievance Redressal / Disciplinary / Vishaka Committee / Posh Cell
 Complaints/Grievance Redressal / Disciplinary / Vishaka Committee / Posh Cell /
-grievance@msajce-edu.in
-S.No
-Name
-Category
-Contact Details
-1
-Ms.S.Usha AP / English, MSAJCE, Chennai.
-Convener
-sh.usha@msajce-edu.in
-2
-Principal, MSAJCE, Chennai
-Co – Convener
-Principal@msajce-edu.in
-3
-Mrs.Adhilakshmi Logamurthy Advocate &
-Legal Consultant
-External Member
--
-4
+Information for Ms.S.Usha AP / English, MSAJCE, Chennai.: The Name is Ms.S.Usha AP / English, MSAJCE, Chennai.. The Category is Convener. The Contact Details is sh.usha@msajce-edu.in. 
+Information for Principal, MSAJCE, Chennai: The Name is Principal, MSAJCE, Chennai. The Category is Co – Convener. The Contact Details is Principal@msajce-edu.in. 
+Information for Mrs.Adhilakshmi Logamurthy Advocate &: The Name is Mrs.Adhilakshmi Logamurthy Advocate &. The Category is Legal Consultant. The Contact Details is External Member. 
 Mr.Hussain Basha NGO-1, MasterMind
-Consultraining, Chennai
-info@hussainbasha.com
-5
-Dr.Ushaa Eswaran
-NGO-2
-drushaaeswaran@gmail.com
-6
-Mr.K.SivaramanAdvocate
-7
 Mr.ChandrasekaranSub Inspector of Police
-8
 Dr.O.S.AyishaVice Principal, MSCAS, Chennai
-9
 Head - AcademicsMSAJCE, Chennai
-Member
-ac@msajce-edu.in
-10
 Head – Administration MSAJCE, Chennai
-headadmin@msajce-edu.in
-11
 Dr.K.P.SanthoshnathanPED, MSAJCE, Chennai.
-ped.santhosh@msajce-edu.in
-12
 Mr.Abdul GafoorManager, Student Affairs
-abdulgafoor@msajce-edu.in
-13
-Parent Representative
-14
-15
 Students Representatives:Mr.S.Salman, IV MechMr.Poo.Satheeshkumar, IV ECEMs.W.Karishma, III CSEMs.V.Abinaya, III ECE
-Overview
-Vision & Mission
-Download Brochure
-Brochure.pdf
+Grievance and Redressal Committee
 Mohamed Sathak AJ College of Engineering
-34, Rajiv Gandhi Salai (OMR),
-Siruseri IT Park, Siruseri,
-Chennai - 603103
-+91 99400 04500
-msajce.office@gmail.com
-Connect With Us
-MSAJCE Links
-News Letter
-Anna University Approval
-AICTE Approval
-Code of Conduct
-Best Practices
-Grievance Cell
-Web Links
-College Management System
-Academic Calendar
-EBSB
-UBA
-KARMA
-Spoken Tutorial
-Balance Sheet
-Useful Links
 AICTE Scholarship/Fellowship Schemes
-Annual Report AY2023-2024
-Graduation Day
-Institutional Distinctiveness
 © 2023 MSAJCE All Rights Reserved | 1635387 Visitors
-Maintained by : WebTeam MSAJCE
-TABLE DATA:
---- TABLE 1 ---
-S.No | Name | Category | Contact Details
-1 | Ms.S.Usha AP / English, MSAJCE, Chennai. | Convener | sh.usha@msajce-edu.in
-2 | Principal, MSAJCE, Chennai | Co – Convener | Principal@msajce-edu.in
-3 | Mrs.Adhilakshmi Logamurthy Advocate &  Legal Consultant | External Member | -
-4 | Mr.Hussain Basha NGO-1, MasterMind    Consultraining, Chennai | External Member | info@hussainbasha.com
-5 | Dr.Ushaa Eswaran  NGO-2 | External Member | drushaaeswaran@gmail.com
-6 | Mr.K.SivaramanAdvocate | External Member | -
-7 | Mr.ChandrasekaranSub Inspector of Police | External Member | -
-8 | Dr.O.S.AyishaVice Principal, MSCAS, Chennai | External Member | -
-9 | Head - AcademicsMSAJCE, Chennai | Member | ac@msajce-edu.in
-10 | Head – Administration MSAJCE, Chennai | Member | headadmin@msajce-edu.in
-11 | Dr.K.P.SanthoshnathanPED, MSAJCE, Chennai. | Member | ped.santhosh@msajce-edu.in
-12 | Mr.Abdul GafoorManager, Student Affairs | Member | abdulgafoor@msajce-edu.in
-13 | Parent Representative | Member | -
-14 | Parent Representative | Member | -
-15 | Students Representatives:Mr.S.Salman, IV MechMr.Poo.Satheeshkumar, IV ECEMs.W.Karishma, III CSEMs.V.Abinaya, III ECE | Member | -
-[[ NARRATIVE DATA (TRAFILATURA) ]]
-MARKDOWN CONTENT:
-### Complaints/Grievance Redressal / Disciplinary / Vishaka Committee / Posh Cell /
-**grievance@msajce-edu.in **
-| S.No | Name | Category | Contact Details |
-|---|---|---|---|
-| 1 | Ms.S.UshaAP / English, MSAJCE, Chennai. |
-Convener | sh.usha@msajce-edu.in |
-| 2 | Principal, MSAJCE, Chennai |
-Co – Convener | Principal@msajce-edu.in |
-| 3 | Mrs.Adhilakshmi LogamurthyAdvocate & Legal Consultant |
-External Member | - |
-| 4 | Mr.Hussain Basha NGO-1, MasterMind Consultraining, Chennai |
-External Member | info@hussainbasha.com |
-| 5 | Dr.Ushaa Eswaran NGO-2 |
-External Member | drushaaeswaran@gmail.com |
-| 6 | Mr.K.SivaramanAdvocate |
-| 7 | Mr.ChandrasekaranSub Inspector of Police |
-| 8 | Dr.O.S.AyishaVice Principal, MSCAS, Chennai |
-| 9 | Head - AcademicsMSAJCE, Chennai |
-Member | ac@msajce-edu.in |
-| 10 | Head – Administration MSAJCE, Chennai |
-Member | headadmin@msajce-edu.in |
-| 11 | Dr.K.P.SanthoshnathanPED, MSAJCE, Chennai. |
-Member | ped.santhosh@msajce-edu.in |
-| 12 | Mr.Abdul GafoorManager, Student Affairs |
-Member | abdulgafoor@msajce-edu.in |
-| 13 | Parent Representative |
-Member | - |
-| 14 | Parent Representative |
-| 15 | Students Representatives:Mr.S.Salman, IV Mech Mr.Poo.Satheeshkumar, IV ECE Ms.W.Karishma, III CSE Ms.V.Abinaya, III ECE |

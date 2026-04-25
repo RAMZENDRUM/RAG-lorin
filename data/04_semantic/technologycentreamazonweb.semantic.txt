@@ -1,0 +1,16 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to Amazon Web Services (AWS) Centre]
+The Amazon Web Services (AWS) Centre at Mohamed Sathak A J College of Engineering aims to provide students with hands-on experience in building IT infrastructure on the AWS platform. Students will acquire knowledge of various cloud services provided by Amazon Web Services (AWS) and learn how to create and configure AWS services. The centre also focuses on teaching students how to integrate various AWS services together to present a holistic cloud solution. This will enable students to build fault-tolerant and highly available applications on cloud.
+
+[SECTION: Objectives and Outcomes]
+The objectives of the AWS Centre include understanding the fundamentals of building IT infrastructure on the AWS platform and acquiring knowledge of various cloud services provided by AWS. The outcomes of the programme include creating and configuring AWS services, building fault-tolerant and highly available applications on cloud, and designing patterns to architect optimal IT solutions on AWS. Students will also learn about best practices and design patterns to architect optimal IT solutions on AWS.
+
+[SECTION: Partnership with CISCO]
+Mohamed Sathak A J College of Engineering has partnered with CISCO, the world leaders in networking, to establish the Networking Academy (NetAcad). The Networking Academy is an IT skills and career building programme that provides unique hands-on learning experience in the latest networking, security, and cloud technologies using simulation tools. The programme also offers professional certification recognized by employers worldwide and career pathways to connect to an estimated eight million networking jobs around the world through NetAcad.
+
+[SECTION: Courses Offered]
+The Networking Academy offers various courses, including Network Essentials, Mobility Fundamentals, CCNA: Introduction to Networks, and CCNA: Switching, Routing, and Wireless Essentials. Other courses offered include Security Courses, IoT & Data Analytics Courses, OS and IT Courses, Programming Courses, and Entrepreneurship. These courses are designed to provide students with a comprehensive understanding of networking and cloud technologies.
+
+[SECTION: Certifications]
+The Networking Academy offers various certifications, including CISCO Certified Network Associate and Implementing CISCO Enterprise Network Core Technologies. These certifications are recognized by employers worldwide and provide students with a competitive edge in the job market. The certifications are also a testament to the students' skills and knowledge in networking and cloud technologies.

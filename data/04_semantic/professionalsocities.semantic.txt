@@ -1,0 +1,19 @@
+Here is the transformed data in the required format:
+
+[SECTION: Introduction to MSAJCE]
+MSAJCE, or Mohamed Sathak A.J. College of Engineering, is a renowned institution that offers various professional courses. The college has a strong focus on professional societies, which provide students with opportunities for networking, skill development, and community engagement. Dr. K.S. Srinivasan is the Principal of MSAJCE, and he can be contacted at principal@msajce-edu.in. Dr. I. Manju is a Nominee Professor in the Department of ECE, and her contact number is 9949055026.
+
+[SECTION: Computer Society of India (CSI)]
+The Computer Society of India (CSI) is a professional organization that works towards making IT a preferred profession among all sections of society. CSI regularly organizes conferences, conventions, lectures, projects, and awards to achieve its objectives. Dr. D. Weslin is the CSI Student Branch Counsellor and Associate Professor in the Department of IT. He can be reached at it.weslin@msajce-edu.in. The CSI Kanchipuram Chapter has a well-established network across the country and conducts various activities for students, including lecture meetings, seminars, and industrial visits.
+
+[SECTION: Institute of Electrical and Electronics Engineers (IEEE)]
+The Institute of Electrical and Electronics Engineers (IEEE) is a US-based non-profit organization that is the world's leading professional association for the advancement of technology. IEEE has a student branch at MSAJCE, which provides opportunities for students to meet and learn from fellow students, faculty members, and professionals in the field. The IEEE student branch offers various educational, technical, and professional advantages, including participation in regional conferences, workshops, and competitions.
+
+[SECTION: IETE Students Forum]
+The Institution of Electronics and Telecommunication Engineers (IETE) is a leading professional society in India for electronics and communication engineers. MSAJCE has an IETE Students Forum, which was established in 2017. The forum organizes guest lectures, seminars, workshops, and conferences for the benefit of student members. Dr. I. Manju is the Branch Counsellor 1 for the IETE Students Forum, and Mrs. S. Anusuya is the Branch Counsellor 2.
+
+[SECTION: Society of Automotive Engineers (SAE)]
+The Society of Automotive Engineers (SAE) is a US-based professional association and standards developing organization for engineering professionals in various industries. SAEINDIA is India's leading resource for mobility technology, and MSAJCE has a SAEINDIA collegiate club. The club was inaugurated on February 21, 2020, and conducted the SAEINDIA Southern section TIER-II event on the same day. Mr. S. Deepakkumar is the Faculty Incharge of the SAEINDIA collegiate club.
+
+[SECTION: Indian Society of Heating, Refrigerating and Air Conditioning Engineers (ISHRAE)]
+The Indian Society of Heating, Refrigerating and Air Conditioning Engineers (ISHRAE) is a professional society that works towards promoting the arts and sciences of HVAC&R in India. ISHRAE has 41 chapters and sub-chapters across India, and MSAJCE is one of them. The society provides excellent networking opportunities, professional development, and access to technical publications, software, and training programs. ISHRAE also offers international exposure through international associates.
