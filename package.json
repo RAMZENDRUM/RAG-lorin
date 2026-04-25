@@ -7,6 +7,7 @@
     "ingest": "tsx ingestion/ingest.ts",
     "bot": "tsx bot/main.ts",
     "scrape": "python ingestion/scraper.py",
+    "report": "tsx scripts/sunday-intelligence.ts",
     "build": "echo 'Vercel builds via @vercel/node'"
   },
   "dependencies": {
