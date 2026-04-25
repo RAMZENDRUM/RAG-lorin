@@ -123,21 +123,23 @@ export async function hybridRetrieve(
             const tokens = rawQueryClean.split(' ').filter(t => t.length > 2);
             
             if (tokens.length > 0) {
-                const searchToken = tokens[0];
-                // Use Trigram similarity (%) for fuzzy matching
+                // Search for ANY token match to catch all possible name variations
                 const results = await sql`
-                    SELECT name, role, department, batch, context, similarity(name, ${searchToken}) as score
+                    SELECT name, role, department, batch, context, similarity(name, ${rawQueryClean}) as score
                     FROM msajce_entities 
-                    WHERE name % ${searchToken} 
-                    OR name ILIKE ${'%' + searchToken + '%'}
+                    WHERE name % ${rawQueryClean} 
+                    OR name ILIKE ${'%' + tokens.join('%') + '%'}
+                    OR name ILIKE ${'%' + tokens[0] + '%'}
                     ORDER BY score DESC
-                    LIMIT 2
+                    LIMIT 5
                 `;
                 
                 if (results && results.length > 0) {
-                    entityContext = results.map((r: any) => 
-                        `[ENTITY TABLE]: ${r.name} is the ${r.role || 'Member'} in ${r.department || 'the college'}. ${r.batch ? `Batch: ${r.batch}.` : ''} Context: ${r.context}`
-                    ).join('\n\n');
+                    entityContext = results.map((r: any) => {
+                        const isStudent = r.batch || r.role?.toLowerCase().includes('student') || r.role?.toLowerCase().includes('president') || r.role?.toLowerCase().includes('secretary');
+                        const label = isStudent ? '[STUDENT ENTITY]' : '[FACULTY/OFFICIAL ENTITY]';
+                        return `${label}: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch || 'N/A'}\nContext: ${r.context}`;
+                    }).join('\n\n');
                 }
             }
         }
@@ -265,6 +267,7 @@ PERSONALITY RULES:
 3. CAMPUS VIBE: Use a natural, conversational flow. Be proud of the college but don't sound like a brochure.
 4. IDENTITY RULE: If context contains "[ENTITY TABLE]", you MUST use that data for the person's description. It is the absolute source of truth.
 5. AMBIGUITY: If you find multiple people with similar names in the context, list ALL of them clearly and ask the user which one they need info on. Never guess.
+6. OVERWRITE HISTORY: If the [ENTITY TABLE] data contradicts your previous answers in the conversation history, you MUST ignore the history and provide the new, correct data from the table. The history might be wrong; the table is always right.
 
 FORMATTING RULES (STRICT PLAIN TEXT):
 1. NO BOLDING: Never use "**" or "__".
