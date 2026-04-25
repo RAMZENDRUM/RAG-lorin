@@ -271,6 +271,14 @@ export async function orchestrate(
     injectedContext: string = ""
 ): Promise<{ answer: string }> {
     const googleFormUrl = "https://forms.gle/msajce-enquiry";
+
+    // SONIC FAST-PATH: Detect simple social intent to skip heavy RAG stages
+    const isBasicSocial = /^(hello|hi|hey|thanks|thank you|ok|nice|bye|goodbye|okay|wow|hmm|mm|cool)$/i.test(rawText.trim().toLowerCase());
+    if (isBasicSocial && !shortTerm.length) {
+        const answer = await generateGrounded("", rawText, { dominantIntent: intent } as any, googleFormUrl, openai);
+        return { answer: postProcess(answer, {} as any, googleFormUrl, [], rawText) };
+    }
+
     const rewritten = await rewriteQuery(rawText, intent, shortTerm, openai);
     
     // Deep Hybrid Retrieval with targeted vector lookup for entities
