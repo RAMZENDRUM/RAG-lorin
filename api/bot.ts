@@ -50,6 +50,14 @@ if (DB_URL) {
                 created_at TIMESTAMPTZ DEFAULT NOW()
             );
         `.catch(e => console.error("⚠️ Registry Table Init Failed:", e));
+
+        // Anti-Loop Deduplication Table
+        sql`
+            CREATE TABLE IF NOT EXISTS processed_updates (
+                update_id BIGINT PRIMARY KEY,
+                created_at TIMESTAMPTZ DEFAULT NOW()
+            );
+        `.catch(e => console.error("⚠️ Deduplication Table Init Failed:", e));
         
     } catch (e) {
         console.error("⚠️ Database binding failed:", e);
@@ -77,9 +85,18 @@ function getDynamicAIClient() {
 bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your smart MSAJCE Concierge. 🤖\n\n💡 **Tip:** You can like (👍) or dislike (👎) my answers by reacting to them. This helps me improve! How can I help you today?'));
 
 bot.on('text', async (ctx) => {
+    const updateId = ctx.update.update_id;
     try {
         const userId = ctx.from.id.toString();
         const rawText = ctx.message.text;
+
+        // Deduplication Check (Prevent Loops)
+        if (sql) {
+            const alreadyProcessed = await sql`SELECT update_id FROM processed_updates WHERE update_id = ${updateId}`;
+            if (alreadyProcessed.length > 0) return console.log(`⏩ Skipping duplicate update: ${updateId}`);
+            
+            await sql`INSERT INTO processed_updates (update_id) VALUES (${updateId})`;
+        }
         
         // Dynamically instantiate the AI client per message to guarantee rotation
         const openai = getDynamicAIClient();
@@ -143,6 +160,7 @@ bot.on('text', async (ctx) => {
                 ON CONFLICT (message_id) DO NOTHING
             `;
         }
+    } catch (e: any) {
         console.error('Webhook Orchestration Error:', e);
         try {
             const maskedUrl = DB_URL ? `${DB_URL.split('@')[1]?.split('/')[0] || 'HIDDEN'}` : 'UNDEFINED';
@@ -173,8 +191,18 @@ bot.on('message_reaction', async (ctx) => {
     try {
         const userId = ctx.from?.id.toString();
         const msgId = ctx.messageReaction.message_id.toString();
-        const reaction = ctx.messageReaction.new_reaction[0];
+        const reactions = ctx.messageReaction.new_reaction;
         
+        // If the reaction list is empty, it means the user REMOVED their reaction
+        if (reactions.length === 0) {
+            console.log(`🗑️ Feedback removed by ${userId} for message ${msgId}`);
+            if (sql) {
+                await sql`DELETE FROM audit_feedback WHERE user_id = ${userId} AND message_id = ${msgId}`;
+            }
+            return;
+        }
+
+        const reaction = reactions[0];
         let reactionType = 'unknown';
         if (reaction && 'emoji' in reaction) reactionType = reaction.emoji;
 
