@@ -1,34 +1,29 @@
 # 📊 Sunday Intelligence Report Structure
 
-This document outlines the data dispatched every Sunday to the Lead Architect (**Ramanathan S**) via Telegram.
+This document outlines the **Pillar-Based Dispatch** sent every Sunday to the Lead Architect (**Ramanathan S**) via Telegram.
 
-## 1. 🛡️ Infrastructure Status
-- **Rate-Limited Users**: Count of unique users who hit the 5/min or 30/day limits.
-- **New Entities Indexed**: Count of new faculty, student innovators, or department data added during the week.
+## 1. 🛡️ Auditor Presence (Bot Health)
+- **Satisfied (👍)**: Count of positive, grounded interactions.
+- **Intelligence Gaps**: Count of "Information Missing" triggers (Mapping Gaps).
+- **Failed Interactions (👎)**: Count of user-flagged errors or unwanted responses.
 
-## 2. 🗣️ Conversation Performance
-- **High Fidelity (👍)**: Total count of user-approved responses.
-- **Intelligence Gaps (Hallucination Guard)**: Count of responses where Lorin had to state "I don't have that information."
-- **Interaction Failures (👎)**: Total count of responses flagged as "unwanted" by users.
+## 2. 🏛️ Intelligence Feed (Data Growth)
+- **New Entities Indexed**: A visible list in the Markdown summary showing the last 10 faculty members, student innovators, or departmental data re-indexed that week.
 
-## 3. 🕵️‍♂️ Knowledge Gap Mapping
-A list of the top 5 queries that returned "missing info" responses, such as:
-- Missing personnel contact details.
-- Unindexed department specifics.
-- Unrecognized faculty names.
+## 3. 💬 Interaction Feed (Search Intent Audit)
+- **Top Queries & Intent**: The **Actual Raw Text** of user queries is displayed in the report overview.
+- **Status Mapping**: Queries are tagged as ✅ (Success) or 🔴 (Failure) to allow for instant visual auditing.
+- **Critical Failure Audit**: Specific queries that triggered an "Unwanted" reaction are highlighted with the user's specific reason for the dislike.
 
-## 4. 🚩 Top Unwanted Responses
-Detailed analysis of the top 5 user dislikes, including:
-- User's Query.
-- User's Feedback (e.g., "duplicate message," "too robotic").
-- Lorin's Response for audit.
+## 4. 📈 Interaction Vitality
+- **Total Weekly Volume**: The total count of all conversational turns processed during the week for scaling and analytics.
 
-## 5. 📂 Weekly Audit File (CSV Attachment)
-A comprehensive `Weekly_Audit_[Date].csv` containing:
+## 5. 📂 Deep Audit Log (CSV Attachment)
+A comprehensive `Audit_Detailed_[Date].csv` is attached for deeper manual review:
 - **Reaction**: The type of feedback (👍/👎/💩).
-- **Query**: The raw user input.
-- **Response**: The assistant's grounded answer.
-- **Date**: Precision timestamp of the interaction.
+- **Query**: The full raw user input.
+- **Response**: The complete grounded response provided by Lorin.
+- **Date**: Precision timestamp of the turn.
 
 ---
 **Protocol:** This report is dispatched every Sunday at midnight server time via the `scripts/sunday-intelligence.ts` pipeline.

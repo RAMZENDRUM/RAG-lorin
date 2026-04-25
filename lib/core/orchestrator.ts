@@ -285,7 +285,8 @@ export async function orchestrate(
     sql: any,
     updateId: string,
     injectedContext: string = ""
-): Promise<{ answer: string }> {
+): Promise<{ answer: string, metadata: any }> {
+    const startTime = Date.now();
     const googleFormUrl = "https://forms.gle/msajce-enquiry";
 
     const rewritten = await rewriteQuery(rawText, intent, shortTerm, openai);
@@ -295,12 +296,25 @@ export async function orchestrate(
     
     if (injectedContext) chunks.unshift({ content: injectedContext, source: 'SYSTEM' });
 
-    const { context } = await rerankResults(rewritten, chunks, openai);
+    const { context, topScore } = await rerankResults(rewritten, chunks, openai);
     const builtContext = buildContext(context, shortTerm, profile);
     
     const agentFlags = agentDecide(intent, rawText, context, profile.last_seen, googleFormUrl);
     const answer = await generateGrounded(builtContext, rawText, agentFlags, googleFormUrl, openai);
     const finalAnswer = postProcess(answer, agentFlags, googleFormUrl, chunks, rawText);
     
-    return { answer: finalAnswer };
+    const latency_ms = Date.now() - startTime;
+
+    return { 
+        answer: finalAnswer,
+        metadata: {
+            latency_ms,
+            match_score: topScore,
+            intent: intent.category,
+            tokens: 0, // Placeholder
+            cost: 0,   // Placeholder
+            retrieval_source: chunks[0]?.source || 'None',
+            model_id: 'gpt-4o-mini'
+        }
+    };
 }

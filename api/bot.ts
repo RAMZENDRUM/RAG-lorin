@@ -100,7 +100,7 @@ export default async function handler(req: any, res: any) {
 
         // Stage 1: Brain Execution
         const intent = await classifyIntent(rawText, openai);
-        const { answer } = await orchestrate(
+        const { answer, metadata } = await orchestrate(
             rawText,
             intent,
             shortTerm,
@@ -115,6 +115,17 @@ export default async function handler(req: any, res: any) {
         try {
             await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${rawText})`;
             await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'assistant', ${answer})`;
+            
+            // SaaS-Grade Forensic Logging
+            await sql`
+                INSERT INTO audit_feedback (
+                    user_id, query, response, reaction, 
+                    intent_category, retrieval_source, latency_ms, match_score, model_id
+                ) VALUES (
+                    ${userId}, ${rawText}, ${answer}, 'PENDING',
+                    ${metadata.intent}, ${metadata.retrieval_source}, ${metadata.latency_ms}, ${metadata.match_score}, ${metadata.model_id}
+                )
+            `;
         } catch (dbErr) {
             console.warn('⚠️ DB Sync Failed:', dbErr);
         }
