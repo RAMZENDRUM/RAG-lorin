@@ -1,10 +1,10 @@
 import postgres from 'postgres';
-import { getDynamicAIClient } from '../lib/ai/config';
+import { getDynamicAIClient } from '../lib/ai/config.js';
 import { 
     classifyIntent, 
     fetchMemory, 
     orchestrate 
-} from '../lib/core/orchestrator';
+} from '../lib/core/orchestrator.js';
 
 // Initialize Cloud Database
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });

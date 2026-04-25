@@ -1,12 +1,12 @@
 import { Telegraf } from 'telegraf';
 import dotenv from 'dotenv';
 import postgres from 'postgres';
-import { getDynamicAIClient } from '../lib/ai/config';
+import { getDynamicAIClient } from '../lib/ai/config.js';
 import { 
     classifyIntent, 
     fetchMemory, 
     orchestrate 
-} from '../lib/core/orchestrator';
+} from '../lib/core/orchestrator.js';
 
 dotenv.config();
 
