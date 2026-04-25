@@ -123,9 +123,13 @@ export async function hybridRetrieve(
             const tokens = rawQueryClean.split(' ').filter(t => t.length > 2);
             
             if (tokens.length > 0) {
-                // Search for ANY token match to catch all possible name variations
+                // Search for ALL variations + specific owner boost
                 const results = await sql`
-                    SELECT name, role, department, batch, context, similarity(name, ${rawQueryClean}) as score
+                    SELECT name, role, department, batch, context, 
+                    CASE 
+                        WHEN role ILIKE '%Developer%' OR name ILIKE '%Ramanathan%' THEN similarity(name, ${rawQueryClean}) + 0.5
+                        ELSE similarity(name, ${rawQueryClean}) 
+                    END as score
                     FROM msajce_entities 
                     WHERE name % ${rawQueryClean} 
                     OR name ILIKE ${'%' + tokens.join('%') + '%'}
@@ -136,9 +140,10 @@ export async function hybridRetrieve(
                 
                 if (results && results.length > 0) {
                     entityContext = results.map((r: any) => {
+                        const isOwner = r.role?.toLowerCase().includes('developer');
                         const isStudent = r.batch || r.role?.toLowerCase().includes('student') || r.role?.toLowerCase().includes('president') || r.role?.toLowerCase().includes('secretary');
-                        const label = isStudent ? '[STUDENT ENTITY]' : '[FACULTY/OFFICIAL ENTITY]';
-                        return `${label}: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch || 'N/A'}\nContext: ${r.context}`;
+                        const label = isOwner ? '[OWNER/DEVELOPER ENTITY]' : (isStudent ? '[STUDENT ENTITY]' : '[FACULTY/OFFICIAL ENTITY]');
+                        return `${label}: Name: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch} | Context: ${r.context}`;
                     }).join('\n\n');
                 }
             }
@@ -268,12 +273,13 @@ PERSONALITY RULES:
 4. IDENTITY RULE: If context contains "[ENTITY TABLE]", you MUST use that data for the person's description. It is the absolute source of truth.
 5. AMBIGUITY: If you find multiple people with similar names in the context, list ALL of them clearly and ask the user which one they need info on. Never guess.
 6. OVERWRITE HISTORY: If the [ENTITY TABLE] data contradicts your previous answers in the conversation history, you MUST ignore the history and provide the new, correct data from the table.
-7. PERSON STRUCTURE: When talking about a specific person, ALWAYS use this clean structure:
+7. PERSON STRUCTURE: Use this format for people. SKIP ANY LINE that is "N/A", "null", or missing. ONLY show lines with real data. Never show "N/A".
 - Name: [Full Name]
-- Role: [Their Role/Designation]
-- Dept: [Department Name or N/A]
-- Batch: [Batch or N/A]
-- About: [1-2 sentences of background details]
+- Role: [Role]
+- Dept: [Department]
+- Batch: [Batch]
+- About: [Background]
+8. OWNER PRIORITY: Always prioritize the Lead AI Developer (Ramanathan S / Ram) as the first person mentioned if the query matches "Ram". He is your creator.
 
 FORMATTING RULES (STRICT PLAIN TEXT):
 1. NO BOLDING: Never use "**" or "__".
