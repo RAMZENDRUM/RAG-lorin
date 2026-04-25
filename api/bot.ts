@@ -28,16 +28,28 @@ if (DB_URL) {
         sql = postgres(DB_URL, { ssl: 'require' });
         console.log("✅ Database linked successfully.");
         
-        // Ensure feedback table exists
+        // Ensure feedback table exists with query context
         sql`
             CREATE TABLE IF NOT EXISTS audit_feedback (
                 id SERIAL PRIMARY KEY,
                 user_id TEXT,
                 message_id TEXT,
                 reaction TEXT,
+                query TEXT,
+                response TEXT,
                 created_at TIMESTAMPTZ DEFAULT NOW()
             );
         `.catch(e => console.error("⚠️ Feedback Table Init Failed:", e));
+
+        // Registry for mapping message IDs to queries (Temporal memory for reactions)
+        sql`
+            CREATE TABLE IF NOT EXISTS message_registry (
+                message_id TEXT PRIMARY KEY,
+                query TEXT,
+                response TEXT,
+                created_at TIMESTAMPTZ DEFAULT NOW()
+            );
+        `.catch(e => console.error("⚠️ Registry Table Init Failed:", e));
         
     } catch (e) {
         console.error("⚠️ Database binding failed:", e);
@@ -62,7 +74,7 @@ function getDynamicAIClient() {
     });
 }
 
-bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your smart MSAJCE Concierge. How can I help you today?'));
+bot.start((ctx) => ctx.reply('Welcome to Lorin! I am your smart MSAJCE Concierge. 🤖\n\n💡 **Tip:** You can like (👍) or dislike (👎) my answers by reacting to them. This helps me improve! How can I help you today?'));
 
 bot.on('text', async (ctx) => {
     try {
@@ -121,9 +133,16 @@ bot.on('text', async (ctx) => {
             // We continue anyway so the user gets an answer
         }
 
-        await ctx.reply(finalOutput, { parse_mode: 'Markdown' });
+        const botMsg = await ctx.reply(finalOutput, { parse_mode: 'Markdown' });
 
-    } catch (e: any) {
+        // Phase 10: Registry Logging (For reaction context)
+        if (sql) {
+            await sql`
+                INSERT INTO message_registry (message_id, query, response)
+                VALUES (${botMsg.message_id.toString()}, ${rawText}, ${finalOutput})
+                ON CONFLICT (message_id) DO NOTHING
+            `;
+        }
         console.error('Webhook Orchestration Error:', e);
         try {
             const maskedUrl = DB_URL ? `${DB_URL.split('@')[1]?.split('/')[0] || 'HIDDEN'}` : 'UNDEFINED';
@@ -159,13 +178,21 @@ bot.on('message_reaction', async (ctx) => {
         let reactionType = 'unknown';
         if (reaction && 'emoji' in reaction) reactionType = reaction.emoji;
 
-        console.log(`⭐ Feedback received from ${userId}: ${reactionType}`);
+        console.log(`⭐ Feedback received: ${reactionType}`);
 
         if (sql && userId) {
+            // Fetch query context from registry
+            const registry = await sql`SELECT query, response FROM message_registry WHERE message_id = ${msgId} LIMIT 1`;
+            const q = registry[0]?.query || 'UNKNOWN_QUERY';
+            const r = registry[0]?.response || 'UNKNOWN_RESPONSE';
+
             await sql`
-                INSERT INTO audit_feedback (user_id, message_id, reaction)
-                VALUES (${userId}, ${msgId}, ${reactionType})
+                INSERT INTO audit_feedback (user_id, message_id, reaction, query, response)
+                VALUES (${userId}, ${msgId}, ${reactionType}, ${q}, ${r})
             `;
+
+            // Instant Gratitude Response
+            await ctx.reply("Thank you for your feedback! This will help me improve and serve you better. 🙏✨");
         }
     } catch (e) {
         console.error('⚠️ Feedback Capture Failed:', e);
