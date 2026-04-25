@@ -121,7 +121,8 @@ export async function hybridRetrieve(
         if (sql) {
             const rawQueryClean = rewrittenQuery.replace(/who|is|the|msajce|personnel|about|tell/gi, '').trim();
             const tokens = rawQueryClean.split(' ').filter(t => t.length > 2);
-            
+            if (tokens.length > 0) {
+                // Search for ALL variations + specific owner boost
                 const results = await sql`
                     SELECT name, role, department, batch, context, 
                     CASE 
