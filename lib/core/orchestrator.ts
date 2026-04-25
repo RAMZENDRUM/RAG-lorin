@@ -1,7 +1,33 @@
 import { embed, generateText } from 'ai';
+import { createOpenAI } from '@ai-sdk/openai';
 import { QdrantClient } from '@qdrant/js-client-rest';
+import dotenv from 'dotenv';
 import type { ShortTermMemory, UserProfile } from './memory.js';
 export { fetchMemory, updateProfile, extractInterest } from './memory.js';
+
+dotenv.config();
+
+// ─────────────────────────────────────────────
+// AI CONFIGURATION (Unified & Load-Balanced)
+// ─────────────────────────────────────────────
+export function getDynamicAIClient() {
+    const keys = [
+        process.env.VERCEL_AI_KEY,
+        process.env.VERCEL_AI_KEY_2,
+        process.env.VERCEL_AI_KEY_3,
+        process.env.VERCEL_AI_KEY_4
+    ].filter(Boolean);
+    
+    // Pick a random key or fallback to default
+    const key = keys.length > 0 
+        ? keys[Math.floor(Math.random() * keys.length)] 
+        : process.env.OPENAI_API_KEY;
+    
+    return createOpenAI({ 
+        apiKey: key,
+        baseURL: process.env.VERCEL_AI_GATEWAY_URL || 'https://api.openai.com/v1'
+    });
+}
 
 // ─────────────────────────────────────────────
 // TYPES & CONSTANTS
@@ -184,7 +210,7 @@ export async function orchestrate(
     
     const agentFlags = agentDecide(intent, rawText, context, profile.last_seen, GOOGLE_FORM_URL);
     const answer = await generateGrounded(builtContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
-    const finalAnswer = postProcess(answer, agentFlags, GOOGLE_FORM_URL, chunks, rawText);
+    const finalAnswer = postProcess(answer, agentFlags, googleFormUrl, chunks, rawText);
     
     return { answer: finalAnswer };
 }
