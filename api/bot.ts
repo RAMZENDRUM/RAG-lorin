@@ -121,20 +121,16 @@ bot.on('text', async (ctx) => {
         const userId = ctx.from.id.toString();
         const rawText = ctx.message.text;
 
-        // Stage -1: Identity Interceptor (Hard-Lock Developer Profile)
+        // Stage -1: Identity Injector (Inject Alpha Profile into Context)
         const devKeywords = /ram|ramanathan|developer|creator|architect/i;
+        let injectedContext = "";
         if (devKeywords.test(rawText)) {
-            console.log(`🛡️ Intercepting Developer Query: ${rawText}`);
-            const devProfile = `Name: Ramanathan S | Lead AI Architect\n- Visionary lead architect and the creator of the Lorin RAG intelligence system.\n- Currently pursuing a B.Tech in Information Technology at MSAJCE.\n- Known for innovative campus projects including the College Bus Tracking App and Smart Hostel Web App.\n\nLinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1\nPortfolio: https://ram-ai-portfolio.vercel.app\nEmail: ramanathanb86@gmail.com`;
-            await ctx.reply(devProfile);
-            
-            if (sql) {
-                await sql`INSERT INTO audit_performance (update_id, stage_seconds, intent) VALUES (${updateId}, 0.1, 'DEVELOPER_INTERCEPT')`.catch(() => {});
-            }
-            return; // EXIT EARLY - DO NOT SEARCH
+            console.log(`🛡️ Injecting Developer Alpha Profile: ${rawText}`);
+            injectedContext = `[ALPHA PROFILE]: Name: Ramanathan S | Lead AI Architect\n- Visionary lead architect and the creator of the Lorin RAG intelligence system.\n- Currently pursuing a B.Tech in Information Technology at MSAJCE.\n- Known for innovative campus projects including the College Bus Tracking App and Smart Hostel Web App.\n- LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1\n- Portfolio: https://ram-ai-portfolio.vercel.app\n- Email: ramanathanb86@gmail.com\n\n`;
         }
 
-        // Stage 0: Deep Feedback Capture (Detect replies to apologies/feedback requests)
+        // Stage 0: Deep Feedback Capture
+ (Detect replies to apologies/feedback requests)
         const isReply = !!ctx.message.reply_to_message;
         const repliedText = (ctx.message.reply_to_message as any)?.text || "";
         const isFeedbackReply = isReply && /sorry|not satisfied|what was wrong|anything missing|helpful/i.test(repliedText);
@@ -179,9 +175,19 @@ bot.on('text', async (ctx) => {
         const intent = await classifyIntent(rawText, openai);
         const rewrittenQuery = rewriteQuery(rawText, intent, profile as any, shortTerm);
         
-        // Stage 3-4: Hybrid Search (High-Recall for People)
+        // Stage 3-5: Retrieval & Priority Injection
         const isIdentity = intent === 'faculty' || /who|tell me about|contact|professor|dr\.|mr\./i.test(rawText);
         const chunks = await hybridRetrieve(rewrittenQuery, rawText, openai, sql, isIdentity ? 50 : 15);
+
+        // Stage 4.1: Developer Injection (Force Alpha Profile if detected)
+        if (injectedContext) {
+            chunks.unshift({
+                content: injectedContext,
+                score: 1.0,
+                // @ts-ignore
+                metadata: { source: 'IDENTITY_SYSTEM' }
+            });
+        }
         
         // Stage 4.5: Reranking (Get Confidence)
         const { context, topScore } = await rerankResults(rewrittenQuery, chunks, openai);
