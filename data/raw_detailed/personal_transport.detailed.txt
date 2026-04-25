@@ -1,0 +1,75 @@
+# DEVELOPER PROFILE: RAMANATHAN S (RAM)
+- Full Name: Ramanathan S (Known as Ram)
+- Department: B.Tech - Information Technology (IT)
+- College: Mohamed Sathak A.J. College of Engineering, Siruseri, Chennai.
+- Contact & Links:
+  * LinkedIn: https://www.linkedin.com/in/ramanathan-s-it
+  * Portfolio: https://ramanathan-portfolio.vercel.app
+- Key Technical Projects:
+  * Zenify: A premium music player app similar to Apple Music and Spotify.
+  * Lorin: The AI RAG Digital Concierge for MSAJCE Engineering College.
+  * Pocket Lawyer: Legal assistant app.
+  * College Bus Tracking App: Real-time tracking for college buses.
+  * Smart Hostel Web App: Digital management for hostel facilities.
+  * Event Management System: Planning and booking platform.
+  * Haunted Village: A 3D game developed in Unity.
+(Note: Do not list CGPA or any other academic scores for Ram).
+
+# TRANSPORTATION OVERVIEW
+The Institute has 22 buses, One Tata ACE, One Ambulance. Transport facility available from Chennai, Chengalpattu, Kanchipuram and Thiruvallur.
+Transport In-Charge: Dr. K.P. Santhosh Nathan (98408 86992)
+
+# PUBLIC TRANSPORT: MTC ROUTES TO SIPCOT / SIRUSERI IT PARK
+- Route 19: T. Nagar to Thiruporur (Via OMR, Madhiya Kailash, SRP)
+- Route 519: T. Nagar to Thiruporur (Via Saidapet, Adyar, SRP)
+- Route 221H: Central to Thiruporur (Via Anna Salai, Saidapet, SRP)
+- Route 102X: Broadway to Thiruporur (Via Marina, Adyar, OMR)
+- Route 102S: Broadway to Sipcot (Via Marina, Adyar, OMR)
+- Route 102: Broadway to Kelambakkam (Via Marina, Adyar, OMR)
+- Route B19: Shollinganallur to Kelambakkam (Via Sipcot, OMR)
+- Route 570: CMBT to Kelambakkam (Via Vadapalani, Velachery, SRP)
+- Route 570S: CMBT to Sipcot (Via Vadapalani, Velachery, SRP)
+- Route 105: Tambaram to Siruseri (Via Thalambur)
+
+# COLLEGE BUS DETAILED ROUTES (AR-SERIES)
+
+## ROUTE AR-3: UTHIRAMERUR TO COLLEGE
+- Driver: Mr. Sathish K (+91-9789970304)
+- Timing & Stops: Uthiramerur (05:50 AM) -> G.H Hospital (06:20) -> Paranur Tollgate (06:35) -> Mahindra City (06:40) -> S.P. Koil (06:45) -> Maraimalai Nagar (06:48) -> Guduvanchery (06:50) -> Ooraapakkam (06:52) -> Vandalur Zoo (06:55) -> Perungalathur (07:00) -> Kandigai (07:15) -> Mambakkam (07:25) -> Puthupakkam (07:30) -> Kelambakkam (07:40) -> SIPCOT (07:50) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE AR-4: MOOLAKADAI TO COLLEGE
+- Driver: Mr. M. Suresh (+91-9849265637)
+- Timing & Stops: Moolakadai (06:10 AM) -> Perambur Railway Station (06:15) -> Otteri Pattalam (06:18) -> Dowton (06:23) -> Vepery Police Station (06:25) -> Periyamed (06:30) -> Central (06:35) -> Parrys Corner (06:40) -> Marina Beach (06:45) -> Santhome (06:50) -> Adyar (07:00) -> Thiruvanmiyur (07:05) -> Palavakkam (07:10) -> Neelankarai (07:15) -> Akkarai Water Tank (07:20) -> Sholinganallur (07:25) -> Ladies Hostel (07:30) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE AR-5 / N-3: MMDA SCHOOL TO COLLEGE
+- Historical Note: Originally named AR-5, later renamed as N-3. Same bus and same route.
+- Driver: Mr. Velu (+91-9940050685)
+- Timing & Stops: MMDA School (06:15 AM) -> Anna Nagar (06:20) -> Chinthamani (06:25) -> Skywalk (06:30) -> Choolaimadu (06:33) -> Loyola College (06:35) -> T. Nagar (06:40) -> CIT Nagar (06:43) -> Saidapet (06:45) -> Velachery Check Post (06:50) -> Vijaya Nagar Bus Stop (06:53) -> Baby Nagar (06:55) -> Tharamani (07:00) -> MGR Road (07:15) -> OMR (07:20) -> Ladies Hostel (07:35) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE AR-6: ICF / PURASAWALKAM TO COLLEGE
+- Driver: Mr. Venkatachalam (+91-9025731746)
+- Timing & Stops: MMDA School (06:15 AM) -> Anna Nagar (06:20) -> Chinthamani (06:25) -> Skywalk (06:30) -> Choolaimadu (06:33) -> Loyola College (06:35) -> T. Nagar (06:40) -> CIT Nagar (06:43) -> Saidapet (06:45) -> Velachery Check Post (06:50) -> Vijaya Nagar Bus Stop (06:53) -> Baby Nagar (06:55) -> Tharamani (07:00) -> MGR Road (07:15) -> OMR (07:20) -> Ladies Hostel (07:35) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE AR-7: CHUNAMBEDU TO COLLEGE
+- Driver: Mr. Suresh (+91-9789895025)
+- Timing & Stops: Chunambedu (05:25 AM) -> Kadapakkam (05:45) -> Elliyamman Koil (06:00) -> Koovathur (06:17) -> Kathan Kadai (06:22) -> Kalpakkam (06:30) -> Caturankappattinam (06:40) -> Venkampakkam (06:50) -> Thirukazukundram (07:00) -> Punceri (07:12) -> Paiyanur (07:15) -> Alathur (07:20) -> Thirupporur (07:30) -> Kalavakkam (07:36) -> Cenkanmal (07:41) -> Kelambakkam (07:45) -> Padur (07:50) -> Aananth College (07:53) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE AR-8: MANJAMBAKKAM TO COLLEGE
+- Driver: Mr. Raju (+91-9790750906)
+- Timing & Stops: Manjambakkam (05:50 AM) -> Retteri (05:55) -> Senthil Nagar (06:00) -> Padi (06:05) -> Anna Nagar (06:10) -> Thirumangalam (06:12) -> Vijaykanth (06:15) -> CMBT (06:20) -> Vadapalani (06:25) -> Ashok Pillar (06:30) -> Kasi Theatre (06:35) -> Ekkattuthangal (06:40) -> Aadampakkam (06:50) -> Kaiveli (06:55) -> Pallikaranai (07:10) -> Medavakkam (07:20) -> Perumpakkam (07:25) -> Sholinganallur (07:30) -> Ladies Hostel (07:35) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE AR-9: ENNORE TO COLLEGE
+- Driver: Mr. Kanagaraj (+91-9710209097)
+- Timing & Stops: Ennore (06:15 AM) -> Mint (06:20) -> Broadway (06:25) -> Central (06:30) -> Omandhoorar Hospital (06:40) -> Royapettah (06:45) -> Mylapore (06:50) -> Santhome (07:00) -> Adyar (07:10) -> Thiruvanmiyur (07:15) -> Palavakkam (07:20) -> Neelankarai (07:25) -> Akkarai Water Tank (07:30) -> Sholinganallur (07:35) -> Ladies Hostel (07:40) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE R-20: MOOLAKADAI (V2) TO COLLEGE
+- Driver: Mr. M. Suresh (+91-9849265637)
+- Timing & Stops: Moolakadai (05:55 AM) -> Perambur Railway (06:10) -> Otteri Pattalam (06:15) -> Dowton (06:20) -> Central (06:25) -> Parrys (06:30) -> Omandhoorar Hospital (06:40) -> Royapettah (06:45) -> Mylapore (06:50) -> Santhome (07:00) -> Adyar (07:05) -> Thiruvanmiyur (07:10) -> Palavakkam (07:15) -> Neelankarai (07:20) -> Akkarai Water Tank (07:25) -> Sholinganallur (07:30) -> Ladies Hostel (07:35) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE R-21: PORUR TO COLLEGE
+- Driver: Mr. E. Sathish (+91-9677007583)
+- Timing & Stops: Porur (06:25 AM) -> Boy Kadai (06:33) -> Kovoor (06:35) -> Kundrathur (06:38) -> Anagaputhur (06:40) -> Pammal (06:43) -> Pallavaram (06:45) -> Meenambakkam (06:48) -> Pallavaram (06:50) -> Chrompet (06:55) -> Tambaram W & E (07:00) -> Camp Road (07:05) -> Saliyur (07:10) -> Medavakkam (07:25) -> Chithalapakkam (07:30) -> Thalambur (07:35) -> M.S.A.J.C.E (08:00 AM)
+
+## ROUTE R-22: NEMILICHERY TO COLLEGE
+- Driver: Mr. Jaffar (+91-9566037890)
+- Timing & Stops: Nemilichery (05:50 AM) -> Poonamallee (06:05) -> Kumanan Chavadi (06:00) -> Kattupakkam (06:05) -> Ramachandra Hospital (06:10) -> Porur (06:15) -> Valasaravakkam (06:20) -> Ramapuram (06:25) -> Nandhampakkam (06:30) -> Kathipara Junction (06:35) -> Thillai Ganga Subway (06:40) -> Velachery Bypass (06:45) -> Kaiveli (07:00) -> Madipakkam (07:05) -> Kilkattalai (07:10) -> Kovilambakkam (07:15) -> Medavakkam (07:20) -> Sholinganallur (07:25) -> M.S.A.J.C.E (08:00 AM)
