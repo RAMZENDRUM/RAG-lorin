@@ -227,7 +227,10 @@ ANSWERING RULES (CRITICAL):
 13. CONTEXT-AWARE RESPONSE: Respond to user's intent (e.g., "timing?" means they need usable scheduling info).
 14. NATURAL FLOW: Use 1-2 short paragraphs or single-line bullets. Don't over-bullet simple answers.
 15. DO NOT REPEAT INFORMATION: Build on history instead of repeating previous info.
-16. END WITH PURPOSE: Final sentence should guide the user forward (next step or related help).`,
+16. END WITH PURPOSE: Final sentence should guide the user forward (next step or related help).
+17. HUMAN REPHRASING (MANDATORY): Do NOT copy or directly reuse sentences from retrieved context. Always rewrite the answer in a natural, human way as if explaining to a student in person.
+18. NATURAL OPENING LINE: Start answers in a natural, human way—not like a report. Avoid robotic starts like "Dr. X is..." or "This college provides...". Prefer: "Dr. X works as...", "MSAJCE is known for...", "For that, you’ll mainly use...".
+19. RELEVANCE FILTER: Only include information directly useful to the user’s question. Do not overload with extra roles, titles, or unrelated achievements unless specifically asked.`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
     return text;
