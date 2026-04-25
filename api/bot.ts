@@ -10,6 +10,7 @@ import {
     postProcess 
 } from '../lib/core/orchestrator.js';
 import { fetchMemory, updateProfile, extractInterest } from '../lib/core/memory.js';
+import type { UserProfile } from '../lib/core/memory.js';
 import { createOpenAI } from '@ai-sdk/openai';
 import postgres from 'postgres';
 import dotenv from 'dotenv';
@@ -63,7 +64,7 @@ bot.on('text', async (ctx) => {
 
         // Stage 0: Context (With failure protection)
         let shortTerm = [];
-        let profile = { user_id: userId, name: null, interest: null, stage: 'unknown', last_seen: new Date(), strikes: 0, blocked_until: null };
+        let profile: UserProfile = { user_id: userId, name: null, interest: null, stage: 'unknown', last_seen: new Date(), strikes: 0, blocked_until: null };
         
         try {
             const memory = await fetchMemory(userId, sql);
