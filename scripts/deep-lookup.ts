@@ -7,12 +7,13 @@ const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 async function deepLookup() {
     console.log('🔍 LOOKUP: Searching for all variations of Weslin...');
     const results = await sql`
-        SELECT name, role, department, type, email, phone 
+        SELECT id, name, role, department, context 
         FROM msajce_entities 
-        WHERE name ILIKE '%Weslin%'
+        WHERE name ILIKE '%Weslin%' OR name ILIKE '%Vigneshwaran%'
     `;
-    console.log('📊 RESULTS FOUND:');
-    console.table(results);
+    const total = await sql`SELECT count(*) FROM msajce_entities`;
+    console.log(`📊 TOTAL ENTITIES: ${total[0].count}`);
+    console.log(JSON.stringify(results, null, 2));
     await sql.end();
 }
 
