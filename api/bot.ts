@@ -125,7 +125,7 @@ bot.on('text', async (ctx) => {
         const devKeywords = /ram|ramanathan|developer|creator|architect/i;
         if (devKeywords.test(rawText)) {
             console.log(`🛡️ Intercepting Developer Query: ${rawText}`);
-            const devProfile = `Name: Ramanathan S | Lead AI Architect\n- Visionary lead architect and the creator of the Lorin RAG intelligence system.\n- Currently pursuing a B.Tech in Information Technology at MSAJCE.\n- Known for innovative campus projects including the College Bus Tracking App and Smart Hostel Web App.\n\nLinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1\nPortfolio: https://ram-ai-portfolio.vercel.app\nEmail: ramanathan.msajce@gmail.com`;
+            const devProfile = `Name: Ramanathan S | Lead AI Architect\n- Visionary lead architect and the creator of the Lorin RAG intelligence system.\n- Currently pursuing a B.Tech in Information Technology at MSAJCE.\n- Known for innovative campus projects including the College Bus Tracking App and Smart Hostel Web App.\n\nLinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1\nPortfolio: https://ram-ai-portfolio.vercel.app\nEmail: ramanathanb86@gmail.com`;
             await ctx.reply(devProfile);
             
             if (sql) {
