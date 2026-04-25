@@ -203,7 +203,7 @@ export async function orchestrate(
     updateId: string,
     injectedContext: string = ""
 ): Promise<{ answer: string }> {
-    const GOOGLE_FORM_URL = "https://forms.gle/msajce-enquiry";
+    const googleFormUrl = "https://forms.gle/msajce-enquiry";
     const rewritten = rewriteQuery(rawText, intent, profile, shortTerm);
     const chunks = await hybridRetrieve(rewritten, rawText, openai, sql);
     
@@ -212,8 +212,8 @@ export async function orchestrate(
     const { context } = await rerankResults(rewritten, chunks, openai);
     const builtContext = buildContext(context, shortTerm, profile);
     
-    const agentFlags = agentDecide(intent, rawText, context, profile.last_seen, GOOGLE_FORM_URL);
-    const answer = await generateGrounded(builtContext, rawText, agentFlags, GOOGLE_FORM_URL, openai);
+    const agentFlags = agentDecide(intent, rawText, context, profile.last_seen, googleFormUrl);
+    const answer = await generateGrounded(builtContext, rawText, agentFlags, googleFormUrl, openai);
     const finalAnswer = postProcess(answer, agentFlags, googleFormUrl, chunks, rawText);
     
     return { answer: finalAnswer };
