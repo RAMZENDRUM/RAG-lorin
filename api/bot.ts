@@ -17,12 +17,16 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const DATABASE_URL = process.env.DATABASE_URL!;
+const DB_URL = process.env.DATABASE_URL;
 const GOOGLE_FORM_URL = "https://forms.gle/your-admission-form";
+
+if (!DB_URL) {
+    throw new Error("CRITICAL: DATABASE_URL is missing in environment variables!");
+}
 
 // Initialization
 const bot = new Telegraf(BOT_TOKEN!);
-const sql = postgres(DATABASE_URL, { ssl: 'require' });
+const sql = postgres(DB_URL, { ssl: 'require' });
 
 // Multi-Key Vercel Helper
 function getDynamicAIClient() {
@@ -90,7 +94,8 @@ bot.on('text', async (ctx) => {
     } catch (e: any) {
         console.error('Webhook Orchestration Error:', e);
         try {
-            await ctx.reply(`⚠️ **System Diagnostics Error:**\n\`${e.message || String(e)}\``, { parse_mode: 'Markdown' });
+            const maskedUrl = DB_URL ? `${DB_URL.split('@')[1]?.split('/')[0] || 'HIDDEN'}` : 'UNDEFINED';
+            await ctx.reply(`⚠️ **System Diagnostics Error:**\n\`${e.message || String(e)}\`\n\n**DB Target:** \`${maskedUrl}\``, { parse_mode: 'Markdown' });
         } catch (fallbackErr) {
             console.error('Diagnostic delivery failed', fallbackErr);
         }
