@@ -22,10 +22,14 @@ export function getDynamicAIClient() {
     const key = keys.length > 0 
         ? keys[Math.floor(Math.random() * keys.length)] 
         : process.env.OPENAI_API_KEY;
+
+    // GATEWAY AUTO-ROUTING: If it's a Vercel key (vck_), it MUST use the gateway URL.
+    const isVercelKey = key?.startsWith('vck_');
+    const gatewayUrl = "https://ai-gateway.vercel.sh/v1";
     
     return createOpenAI({ 
         apiKey: key,
-        baseURL: process.env.VERCEL_AI_GATEWAY_URL || 'https://api.openai.com/v1'
+        baseURL: isVercelKey ? gatewayUrl : (process.env.VERCEL_AI_GATEWAY_URL || 'https://api.openai.com/v1')
     });
 }
 
