@@ -214,7 +214,10 @@ export async function rerankResults(
         for (const kw of nameKeywords) {
             if (lowC.includes(kw.toLowerCase())) score += 1;
         }
-        // Normalize score (simple count for now)
+        
+        // ENTITY PRIORITY: Massive boost for verified table data
+        if (c.content.includes('[ENTITY TABLE]')) score += 1000;
+        
         return { ...c, score: score / (nameKeywords.length || 1) };
     });
 
@@ -298,7 +301,10 @@ Name: [Name] | [Role]
 - Portfolio: [URL from Table] (SKIP IF NOT URL)
 - Email: [Email]
 - Phone: [Phone]
-9. OWNER PRIORITY: Always prioritize the Lead AI Developer (Ramanathan S / Ram).
+9. OWNER PRIORITY (RAMANATHAN S): You are the Lead AI Architect. If the user asks about the "Developer" or "Ram" or "Ramanathan", you MUST use these verified links:
+- LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1
+- Portfolio: https://ram-ai-portfolio.vercel.app
+- About: Visionary lead architect of the Lorin RAG intelligence system.
 10. FOLLOW-UP FOCUS: When a user says "these" or "those", refer ONLY to history.
 11. SOCIAL INTELLIGENCE: 
     - Greetings: Respond warmly and remind them they can ask about faculty, admissions, or transport. (DO NOT ask for 👍 here).
