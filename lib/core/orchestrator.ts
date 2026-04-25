@@ -75,8 +75,8 @@ export function rewriteQuery(
 
     if (isPronounQuery && shortTerm.length > 0) {
         const lastAssistant = [...shortTerm].reverse().find(h => h.role === 'assistant')?.content ?? '';
-        const entityMatch = lastAssistant.match(/Dr\.?\s+[A-Z][a-z]+|Mr\.?\s+[A-Z][a-z]+|Ms\.?\s+[A-Z][a-z]+/)?.[0]
-            ?? lastAssistant.match(/Principal|Admin|HOD|Faculty|Yogesh|Weslin|Usha|President/i)?.[0]
+        const entityMatch = lastAssistant.match(/-\sName:\s?([^\n\r]+)/i)?.[1]
+            ?? lastAssistant.match(/Dr\.?\s+[A-Z][a-z]+|Mr\.?\s+[A-Z][a-z]+|Ms\.?\s+[A-Z][a-z]+/)?.[0]
             ?? '';
         
         if (entityMatch) {
@@ -124,10 +124,11 @@ export async function hybridRetrieve(
             if (tokens.length > 0) {
                 // Search for ALL variations + specific owner boost
                 const results = await sql`
-                    SELECT name, role, department, batch, context, 
+                    SELECT name, role, department, batch, context, type,
                     CASE 
                         WHEN role ILIKE '%Developer%' OR name ILIKE '%Ramanathan%' THEN similarity(name, ${rawQueryClean}) + 0.5
-                        WHEN role ILIKE '%AR-%' OR role ILIKE '%R-%' THEN similarity(name, ${rawQueryClean}) + 0.3
+                        WHEN type = 'TRANSPORT' THEN similarity(name, ${rawQueryClean}) + 0.3
+                        WHEN type = 'DEPARTMENT' THEN similarity(name, ${rawQueryClean}) + 0.2
                         ELSE similarity(name, ${rawQueryClean}) 
                     END as score
                     FROM msajce_entities 
@@ -136,16 +137,13 @@ export async function hybridRetrieve(
                     OR role ILIKE ${'%' + tokens.join('%') + '%'}
                     OR context ILIKE ANY (${tokens.map(t => '%' + t + '%')})
                     ORDER BY score DESC
-                    LIMIT 5
+                    LIMIT 8
                 `;
                 
                 if (results && results.length > 0) {
                     entityContext = results.map((r: any) => {
-                        const isOwner = r.role?.toLowerCase().includes('developer');
-                        const isCollegeBus = r.role?.toLowerCase().includes('ar-') || r.role?.toLowerCase().includes('r-');
-                        const isStudent = r.batch || r.role?.toLowerCase().includes('student') || r.role?.toLowerCase().includes('president') || r.role?.toLowerCase().includes('secretary');
-                        const label = isOwner ? '[OWNER/DEVELOPER ENTITY]' : (isCollegeBus ? '[COLLEGE BUS ENTITY]' : (isStudent ? '[STUDENT ENTITY]' : '[FACULTY/OFFICIAL ENTITY]'));
-                        return `${label}: Name: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch} | Context: ${r.context}`;
+                        const label = `[${r.type || 'OFFICIAL'} ENTITY]`;
+                        return `${label}: Name: ${r.name} | Role: ${r.role} | Dept: ${r.department} | Batch: ${r.batch || 'N/A'} | Context: ${r.context}`;
                     }).join('\n\n');
                 }
             }
@@ -284,7 +282,8 @@ PERSONALITY RULES:
 8. OWNER PRIORITY: Always prioritize the Lead AI Developer (Ramanathan S / Ram) as the first person mentioned if the query matches "Ram". He is your creator.
 9. ACADEMIC INTEGRITY: Distinguish between "Subjects" (e.g., Physics, Engineering Physics) and "Departments/Courses" (e.g., Mechanical Engineering). NEVER suggest a subject as a degree department.
 10. FOLLOW-UP FOCUS: When a user says "these" or "those" in a follow-up, refer ONLY to the specific items mentioned in history.
-11. CONVERSATIONAL LAYER: Start with a natural acknowledgment (e.g., "Got it—", "Good question—", "Okay, here's how it works—"). Use variety in your words. Avoid robotic structure; use a mix of short paragraphs and natural flow. Match the user's style (casual/direct/detailed). Add a light human touch with phrases like "The key point is—" or "What matters here is—". Gently guide the user with a suggested next step if helpful.
+    - Rule #11: CONVERSATIONAL LAYER: Start with short natural acknowledgments. Use guided follow-ups. Ensure consistent identity priority for "Ram".
+    - Rule #12: CATEGORY VALIDATION: If you find a [PERSON ENTITY] and an [ACADEMIC PROGRAM ENTITY] with similar names, prioritize the Program if the user asks for "admission" or "courses".
 
 
 FORMATTING RULES (STRICT PLAIN TEXT):
