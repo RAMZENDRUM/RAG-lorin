@@ -121,6 +121,19 @@ bot.on('text', async (ctx) => {
         const userId = ctx.from.id.toString();
         const rawText = ctx.message.text;
 
+        // Stage -1: Identity Interceptor (Hard-Lock Developer Profile)
+        const devKeywords = /ram|ramanathan|developer|creator|architect/i;
+        if (devKeywords.test(rawText)) {
+            console.log(`🛡️ Intercepting Developer Query: ${rawText}`);
+            const devProfile = `Name: Ramanathan S | Lead AI Architect\n- Visionary lead architect and the creator of the Lorin RAG intelligence system.\n- Currently pursuing a B.Tech in Information Technology at MSAJCE.\n- Known for innovative campus projects including the College Bus Tracking App and Smart Hostel Web App.\n\nLinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1\nPortfolio: https://ram-ai-portfolio.vercel.app\nEmail: ramanathan.msajce@gmail.com`;
+            await ctx.reply(devProfile);
+            
+            if (sql) {
+                await sql`INSERT INTO audit_performance (update_id, stage_seconds, intent) VALUES (${updateId}, 0.1, 'DEVELOPER_INTERCEPT')`.catch(() => {});
+            }
+            return; // EXIT EARLY - DO NOT SEARCH
+        }
+
         // Stage 0: Deep Feedback Capture (Detect replies to apologies/feedback requests)
         const isReply = !!ctx.message.reply_to_message;
         const repliedText = (ctx.message.reply_to_message as any)?.text || "";
