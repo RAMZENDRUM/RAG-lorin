@@ -195,16 +195,11 @@ ${builtContext}`,
 }
 
 export function postProcess(answer: string, flags: AgentFlags, url: string): string {
-    if (flags.showForm && !answer.includes(url)) {
-        return `${answer}\n\n📝 Apply Here: ${url}`;
-    }
-    return answer;
+    return answer; // Total removal of the auto-append logic
 }
 
 export async function orchestrate(text: string, history: ShortTermMemory[], profile: UserProfile, sql: any) {
     const startTime = Date.now();
-    const enrolmentUrl = "https://enrollonline.co.in/Registration/Apply/MSAJCE";
-
     const intent = await classifyIntent(text);
     const query = await rewriteQuery(text, intent, history);
     const rawChunks = await getContext(query, text, sql);
@@ -232,11 +227,10 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
         isAbuseDetected: false
     };
 
-    const answer = await generateGrounded(builtContext, text, flags, enrolmentUrl);
-    const finalAnswer = postProcess(answer, flags, enrolmentUrl);
-
+    const answer = await generateGrounded(builtContext, text, flags, "");
+    
     return {
-        answer: finalAnswer,
+        answer: answer,
         metadata: {
             latency_ms: Date.now() - startTime,
             match_score: topScore || 0,
