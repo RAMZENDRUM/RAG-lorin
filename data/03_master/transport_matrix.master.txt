@@ -1,31 +1,36 @@
-[ALPHA-PURPLE]: Official MSAJCE College Bus Route Matrix (High Fidelity)
+[ALPHA-PURPLE]: Official MSAJCE Total Transport Matrix (Global Route Mapping)
 
-## VELACHERY CORRIDOR (Primary Coverage)
-- AR-5 / N-3: MMDA -> Anna Nagar -> T.Nagar -> Saidapet -> Velachery Check Post (06:50) -> Vijaya Nagar (06:53) -> Baby Nagar (06:55) -> Tharamani -> College.
-- AR-6: ICF -> Purasawalkam -> Saidapet -> Velachery Check Post (06:50) -> Vijaya Nagar -> Baby Nagar -> College.
-- AR-8: Manjambakkam -> CMBT -> Vadapalani -> Ashok Pillar -> Aadampakkam -> Kaiveli (Near Velachery, 06:55) -> Pallikaranai -> Medavakkam -> College.
-- R-22: Nemilichery -> Poonamallee -> Porur -> Kathipara -> Velachery Bypass (06:45) -> Kaiveli (07:00) -> Madipakkam -> Medavakkam -> College.
+## ROUTE AR-3: UTHIRAMERUR TO COLLEGE
+- Via: Uthiramerur (05:50), G.H Hospital, Paranur Tollgate, Mahindra City (06:40), S.P. Koil, Maraimalai Nagar, Guduvanchery (06:50), Vandalur Zoo, Perungalathur (07:00), Kandigai, Mambakkam, Puthupakkam, Kelambakkam.
 
-## OMR / ADYAR CORRIDOR
-- AR-4: Moolakadai -> Central -> Parrys -> Marina -> Santhome -> Adyar (07:00) -> Thiruvanmiyur (07:05) -> Sholinganallur -> College.
-- AR-9: Ennore -> Mint -> Broadway -> Royapettah -> Mylapore -> Santhome -> Adyar (07:10) -> Thiruvanmiyur -> Sholinganallur -> College.
-- R-20: Moolakadai (V2) -> Central -> Parrys -> Adyar (07:05) -> Thiruvanmiyur -> Neelankarai -> Sholinganallur -> College.
+## ROUTE AR-4: MOOLAKADAI TO COLLEGE
+- Via: Moolakadai (06:10), Perambur, Otteri Pattalam, Vepery, Central (06:35), Parrys, Marina, Santhome, Adyar (07:00), Thiruvanmiyur (07:05), Palavakkam, Neelankarai, Akkarai, Sholinganallur.
 
-## WEST / GST CORRIDOR
-- AR-3: Uthiramerur -> Mahindra City -> S.P. Koil -> Maraimalai Nagar -> Guduvanchery (06:50) -> Vandalur -> Perungalathur (07:00) -> Mambakkam -> Kelambakkam -> College.
-- R-21: Porur -> Kundrathur -> Pallavaram (06:45) -> Chrompet -> Tambaram (07:00) -> Medavakkam -> Thalambur -> College.
-- AR-10: Porur (06:25) -> Direct routes to College.
+## ROUTE AR-5 / N-3: MMDA SCHOOL TO COLLEGE
+- Via: MMDA School (06:15), Anna Nagar, Chinthamani, Skywalk, Choolaimadu, Loyola College, T. Nagar (06:40), Saidapet, Velachery Check Post (06:50), Vijaya Nagar (06:53), Baby Nagar (06:55), Tharamani, MGR Road, OMR.
 
-## MEDAVAKKAM CORRIDOR
-- AR-8: Manjambakkam -> Ashok Pillar -> Medavakkam (07:20) -> College.
-- R-21: Porur -> Tambaram -> Medavakkam (07:25) -> Thalambur -> College.
-- R-22: Nemilichery -> Kathipara -> Medavakkam (07:20) -> College.
+## ROUTE AR-6: ICF / PURASAWALKAM TO COLLEGE
+- Via: ICF, MMDA School, Anna Nagar, Chinthamani, T. Nagar, Saidapet, Velachery Check Post (06:50), Vijaya Nagar, Baby Nagar, Tharamani, OMR.
 
-## SOUTH / ECR CORRIDOR
-- AR-7: Chunambedu -> Kalpakkam -> Thirukazukundram -> Thirupporur -> Kelambakkam -> College.
+## ROUTE AR-7: CHUNAMBEDU TO COLLEGE
+- Via: Chunambedu (05:25), Kadapakkam, Koovathur, Kalpakkam, Caturankappattinam, Thirukazukundram (07:00), Paiyanur, Alathur, Thirupporur, Kelambakkam, Padur.
 
-## ADDITIONAL MTC SUPPORT (Daily)
-- Route 570 / 570S: CMBT to Kelambakkam/Sipcot (Via Vadapalani, Velachery, SRP).
-- Route 19 / 519: T. Nagar to Thiruporur (Via Adyar, OMR).
-- Route 102X / 102S: Broadway to Thiruporur/Sipcot (Via Marina, Adyar, OMR).
-- Route 105: Tambaram to Siruseri (Via Thalambur).
+## ROUTE AR-8: MANJAMBAKKAM TO COLLEGE
+- Via: Manjambakkam (05:50), Retteri, Padi, Anna Nagar (06:10), Thirumangalam, CMBT (06:20), Vadapalani, Ashok Pillar, Ekkattuthangal, Aadampakkam, Kaiveli (06:55), Pallikaranai, Medavakkam (07:20), Perumpakkam, Sholinganallur.
+
+## ROUTE AR-9: ENNORE TO COLLEGE
+- Via: Ennore (06:15), Mint, Broadway, Central (06:30), Royapettah, Mylapore, Santhome, Adyar (07:10), Thiruvanmiyur, Neelankarai, Sholinganallur.
+
+## ROUTE R-20: MOOLAKADAI (V2) TO COLLEGE
+- Via: Moolakadai (05:55), Perambur, Central, Parrys, Royapettah, Mylapore, Santhome, Adyar (07:05), Thiruvanmiyur, Neelankarai, Sholinganallur.
+
+## ROUTE R-21: PORUR TO COLLEGE
+- Via: Porur (06:25), Boy Kadai, Kovoor, Kundrathur, Anagaputhur, Pammal, Pallavaram (06:45), Meenambakkam, Chrompet (06:55), Tambaram W & E (07:00), Camp Road, Saliyur, Medavakkam (07:25), Chithalapakkam, Thalambur.
+
+## ROUTE R-22: NEMILICHERY TO COLLEGE
+- Via: Nemilichery (05:50), Poonamallee, Porur (06:15), Valasaravakkam, Ramapuram, Kathipara (06:35), Velachery Bypass (06:45), Kaiveli (07:00), Madipakkam, Kilkattalai, Medavakkam (07:20), Sholinganallur.
+
+[MTC ALTERNATIVES]
+- Route 570/570S: Velachery, Vadapalani, CMBT.
+- Route 19/519: T. Nagar, Adyar.
+- Route 102/105: Broadway, Tambaram.
