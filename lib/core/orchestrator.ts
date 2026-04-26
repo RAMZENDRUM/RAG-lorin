@@ -239,12 +239,8 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
 STRICT FORMATTING & VOICE RULES:
 1. FACT-ONLY BULLETS: Bullet points must ONLY contain factual data. NEVER put helpful phrases like "feel free to ask" in a bullet.
 2. RADICAL HONESTY: If a personal contact is missing, say "I don't have his direct contact details" before fallback.
-3. ALPHA SUPREMACY (DEVELOPER): [ALPHA PROFILE] is the ABSOLUTE TRUTH for Ramanathan S. If any retrieved data conflicts with Alpha (especially email or links), ALWAYS use the Alpha Data (Email: ramanathanb86@gmail.com). Include his LinkedIn (https://www.linkedin.com/in/ramanathan-s-76a0a02b1).
-4. ALPHA SUPREMACY (PRINCIPAL): [ALPHA PROFILE] is the ABSOLUTE TRUTH for Dr. K.S. Srinivasan.
-   - Achievements: Author of 16 Engineering Textbooks (Communication Theory, DSP, WSN, etc.).
-   - Invention: Patent Holder for "A Smart Device to Monitoring the Optic Cable" (2022).
-   - Roles: Secretary of TNSCST (Govt of Tamil Nadu) and President of NISP.
-   - Identity: He is not just "The Principal"; he is a distinguished researcher and author. Prioritize these technical achievements.
+3. ALPHA SUPREMACY (DEVELOPER): [ALPHA PROFILE] is the ABSOLUTE TRUTH for Ramanathan S. Always use his provided links (LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1).
+4. IDENTITY LOCK: You are Lorin. Prioritize high-fidelity context chunks (patents, books, specific roles) over generic "About Us" fluff.
 5. NO ROBOTIC FILLER: Strictly forbid clichés like "Have a great day!", "Wishing you a...".
 6. NATURAL WARMTH: Greetings/sign-offs are allowed and should be responded to warmly.
 7. LINGUISTIC MIRRORING: Match user's English level (B1-C2) perfectly.
@@ -318,10 +314,28 @@ export async function orchestrate(
 
     const rewritten = await rewriteQuery(rawText, intent, shortTerm, openai);
     
-    // Deep Hybrid Retrieval with targeted vector lookup for entities
+    // 1. Fetch Dynamic Knowledge Chunks
     const chunks = await hybridRetrieve(rewritten, rawText, openai, sql);
     
-    if (injectedContext) chunks.unshift({ content: injectedContext, source: 'SYSTEM' });
+    // 2. Identify and Inject Alpha Profiles as searchable chunks (to allow Reranker to manage repetition)
+    const personQuery = rawText.toLowerCase();
+    if (personQuery.includes('srinivasan') || personQuery.includes('principal')) {
+        chunks.push({ 
+            content: `[ALPHA-PRINCIPAL]: Dr. K.S. Srinivasan is a distinguished researcher and the Principal of MSAJCE. 
+            He is the author of 16 Engineering Textbooks (including Communication Theory, Digital Signal Processing, Wireless Sensor Networks). 
+            He holds a 2022 patent for "A Smart Device to Monitoring the Optic Cable". 
+            He serves as the Secretary of TNSCST (Government of Tamil Nadu) and President of NISP.`, 
+            source: 'ALPHA-CORE' 
+        });
+    }
+    if (personQuery.includes('ram') || personQuery.includes('developer')) {
+        chunks.push({
+            content: `[ALPHA-DEV]: Ramanathan S is the Lead Architect and Developer of Lorin RAG. 
+            He is a student-innovator at MSAJCE (IT Dept) and developer of Zenify, College Bus Tracking App, and Smart Hostel App. 
+            Email: ramanathanb86@gmail.com. LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1`,
+            source: 'ALPHA-CORE'
+        });
+    }
 
     const { context, topScore } = await rerankResults(rewritten, chunks, shortTerm, openai);
     const builtContext = buildContext(context, shortTerm, profile);
