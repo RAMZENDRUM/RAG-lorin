@@ -318,9 +318,11 @@ export async function orchestrate(
     // 1. Fetch Dynamic Knowledge Chunks
     const chunks = await hybridRetrieve(rewritten, rawText, openai, sql);
     
-    // 2. Identify and Inject Alpha Profiles as searchable chunks (to allow Reranker to manage repetition)
-    const personQuery = rawText.toLowerCase();
-    if (personQuery.includes('srinivasan') || personQuery.includes('principal')) {
+    // 2. Identify and Inject Alpha Profiles (Context-Aware: checks both User Text and Rewritten Query)
+    const contextText = `${rawText} ${rewritten}`.toLowerCase();
+    const lastMsg = shortTerm[shortTerm.length - 1]?.content.toLowerCase() || "";
+
+    if (contextText.includes('srinivasan') || contextText.includes('principal') || lastMsg.includes('srinivasan')) {
         chunks.push({ 
             content: `[ALPHA-PRINCIPAL]: Dr. K.S. Srinivasan is a distinguished researcher and the Principal of MSAJCE. 
             He is the author of 16 Engineering Textbooks (including Communication Theory, Digital Signal Processing, Wireless Sensor Networks). 
@@ -329,7 +331,7 @@ export async function orchestrate(
             source: 'ALPHA-CORE' 
         });
     }
-    if (personQuery.includes('ram') || personQuery.includes('developer')) {
+    if (contextText.includes('ram') || contextText.includes('developer') || lastMsg.includes('ram')) {
         chunks.push({
             content: `[ALPHA-DEV]: Ramanathan S is the Lead Architect and Developer of Lorin RAG. 
             He is a student-innovator at MSAJCE (IT Dept) and developer of Zenify, College Bus Tracking App, and Smart Hostel App. 
