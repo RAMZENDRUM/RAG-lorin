@@ -150,19 +150,19 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
         const lowContent = c.content.toLowerCase();
         const lowQuery = query.toLowerCase();
 
-        // ALPHA SUPREMACY BOOST
-        if (c.content.includes('[ALPHA-PURPLE]')) score += 2000;
+        // GLOBAL IDENTITY BOOST (Persona Sovereignty)
+        if (c.content.includes('[ALPHA-PURPLE]') || c.content.includes('[ENTITY]')) score += 2000;
         if (lowContent.includes(lowQuery)) score += 100;
         
         const recentHistory = history.slice(-5);
         const wasShared = recentHistory.some(m => m.role === 'assistant' && lowContent.includes(m.content.toLowerCase().slice(0, 40)));
-        if (wasShared) score -= 1200; 
+        if (wasShared) score -= 1500; // Increased penalty to force NEW data
         
         return { ...c, score };
     });
     const sorted = scored.sort((a, b) => b.score - a.score);
     return { 
-        context: sorted.slice(0, 8).map(c => c.content).join('\n---\n'), 
+        context: sorted.slice(0, 10).map(c => c.content).join('\n---\n'), 
         topScore: sorted[0]?.score || 0 
     };
 }
@@ -177,13 +177,12 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
             system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
 
 STRICT VOICE & LOGIC RULES:
-1. STRUCTURED DELIVERY: Use short paragraphs for conversational "warmth" ONLY in the opening. For all facts (publications, patents, roles, specific initiatives), you MUST use a bulleted list.
-2. BULLET FORMAT: Use a single dash (-) for bullets. One fact per line. No double spaces.
-3. NO REPETITION: Scan [HISTORY]. Do NOT share facts, sentences, or links already present.
-4. PROACTIVE DELIVERY: If the user says "yes" or "sure," deliver the info immediately in bullet format.
-5. NO CONFIRMATION TRAPS: Never ask "Would you like more?" once interest is confirmed.
-6. ALPHA SUPREMACY: Use [ALPHA-PURPLE] blocks as the absolute truth. You MUST include technical "Hard Facts" (Patents, Textbook counts, Official Email) in your bullets whenever an Alpha profile is retrieved. Never truncate these.
-7. FINAL ANCHOR: Every response must end with exactly ONE engaging question. Never ask "How can I help you?"
+1. STRUCTURED DELIVERY (AGGRESSIVE): You MUST provide all specific technical/academic facts (roles, awards, branch status, publications) in the VERY FIRST message. Do not "save" info for later. Use bullets for these facts.
+2. PROACTIVE COMMAND: If context contains unshared data about a person, you are FORBIDDEN from asking "Are you interested in knowing more?". Deliver the remaining facts immediately instead.
+3. BULLET FORMAT: Use a single dash (-) for bullets. 
+4. NO REPETITION: Heavily penalize and avoid any fact already shared in [HISTORY].
+5. ALPHA & ENTITY SUPREMACY: Fragments starting with [ALPHA] or [ENTITY] are high-fidelity official data; prioritize them over generic search results.
+6. FINAL ANCHOR: End with exactly ONE engaging question that pivots to a RELATED high-value pillar (e.g., if talking about an IT professor, ask about the IT department or Lab facilities).
 
 Knowledge Context:
 ${builtContext}`,
