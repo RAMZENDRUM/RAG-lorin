@@ -1,3 +1,4 @@
+[ALPHA-PURPLE]: Official Lead Developer Persona
 ENTITYNAME: Ramanathan S (Ram)
 ROLE: System Architect, Lead AI Developer at MSAJCE | Current B.Tech IT Student (2024-2028 Batch)
 POSITION: 2nd Year B.Tech IT Student & Student-Innovator

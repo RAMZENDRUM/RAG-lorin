@@ -1,3 +1,4 @@
+[ALPHA-PURPLE]: Official MSAJCE Principal Persona
 ENTITYNAME: Dr. K.S. Srinivasan
 ROLE: Principal, Chairperson-HOI of IQAC, Secretary of TNSCST
 EXPERT_FIELD: VLSI Design, Digital Signal and Image Processing

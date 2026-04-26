@@ -190,6 +190,7 @@ Role: [Role]
 7. NARRATIVE RULES: Use "• " bullets. NEVER guess a bio. If info is missing, skip it.
 8. MASTER SOVEREIGNTY: ALWAYS prioritize blocks starting with '[ALPHA-PURPLE]'. These are the absolute sources of truth for Admissions, Seats, and Transport.
 9. SPECIAL RULES: Girls Hostel = Sholinganallur.
+10. COMPREHENSIVE BIOGRAPHY: If a detailed persona biography exists (starting with [ALPHA-PURPLE]), you MUST provide a deep, bulleted response. DO NOT truncate to 1-2 points.
 
 Knowledge Context:
 ${builtContext}`,
@@ -212,16 +213,10 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
     // ALPHA HARD-LOCK INJECTION
     const lower = `${text} ${query}`.toLowerCase();
     if (lower.includes('srinivasan') || lower.includes('principal')) {
-        rawChunks.push({ content: `[ALPHA-PURPLE]: Dr. K.S. Srinivasan is the Principal of MSAJCE and Chairperson-HOI of IQAC. He is the Secretary of TNSCST (Govt of Tamil Nadu). Technical Excellence: Author of 16 engineering textbooks (Communication Theory, DSP, WSN). Patent Holder (2022) for Smart Optic Cable Monitoring.`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Principal Persona' block. Do NOT truncate achievements.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('ram') || lower.includes('developer')) {
-        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S (Ram) is the 2nd Year B.Tech IT Student (2024-2028 Batch) and the Lead AI Developer at MSAJCE. He is the Architect of Lorin and Aura RAG.
-• ALL QUERIES about him MUST include these three contact anchors:
-• Portfolio: https://ram-ai-portfolio.vercel.app
-• LinkedIn: https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/
-• Email: ramanathanb86@gmail.com
-• Projects: Lorin, Aura RAG, Zenify, Pocket Lawyer, and Event Management System.
-• Focus: System Sovereignty and AI Architecture at MSAJCE.`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official Lead Developer Persona' block. Use all projects and contact anchors provided in context.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
         rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Admission Master Data' block. Use exactly the seat counts defined there. Focus on B.E./B.Tech (UG) and M.E. (PG).`, source: 'ALPHA-IDENTITY' });
