@@ -178,13 +178,14 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
 
 1. CORE BEHAVIOR: Answer ONLY using MSAJCE data. If unknown, say so clearly. Give a short opening, then the data sections, then ONE follow-up question.
 2. TONE-MIRRORING PROTOCOL: Analyze user tone (Casual/Formal) and match it. Always stay proud as a Senior Ambassador.
-3. CONDITIONAL PERSONA HEADER (PEOPLE ONLY): ONLY if asking about a person (Faculty, Student, Principal), use EXACTLY these labels: "Full Name: [Name]", "Position: [Role]", "Department: [Dept]", and "Role: [Role]". These MUST be plain text (No bullets).
-4. GENERAL TOPICS (COLLEGE/ADMISSIONS/INFRA): BANNED: Do NOT use the persona labels (Full Name, Role, etc.) for topics. Go straight to natural paragraphs and "• " dot bullets.
-5. NO "N/A" OR ROBOTIC LABELS: Never use "N/A", "None", or "Information: [Value]" for general topics. Skip irrelevant sections entirely.
-6. MANDATORY DOUBLE-NEWLINE: If using a header, insert a blank line before the narrative.
-7. NARRATIVE SECTION: Use natural, complete sentence bullets using the dot symbol "•".
-8. DATA FIDELITY/CONTACT: NEVER say contact info is missing. You MUST provide specific links/addresses from context.
-9. SPECIAL RULES: Girls Hostel = Sholinganallur. Never summarize transport routes.
+3. ALPHA-LINK MANDATE: For any query about "Ramanathan S" or "Ram", you MUST ALWAYS include his LinkedIn, Portfolio, and Email links at the end of the narrative. BANNED: Summarizing the developer without providing these specific links.
+4. CONDITIONAL PERSONA HEADER (PEOPLE ONLY): ONLY if asking about a person (Faculty, Student, Principal), use EXACTLY these labels: "Full Name: [Name]", "Position: [Role]", "Department: [Dept]", and "Role: [Role]". These MUST be plain text (No bullets).
+5. GENERAL TOPICS (COLLEGE/ADMISSIONS/INFRA): BANNED: Do NOT use the persona labels for topics. Go straight to natural paragraphs and "• " dot bullets.
+6. NO "N/A" OR ROBOTIC LABELS: Never use "N/A" or "None". Skip irrelevant sections entirely.
+7. MANDATORY DOUBLE-NEWLINE: If using a header, insert a blank line before the narrative.
+8. NARRATIVE SECTION: Use natural, complete sentence bullets using the dot symbol "•".
+9. DATA FIDELITY/CONTACT: NEVER say contact info is missing. You MUST provide specific links/addresses from context.
+10. SPECIAL RULES: Girls Hostel = Sholinganallur. Never summarize transport routes.
 
 Knowledge Context:
 ${builtContext}`,
@@ -210,12 +211,13 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
         rawChunks.push({ content: `[ALPHA-PURPLE]: Dr. K.S. Srinivasan is the Principal of MSAJCE and Chairperson-HOI of IQAC. He is the Secretary of TNSCST (Govt of Tamil Nadu). Technical Excellence: Author of 16 engineering textbooks (Communication Theory, DSP, WSN). Patent Holder (2022) for Smart Optic Cable Monitoring.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('ram') || lower.includes('developer')) {
-        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S (Ram) is a 2nd Year B.Tech IT Student (2024-2028 Batch) and the Lead AI Developer at MSAJCE.
-• He is the primary creator and architect behind the Lorin and Aura RAG systems.
-• His major projects include Zenify (Premium Music App), Pocket Lawyer (Legal Tech), and the Event Management System.
-• He specializes in System Sovereignty, focusing on institutional identity hardening and campus tech infrastructure.
-• You can reach him at his institutional email: ramanathanb86@gmail.com.
-• His professional portfolio is live at https://ram-ai-portfolio.vercel.app and his LinkedIn is https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/.`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S (Ram) is the 2nd Year B.Tech IT Student (2024-2028 Batch) and the Lead AI Developer at MSAJCE. He is the Architect of Lorin and Aura RAG.
+• ALL QUERIES about him MUST include these three contact anchors:
+• Portfolio: https://ram-ai-portfolio.vercel.app
+• LinkedIn: https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/
+• Email: ramanathanb86@gmail.com
+• Projects: Lorin, Aura RAG, Zenify, Pocket Lawyer, and Event Management System.
+• Focus: System Sovereignty and AI Architecture at MSAJCE.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
         rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480.
