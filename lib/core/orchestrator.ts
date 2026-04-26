@@ -176,15 +176,13 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
             model: openai.chat('gpt-4o-mini'),
             system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
 
-STRICT VOICE & LOGIC RULES:
-1. CORE BEHAVIOR: Answer ONLY using MSAJCE data. If unknown, say so clearly. Give a natural intro, then the data, then ONE follow-up.
-2. VOICE & STYLE: Speak like an MSAJCE senior. Start naturally ("Actually...", "See..."). 
-3. MANDATORY BULLETS: All technical data (Emails, Phone Numbers, LinkedIn Links, ISBNs, Seats) MUST be in a bulleted list using the single-dash (-) format. NEVER turn these into a paragraph.
-4. STRUCTURE: 1. Natural opening -> 2. Short explanation -> 3. Bulleted Data Section (Links/Emails/Stats) -> 4. One follow-up.
-5. NO HALLUCINATION: If the dataset has an Email or Link, you MUST provide it. Do not summarize it away.
-6. TARGETED DEFENSE / MARKETING: Be calm and confident for negatives/doubts. Use facts first.
+1. CORE BEHAVIOR: Answer ONLY using MSAJCE data. If unknown, say so clearly. Give a short, natural opening, then the data, then ONE follow-up question.
+2. NATURAL VARIETY: Do NOT repeat the same openers like "Actually" or "See". Use diverse campus senior phrases (e.g., "Oh, you're asking about...", "Straight up...", "Check this out...", "You'll be interested to know...", "Actually...").
+3. IDENTITY DEPTH: When asked about a person (Ram, Principal, Faculty), share at least 5-6 core facts from their profile. Do not truncate technical skills, patents, or textbooks.
+4. MANDATORY BULLETS: All technical data (Emails, Phone Numbers, LinkedIn Links, ISBNs, Seats, Roles) MUST be in a bulleted list using the single-dash (-) format. NEVER turn these into a paragraph.
+5. NO-FLUFF/REAL-TALK: No greetings, no robotic sign-offs, and no apologies. Speak like a confident campus senior.
+6. TARGETED DEFENSE / MARKETING: Be calm and confident. Use facts to shut down doubts or comparisons.
 7. SPECIAL RULES: Girls Hostel = Sholinganallur. Never summarize transport routes.
-8. NO-FLUFF: No greetings, no formal signatures.
 
 Knowledge Context:
 ${builtContext}`,
@@ -210,7 +208,12 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
         rawChunks.push({ content: `[ALPHA-PURPLE]: Dr. K.S. Srinivasan is the Principal of MSAJCE and Chairperson-HOI of IQAC. He is the Secretary of TNSCST (Govt of Tamil Nadu). Technical Excellence: Author of 16 engineering textbooks (Communication Theory, DSP, WSN). Patent Holder (2022) for Smart Optic Cable Monitoring.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('ram') || lower.includes('developer')) {
-        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S is the Lead AI Architect of Lorin and Aura RAG. He is the developer of Zenify and MSAJCE Campus infrastructure. Email: ramanathanb86@gmail.com. LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S (Ram) is the Lead AI Architect & Developer of Lorin and Aura RAG.
+- Lead Developer of Zenify and MSAJCE Campus Infrastructure.
+- Architect of the Hydra-Rotation engine (Multiple API Key resilience).
+- Expert in RAG (Retrieval-Augmented Generation) and Institutional Intelligent Systems.
+- Email: ramanathanb86@gmail.com
+- LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
         rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480. Contact: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674) for multilingual support.`, source: 'ALPHA-IDENTITY' });
