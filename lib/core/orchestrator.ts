@@ -64,7 +64,7 @@ export interface KnowledgeChunk {
 }
 
 // ─────────────────────────────────────────────
-// STAGE 0 — Neural Intent Classifier
+// STAGE 0 — Neural Intent Classifier (RELOADED)
 // ─────────────────────────────────────────────
 export async function classifyIntent(text: string): Promise<Intent> {
     return await callAIWithRotation(async (openai) => {
