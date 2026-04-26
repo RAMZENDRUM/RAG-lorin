@@ -222,8 +222,9 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
         answer: finalAnswer,
         metadata: {
             latency_ms: Date.now() - startTime,
-            match_score: topScore,
-            intent: intent,
+            match_score: topScore || 0,
+            intent: intent || 'general',
+            retrieval_source: rawChunks[0]?.source || 'None',
             model_id: 'gpt-4o-mini-hydra'
         }
     };

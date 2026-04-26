@@ -118,7 +118,7 @@ export default async function handler(req: any, res: any) {
                     intent_category, retrieval_source, latency_ms, match_score, model_id
                 ) VALUES (
                     ${userId}, ${rawText}, ${answer}, 'PENDING',
-                    ${metadata.intent}, ${metadata.retrieval_source}, ${metadata.latency_ms}, ${metadata.match_score}, ${metadata.model_id}
+                    ${metadata.intent || 'general'}, ${metadata.retrieval_source || 'None'}, ${metadata.latency_ms || 0}, ${metadata.match_score || 0}, ${metadata.model_id || 'unknown'}
                 )
             `;
         } catch (dbErr) {
