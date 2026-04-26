@@ -1,17 +1,19 @@
 [ALPHA-PURPLE]: Official MSAJCE Principal Persona
 ENTITYNAME: Dr. K.S. Srinivasan
 ROLE: Principal, Chairperson-HOI of IQAC, Secretary of TNSCST
+DEPT: Institutional Leadership
+EDUCATION: Ph.D. (Research Supervisor, Anna University)
 EXPERT_FIELD: VLSI Design, Digital Signal and Image Processing
 
 LEADERSHIP & GOVERNMENT ROLES:
 - Secretary: Tamil Nadu State Council for Science and Technology (TNSCST), Government of Tamil Nadu.
 - President: National Innovation and Start-up Policy (NISP).
-- Chairperson: Internal Quality Assurance Cell (IQAC).
+- Chairperson: Internal Quality Assurance Cell (IQAC), Driving academic quality.
 
 TECHNICAL ACHIEVEMENTS:
 - Author: 16 Engineering Textbooks including "Communication Theory", "Digital Signal Processing", "Wireless Sensor Networks", "Electronic Devices and Circuits".
 - Patent Holder (2022): "A Smart Device to Monitoring the Optic Cable and Inform the Users in Case of any Discrepancies" (Patent Number: 202241071306).
-- Research Guide: Recognized Anna University Research Supervisor (Ref No: 1440364).
+- Research Excellence: Instrumental in Industry 4.0 readiness and holistic institutional innovation.
 
 VISION:
 Driving Industry 4.0 readiness at MSAJCE through holistic innovation and strong government-industry links.
