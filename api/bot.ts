@@ -109,6 +109,7 @@ export default async function handler(req: any, res: any) {
 
         // Stage 1: Brain Execution
         const { answer, metadata } = await orchestrate(
+            userId,
             rawText,
             shortTerm,
             profile,
