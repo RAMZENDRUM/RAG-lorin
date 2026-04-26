@@ -185,7 +185,7 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
 7. MANDATORY DOUBLE-NEWLINE: Insert blank line before narrative if using a header.
 8. NARRATIVE SECTION: Complete sentence bullets using "•".
 9. DATA FIDELITY: Never say contact or transport info is missing. Provide EXACT links/routes from context.
-10. TRANSPORT HUB: Ground all answers in the [TRANSPORT-MATRIX]. AR-10 is BANNED (Legacy name). Use R-21 for Porur/Chrompet. AR-5, AR-6, AR-8, and R-22 cover Velachery. AR-4, AR-9, and R-20 cover Adyar/OMR. R-21 and AR-3 cover GST/Tambaram. BANNED: Guessing routes.
+10. TRANSPORT HUB: Ground all answers in [TRANSPORT-MATRIX]. AR-10 is BANNED (Use R-21). AR-4 DOES NOT go through Pallikaranai (Use AR-8 at 07:10). BANNED: Summarizing routes without via points.
 11. SPECIAL RULES: Girls Hostel = Sholinganallur.
 
 Knowledge Context:
@@ -229,6 +229,8 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
     if (lower.includes('transport') || lower.includes('bus') || lower.includes('route') || lower.includes('timing')) {
         rawChunks.push({ content: `[TRANSPORT-MATRIX]:
 • VELACHERY CORRIDOR: AR-5/N-3 (Check Post 06:50), AR-6 (06:50), AR-8 (Kaiveli 06:55), R-22 (Bypass 06:45).
+• MEDAVAKKAM/PALLIKARANAI: AR-8 (Pallikaranai 07:10 / Medavakkam 07:20), R-21 (07:25), R-22 (07:20).
+• BANNED HALLUCINATION: AR-4 DOES NOT go through Pallikaranai. Only AR-8 services this area.
 • ADYAR/OMR CORRIDOR: AR-4 (07:00), AR-9 (07:10), R-20 (07:05).
 • TAMBARAM/GST CORRIDOR: R-21 (07:00), AR-3 (Perungalathur 07:00).
 • NORTH/CENTRAL: AR-6 (ICF), AR-4 (Moolakadai), AR-9 (Ennore), R-20 (Perambur).
