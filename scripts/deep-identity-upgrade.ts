@@ -23,7 +23,7 @@ async function upgradeDeepIdentity() {
         SET 
             linkedin = 'https://www.linkedin.com/in/ramanathan-s-76a0a02b1',
             portfolio = 'https://ram-ai-portfolio.vercel.app',
-            email = 'ramanathan.msajce@gmail.com',
+            email = 'ramanathanb86@gmail.com',
             context = 'The Creator and Lead AI Architect of Lorin and Aura RAG systems. Primary authority on the campus intelligence layer.'
         WHERE name ILIKE '%Ramanathan%' OR name ILIKE '%Ram%'
     `;
