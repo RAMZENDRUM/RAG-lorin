@@ -1,58 +1,52 @@
-import { 
-    classifyIntent, 
-    rewriteQuery, 
-    hybridRetrieve, 
-    rerankResults, 
-    agentDecide, 
-    buildContext, 
-    generateGrounded, 
-    postProcess 
-} from '../lib/core/orchestrator.js';
-import { createOpenAI } from '@ai-sdk/openai';
-import postgres from 'postgres';
-import dotenv from 'dotenv';
+// @ts-ignore
+import { orchestrate } from '../lib/core/orchestrator.js';
+// @ts-ignore
+import { default as postgres } from 'postgres';
+// @ts-ignore
+import * as dotenv from 'dotenv';
 
 dotenv.config();
 
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
-const openai = createOpenAI({ 
-    apiKey: process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY, 
-    baseURL: 'https://openrouter.ai/api/v1' 
-});
-const GOOGLE_FORM_URL = "https://forms.gle/bx2S4iPtJLipA9866";
 
 const testQuestions = [
-    "Who is the Principal of MSAJCE?",
-    "What is the name of the CSI Student President?",
-    "List all the UG engineering programs offered.",
-    "Can parents use the college bus to visit campus?",
-    "Who is the Administrative Officer of the college?",
-    "Tell me about the CSI Student Counselor.",
-    "Which companies recruit from MSAJCE?",
-    "Is there a hostel facility?",
-    "Who is the developer of this Lorin bot?",
-    "Tell me about the Fine Arts club leadership."
+    { q: "Who is the Principal of MSAJCE?", state: true },
+    { q: "more about him", state: true }, // Continuation Test
+    { q: "What is the name of the CSI Student President?", state: true },
+    { q: "who is the secretary?", state: true }, // Context Test
+    { q: "List all the UG engineering programs offered.", state: false },
+    { q: "Can parents use the college bus to visit campus?", state: false },
+    { q: "Who is the Administrative Officer of the college?", state: false },
+    { q: "Tell me about the CSI Student Counselor.", state: false },
+    { q: "Which companies recruit from MSAJCE?", state: false },
+    { q: "Is there a hostel facility?", state: false },
+    { q: "Who is the developer of this Lorin bot?", state: false }
 ];
 
 async function runAudit() {
-    console.log('🚀 STARTING 10-POINT LORIN INTELLIGENCE AUDIT...\n');
+    console.log('🚀 STARTING LORIN STATE-AWARE INTELLIGENCE AUDIT...\n');
+    const dummyId = "AUDIT_USER_" + Date.now();
 
     for (let i = 0; i < testQuestions.length; i++) {
-        const q = testQuestions[i];
-        console.log(`[TEST ${i + 1}] QUESTION: ${q}`);
+        const item = testQuestions[i];
+        console.log(`[TEST ${i + 1}] QUESTION: ${item.q}`);
         
         try {
-            const intent = classifyIntent(q);
-            const rewritten = rewriteQuery(q, intent, { interest: 'General' } as any);
-            const chunks = await hybridRetrieve(rewritten, q, openai, sql);
-            const context = await rerankResults(rewritten, chunks, openai);
-            const flags = agentDecide(intent, q, context, Date.now(), GOOGLE_FORM_URL);
-            const built = buildContext(context, [], { interest: 'General' } as any);
-            const answer = await generateGrounded(built, q, flags, GOOGLE_FORM_URL, openai);
-            const final = postProcess(answer, flags, GOOGLE_FORM_URL, chunks);
+            const { answer, metadata } = await orchestrate(
+                dummyId,
+                item.q,
+                [], // Empty history for individual probes
+                { interest: 'General' },
+                sql
+            );
 
-            console.log(`🤖 RESPONSE: ${final.substring(0, 300)}...`);
+            console.log(`🤖 TONE: ${metadata.intent}`);
+            console.log(`📄 SOURCE: ${metadata.retrieval_source}`);
+            console.log(`✍️ RESPONSE: ${answer.substring(0, 500)}...`);
             console.log('--------------------------------------------------\n');
+            
+            // Artificial delay to prevent rate limits
+            await new Promise(r => setTimeout(r, 1000));
         } catch (e: any) {
             console.error(`❌ TEST ${i+1} FAILED:`, e.message);
         }

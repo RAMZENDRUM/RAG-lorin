@@ -1,6 +1,8 @@
 import { Telegraf } from 'telegraf';
-import dotenv from 'dotenv';
-import postgres from 'postgres';
+// @ts-ignore
+import * as dotenv from 'dotenv';
+// @ts-ignore
+import { default as postgres } from 'postgres';
 import { 
     classifyIntent, 
     fetchMemory, 
@@ -27,6 +29,7 @@ bot.on('text', async (ctx) => {
 
         // Stage 1-5: Unified Orchestration
         const { answer } = await orchestrate(
+            userId,
             rawText,
             shortTerm,
             profile,

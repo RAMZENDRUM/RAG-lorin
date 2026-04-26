@@ -17,7 +17,18 @@ async function syncV9Strict() {
         process.exit(1);
     }
 
-    const entities = JSON.parse(fs.readFileSync(v9Path, 'utf8'));
+    interface Entity {
+        name?: string;
+        type?: string;
+        designation?: string;
+        department?: string;
+        degree?: string;
+        batch?: string;
+        organization?: string;
+        search_text?: string;
+    }
+
+    const entities: Entity[] = JSON.parse(fs.readFileSync(v9Path, 'utf8'));
     console.log(`📦 Preparing to push ${entities.length} structurally-perfected records.`);
 
     try {
@@ -26,7 +37,7 @@ async function syncV9Strict() {
             await sql`DELETE FROM msajce_entities`;
 
             console.log('📤 Inserting V9 STRICT records...');
-            const rows = entities.map(e => ({
+            const rows = entities.map((e: Entity) => ({
                 name: e.name || null,
                 type: e.type || null,
                 designation: e.designation || null,
