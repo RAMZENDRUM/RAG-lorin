@@ -224,7 +224,11 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
 • Focus: System Sovereignty and AI Architecture at MSAJCE.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
-        rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480.
+        rawChunks.push({ content: `[OFFICIAL-ADMISSION-MATRIX]:
+• 60 SEATS: IT, CSE, AIML, and ECE.
+• 30 SEATS: AI&DS, Cyber Security, Mechanical, Civil, EEE, VLSI, and Business Systems.
+• TOTAL UG INTAKE: 480. Quota: 50% Gov / 50% Mgmt.
+• BANNED: Using "9 seats" or "Capacity not specified". Use 60 or 30 ONLY.
 • Apply Online: https://enrollonline.co.in/Registration/Apply/MSAJCE
 • Official Enquiry Form: https://forms.gle/bx2S4iPtJLipA9866
 • Help Contacts: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674).`, source: 'ALPHA-IDENTITY' });
