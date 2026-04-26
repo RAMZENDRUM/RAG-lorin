@@ -229,6 +229,7 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
     if (lower.includes('transport') || lower.includes('bus') || lower.includes('route') || lower.includes('timing')) {
         rawChunks.push({ content: `[TRANSPORT-MATRIX]:
 • VELACHERY: AR-5 (Check Post 06:50), AR-6 (Check Post 06:50), AR-8 (Kaiveli 06:55), R-22 (Bypass 06:45).
+• MEDAVAKKAM: AR-8 (07:20), R-21 (07:25), R-22 (07:20).
 • ADYAR/OMR: AR-4 (07:00), AR-9 (07:10), R-20 (07:05).
 • TAMBARAM/GST: R-21 (07:00), AR-3 (Guduvanchery 06:50).
 • MTC BUSES: 570/570S (Velachery), 19/519 (OMR), 102 (Broadway), 105 (Tambaram).`, source: 'ALPHA-IDENTITY' });

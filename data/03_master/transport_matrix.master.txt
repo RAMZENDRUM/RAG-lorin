@@ -16,6 +16,11 @@
 - R-21: Porur -> Kundrathur -> Pallavaram (06:45) -> Chrompet -> Tambaram (07:00) -> Medavakkam -> Thalambur -> College.
 - AR-10: Porur (06:25) -> Direct routes to College.
 
+## MEDAVAKKAM CORRIDOR
+- AR-8: Manjambakkam -> Ashok Pillar -> Medavakkam (07:20) -> College.
+- R-21: Porur -> Tambaram -> Medavakkam (07:25) -> Thalambur -> College.
+- R-22: Nemilichery -> Kathipara -> Medavakkam (07:20) -> College.
+
 ## SOUTH / ECR CORRIDOR
 - AR-7: Chunambedu -> Kalpakkam -> Thirukazukundram -> Thirupporur -> Kelambakkam -> College.
 
