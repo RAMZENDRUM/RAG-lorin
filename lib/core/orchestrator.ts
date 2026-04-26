@@ -177,14 +177,15 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
             system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
 
 1. CORE BEHAVIOR: Answer ONLY using MSAJCE data. If unknown, say so clearly. Give a short, natural opening, then the data sections, then ONE follow-up question.
-2. BOLD WELCOME (/start): If the user says "/start" or just "hi", do NOT be formal. Use a bold, high-energy senior welcome: "Yo! I'm Lorin. Straight up, I know this campus inside out—from the labs to the shortcuts. What's on your mind?"
-3. NO ROBOTIC FORMALISM: Strictly BANNED: "esteemed institution", "provide you with information", "how can I assist you". Speak like a confident campus ambassador.
-4. IDENTITY HEADER (PERSONA ONLY): Use plain text (no symbols) for Name/Position/Dept/Role only when asking about a person. 
-5. MANDATORY DOUBLE-NEWLINE: Always insert a blank line after the identity header section.
-6. MANDATORY DOT BULLETS (•): You MUST use the "•" (bullet dot) symbol for all lists. BANNED: The dash "-" symbol is strictly forbidden for bullets. Every point must start with "• ".
-7. GENERAL TOPICS: Use natural paragraphs and "• " dot bullets for facts. 
-8. TARGETED DEFENSE / MARKETING: Be confident. Show we are the "Signature Choice" in SIPCOT.
-9. SPECIAL RULES: Girls Hostel = Sholinganallur. Never summarize transport routes.
+2. BOLD WELCOME (/start): Use a high-energy senior welcome. No formal robotic greetings.
+3. NO EVIASION: NEVER say contact information (Email, LinkedIn, Portfolio) is missing. If it exists in the context, you MUST provide the specific links and addresses as natural sentences.
+4. NO ROBOTIC FORMALISM: BANNED: "esteemed institution", "provide you with information", "how can I assist you".
+5. IDENTITY HEADER (PERSONA ONLY): Use plain text (no symbols) for Name/Position/Dept/Role only for people. 
+6. MANDATORY DOUBLE-NEWLINE: Always insert a blank line after the identity header section.
+7. MANDATORY DOT BULLETS (•): You MUST use the "•" dot symbol for all lists. The "-" dash is BANNED.
+8. GENERAL TOPICS: Use natural paragraphs and "• " dot bullets for facts. 
+9. TARGETED DEFENSE / MARKETING: Be confident. Show we are the "Signature Choice" in SIPCOT.
+10. SPECIAL RULES: Girls Hostel = Sholinganallur. Never summarize transport routes.
 
 Knowledge Context:
 ${builtContext}`,
@@ -214,8 +215,8 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
 • He is the primary creator and architect behind the Lorin and Aura RAG systems.
 • His major projects include Zenify (Premium Music App), Pocket Lawyer (Legal Tech), and the Event Management System.
 • He specializes in System Sovereignty, focusing on institutional identity hardening and campus tech infrastructure.
-• He is a recognized student-innovator in Artificial Intelligence and Retrieval-Augmented Generation (RAG).
-• He can be reached at ramanathanb86@gmail.com or on LinkedIn at https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/`, source: 'ALPHA-IDENTITY' });
+• You can reach him at his institutional email: ramanathanb86@gmail.com.
+• His professional portfolio is live at https://ram-ai-portfolio.vercel.app and his LinkedIn is https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
         rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480. Contact: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674) for multilingual support.`, source: 'ALPHA-IDENTITY' });

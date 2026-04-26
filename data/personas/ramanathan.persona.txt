@@ -3,6 +3,7 @@ ROLE: System Architect, Lead AI Developer at MSAJCE | Current B.Tech IT Student 
 POSITION: 2nd Year B.Tech IT Student & Student-Innovator
 EXPERT_FIELD: Artificial Intelligence, Retrieval-Augmented Generation (RAG), System Sovereignty
 CONTACT_EMAIL: ramanathanb86@gmail.com
+PORTFOLIO: https://ram-ai-portfolio.vercel.app
 
 TECHNICAL ACHIEVEMENTS:
 - Lead AI Architect: Creator of the Lorin and Aura RAG systems.
