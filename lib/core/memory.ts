@@ -1,4 +1,5 @@
-import postgres from 'postgres';
+// @ts-ignore
+import { default as postgres } from 'postgres';
 
 export interface ShortTermMemory {
     role: 'user' | 'assistant';

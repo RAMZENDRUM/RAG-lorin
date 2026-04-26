@@ -1,4 +1,5 @@
-import postgres from 'postgres';
+// @ts-ignore
+import { default as postgres } from 'postgres';
 import { 
     getDynamicAIClient,
     classifyIntent, 

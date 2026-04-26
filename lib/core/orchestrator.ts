@@ -1,9 +1,12 @@
-import fs from 'fs';
-import path from 'path';
+// @ts-ignore
+import * as fs from 'fs';
+// @ts-ignore
+import * as path from 'path';
 import { embed, generateText } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
 import { QdrantClient } from '@qdrant/js-client-rest';
-import dotenv from 'dotenv';
+// @ts-ignore
+import * as dotenv from 'dotenv';
 import type { ShortTermMemory, UserProfile } from './memory.js';
 export { fetchMemory, updateProfile, extractInterest } from './memory.js';
 
