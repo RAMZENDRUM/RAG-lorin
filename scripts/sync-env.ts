@@ -24,6 +24,7 @@ async function sync() {
     console.log("📡 Starting Environment Sync...");
 
     for (const key of keysToSync) {
+        if (!env) break;
         const value = env[key];
         if (value) {
             try {
