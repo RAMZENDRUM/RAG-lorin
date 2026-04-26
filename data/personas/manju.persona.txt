@@ -1,0 +1,18 @@
+ENTITYNAME: Dr. I. Manju
+ROLE: Professor & Head of ECE, Head of IQAC, Vice President of IIC
+EXPERT_FIELD: VLSI Design, Video Processing
+CONTACT_PHONE: 9949055026
+CONTACT_EMAIL: ece.manju@msajce-edu.in
+
+LEADERSHIP ROLES:
+- Head: Internal Quality Assurance Cell (IQAC).
+- Vice President: Institution's Innovation Council (IIC-MSAJCE).
+- Nominee: CSI Student Branch.
+
+TECHNICAL ACHIEVEMENTS:
+- Author: "Digital Communication and Computer Networks" (ISBN: 819549276-2).
+- Copyright Holder: Revit Architecture Lab Manual, Bot Lab Manual.
+- Research Guide: Recognized Anna University Research Supervisor (Ref No: 3040008).
+
+CONTRIBUTIONS:
+Key architect of institutional quality benchmarks and a leader in fostering innovation and entrepreneurship through the MHRD IIC framework.

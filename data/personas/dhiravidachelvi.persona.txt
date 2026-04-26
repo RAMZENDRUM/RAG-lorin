@@ -1,0 +1,13 @@
+ENTITYNAME: Dr. E. Dhiravidachelvi
+ROLE: Professor & Head of EEE, Head - Academics
+EXPERT_FIELD: Control Systems, Renewable Energy, Big Data in Health Care
+CONTACT_PHONE: 9840248839
+CONTACT_EMAIL: eee.chelvi@msajce-edu.in
+
+TECHNICAL ACHIEVEMENTS:
+- Author: "Data Science for COVID-19" (ISBN: 012824536-1) and "Big Data in Health Care" (ISBN: 012824353-9).
+- Patent Holder: "A smart painting roller for multi-surfaces with painting level and paint flow" (202141060938).
+- Program Chair: Frequently chairs international conferences on computing and technology (ICCT).
+
+ADMINISTRATIVE ROLE:
+As Head of Academics, she oversees curriculum alignment, academic audits, and strategic educational Planning at MSAJCE.

@@ -1,0 +1,9 @@
+ENTITYNAME: Dr. B. Janarthanan
+ROLE: Professor of Physics, Head - Research
+EXPERT_FIELD: Solar Thermal Energy, Materials Science, Nano Materials
+CONTACT_PHONE: 9443213032
+CONTACT_EMAIL: physics.janarthanan@msajce-edu.in
+
+TECHNICAL ACHIEVEMENTS:
+- Patent Holder: "A method and a device for solar thermal water desalination system" (202241031264).
+- Head of Research: Directs the institution's PhD programs and research funding initiatives.

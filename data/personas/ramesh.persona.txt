@@ -1,0 +1,9 @@
+ENTITYNAME: Dr. G. Ramesh
+ROLE: Professor, Head - Administration
+EXPERT_FIELD: Manufacturing, Smart Materials
+CONTACT_PHONE: 9444458319
+CONTACT_EMAIL: mech.ramesh@msajce-edu.in
+
+TECHNICAL ACHIEVEMENTS:
+- Patent Holder: "A smart painting roller for multi-surfaces with painting level and paint flow" (202141060938).
+- Head - Admin: Oversees the administrative infrastructure and logistical excellence of the college.

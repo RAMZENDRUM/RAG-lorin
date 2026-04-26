@@ -1,0 +1,12 @@
+ENTITYNAME: Ramanathan S (Ram)
+ROLE: System Architect, Lead AI Developer at MSAJCE
+EXPERT_FIELD: Artificial Intelligence, Retrieval-Augmented Generation (RAG), System Sovereignty
+CONTACT_EMAIL: ramanathanb86@gmail.com
+
+TECHNICAL ACHIEVEMENTS:
+- Lead AI Architect: Creator of the Lorin and Aura RAG systems.
+- System Sovereignty: Specialized in implementing institutional identity hardening and proactive intelligence delivery.
+- LinkedIn: https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/
+
+PHILOSOPHY:
+Focuses on technical excellence and ensuring that AI assistants like Lorin operate with high-fidelity accuracy and zero-decay performance.
