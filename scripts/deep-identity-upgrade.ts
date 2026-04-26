@@ -28,6 +28,17 @@ async function upgradeDeepIdentity() {
         WHERE name ILIKE '%Ramanathan%' OR name ILIKE '%Ram%'
     `;
     console.log('✅ Developer Profile Hardened.');
+    
+    console.log('🏛️ STAGE 2.5: Hardening Faculty Identities (Weslin)...');
+    await sql`
+        UPDATE msajce_entities 
+        SET 
+            email = 'it.weslin@msajce-edu.in',
+            phone = '9715202533',
+            context = 'Associate Professor in the IT Department, CSI Student Branch Counsellor, and author of Wireless Sensor Networks (ISBN: 978-81-954927-4-9).'
+        WHERE name ILIKE '%Weslin%'
+    `;
+    console.log('✅ Faculty Profiles Hardened.');
 
     console.log('🧠 STAGE 3: Extracting Contact Info from Raw Context for other 1,000+ entities...');
     // We'll move any phone numbers we found in the context into the proper column

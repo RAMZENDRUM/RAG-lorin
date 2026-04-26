@@ -1,0 +1,16 @@
+ENTITYNAME: Dr. D. Weslin
+ROLE: Associate Professor, Department of Information Technology (IT)
+CONTACT_PHONE: 9715202533
+CONTACT_EMAIL: it.weslin@msajce-edu.in
+
+RESEARCH & PATENTS:
+- Patent Holder (2022): "A method and a device of Wireless Master Joystick Controller for Robotics" (Patent Number: 202241071210).
+- Author: Co-authored the engineering textbook "Wireless Sensor Networks" (ISBN: 978-81-954927-4-9) with Dr. K.S. Srinivasan and Dr. P. Subramanian.
+
+INSTITUTIONAL RESPONSIBILITIES:
+- CSI Student Branch Counsellor: Leads the Computer Society of India student activities at MSAJCE.
+- IQAC Member (2022-2023): Faculty representative for Internal Quality Assurance and institutional performance evaluation.
+- Award Recipient: Honored with the "Active participant award (SBC)" by the CSI Kancheepuram Chapter for excellence in faculty-student coordination.
+
+STUDENT INTERACTION:
+Dr. Weslin is a primary point of contact for students interested in Robotics, Wireless Sensor Networks, and Professional Society memberships (CSI). He provides guidance on technical projects and innovation competitions.
