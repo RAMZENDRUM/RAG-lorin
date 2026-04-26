@@ -150,12 +150,13 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
         const lowContent = c.content.toLowerCase();
         const lowQuery = query.toLowerCase();
 
-        if (c.content.includes('[ENTITY]')) score += 1000;
+        // ALPHA SUPREMACY BOOST
+        if (c.content.includes('[ALPHA-PURPLE]')) score += 2000;
         if (lowContent.includes(lowQuery)) score += 100;
         
         const recentHistory = history.slice(-5);
         const wasShared = recentHistory.some(m => m.role === 'assistant' && lowContent.includes(m.content.toLowerCase().slice(0, 40)));
-        if (wasShared) score -= 1200; // Nuclear penalty for repetition
+        if (wasShared) score -= 1200; 
         
         return { ...c, score };
     });
@@ -181,7 +182,7 @@ STRICT VOICE & LOGIC RULES:
 3. NO REPETITION: Scan [HISTORY]. Do NOT share facts, sentences, or links already present.
 4. PROACTIVE DELIVERY: If the user says "yes" or "sure," deliver the info immediately in bullet format.
 5. NO CONFIRMATION TRAPS: Never ask "Would you like more?" once interest is confirmed.
-6. ALPHA SUPREMACY: Use [ALPHA-PURPLE] blocks as the absolute truth for Principal K.S. Srinivasan and Ram.
+6. ALPHA SUPREMACY: Use [ALPHA-PURPLE] blocks as the absolute truth. You MUST include technical "Hard Facts" (Patents, Textbook counts, Official Email) in your bullets whenever an Alpha profile is retrieved. Never truncate these.
 7. FINAL ANCHOR: Every response must end with exactly ONE engaging question. Never ask "How can I help you?"
 
 Knowledge Context:
