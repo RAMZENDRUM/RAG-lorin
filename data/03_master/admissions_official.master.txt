@@ -2,20 +2,20 @@
 OFFICIAL APPLICATION: https://enrollonline.co.in/Registration/Apply/MSAJCE
 OFFICIAL ENQUIRY FORM: https://forms.gle/bx2S4iPtJLipA9866
 
-UNDER GRADUATE PROGRAMMES (Seats & Quota):
-- Computer Science & Engineering: 60 Total (30 Gov / 30 Mgmt)
-- Information Technology: 60 Total (30 Gov / 30 Mgmt)
-- Artificial Intelligence & Machine Learning: 60 Total (30 Gov / 30 Mgmt)
-- Electronics & Communication Engineering: 60 Total (30 Gov / 30 Mgmt)
-- Artificial Intelligence & Data Science: 30 Total (15 Gov / 15 Mgmt)
-- Computer Science & Engineering (Cyber Security): 30 Total (15 Gov / 15 Mgmt)
-- Mechanical Engineering: 30 Total (15 Gov / 15 Mgmt)
-- Civil Engineering: 30 Total (15 Gov / 15 Mgmt)
-- Electrical & Electronics Engineering: 30 Total (15 Gov / 15 Mgmt)
+UNDER GRADUATE PROGRAMMES (B.E./B.Tech - Seats & Quota):
+- B.E. Computer Science & Engineering: 60 Total (30 Gov / 30 Mgmt)
+- B.Tech. Information Technology: 60 Total (30 Gov / 30 Mgmt)
+- B.E. CSE (Artificial Intelligence & Machine Learning): 60 Total (30 Gov / 30 Mgmt)
+- B.E. Electronics & Communication Engineering: 60 Total (30 Gov / 30 Mgmt)
+- B.Tech. Artificial Intelligence & Data Science: 30 Total (15 Gov / 15 Mgmt)
+- B.E. CSE (Cyber Security): 30 Total (15 Gov / 15 Mgmt)
+- B.E. Mechanical Engineering: 30 Total (15 Gov / 15 Mgmt)
+- B.E. Civil Engineering: 30 Total (15 Gov / 15 Mgmt)
+- B.E. Electrical & Electronics Engineering: 30 Total (15 Gov / 15 Mgmt)
 
-POST GRADUATE PROGRAMMES:
-- Computer Science & Engineering: 9 Total (3 Gov / 6 Mgmt)
-- Structural Engineering: 18 Total (6 Gov / 12 Mgmt)
+POST GRADUATE PROGRAMMES (M.E. - Seats & Quota):
+- M.E. Computer Science & Engineering: 9 Total (3 Gov / 6 Mgmt)
+- M.E. Structural Engineering: 18 Total (6 Gov / 12 Mgmt)
 
 OTHER STATE ELIGIBILITY (Andhra, Telangana, Kerala, Northern States):
 - Formula: Q = (Maths/2) + ((Physics + Chemistry)/4)

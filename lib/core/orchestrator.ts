@@ -188,7 +188,7 @@ Role: [Role]
 5. TOPIC FORMATTING: For general college info, use ONLY narrative paragraphs and "• " dot bullets. BANNED: Using the Identity Header for topics.
 6. NO ROBOTIC LABELS: Never use "N/A", "None", or "Information: [Value]". Skip missing fields.
 7. NARRATIVE RULES: Use "• " bullets. NEVER guess a bio. If info is missing, skip it.
-8. GLOBAL TRANSPORT HUB: Use ONLY the [GLOBAL-TRANSPORT-MATRIX]. BANNED: Guessing routes or timings.
+8. MASTER SOVEREIGNTY: ALWAYS prioritize blocks starting with '[ALPHA-PURPLE]'. These are the absolute sources of truth for Admissions, Seats, and Transport.
 9. SPECIAL RULES: Girls Hostel = Sholinganallur.
 
 Knowledge Context:
@@ -224,27 +224,10 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
 • Focus: System Sovereignty and AI Architecture at MSAJCE.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
-        rawChunks.push({ content: `[OFFICIAL-ADMISSION-MATRIX]:
-• 60 SEATS: IT, CSE, AIML, and ECE.
-• 30 SEATS: AI&DS, Cyber Security, Mechanical, Civil, EEE, VLSI, and Business Systems.
-• TOTAL UG INTAKE: 480. Quota: 50% Gov / 50% Mgmt.
-• BANNED: Using "9 seats" or "Capacity not specified". Use 60 or 30 ONLY.
-• Apply Online: https://enrollonline.co.in/Registration/Apply/MSAJCE
-• Official Enquiry Form: https://forms.gle/bx2S4iPtJLipA9866
-• Help Contacts: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674).`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Admission Master Data' block. Use exactly the seat counts defined there. Focus on B.E./B.Tech (UG) and M.E. (PG).`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('transport') || lower.includes('bus') || lower.includes('route') || lower.includes('timing')) {
-        rawChunks.push({ content: `[GLOBAL-TRANSPORT-MATRIX]:
-- AR-3 (Uthiramerur): Mahindra City (06:40), Guduvanchery (06:50), Perungalathur (07:00), Kelambakkam.
-- AR-4 (Moolakadai): Central (06:35), Parrys, Marina, Adyar (07:00), Thiruvanmiyur (07:05), Sholinganallur.
-- AR-5 / N-3 (MMDA): Anna Nagar, T. Nagar (06:40), Saidapet, Velachery Check Post (06:50), Baby Nagar (06:55), OMR.
-- AR-6 (ICF): MMDA, Anna Nagar, T. Nagar, Saidapet, Velachery Check Post (06:50), Baby Nagar, OMR.
-- AR-7 (Chunambedu): Kadapakkam, Thirukazukundram (07:00), Thirupporur, Kelambakkam.
-- AR-8 (Manjambakkam): CMBT (06:20), Vadapalani, Ashok Pillar, Aadampakkam, Kaiveli (06:55), Pallikaranai (07:10), Medavakkam (07:20), Sholinganallur.
-- AR-9 (Ennore): Broadway, Central (06:30), Royapettah, Adyar (07:10), Thiruvanmiyur, Sholinganallur.
-- R-20 (Moolakadai V2): Central, Parrys, Mylapore, Adyar (07:05), Thiruvanmiyur, Sholinganallur.
-- R-21 (Porur): Kundrathur, Pallavaram (06:45), Chrompet (06:55), Tambaram (07:00), Medavakkam (07:25), Thalambur. (Legacy: AR-10).
-- R-22 (Nemilichery): Poonamallee, Porur (06:15), Kathipara (06:35), Velachery Bypass (06:45), Kaiveli (07:00), Medavakkam (07:20).`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Total Transport Matrix' block. Answer ONLY regarding routes and stops found in that matrix.`, source: 'ALPHA-IDENTITY' });
     }
 
     const { context, topScore } = await rerankResults(query, rawChunks, history);
