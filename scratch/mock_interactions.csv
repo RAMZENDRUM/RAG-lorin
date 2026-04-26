@@ -1,0 +1,9 @@
+timestamp,user_id,query,response_latency,reaction,tokens_used,source
+2026-04-26 09:00:12,user_8172,Who is the Principal?,420ms,LIKED,482,ALPHA-CORE
+2026-04-26 09:05:44,user_3321,Admission form link?,310ms,LIKED,125,DATABASE
+2026-04-26 09:12:02,user_0092,Bus route to Tambaram,580ms,PENDING,210,QDRANT
+2026-04-26 09:15:30,user_7712,Tell me about Dr. Weslin,450ms,LIKED,520,ENTITY-PERSONA
+2026-04-26 09:20:11,user_3321,What are the IT lab facilities?,710ms,DISLIKED,640,RAW-DETAILED
+2026-04-26 09:25:00,user_1234,Hi Lorin,/start,150ms,LIKED,50,ONBOARDING
+2026-04-26 09:30:22,user_8877,How many textbooks did Principal write?,390ms,LIKED,310,ALPHA-PURPLE
+2026-04-26 09:35:15,user_9921,IQAC advisory members,920ms,PENDING,890,INSTITUTIONAL-DOCS

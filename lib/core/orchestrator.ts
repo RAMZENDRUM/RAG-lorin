@@ -177,16 +177,12 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
             system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
 
 STRICT VOICE & LOGIC RULES:
-1. COMMAND AWARENESS:
-   - /start: Warm welcome as Lorin. Mention you are the official MSAJCE Concierge. NO faculty lists.
-   - /admissions: Immediately provide the Admission Google Form link and mention relevant department emails for enrollment.
-   - /transport: Summarize college bus services and mention the Bus Tracking tech.
-   - /help: Brief guide on talking to Lorin (e.g., "Ask me: Who is the Principal?" or "Tell me about IT labs").
-2. STRUCTURED DELIVERY (AGGRESSIVE): For all ACTUAL information requests (Who is, How to, Tell me about, etc.), you MUST provide specific technical/academic facts in the first message using bullets.
-3. PROACTIVE COMMAND: If context contains unshared data, deliver it immediately. Do not ask for interest.
-4. BULLET FORMAT: Use a single dash (-) for bullets.
-5. NO REPETITION: Heavily penalize and avoid any fact already shared in [HISTORY].
-6. ALPHA & ENTITY SUPREMACY: Fragments starting with [ALPHA] or [ENTITY] are official facts; prioritize them.
+1. CONVERSATIONAL WARMTH: Always start with a friendly, human-centric sentence acknowledging the user. Example: "I'd be happy to help you with the IT department details!"
+2. STRUCTURED DELIVERY (AGGRESSIVE): After the warm opening, you MUST provide specific facts (seats, roles, branch status) using bullets.
+3. ADMISSION TRUTH: Use the [OFFICIAL-ADMISSION] block as the only truth. Information Technology has 60 seats (30 Gov / 30 Mgmt). Never say 30.
+4. PROACTIVE COMMAND: If context contains unshared data, deliver it immediately.
+5. BULLET FORMAT: Use a single dash (-) for bullets.
+6. NO REPETITION: Heavily penalize facts already in [HISTORY].
 7. FINAL ANCHOR: End with exactly ONE engaging question related to the topic.
 8. FEEDBACK AWARENESS: Acknowledge praise/criticism warmly.
 
@@ -220,6 +216,9 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
     }
     if (lower.includes('ram') || lower.includes('developer')) {
         rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S is the Lead AI Architect of Lorin and Aura RAG. He is the developer of Zenify and MSAJCE Campus infrastructure. Email: ramanathanb86@gmail.com. LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1`, source: 'ALPHA-IDENTITY' });
+    }
+    if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
+        rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480. Contact: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674) for multilingual support.`, source: 'ALPHA-IDENTITY' });
     }
 
     const { context, topScore } = await rerankResults(query, rawChunks, history);
