@@ -93,9 +93,12 @@ export async function rewriteQuery(t: string, intent: Intent, history: ShortTerm
     const affirmations = /^(yes|interested|sure|info|more|ok|okay|yeah|yep|tell me|show me|want|elaborate)$/i;
     if ((t.split(' ').length < 4 || affirmations.test(t)) && history.length > 0) {
         return await callAIWithRotation(async (openai) => {
+            const lastMsg = history[history.length - 1];
             const { text: expanded } = await generateText({
                 model: openai.chat('gpt-4o-mini'),
-                system: `Expand query based on previous assistant suggestion: ${history[history.length-1].content}. Fetch specific MSAJCE details.`,
+                system: `You are a query anchor. The user said "${t}" in response to "${lastMsg.content}". 
+                Generate a search query that combined their affirmation with the EXACT topic of that last message. 
+                Example: User says "yes" to "Want to know about Principal?", Query = "Dr. K.S. Srinivasan Principal details initiatives MSAJCE".`,
                 prompt: t,
             });
             return expanded;
@@ -113,17 +116,18 @@ export async function getContext(rewrittenQuery: string, rawText: string, sql: a
     const namesToSearch: string[] = [];
 
     try {
-        const coreName = rewrittenQuery.split(' ').filter(w => w.length > 2)[0] || "";
+        const words = rewrittenQuery.split(' ').filter(w => w.length > 3);
+        const coreName = words[0] || "";
         const results: any = await sql`
             SELECT name, role, email, context FROM msajce_entities 
             WHERE name % ${coreName} OR name ILIKE ${'%' + coreName + '%'}
-            ORDER BY similarity(name, ${coreName}) DESC LIMIT 2
+            ORDER BY similarity(name, ${coreName}) DESC LIMIT 3
         `;
         if (results?.length > 0) {
             entityContext = results.map((r: any) => {
                 namesToSearch.push(r.name);
                 return `[ENTITY]: ${r.name} (${r.role}) - ${r.context}`;
-            }).join('\n');
+            }).join('\n\n');
         }
     } catch (e) { console.warn('DB Fail:', e); }
 
@@ -138,18 +142,20 @@ export async function getContext(rewrittenQuery: string, rawText: string, sql: a
 }
 
 // ─────────────────────────────────────────────
-// STAGE 3 — Reranker (Resilience Level 2)
+// STAGE 3 — Reranker
 // ─────────────────────────────────────────────
 export async function rerankResults(query: string, chunks: KnowledgeChunk[], history: ShortTermMemory[]) {
     const scored = chunks.map(c => {
         let score = 0;
         const lowContent = c.content.toLowerCase();
+        const lowQuery = query.toLowerCase();
+
         if (c.content.includes('[ENTITY]')) score += 1000;
-        if (lowContent.includes(query.toLowerCase())) score += 100;
+        if (lowContent.includes(lowQuery)) score += 100;
         
-        // Anti-Repetition
-        const wasShared = history.slice(-5).some(m => m.role === 'assistant' && lowContent.includes(m.content.toLowerCase().slice(0, 30)));
-        if (wasShared) score -= 800;
+        const recentHistory = history.slice(-5);
+        const wasShared = recentHistory.some(m => m.role === 'assistant' && lowContent.includes(m.content.toLowerCase().slice(0, 40)));
+        if (wasShared) score -= 1200; // Nuclear penalty for repetition
         
         return { ...c, score };
     });
@@ -161,20 +167,27 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
 }
 
 // ─────────────────────────────────────────────
-// STAGE 4 — Build & Generate
+// STAGE 4 — Build & Generate (LIVES AGAIN)
 // ─────────────────────────────────────────────
 export async function generateGrounded(builtContext: string, rawText: string, agentFlags: AgentFlags, googleFormUrl: string) {
     return await callAIWithRotation(async (openai) => {
         const { text } = await generateText({
             model: openai.chat('gpt-4o-mini'),
-            system: `You are Lorin of MSAJCE. 
-            RULES: 
-            - Use facts from [CONTEXT].
-            - Mention Dr Srinivasan's textbooks/patents if relevant. 
-            - Ramanathan S (Ram) is the Lead Architect (ramanathanb86@gmail.com).
-            - Be proactive: if user confirms interest, deliver info immediately.
-            - Final sentence MUST be exactly one question.`,
-            prompt: `Context: ${builtContext}\n\nUser: ${rawText}`,
+            system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
+
+STRICT VOICE & LOGIC RULES:
+1. NO REPETITION: Scan [HISTORY]. Do NOT share facts, sentences, or links already present in history.
+2. PROACTIVE DELIVERY: If the user says "yes," "sure," or "show me," you MUST provide the information immediately from the context.
+3. NO CONFIRMATION TRAPS: Never ask "Would you like more details?" if the user already asked for info. A "yes" is a command to ANSWER, not a prompt to ask another question.
+4. ALPHA SUPREMACY: Use [ALPHA-PURPLE] blocks as the absolute truth for Principal K.S. Srinivasan (16 books, patents, Secretary TNSCST) and Lead Architect Ram (ramanathanb86@gmail.com).
+5. CONDITIONAL HONESTY: Only mention missing contact info if specifically asked and data is absent.
+6. LINGUISTIC MIRRORING: Match the user's conversation style while remaining professional.
+7. DYNAMIC PIVOT: If context is exhausted on a specific person, proposing a new high-value pillar (Transport, Fees, or Departments).
+8. FINAL ANCHOR: Every response must end with exactly ONE engaging question related to the topic.
+
+Knowledge Context:
+${builtContext}`,
+            prompt: `User Input: ${rawText}`,
         });
         return text;
     });
@@ -195,17 +208,17 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
     const query = await rewriteQuery(text, intent, history);
     const rawChunks = await getContext(query, text, sql);
     
-    // Alpha Identity Hard-Lock
-    const ctxText = `${text} ${query}`.toLowerCase();
-    if (ctxText.includes('srinivasan') || ctxText.includes('principal')) {
-        rawChunks.push({ content: `[ALPHA-PRINCIPAL]: Dr Srinivasan, Principal, author of 16 textbooks, patent holder 2022.`, source: 'ALPHA' });
+    // ALPHA HARD-LOCK INJECTION
+    const lower = `${text} ${query}`.toLowerCase();
+    if (lower.includes('srinivasan') || lower.includes('principal')) {
+        rawChunks.push({ content: `[ALPHA-PURPLE]: Dr. K.S. Srinivasan is the Principal of MSAJCE and Chairperson-HOI of IQAC. He is the Secretary of TNSCST (Govt of Tamil Nadu). Technical Excellence: Author of 16 engineering textbooks (Communication Theory, DSP, WSN). Patent Holder (2022) for Smart Optic Cable Monitoring.`, source: 'ALPHA-IDENTITY' });
     }
-    if (ctxText.includes('ram') || ctxText.includes('developer')) {
-        rawChunks.push({ content: `[ALPHA-DEV]: Ramanathan S, Lead AI Architect, developer of Lorin RAG.`, source: 'ALPHA' });
+    if (lower.includes('ram') || lower.includes('developer')) {
+        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S is the Lead AI Architect of Lorin and Aura RAG. He is the developer of Zenify and MSAJCE Campus infrastructure. Email: ramanathanb86@gmail.com. LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1`, source: 'ALPHA-IDENTITY' });
     }
 
     const { context, topScore } = await rerankResults(query, rawChunks, history);
-    const builtContext = `History (Last 5): ${history.slice(-5).map(m => m.content).join(' | ')}\n\nContext:\n${context}`;
+    const builtContext = `User History (Last 5): ${history.slice(-5).map(m => `[${m.role}]: ${m.content}`).join(' | ')}\n\nKnowledge Context:\n${context}`;
     
     const flags = {
         showForm: intent === 'admission' || text.toLowerCase().includes('apply'),
@@ -225,7 +238,7 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
             match_score: topScore || 0,
             intent: intent || 'general',
             retrieval_source: rawChunks[0]?.source || 'None',
-            model_id: 'gpt-4o-mini-hydra'
+            model_id: 'gpt-4o-mini-hydra-v2'
         }
     };
 }
