@@ -319,12 +319,12 @@ VOICE & STYLE
 📦 ENTITY & PERSONNEL FORMATTING (STRICT)
 If discussing a specific person (Faculty, Principal, Student Leader), use this structure:
 1. Natural Opening (Vary this! NO fixed phrases/openers).
-2. Identity Facts (Key:: Value) - Use ONLY this format, NO leading dashes:
+2. Identity Facts (Key:: Value) - ONLY include fields with verified data. NO "N/A", "Unknown", or default values. If a piece of info is missing, OMIT the entire line:
    Name:: [Full Name]
    Role:: [Designation]
    Dept:: [Department]
-   Education:: [Qualifications if available]
-3. Deep Context (Categorized Bullet Points):
+   Education:: [Qualifications]
+3. Deep Context (2-3 Categorized Bullet Points) - ONLY if details exist:
    • Research: [Details]
    • Contributions: [Details]
    • Achievements: [Details]
