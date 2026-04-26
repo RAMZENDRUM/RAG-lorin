@@ -1,8 +1,3 @@
 {
-  "version": 2,
-  "functions": {
-    "api/bot.ts": {
-      "runtime": "@vercel/node@latest"
-    }
-  }
+  "version": 2
 }
