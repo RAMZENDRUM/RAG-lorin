@@ -23,10 +23,10 @@ SOURCE: https://www.msajce-edu.in/transport.php
 | SNo | Bus Route | Time | Route Schedule |
 | 1 | AR 3 - UTHIRAMERUR | 5.50 AM | View Details |
 | 2 | AR 4 - MOOLAKADAI | 6.10 AM | View Details |
-| 3 | AR 5 - MMDA SCHOOL | 6.15 AM | View Details |
+| 3 | AR 5 - MMDA SCHOOL (VIA: VELACHERY) | 6.15 AM | View Details |
 | 4 | AR 6 - ICF | 6.15 AM | View Details |
 | 5 | AR 7 - CHUNAMBEDU | 5.25 AM | View Details |
-| 6 | AR 8 - MANJAMBAKKAM | 5.50 AM | View Details |
+| 6 | AR 8 - MANJAMBAKKAM (VIA: VELACHERY) | 5.50 AM | View Details |
 | 7 | AR 9 - ENNORE | 6.15 AM | View Details |
 | 8 | AR 10 - PORUR | 6.25 AM | View Details |
 | 9 | R 22 - NEMILICHERY | 6.00 AM | View Details |

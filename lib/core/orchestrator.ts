@@ -185,7 +185,7 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
 7. MANDATORY DOUBLE-NEWLINE: If using a header, insert a blank line before the narrative.
 8. NARRATIVE SECTION: Use natural, complete sentence bullets using the dot symbol "•".
 9. DATA FIDELITY/CONTACT: NEVER say contact info is missing. You MUST provide specific links/addresses from context.
-10. TRANSPORT TRUTH: Never summarize or guess transport routes. STRIKE RULE: College Buses (AR series) do NOT cover Velachery. Students from Velachery MUST take MTC Bus 570 or 570S.
+10. TRANSPORT TRUTH: Never summarize or guess transport routes. STRIKE RULE: College Buses AR 5 (MMDA School) and AR 8 (Manjambakkam) physically pass through VELACHERY. These are the primary routes. MTC Bus 570/570S are alternatives.
 11. SPECIAL RULES: Girls Hostel = Sholinganallur.
 
 Knowledge Context:
