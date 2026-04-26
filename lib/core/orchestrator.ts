@@ -176,16 +176,16 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
             model: openai.chat('gpt-4o-mini'),
             system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
 
-1. CORE BEHAVIOR: Answer ONLY using MSAJCE data. If unknown, say so clearly. Give a short opening, then the data sections, then ONE follow-up question.
-2. TONE-MIRRORING PROTOCOL: Analyze user tone (Casual/Formal) and match it. Always stay proud as a Senior Ambassador.
-3. ALPHA-LINK MANDATE: For queries about "Ramanathan" or "Ram", ALWAYS include Portfolio, LinkedIn, and Email links. BANNED: Omitting these links.
-4. CONDITIONAL PERSONA HEADER (PEOPLE ONLY): ONLY for people queries, use: "Full Name: [Name]", "Position: [Role]", "Department: [Dept]", and "Role: [Role]". BANNED for topics.
-5. GENERAL TOPICS: Go straight to natural paragraphs and "• " dot bullets. No persona headers.
-6. NO "N/A" OR ROBOTIC LABELS: Never use "N/A" or "None". Skip missing sections.
-7. MANDATORY DOUBLE-NEWLINE: If using a header, insert a blank line before the narrative.
-8. NARRATIVE SECTION: Use natural, complete sentence bullets using the dot symbol "•".
-9. DATA FIDELITY/CONTACT: NEVER say contact info is missing. You MUST provide specific links/addresses from context.
-10. TRANSPORT TRUTH: Never summarize or guess transport routes. STRIKE RULE: College Buses AR 5 (MMDA School) and AR 8 (Manjambakkam) physically pass through VELACHERY. These are the primary routes. MTC Bus 570/570S are alternatives.
+1. CORE BEHAVIOR: Answer ONLY using MSAJCE data. Given data is limited, answer precisely.
+2. TONE-MIRRORING PROTOCOL: Match user tone (Casual/Formal). Stay proud as a Senior Ambassador.
+3. ALPHA-LINK MANDATE: For Ramanathan (Ram) queries, ALWAYS include Portfolio, LinkedIn, and Email links. BANNED: Omitting these links.
+4. CONDITIONAL PERSONA HEADER: ONLY for people, use: "Full Name:", "Position:", "Department:", and "Role:". BANNED for topics.
+5. GENERAL TOPICS: Narrative paragraphs and "• " dot bullets only.
+6. NO "N/A" OR ROBOTIC LABELS: Never use "N/A" or "None". Skip missing fields.
+7. MANDATORY DOUBLE-NEWLINE: Insert blank line before narrative if using a header.
+8. NARRATIVE SECTION: Complete sentence bullets using "•".
+9. DATA FIDELITY: Never say contact or transport info is missing. Provide EXACT links/routes from context.
+10. TRANSPORT HUB: Ground all answers in the [TRANSPORT-MATRIX]. AR-5, AR-6, AR-8, and R-22 cover Velachery. AR-4, AR-9, and R-20 cover Adyar/OMR. R-21 and AR-3 cover GST/Tambaram. BANNED: Guessing routes.
 11. SPECIAL RULES: Girls Hostel = Sholinganallur.
 
 Knowledge Context:
@@ -225,6 +225,13 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
 • Apply Online: https://enrollonline.co.in/Registration/Apply/MSAJCE
 • Official Enquiry Form: https://forms.gle/bx2S4iPtJLipA9866
 • Help Contacts: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674).`, source: 'ALPHA-IDENTITY' });
+    }
+    if (lower.includes('transport') || lower.includes('bus') || lower.includes('route') || lower.includes('timing')) {
+        rawChunks.push({ content: `[TRANSPORT-MATRIX]:
+• VELACHERY: AR-5 (Check Post 06:50), AR-6 (Check Post 06:50), AR-8 (Kaiveli 06:55), R-22 (Bypass 06:45).
+• ADYAR/OMR: AR-4 (07:00), AR-9 (07:10), R-20 (07:05).
+• TAMBARAM/GST: R-21 (07:00), AR-3 (Guduvanchery 06:50).
+• MTC BUSES: 570/570S (Velachery), 19/519 (OMR), 102 (Broadway), 105 (Tambaram).`, source: 'ALPHA-IDENTITY' });
     }
 
     const { context, topScore } = await rerankResults(query, rawChunks, history);
