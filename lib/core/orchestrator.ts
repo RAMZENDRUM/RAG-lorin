@@ -191,8 +191,18 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
         );
         if (wasShared) score -= 800; // Heavy penalty for immediate repetition
 
-        // Quality Boost: Prioritize chunks with specific names or technical details (books, patents)
+        // Quality Boost: Prioritize chunks with specific names or technical details
         if (lowContent.includes('patent') || lowContent.includes('isbn') || lowContent.includes('manual')) score += 200;
+
+        // Global Interest Boost: If the user is responding to a suggestion, boost matching chunks
+        const isAffirmation = /^(yes|interested|sure|ok|okay|more|show|tell)$/i.test(query.toLowerCase());
+        if (isAffirmation && history.length > 0) {
+            const lastAssistantMsg = history[history.length - 1]?.content.toLowerCase() || "";
+            // If this chunk contains keywords from the assistant's previous suggestion, boost it
+            if (lowContent.split(' ').some(word => word.length > 4 && lastAssistantMsg.includes(word))) {
+                score += 500;
+            }
+        }
 
         return { ...c, score };
     });
@@ -262,8 +272,9 @@ ANSWERING BEHAVIOR RULES (REFINED):
 
 9. ANTI-REPETITION (STRICT): Scan [HISTORY]. Do NOT repeat facts, sentences, or statistics already shared. If the user asks to "know more" or "elaborate," you MUST provide NEW specific details (education, research, projects, or career history) from [CONTEXT] that were skipped in previous turns.
 10. NO MORE DATA FALLBACK: If [CONTEXT] has no new info, state: "I've shared everything I know about this specific topic," and propose a related topic (e.g., his department or related faculty). Never loop.
-10. HUMAN REPHRASING: No copy-pasting report text. Explain naturally like a person.
-11. NATURAL OPENING: Start humanly. Avoid "Dr. X is...". Prefer "Dr. X works as...".
+10. PROACTIVE DELIVERY: If the user says "yes," "interested," or "sure" to a suggestion you made, and the [CONTEXT] contains the answer, you MUST provide the information immediately. 
+11. NO CLARIFICATION LOOPS: Strictly forbid asking "Could you specify?" or "What would you like to know?" if the Knowledge Context already contains data related to your previous message. Your job is to inform, not to gatekeep.
+12. NATURAL OPENING: Start humanly. Avoid "Dr. X is...". Prefer "Dr. X works as...".
 12. PERSON QUERY: Identify them clearly and explain how students interact with them. Mention their research/books if they are distinguished (like Dr. Srinivasan).
 13. CONTACT QUERY (SPECIFIC): If user asks for contact → check context → if missing, admit it briefly → give department fallback.
 14. RELEVANCE CONTROL: Only include info directly related to the question. No title dumps.
