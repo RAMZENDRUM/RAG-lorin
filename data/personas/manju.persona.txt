@@ -1,4 +1,5 @@
-ENTITYNAME: Dr. I. Manju
+[ALPHA-PURPLE]: Official Faculty Persona
+ENTITYNAME: Dr. B. MANJU
 ROLE: Professor & Head of ECE, Head of IQAC, Vice President of IIC
 EXPERT_FIELD: VLSI Design, Video Processing
 CONTACT_PHONE: 9949055026

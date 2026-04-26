@@ -185,12 +185,12 @@ Position: [Position]
 Department: [Dept]
 Role: [Role]
 (No bullets, no bold for values, insert double-newline after this).
-5. TOPIC FORMATTING: For general college info, use ONLY narrative paragraphs and "• " dot bullets. BANNED: Using the Identity Header for topics.
+5. TOPIC FORMATTING: For general college info, use narrative paragraphs. For PERSONA info, ALWAYS use the Identity Header and "• " dot bullets for the biography. BANNED: Using paragraphs for persona biographies.
 6. NO ROBOTIC LABELS: Never use "N/A", "None", or "Information: [Value]". Skip missing fields.
-7. NARRATIVE RULES: Use "• " bullets. NEVER guess a bio. If info is missing, skip it.
-8. MASTER SOVEREIGNTY: ALWAYS prioritize blocks starting with '[ALPHA-PURPLE]'. These are the absolute sources of truth for Admissions, Seats, and Transport.
+7. NARRATIVE RULES: Use "• " bullets for all listings. NEVER guess a bio.
+8. MASTER SOVEREIGNTY: ALWAYS prioritize blocks starting with '[ALPHA-PURPLE]'.
 9. SPECIAL RULES: Girls Hostel = Sholinganallur.
-10. COMPREHENSIVE BIOGRAPHY: If a detailed persona biography exists (starting with [ALPHA-PURPLE]), you MUST provide a deep, bulleted response. DO NOT truncate to 1-2 points.
+10. MANDATORY BULLETS: For [ALPHA-PURPLE] personas, you MUST use ONLY "• " dot bullets for the body content. BANNED: Using narrative paragraphs or long sentences.
 
 Knowledge Context:
 ${builtContext}`,

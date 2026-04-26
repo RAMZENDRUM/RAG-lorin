@@ -1,4 +1,5 @@
-ENTITYNAME: Dr. D. Weslin
+[ALPHA-PURPLE]: Official Faculty Persona
+ENTITYNAME: Dr. WESLIN D.
 ROLE: Associate Professor, Department of Information Technology (IT)
 CONTACT_PHONE: 9715202533
 CONTACT_EMAIL: it.weslin@msajce-edu.in
