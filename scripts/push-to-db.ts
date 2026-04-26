@@ -7,43 +7,52 @@ dotenv.config();
 
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 
-async function syncVerifiedEntities() {
-    console.log('🔄 Initializing Live Database Sync (AI-Verified records)...');
+async function syncV9Strict() {
+    console.log('🔄 Initializing V9 STRICT Semantic Sync...');
     
-    const verifiedPath = path.join(process.cwd(), 'data', 'backups', 'msajce_entities_V8_ULTIMATE.json');
+    const v9Path = path.join(process.cwd(), 'data', 'backups', 'msajce_entities_V9_STRICT.json');
     
-    if (!fs.existsSync(verifiedPath)) {
-        console.error('❌ Verified file not found! Run neural-cleanup.ts first.');
+    if (!fs.existsSync(v9Path)) {
+        console.error('❌ V9 STRICT file not found! Run re-architecture-strict.ts first.');
         process.exit(1);
     }
 
-    const entities = JSON.parse(fs.readFileSync(verifiedPath, 'utf8'));
-    console.log(`📦 Preparing to push ${entities.length} verified humans to production.`);
+    const entities = JSON.parse(fs.readFileSync(v9Path, 'utf8'));
+    console.log(`📦 Preparing to push ${entities.length} structurally-perfected records.`);
 
     try {
         await sql.begin(async (sql) => {
             console.log('🗑️ Clearing active entities table...');
             await sql`DELETE FROM msajce_entities`;
 
-            console.log('📤 Inserting verified records...');
-            // Batch insert for performance
+            console.log('📤 Inserting V9 STRICT records...');
             const rows = entities.map(e => ({
-                name: e.name,
-                role: e.role,
-                department: e.department,
-                context: e.context
+                name: e.name || null,
+                type: e.type || null,
+                designation: e.designation || null,
+                department: e.department || null,
+                degree: e.degree || null,
+                batch: e.batch || null,
+                organization: e.organization || 'MSAJCE',
+                search_text: e.search_text || e.name || null,
+                context: `${e.name} is a ${e.type || 'person'} (${e.designation || 'Staff'}) at MSAJCE.`
             }));
 
-            await sql`INSERT INTO msajce_entities ${sql(rows)}`;
+            // Process in smaller SQL batches to avoid payload limits
+            const chunkSize = 100;
+            for (let i = 0; i < rows.length; i += chunkSize) {
+                const chunk = rows.slice(i, i + chunkSize);
+                await sql`INSERT INTO msajce_entities ${sql(chunk)}`;
+                console.log(`✅ Chunk ${Math.floor(i / chunkSize) + 1} pushed.`);
+            }
         });
 
-        console.log('✅ LIVE DATABASE SYNCHRONIZED!');
-        console.log(`✨ ${entities.length} personnel are now active in the production search engine.`);
+        console.log('✅ DATABASE FULLY PURIFIED AND SYNCHRONIZED!');
     } catch (error) {
-        console.error('❌ Sync failed:', error);
+        console.error('❌ V9 STRICT Sync failed:', error);
     } finally {
         process.exit(0);
     }
 }
 
-syncVerifiedEntities();
+syncV9Strict();

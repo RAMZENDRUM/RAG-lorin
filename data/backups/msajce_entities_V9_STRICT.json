@@ -1,0 +1,3553 @@
+[
+  {
+    "name": "Mohamed Samir",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Samir Alumni null ALUMNI"
+  },
+  {
+    "name": "Md Afroze",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Managing Director",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Afroze Managing Director null ALUMNI"
+  },
+  {
+    "name": "Akther Ilyas",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Founder",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Akther Ilyas Founder null ALUMNI"
+  },
+  {
+    "name": "Majed Arafat A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "IT Consultant",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Majed Arafat A IT Consultant null ALUMNI"
+  },
+  {
+    "name": "Anbazhagan A T",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Technical Manager",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Anbazhagan A T Technical Manager null ALUMNI"
+  },
+  {
+    "name": "Aabith Hussain J",
+    "type": "STUDENT",
+    "department": null,
+    "designation": "Student",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "student"
+    ],
+    "search_text": "Aabith Hussain J Student null STUDENT"
+  },
+  {
+    "name": "Aayathul Mufarak A",
+    "type": "STUDENT",
+    "department": "MECH",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2019-2023",
+    "tags": [
+      "student",
+      "mech"
+    ],
+    "search_text": "Aayathul Mufarak A Student MECH STUDENT"
+  },
+  {
+    "name": "Abdul Jaleeel",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": "2002-2006",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Abdul Jaleeel Alumni null ALUMNI"
+  },
+  {
+    "name": "Abdul Wahab",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": "2001-2005",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Abdul Wahab Alumni null ALUMNI"
+  },
+  {
+    "name": "Abdullah N",
+    "type": "STUDENT",
+    "department": "IT",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2023-2027",
+    "tags": [
+      "student",
+      "it"
+    ],
+    "search_text": "Abdullah N Student IT STUDENT"
+  },
+  {
+    "name": "Abdullah S",
+    "type": "STUDENT",
+    "department": "IT",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2020-2024",
+    "tags": [
+      "student",
+      "it"
+    ],
+    "search_text": "Abdullah S Student IT STUDENT"
+  },
+  {
+    "name": "Abu Jabar Mubarak",
+    "type": "STUDENT",
+    "department": "CSBS",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "student",
+      "csbs"
+    ],
+    "search_text": "Abu Jabar Mubarak Student CSBS STUDENT"
+  },
+  {
+    "name": "Abu Jabar Mubarak U",
+    "type": "STUDENT",
+    "department": "CSBS",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "student",
+      "csbs"
+    ],
+    "search_text": "Abu Jabar Mubarak U Student CSBS STUDENT"
+  },
+  {
+    "name": "Afasr Ali .N",
+    "type": "STUDENT",
+    "department": "AIML",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2024-2028",
+    "tags": [
+      "student",
+      "aiml"
+    ],
+    "search_text": "Afasr Ali .N Student AIML STUDENT"
+  },
+  {
+    "name": "Afreen Fathim .S",
+    "type": "STUDENT",
+    "department": "VLSI",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2024-2028",
+    "tags": [
+      "student",
+      "vlsi"
+    ],
+    "search_text": "Afreen Fathim .S Student VLSI STUDENT"
+  },
+  {
+    "name": "Afrin Fathima",
+    "type": "STUDENT",
+    "department": "IT",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2023-2027",
+    "tags": [
+      "student",
+      "it"
+    ],
+    "search_text": "Afrin Fathima Student IT STUDENT"
+  },
+  {
+    "name": "Afrin Fathima .B",
+    "type": "STUDENT",
+    "department": "IT",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2023-2027",
+    "tags": [
+      "student",
+      "it"
+    ],
+    "search_text": "Afrin Fathima .B Student IT STUDENT"
+  },
+  {
+    "name": "Ahamed Jamel",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni Entrepreneur",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ahamed Jamel Alumni Entrepreneur null ALUMNI"
+  },
+  {
+    "name": "Ahamed Sheik",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ahamed Sheik Alumni null ALUMNI"
+  },
+  {
+    "name": "Akram Bilal",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Professional Societies",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Akram Bilal Professional Societies null ALUMNI"
+  },
+  {
+    "name": "Akshaya K",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Akshaya K Alumni null ALUMNI"
+  },
+  {
+    "name": "Ameer Shahith M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ameer Shahith M Alumni null ALUMNI"
+  },
+  {
+    "name": "Amira Thasneem",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Placement",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Amira Thasneem Placement null ALUMNI"
+  },
+  {
+    "name": "Amirudeen",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Amirudeen Alumni null ALUMNI"
+  },
+  {
+    "name": "Amirudeen F",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Amirudeen F Alumni null ALUMNI"
+  },
+  {
+    "name": "Anandu Acharry .M.S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Placement",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Anandu Acharry .M.S Placement null ALUMNI"
+  },
+  {
+    "name": "Ashwini A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ashwini A Alumni null ALUMNI"
+  },
+  {
+    "name": "Assifa A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Assifa A Alumni null ALUMNI"
+  },
+  {
+    "name": "Aswin Chandran",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Aswin Chandran Alumni null ALUMNI"
+  },
+  {
+    "name": "Athifur Rahaman",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Alumni",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Athifur Rahaman Alumni null ALUMNI"
+  },
+  {
+    "name": "B.Dhanalakshmi",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [],
+    "search_text": "B.Dhanalakshmi Alumni"
+  },
+  {
+    "name": "Behin Samuel",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [],
+    "search_text": "Behin Samuel Alumni"
+  },
+  {
+    "name": "Danisha Jothi .M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [],
+    "search_text": "Danisha Jothi .M Alumni"
+  },
+  {
+    "name": "Dr. ALOCIOUS GONSAGO C",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "professor"
+    ],
+    "search_text": "Dr. ALOCIOUS GONSAGO C Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. AMMU QUDSIYA A",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Associate Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "associate professor"
+    ],
+    "search_text": "Dr. AMMU QUDSIYA A Associate Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. B. Janarthanan",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "President",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "president"
+    ],
+    "search_text": "Dr. B. Janarthanan President MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. B. Muthu Kumar",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Faculty",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty"
+    ],
+    "search_text": "Dr. B. Muthu Kumar Faculty MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. BALAJI D",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Associate Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "associate professor"
+    ],
+    "search_text": "Dr. BALAJI D Associate Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. DEVI BALA B",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. DEVI BALA B Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. DHIRAVIDACHELVI E",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": null,
+    "degree": "M.E., Ph.D.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "me",
+      "phd"
+    ],
+    "search_text": "Dr. DHIRAVIDACHELVI E M.E., Ph.D. ECE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. E. Dhiaravidachelvi",
+    "type": "FACULTY",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [],
+    "search_text": "Dr. E. Dhiaravidachelvi MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. ELLISS YOGESH R",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "professor"
+    ],
+    "search_text": "Dr. ELLISS YOGESH R Professor CIVIL MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. GOPALAKRISHNAN S",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "Dr. GOPALAKRISHNAN S Assistant Professor ECE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. I. Manju",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Faculty",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty"
+    ],
+    "search_text": "Dr. I. Manju Faculty MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. JANNARTHANAN B",
+    "type": "FACULTY",
+    "department": "MECH",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "mech",
+      "professor"
+    ],
+    "search_text": "Dr. JANNARTHANAN B Professor MECH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. JEHA J",
+    "type": "FACULTY",
+    "department": "EEE",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "eee",
+      "professor"
+    ],
+    "search_text": "Dr. JEHA J Professor EEE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. JEYANTHI S",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Associate Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "associate professor"
+    ],
+    "search_text": "Dr. JEYANTHI S Associate Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. K. S. Srinivasan",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Principal",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "principal"
+    ],
+    "search_text": "Dr. K. S. Srinivasan Principal MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. KAMALASELVAN A",
+    "type": "FACULTY",
+    "department": "EEE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "eee",
+      "assistant professor"
+    ],
+    "search_text": "Dr. KAMALASELVAN A Assistant Professor EEE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. KANNAN S",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "professor"
+    ],
+    "search_text": "Dr. KANNAN S Professor IT MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. KAVITHA J",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. KAVITHA J Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. MOHAMED ADIL HAQUE",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "professor"
+    ],
+    "search_text": "Dr. MOHAMED ADIL HAQUE Professor CIVIL MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. NAGASUBRAMANIAN R",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "professor"
+    ],
+    "search_text": "Dr. NAGASUBRAMANIAN R Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. NAZEEMA A",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. NAZEEMA A Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. PARAMESH J",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "professor"
+    ],
+    "search_text": "Dr. PARAMESH J Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. PRAKASH D",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Associate Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "associate professor"
+    ],
+    "search_text": "Dr. PRAKASH D Associate Professor IT MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. RAJAKUMAR S",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "professor"
+    ],
+    "search_text": "Dr. RAJAKUMAR S Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. RAMASUDHA",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. RAMASUDHA Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. RAMYA B",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. RAMYA B Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. RESHMI K V",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. RESHMI K V Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. SARAVANAN A",
+    "type": "FACULTY",
+    "department": "MECH",
+    "designation": "Associate Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "mech",
+      "associate professor"
+    ],
+    "search_text": "Dr. SARAVANAN A Associate Professor MECH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. SENTHAMIZHSELVI R",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. SENTHAMIZHSELVI R Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. SENTHIL KUMAR R",
+    "type": "FACULTY",
+    "department": "MECH",
+    "designation": "Ph.D.",
+    "degree": "Ph.D.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "mech",
+      "phd"
+    ],
+    "search_text": "Dr. SENTHIL KUMAR R Ph.D. MECH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. SHUNMUGASUNDARAM M",
+    "type": "FACULTY",
+    "department": "MECH",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "mech",
+      "professor"
+    ],
+    "search_text": "Dr. SHUNMUGASUNDARAM M Professor MECH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. SIVAKAMI SUNDARI M",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. SIVAKAMI SUNDARI M Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. SIVAKUMAR M",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Ph.D.",
+    "degree": "Ph.D.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "phd"
+    ],
+    "search_text": "Dr. SIVAKUMAR M Ph.D. ECE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. SIVARANJANI G",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "Dr. SIVARANJANI G Assistant Professor ECE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. SUBRAMANIAM P",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Ph.D.",
+    "degree": "Ph.D.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "phd"
+    ],
+    "search_text": "Dr. SUBRAMANIAM P Ph.D. CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. VADIVELAN S",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Dr. VADIVELAN S Assistant Professor SH MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. G.Premalatha",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Associate Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "associate professor"
+    ],
+    "search_text": "Dr. G.Premalatha Associate Professor  MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. G.Ramesh",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Associate Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "associate professor"
+    ],
+    "search_text": "Dr. G.Ramesh Associate Professor  MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. K.P.Santhosh Nathan",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "PED",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ped"
+    ],
+    "search_text": "Dr. K.P.Santhosh Nathan PED  MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. K.S.Srinivasan",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Principal",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "principal"
+    ],
+    "search_text": "Dr. K.S.Srinivasan Principal  MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. M. Kanthababu",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "professor"
+    ],
+    "search_text": "Dr. M. Kanthababu Professor  MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. Mohan E",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "professor"
+    ],
+    "search_text": "Dr. Mohan E Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. R. Senthilkumar G. Ramesh",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Engineering Practices Lab",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "engineering practices lab"
+    ],
+    "search_text": "Dr. R. Senthilkumar G. Ramesh Engineering Practices Lab  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Dr. R. Someswaran",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "assistant professor"
+    ],
+    "search_text": "Dr. R. Someswaran Assistant Professor CIVIL MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. S. Devikala",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Head – Student Affairs",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "student affairs"
+    ],
+    "search_text": "Dr. S. Devikala Head – Student Affairs  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Dr. S. Prasath",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Asst. Prof.",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "assistant professor"
+    ],
+    "search_text": "Dr. S. Prasath Asst. Prof.  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Dr. Ushaa Eswaran",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "member"
+    ],
+    "search_text": "Dr. Ushaa Eswaran Member  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Dr. Vedhavathy T R",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Ph.D.",
+    "degree": "Ph.D.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "phd"
+    ],
+    "search_text": "Dr. Vedhavathy T R Ph.D. CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Dr. Vijayarangan R",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "professor"
+    ],
+    "search_text": "Dr. Vijayarangan R Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Fahd Ahmed Khan K",
+    "type": "STUDENT",
+    "department": "ECE",
+    "designation": "Student",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "student",
+      "ece"
+    ],
+    "search_text": "Fahd Ahmed Khan K Student ECE MSAJCE STUDENT"
+  },
+  {
+    "name": "Faisal Ahmed Khan",
+    "type": "STUDENT",
+    "department": "CSE",
+    "designation": "Student",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "student",
+      "cse"
+    ],
+    "search_text": "Faisal Ahmed Khan Student CSE MSAJCE STUDENT"
+  },
+  {
+    "name": "Farhan Basha T",
+    "type": "STUDENT",
+    "department": "CSE",
+    "designation": "Student",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "student",
+      "cse"
+    ],
+    "search_text": "Farhan Basha T Student CSE MSAJCE STUDENT"
+  },
+  {
+    "name": "Gopika R",
+    "type": "STUDENT",
+    "department": "ECE",
+    "designation": "Student",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "student",
+      "ece"
+    ],
+    "search_text": "Gopika R Student ECE MSAJCE STUDENT"
+  },
+  {
+    "name": "Mr. Anbazagan A T",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Technical Lead",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "professional",
+      "technical lead"
+    ],
+    "search_text": "Mr. Anbazagan A T Technical Lead MSAJCE FACULTY"
+  },
+  {
+    "name": "Hanuram PR",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Professional Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "professional",
+      "member"
+    ],
+    "search_text": "Hanuram PR Professional Member MSAJCE FACULTY"
+  },
+  {
+    "name": "Harini R",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Harini R  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Hemananthan .M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": "BE",
+    "batch": "CIVIL",
+    "tags": [
+      "alumni",
+      "civil",
+      "be"
+    ],
+    "search_text": "Hemananthan .M  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Ijas Ahamed R",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": "2023-2027",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ijas Ahamed R  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Indhuja I",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": "2024-2028",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Indhuja I  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Nazeef Hussain",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Nazeef Hussain  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Jafeer Mohamed J",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": "BE",
+    "batch": "ECE",
+    "tags": [
+      "alumni",
+      "ece",
+      "be"
+    ],
+    "search_text": "Jafeer Mohamed J  MSAJCE ALUMNI"
+  },
+  {
+    "name": "M. Sharmela",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "M. Sharmela  MSAJCE ALUMNI"
+  },
+  {
+    "name": "M.Mohamed Afsal",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "M.Mohamed Afsal  MSAJCE ALUMNI"
+  },
+  {
+    "name": "M.Mohamed Ashraf",
+    "type": "STUDENT",
+    "department": "CSE",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "student",
+      "cse"
+    ],
+    "search_text": "M.Mohamed Ashraf Student CSE MSAJCE STUDENT"
+  },
+  {
+    "name": "M.Mohamed Rasim",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": "2023-2027",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "M.Mohamed Rasim  MSAJCE ALUMNI"
+  },
+  {
+    "name": "M.S.Shajaneshwar",
+    "type": "STUDENT",
+    "department": "CSE",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "student",
+      "cse"
+    ],
+    "search_text": "M.S.Shajaneshwar Student CSE MSAJCE STUDENT"
+  },
+  {
+    "name": "Mahira Sultana",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": "2023-2027",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mahira Sultana  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mallam Mustak",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": "2001-2005",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mallam Mustak  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Abdul Kalam",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": "BE",
+    "batch": "CSBS",
+    "tags": [
+      "alumni",
+      "csbs",
+      "be"
+    ],
+    "search_text": "Md Abdul Kalam  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Abdul Kalam N",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Abdul Kalam N  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Ashraf",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Ashraf  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Khaja Nawaz A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Khaja Nawaz A  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Rasin",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Rasin  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Sajith",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Sajith  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Sajith S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Sajith S  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Sarhan K",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Sarhan K  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Md Suhail .F",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Suhail .F  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mohamed Ashraf",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Ashraf  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mohamed Salman .J",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Salman .J  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mohamed ZiamZian A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed ZiamZian A  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mohammed Shahul Hameed B",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohammed Shahul Hameed B  MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mr. A. Abdul Gafoor",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Executive Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "executive",
+      "member"
+    ],
+    "search_text": "Mr. A. Abdul Gafoor Executive Member MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mr. Aadil Ibrahim .A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. Aadil Ibrahim .A  MSAJCE ALUMNI"
+  },
+  {
+    "name": "BHARATH BABU S",
+    "type": "ALUMNI",
+    "department": "CSE",
+    "designation": "M.E.",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "cse",
+      "m.e."
+    ],
+    "search_text": "BHARATH BABU S M.E. CSE MSAJCE ALUMNI"
+  },
+  {
+    "name": "CHINTALA VENKATESH",
+    "type": "FACULTY",
+    "department": "EEE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "eee",
+      "assistant professor"
+    ],
+    "search_text": "CHINTALA VENKATESH Assistant Professor EEE MSAJCE FACULTY"
+  },
+  {
+    "name": "DANIEL C A",
+    "type": "ALUMNI",
+    "department": "CIVIL",
+    "designation": "M.E.",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "civil",
+      "m.e."
+    ],
+    "search_text": "DANIEL C A M.E. CIVIL MSAJCE ALUMNI"
+  },
+  {
+    "name": "GOPISIVARAMAN P",
+    "type": "ALUMNI",
+    "department": "ECE",
+    "designation": "M.E.",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "ece",
+      "m.e."
+    ],
+    "search_text": "GOPISIVARAMAN P M.E. ECE MSAJCE ALUMNI"
+  },
+  {
+    "name": "HAMER SHIELD J M",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "assistant professor"
+    ],
+    "search_text": "HAMER SHIELD J M Assistant Professor IT MSAJCE FACULTY"
+  },
+  {
+    "name": "Mr. J. Abdul Rahman",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Vice President",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. J. Abdul Rahman Vice President NULL ALUMNI"
+  },
+  {
+    "name": "Mr. J. Kalidoss",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Vice President",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. J. Kalidoss Vice President NULL ALUMNI"
+  },
+  {
+    "name": "Mr. J. Prasanth",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Executive Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. J. Prasanth Executive Member NULL ALUMNI"
+  },
+  {
+    "name": "Mr. J. MOHAMMED ABBAS ALI",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. J. MOHAMMED ABBAS ALI ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mr. J. Mohamed Salman Azeem",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. J. Mohamed Salman Azeem ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mr. Jawahar Shalim",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. Jawahar Shalim ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mr. John Anish",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Librarian",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "librarian"
+    ],
+    "search_text": "Mr. John Anish Librarian NULL FACULTY"
+  },
+  {
+    "name": "Mr. K.Hakeem",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. K.Hakeem ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mr. Kalidoss .J",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. Kalidoss .J ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mr. Kalil Ahmed .B",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. Kalil Ahmed .B ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mr. KAMARAJAN M",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "Mr. KAMARAJAN M Assistant Professor ECE FACULTY"
+  },
+  {
+    "name": "Mr. Krishna Kumar",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. Krishna Kumar ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mr. M.M. Syed Sultan Allaudeen",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Joint Secretary",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. M.M. Syed Sultan Allaudeen Joint Secretary NULL ALUMNI"
+  },
+  {
+    "name": "Mr. MAHADEVAN J",
+    "type": "FACULTY",
+    "department": "EEE",
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty"
+    ],
+    "search_text": "Mr. MAHADEVAN J ALUMNI EEE FACULTY"
+  },
+  {
+    "name": "Mr. Mano Raja",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Executive Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. Mano Raja Executive Member NULL ALUMNI"
+  },
+  {
+    "name": "Mr. Md Hyder Shareef",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. Md Hyder Shareef ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mr. Md Junaid A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mr. Md Junaid A ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Md Mubarak",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Mubarak ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Md Sikkander Kasim M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Sikkander Kasim M ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Md Yasar",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Yasar ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Md Zaid",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Md Zaid ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "MEERA MOHIDEEN",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty"
+    ],
+    "search_text": "MEERA MOHIDEEN Assistant Professor NULL FACULTY"
+  },
+  {
+    "name": "Mikail Ismail",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Program Coordinator",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mikail Ismail Program Coordinator NULL ALUMNI"
+  },
+  {
+    "name": "Mikali Ismail",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Executive Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mikali Ismail Executive Member NULL ALUMNI"
+  },
+  {
+    "name": "Mohamed Abdullah .S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Abdullah .S ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mohamed Afroze",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Afroze ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mohamed Ali Hasan",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Ali Hasan ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mohamed Arsath",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Arsath ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mohamed Hussain T R",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Hussain T R ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mohamed Jiavur Rahman T H",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Jiavur Rahman T H ALUMNI NULL ALUMNI"
+  },
+  {
+    "name": "Mohamed YAZZIR M",
+    "type": "ALUMNI",
+    "department": "NULL",
+    "designation": "M.E.",
+    "degree": "ME",
+    "batch": "NULL",
+    "tags": [
+      "alumni",
+      "mechanical"
+    ],
+    "search_text": "Mohamed YAZZIR M M.E. NULL ALUMNI"
+  },
+  {
+    "name": "Mr. PANDIYAN G",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Ph.D.",
+    "degree": "Ph.D.",
+    "batch": "NULL",
+    "tags": [
+      "faculty",
+      "cse"
+    ],
+    "search_text": "Mr. PANDIYAN G Ph.D. CSE FACULTY"
+  },
+  {
+    "name": "Mr. PRAVEEN KUMAR G",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "M.Tech.",
+    "degree": "MTech",
+    "batch": "NULL",
+    "tags": [
+      "faculty",
+      "cse"
+    ],
+    "search_text": "Mr. PRAVEEN KUMAR G M.Tech. CSE FACULTY"
+  },
+  {
+    "name": "Mr. RAJA J",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "M.E",
+    "degree": "ME",
+    "batch": "NULL",
+    "tags": [
+      "faculty",
+      "ece"
+    ],
+    "search_text": "Mr. RAJA J M.E ECE FACULTY"
+  },
+  {
+    "name": "Mr. RAJASEKAR R",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Ph.D.",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse"
+    ],
+    "search_text": "Mr. RAJASEKAR R Ph.D. CSE MSAJCE faculty"
+  },
+  {
+    "name": "Mr. RAMAMOORTHY K",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Mr. RAMAMOORTHY K Assistant Professor SH MSAJCE faculty"
+  },
+  {
+    "name": "Mr. SATHEESKUMAR K",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "M.E.",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "m.e."
+    ],
+    "search_text": "Mr. SATHEESKUMAR K M.E. CSE MSAJCE faculty"
+  },
+  {
+    "name": "Mr. SHANMUGASELVAM P",
+    "type": "FACULTY",
+    "department": "MECH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "mech",
+      "assistant professor"
+    ],
+    "search_text": "Mr. SHANMUGASELVAM P Assistant Professor MECH MSAJCE faculty"
+  },
+  {
+    "name": "Mr. SYED ALI M",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "Mr. SYED ALI M Assistant Professor ECE MSAJCE faculty"
+  },
+  {
+    "name": "Mr. SYED RAHMATHULA S",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "Mr. SYED RAHMATHULA S Assistant Professor SH MSAJCE faculty"
+  },
+  {
+    "name": "Mr. THANAPUAL PANDI A",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "M.Tech.",
+    "degree": "M.Tech.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "m.tech."
+    ],
+    "search_text": "Mr. THANAPUAL PANDI A M.Tech. IT MSAJCE faculty"
+  },
+  {
+    "name": "Mr. RAMESH K",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "M.E.",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "m.e."
+    ],
+    "search_text": "Mr. RAMESH K M.E. ECE MSAJCE faculty"
+  },
+  {
+    "name": "Mr. Vasanthakumar .N",
+    "type": "STUDENT",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "student",
+      "mech"
+    ],
+    "search_text": "Mr. Vasanthakumar .N Student null MSAJCE student"
+  },
+  {
+    "name": "Mr. A.Abdul Gafoor",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Admission Officer",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "admission"
+    ],
+    "search_text": "Mr. A.Abdul Gafoor Admission Officer null FACULTY"
+  },
+  {
+    "name": "Mr. Ahamed Jameel A.M.T",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Secretary",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "secretary"
+    ],
+    "search_text": "Mr. Ahamed Jameel A.M.T Secretary null ALUMNI"
+  },
+  {
+    "name": "Mr. C.Venkatesh",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "AP",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "eee",
+      "assistant professor"
+    ],
+    "search_text": "Mr. C.Venkatesh AP null FACULTY"
+  },
+  {
+    "name": "Mr. Chandrasekaran",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Sub Inspector of Police",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "external member"
+    ],
+    "search_text": "Mr. Chandrasekaran Sub Inspector of Police null FACULTY"
+  },
+  {
+    "name": "Mr. K.Sivaraman",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Advocate",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "external member"
+    ],
+    "search_text": "Mr. K.Sivaraman Advocate null FACULTY"
+  },
+  {
+    "name": "Mrs. ABIDA BEGAM S",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "Mrs. ABIDA BEGAM S Assistant Professor ECE FACULTY"
+  },
+  {
+    "name": "ABIRAMI R",
+    "type": "ALUMNI",
+    "department": "EEE",
+    "designation": null,
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "eee"
+    ],
+    "search_text": "ABIRAMI R null EEE ALUMNI"
+  },
+  {
+    "name": "AISHWARYA M S",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "assistant professor"
+    ],
+    "search_text": "AISHWARYA M S Assistant Professor CSE FACULTY"
+  },
+  {
+    "name": "AJEETHA THASNEEM",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "AJEETHA THASNEEM Assistant Professor ECE FACULTY"
+  },
+  {
+    "name": "ALBIN SHOBA J",
+    "type": "ALUMNI",
+    "department": "ECE",
+    "designation": null,
+    "degree": "M.E",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "ece"
+    ],
+    "search_text": "ALBIN SHOBA J null ECE ALUMNI"
+  },
+  {
+    "name": "ANGAYARKANNI N",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "assistant professor"
+    ],
+    "search_text": "ANGAYARKANNI N Assistant Professor CSE FACULTY"
+  },
+  {
+    "name": "Anuishuya S",
+    "type": "ALUMNI",
+    "department": "ECE",
+    "designation": null,
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "ece"
+    ],
+    "search_text": "Anuishuya S null ECE ALUMNI"
+  },
+  {
+    "name": "ANUSUYA S",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "ANUSUYA S Assistant Professor ECE FACULTY"
+  },
+  {
+    "name": "ARCHANA C",
+    "type": "ALUMNI",
+    "department": "EEE",
+    "designation": null,
+    "degree": "M.E., (Ph.D.)",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "eee"
+    ],
+    "search_text": "ARCHANA C null EEE ALUMNI"
+  },
+  {
+    "name": "ARUNA S",
+    "type": "ALUMNI",
+    "department": "CSE",
+    "designation": null,
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "cse"
+    ],
+    "search_text": "ARUNA S null CSE ALUMNI"
+  },
+  {
+    "name": "ASRIN MAHAMOOTHA A",
+    "type": "ALUMNI",
+    "department": "CSE",
+    "designation": null,
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "cse"
+    ],
+    "search_text": "ASRIN MAHAMOOTHA A null CSE ALUMNI"
+  },
+  {
+    "name": "AYSHA SUFREENA M A",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "assistant professor"
+    ],
+    "search_text": "AYSHA SUFREENA M A Assistant Professor IT FACULTY"
+  },
+  {
+    "name": "BARVEEN FATHIMA M",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "BARVEEN FATHIMA M Assistant Professor SH FACULTY"
+  },
+  {
+    "name": "BRINDHA H",
+    "type": "ALUMNI",
+    "department": "EEE",
+    "designation": null,
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "eee"
+    ],
+    "search_text": "BRINDHA H null EEE ALUMNI"
+  },
+  {
+    "name": "DHARAGESHWARI K",
+    "type": "ALUMNI",
+    "department": "EEE",
+    "designation": null,
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "eee"
+    ],
+    "search_text": "DHARAGESHWARI K null EEE ALUMNI"
+  },
+  {
+    "name": "GAYATHRI S",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "assistant professor"
+    ],
+    "search_text": "GAYATHRI S Assistant Professor CSE FACULTY"
+  },
+  {
+    "name": "GOWRI A",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "assistant professor"
+    ],
+    "search_text": "GOWRI A Assistant Professor CSE FACULTY"
+  },
+  {
+    "name": "HEMA SUMITHA D",
+    "type": "ALUMNI",
+    "department": "EEE",
+    "designation": null,
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "eee"
+    ],
+    "search_text": "HEMA SUMITHA D null EEE ALUMNI"
+  },
+  {
+    "name": "HEMALATHA V",
+    "type": "ALUMNI",
+    "department": "ECE",
+    "designation": null,
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "ece"
+    ],
+    "search_text": "HEMALATHA V null ECE ALUMNI"
+  },
+  {
+    "name": "JANAKI V",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "assistant professor"
+    ],
+    "search_text": "JANAKI V Assistant Professor CIVIL FACULTY"
+  },
+  {
+    "name": "JANANI K",
+    "type": "FACULTY",
+    "department": "SH",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "sh",
+      "assistant professor"
+    ],
+    "search_text": "JANANI K Assistant Professor SH FACULTY"
+  },
+  {
+    "name": "JAYANTHI E",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "JAYANTHI E Assistant Professor ECE FACULTY"
+  },
+  {
+    "name": "JEBA MALAR M",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "assistant professor"
+    ],
+    "search_text": "JEBA MALAR M Assistant Professor IT FACULTY"
+  },
+  {
+    "name": "KAVITHRA P",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "assistant professor"
+    ],
+    "search_text": "KAVITHRA P Assistant Professor CIVIL FACULTY"
+  },
+  {
+    "name": "KIRUTHIKA S",
+    "type": "ALUMNI",
+    "department": "CSE",
+    "designation": null,
+    "degree": "M.E",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "cse"
+    ],
+    "search_text": "KIRUTHIKA S null CSE ALUMNI"
+  },
+  {
+    "name": "Mrs. Suguna Devi R",
+    "type": "FACULTY",
+    "department": "EEE",
+    "designation": "Assistant Professor",
+    "degree": "M.Tech.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "eee",
+      "assistant professor"
+    ],
+    "search_text": "Mrs. Suguna Devi R Assistant Professor EEE MSAJCE FACULTY"
+  },
+  {
+    "name": "Mrs. Uma Maheshwari R",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "assistant professor"
+    ],
+    "search_text": "Mrs. Uma Maheshwari R Assistant Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Mrs. Adhilakshmi Logamurthy",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Legal Consultant",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "legal",
+      "consultant"
+    ],
+    "search_text": "Mrs. Adhilakshmi Logamurthy Legal Consultant null MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mrs. J. Jeyabharathi",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "assistant professor"
+    ],
+    "search_text": "Mrs. J. Jeyabharathi Assistant Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Mrs. P. Anusuya",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mrs. P. Anusuya null null MSAJCE ALUMNI"
+  },
+  {
+    "name": "Mrs. V. Shobana",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "physics",
+      "assistant professor"
+    ],
+    "search_text": "Mrs. V. Shobana Assistant Professor null MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Akila Rajesh",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Executive Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "executive"
+    ],
+    "search_text": "Ms. Akila Rajesh Executive Member null MSAJCE ALUMNI"
+  },
+  {
+    "name": "Ms. Annie A",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Assistant Professor",
+    "degree": "M.Tech.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "assistant professor"
+    ],
+    "search_text": "Ms. Annie A Assistant Professor IT MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Anupreyaa K",
+    "type": "FACULTY",
+    "department": "EEE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "eee",
+      "assistant professor"
+    ],
+    "search_text": "Ms. Anupreyaa K Assistant Professor EEE MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Archana T",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "assistant professor"
+    ],
+    "search_text": "Ms. Archana T Assistant Professor IT MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Gayathri Achanta",
+    "type": "FACULTY",
+    "department": "EEE",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "eee",
+      "assistant professor"
+    ],
+    "search_text": "Ms. Gayathri Achanta Assistant Professor EEE MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Hemavathi S",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "assistant professor"
+    ],
+    "search_text": "Ms. Hemavathi S Assistant Professor CIVIL MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Kasthuri R",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "assistant professor"
+    ],
+    "search_text": "Ms. Kasthuri R Assistant Professor CIVIL MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Mary Praveena T",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Assistant Professor",
+    "degree": "MBA",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "mba"
+    ],
+    "search_text": "Ms. Mary Praveena T Assistant Professor CIVIL MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Misbah Khairunissa A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Executive Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "executive"
+    ],
+    "search_text": "Ms. Misbah Khairunissa A Executive Member null MSAJCE ALUMNI"
+  },
+  {
+    "name": "Ms. NIRMALA J",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "assistant professor"
+    ],
+    "search_text": "Ms. NIRMALA J Assistant Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Preeta Rani .S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ms. Preeta Rani .S null null MSAJCE ALUMNI"
+  },
+  {
+    "name": "Ms. PRIYA N",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "Ms. PRIYA N Assistant Professor ECE MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. PRIYA R",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Assistant Professor",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "assistant professor"
+    ],
+    "search_text": "Ms. PRIYA R Assistant Professor IT MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. PUSHPASHEELA E",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Assistant Professor",
+    "degree": "M.Tech.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "assistant professor"
+    ],
+    "search_text": "Ms. PUSHPASHEELA E Assistant Professor IT MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. RESHMA FARHEEN J",
+    "type": "FACULTY",
+    "department": "IT",
+    "designation": "Assistant Professor",
+    "degree": "M.Tech.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "it",
+      "assistant professor"
+    ],
+    "search_text": "Ms. RESHMA FARHEEN J Assistant Professor IT MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Reshma Rahila S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ms. Reshma Rahila S null null MSAJCE ALUMNI"
+  },
+  {
+    "name": "Ms. Revathi .U",
+    "type": "STUDENT",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "student",
+      "it",
+      "iii-year"
+    ],
+    "search_text": "Ms. Revathi .U Student null MSAJCE STUDENT"
+  },
+  {
+    "name": "Ms. SABITHABANU K",
+    "type": "FACULTY",
+    "department": "ECE",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "ece",
+      "assistant professor"
+    ],
+    "search_text": "Ms. SABITHABANU K Assistant Professor ECE MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. SATHYA PRIYA M",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "assistant professor"
+    ],
+    "search_text": "Ms. SATHYA PRIYA M Assistant Professor CIVIL MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. SHARMILA PONNAMMAL S",
+    "type": "FACULTY",
+    "department": "CIVIL",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "civil",
+      "assistant professor"
+    ],
+    "search_text": "Ms. SHARMILA PONNAMMAL S Assistant Professor CIVIL MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. SUMANA T",
+    "type": "FACULTY",
+    "department": "CSE",
+    "designation": "Assistant Professor",
+    "degree": "M.Tech.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "cse",
+      "assistant professor"
+    ],
+    "search_text": "Ms. SUMANA T Assistant Professor CSE MSAJCE FACULTY"
+  },
+  {
+    "name": "Ms. Uma Maheshwari G",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ms. Uma Maheshwari G null null MSAJCE ALUMNI"
+  },
+  {
+    "name": "Ms. YAMINI S",
+    "type": "FACULTY",
+    "department": "MECH",
+    "designation": "Assistant Professor",
+    "degree": "M.E.",
+    "batch": null,
+    "tags": [
+      "faculty",
+      "mech",
+      "assistant professor"
+    ],
+    "search_text": "Ms. YAMINI S Assistant Professor MECH MSAJCE FACULTY"
+  },
+  {
+    "name": "Muhammed Shibil .C.V",
+    "type": "STUDENT",
+    "department": "CSE",
+    "designation": "Student",
+    "degree": "BE",
+    "batch": "2022-2026",
+    "tags": [
+      "student",
+      "cse",
+      "2022-2026"
+    ],
+    "search_text": "Muhammed Shibil .C.V Student CSE MSAJCE STUDENT"
+  },
+  {
+    "name": "Muhammed Zahan Faaieq",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BTech",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Muhammed Zahan Faaieq BE null ALUMNI"
+  },
+  {
+    "name": "Musthaq Ameen",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BTech",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Musthaq Ameen BE null ALUMNI"
+  },
+  {
+    "name": "Nazmi A",
+    "type": "STUDENT",
+    "department": "CSE",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "student",
+      "cse"
+    ],
+    "search_text": "Nazmi A Student CSE MSAJCE STUDENT"
+  },
+  {
+    "name": "Nilofer Nisha",
+    "type": "STUDENT",
+    "department": "ECE",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "student",
+      "ece"
+    ],
+    "search_text": "Nilofer Nisha Student ECE MSAJCE STUDENT"
+  },
+  {
+    "name": "Parveen Begum M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Parveen Begum M ALUMNI null ALUMNI"
+  },
+  {
+    "name": "Parvez Nabi Z",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Parvez Nabi Z ALUMNI null ALUMNI"
+  },
+  {
+    "name": "Syed Haja Sheriff",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Syed Haja Sheriff ALUMNI null ALUMNI"
+  },
+  {
+    "name": "Pirivindhan A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Pirivindhan A ALUMNI null ALUMNI"
+  },
+  {
+    "name": "Mohamed Afrose",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "CEO",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Mohamed Afrose CEO null ALUMNI"
+  },
+  {
+    "name": "Pragatha",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Pragatha ALUMNI null ALUMNI"
+  },
+  {
+    "name": "Pragatha M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Pragatha M ALUMNI null ALUMNI"
+  },
+  {
+    "name": "Prakash Ravichandran",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "PLACEMENT",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Prakash Ravichandran PLACEMENT null ALUMNI"
+  },
+  {
+    "name": "Prathiba M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Prathiba M ALUMNI null ALUMNI"
+  },
+  {
+    "name": "Syed N. Zaheer Abbas",
+    "type": "ALUMNI",
+    "department": "PROFESSIONAL SOCIETIES",
+    "designation": "President",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "professional societies"
+    ],
+    "search_text": "Syed N. Zaheer Abbas President PROFESSIONAL SOCIETIES ALUMNI"
+  },
+  {
+    "name": "Chairperson-HOI",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Principal",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty"
+    ],
+    "search_text": "Chairperson-HOI Principal null FACULTY"
+  },
+  {
+    "name": "Member Secretary",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Principal",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty"
+    ],
+    "search_text": "Member Secretary Principal null FACULTY"
+  },
+  {
+    "name": "Co – Convener",
+    "type": "FACULTY",
+    "department": null,
+    "designation": "Principal",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "faculty"
+    ],
+    "search_text": "Co – Convener Principal null FACULTY"
+  },
+  {
+    "name": "Priyadharshini S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "ALUMNI",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Priyadharshini S ALUMNI null ALUMNI"
+  },
+  {
+    "name": "Priyanka",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "PLACEMENT",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Priyanka PLACEMENT null ALUMNI"
+  },
+  {
+    "name": "Radhika .T",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BTech",
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Radhika .T BE null ALUMNI"
+  },
+  {
+    "name": "Rahim Basha W",
+    "type": "ALUMNI",
+    "department": "AIML",
+    "designation": "Student",
+    "degree": null,
+    "batch": "2023-2027",
+    "tags": [
+      "student",
+      "aiml"
+    ],
+    "search_text": "Rahim Basha W Student AIML MSAJCE ALUMNI"
+  },
+  {
+    "name": "Rahini Mugil J",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": "2025-2029",
+    "tags": [
+      "student"
+    ],
+    "search_text": "Rahini Mugil J Student null ALUMNI"
+  },
+  {
+    "name": "Rahya N",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": "2025-2029",
+    "tags": [
+      "student"
+    ],
+    "search_text": "Rahya N Student null ALUMNI"
+  },
+  {
+    "name": "Ram",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Lead AI Developer",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ram Lead AI Developer null ALUMNI"
+  },
+  {
+    "name": "Ramanathan S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Lead AI Developer & System Architect",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Ramanathan S Lead AI Developer & System Architect null ALUMNI"
+  },
+  {
+    "name": "Revathi A",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": "2024-2028",
+    "tags": [
+      "student"
+    ],
+    "search_text": "Revathi A Student null ALUMNI"
+  },
+  {
+    "name": "Safwaan Abdul Razaq",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "B.Tech",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Safwaan Abdul Razaq B.Tech null ALUMNI"
+  },
+  {
+    "name": "Salma Arifa",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BTech",
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Salma Arifa BE null ALUMNI"
+  },
+  {
+    "name": "Samira Farhana .T",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": "2025-2029",
+    "tags": [
+      "student"
+    ],
+    "search_text": "Samira Farhana .T Student null ALUMNI"
+  },
+  {
+    "name": "Saqlin Mustaq M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "AI&DS",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Saqlin Mustaq M AI&DS null ALUMNI"
+  },
+  {
+    "name": "Satheesh Kumar .D",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Satheesh Kumar .D BE null ALUMNI"
+  },
+  {
+    "name": "Sendhil Sasikala",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Sendhil Sasikala BE null ALUMNI"
+  },
+  {
+    "name": "Mr. Dennie John",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "HR",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Mr. Dennie John HR null ALUMNI"
+  },
+  {
+    "name": "Shaafia Tasneem .N",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Shaafia Tasneem .N BE null ALUMNI"
+  },
+  {
+    "name": "Shahana .S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Shahana .S BE null ALUMNI"
+  },
+  {
+    "name": "Shaik Irfan",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": "2021-2025",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Shaik Irfan Student null ALUMNI"
+  },
+  {
+    "name": "Shivam Vishwakarma",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "CSE",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "professional"
+    ],
+    "search_text": "Shivam Vishwakarma CSE null ALUMNI"
+  },
+  {
+    "name": "Sireesh B",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": "2024-2028",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Sireesh B Student null ALUMNI"
+  },
+  {
+    "name": "Sreenidhi Alagesan",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Sreenidhi Alagesan BE null ALUMNI"
+  },
+  {
+    "name": "Srikanth K",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Executive Member",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Srikanth K Executive Member null ALUMNI"
+  },
+  {
+    "name": "Sujatha R",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Sujatha R null null ALUMNI"
+  },
+  {
+    "name": "Susmitha .R",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Susmitha .R BE null ALUMNI"
+  },
+  {
+    "name": "Syed Abrar Ahamed Farooqi .S",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Syed Abrar Ahamed Farooqi .S BE null ALUMNI"
+  },
+  {
+    "name": "Syed Zaheer Abbas .N",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Syed Zaheer Abbas .N BE null ALUMNI"
+  },
+  {
+    "name": "Syeda Zuha Tasneem",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Syeda Zuha Tasneem null null ALUMNI"
+  },
+  {
+    "name": "V.Abinaya",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": null,
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "V.Abinaya null null ALUMNI"
+  },
+  {
+    "name": "Veerakumar .M",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Veerakumar .M BE null ALUMNI"
+  },
+  {
+    "name": "Chandrasekar. G",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Vice president",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "professional"
+    ],
+    "search_text": "Chandrasekar. G Vice president null ALUMNI"
+  },
+  {
+    "name": "Yashwanth .R",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "BE",
+    "degree": "BE",
+    "batch": null,
+    "tags": [
+      "alumni",
+      "placement"
+    ],
+    "search_text": "Yashwanth .R BE null ALUMNI"
+  },
+  {
+    "name": "Zakir Hussain",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "Student",
+    "degree": null,
+    "batch": "2022-2026",
+    "tags": [
+      "alumni"
+    ],
+    "search_text": "Zakir Hussain Student null ALUMNI"
+  },
+  {
+    "name": "Zeenath Nisha",
+    "type": "ALUMNI",
+    "department": null,
+    "designation": "IT",
+    "degree": null,
+    "batch": null,
+    "tags": [
+      "alumni",
+      "professional"
+    ],
+    "search_text": "Zeenath Nisha IT null ALUMNI"
+  }
+]

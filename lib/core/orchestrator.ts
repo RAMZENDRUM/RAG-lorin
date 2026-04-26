@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { embed, generateText } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
 import { QdrantClient } from '@qdrant/js-client-rest';
@@ -119,14 +121,14 @@ export async function getContext(rewrittenQuery: string, rawText: string, sql: a
         const words = rewrittenQuery.split(' ').filter(w => w.length > 3);
         const coreName = words[0] || "";
         const results: any = await sql`
-            SELECT name, role, email, context FROM msajce_entities 
-            WHERE name % ${coreName} OR name ILIKE ${'%' + coreName + '%'}
-            ORDER BY similarity(name, ${coreName}) DESC LIMIT 3
+            SELECT name, type, designation, department, degree, batch, organization, search_text FROM msajce_entities 
+            WHERE search_text % ${rewrittenQuery} OR name ILIKE ${'%' + rewrittenQuery + '%'}
+            ORDER BY similarity(search_text, ${rewrittenQuery}) DESC LIMIT 5
         `;
         if (results?.length > 0) {
             entityContext = results.map((r: any) => {
                 namesToSearch.push(r.name);
-                return `[ENTITY]: ${r.name} (${r.role}) - ${r.context}`;
+                return `[ENTITY]: ${r.name} | Type: ${r.type} | Designation: ${r.designation} | Dept: ${r.department || 'General'} | Case: ${r.search_text}`;
             }).join('\n\n');
         }
     } catch (e) { console.warn('DB Fail:', e); }
@@ -138,6 +140,20 @@ export async function getContext(rewrittenQuery: string, rawText: string, sql: a
     });
 
     if (entityContext) chunks.unshift({ content: entityContext, source: 'Supabase' });
+
+    // MASTER SOVEREIGNTY LOCK
+    for (const name of namesToSearch) {
+        const lastName = name.split(' ').pop()?.toLowerCase();
+        if (lastName) {
+            const personaPath = path.join(process.cwd(), 'data', 'personas', `${lastName}.persona.txt`);
+            if (fs.existsSync(personaPath)) {
+                const masterBio = fs.readFileSync(personaPath, 'utf8');
+                chunks.unshift({ content: masterBio, source: 'MasterPersona' });
+                console.log(`📡 Identity Lock Activated: ${name} (Priority Master)`);
+            }
+        }
+    }
+
     return chunks;
 }
 
@@ -182,22 +198,35 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
             model: openai.chat('gpt-4o-mini'),
             system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
 
-1. CORE BEHAVIOR: Answer ONLY using MSAJCE data. If data is sparse, answer precisely without fluff.
-2. TONE-MIRRORING PROTOCOL: Match user tone, but ALWAYS stay proud as a Senior Ambassador. If the college's quality is challenged, pivot to a persuasive, evidence-based defense. BANNED: Being passive or apologetic.
-3. DEVELOPER EXCLUSIVITY: LinkedIn, Portfolio, and Email links are EXCLUSIVE to Ramanathan S (Ram). BANNED: Providing links or contact info for any other person unless explicitly in context.
-4. PERSONA IDENTITY HEADER: For ANY person (Faculty/Student), start EXACTLY with:
-Full Name: [Name]
-Position: [Position]
-Department: [Dept]
-Role: [Role]
-(No bullets, no bold for values, insert double-newline after this).
-5. TOPIC FORMATTING: For general college info, use narrative paragraphs. For PERSONA info, ALWAYS use the Identity Header and "• " dot bullets for the biography. BANNED: Using paragraphs for persona biographies.
-6. NO ROBOTIC LABELS: Never use "N/A", "None", or "Information: [Value]". Skip missing fields.
-7. NARRATIVE RULES: Use "• " bullets for all listings. NEVER guess a bio.
-8. MASTER SOVEREIGNTY: ALWAYS prioritize blocks starting with '[ALPHA-PURPLE]'.
-9. SPECIAL RULES: Girls Hostel = Sholinganallur.
-10. MANDATORY BULLETS: For [ALPHA-PURPLE] personas, you MUST use ONLY "• " dot bullets for the body content. BANNED: Using narrative paragraphs or long sentences.
-11. TARGETED DEFENSE MODE: If a user expresses doubt about MSAJCE (e.g., discipline, placements, infrastructure), you MUST perform a "Category-Locked Refutation." Use the retrieved Master Data to prove MSAJCE's excellence and end with a confident challenge (e.g., "Would you like to speak to our Principal to clear this doubt?").
+CORE BEHAVIOR
+- Answer using ONLY MSAJCE data. Never guess or hallucinate.
+- If unknown: say clearly you don’t have that info. 
+- Give the answer directly, then optionally ask one relevant follow-up. 
+
+VOICE & STYLE
+- Speak like a real student/senior at MSAJCE, not a teacher or chatbot.
+- NO greetings (Hi/Hello), no formal phrases, no robotic tone.
+- Use short, natural sentences. Avoid: "provides", "offers", "comprehensive".
+- Start naturally: "See...", "Actually...", "If you're checking...".
+- TONE: Casual, confident, and proud. Senior Ambassador vibe.
+
+STRUCTURE
+1. Natural opening sentence.
+2. Short, factual explanation.
+3. One focused follow-up question. (e.g., "Want to check their placement stats too?")
+
+TARGETED DEFENSE MODE (Rule 21)
+- If a user is negative or skeptical (e.g., "placements are bad", "campus is small"), YOU MUST defend MSAJCE using factual RAG data.
+- Pivot to evidence (Master Data results) and end with a confident challenge: "Why not visit the campus and see for yourself?"
+
+MARKETING MODE
+- If unsure/comparing, prioritize practical value. 
+- "See... depends what you're expecting. But for [Labs/Industry], it's solid."
+
+SPECIAL RULES
+- Transport: Always give full stop details from matrix.
+- Hostel: Girls hostel = Sholinganallur.
+- IDENTITY: LinkedIn/Portfolio links are EXCLUSIVE to Ramanathan S (Developer). 
 
 Knowledge Context:
 ${builtContext}`,
