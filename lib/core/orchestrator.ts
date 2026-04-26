@@ -190,8 +190,112 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
 }
 
 // ─────────────────────────────────────────────
-// STAGE 4 — Build & Generate (LIVES AGAIN)
+// CONVERSATION STATE MANAGER (Lightweight Sovereignty)
 // ─────────────────────────────────────────────
+interface ConversationState {
+    lastTopic?: string;
+    lastEntity?: string;
+    lastIntent?: Intent;
+    lastOptions?: string[];
+}
+
+const userStateStore = new Map<string | number, ConversationState>();
+
+export function isFollowUp(msg: string) {
+    const clean = msg.toLowerCase().trim();
+    if (clean.length < 15 && !/[a-z]{4,}/.test(clean)) return true;
+    const vaguePatterns = ["yes", "ok", "hmm", "then", "and", "more", "continue", "what next", "so", "like that", "details"];
+    return vaguePatterns.some(p => clean.includes(p));
+}
+
+export function expandQuery(userMsg: string, state: ConversationState) {
+    if (!isFollowUp(userMsg)) return userMsg;
+    if (state.lastOptions?.length) return `Tell me about ${state.lastOptions[0]} in MSAJCE`;
+    if (state.lastEntity) return `Give more details about ${state.lastEntity} in MSAJCE`;
+    if (state.lastTopic) return `Explain more about ${state.lastTopic} in MSAJCE`;
+    return userMsg;
+}
+
+function detectTopic(q: string, a: string): string {
+    const combined = (q + ' ' + a).toLowerCase();
+    if (combined.includes('bus') || combined.includes('transport')) return 'transport';
+    if (combined.includes('hostel')) return 'hostel';
+    if (combined.includes('admission') || combined.includes('seat')) return 'admission';
+    if (combined.includes('placement') || combined.includes('job')) return 'placement';
+    return 'general';
+}
+
+function extractOptions(answer: string): string[] {
+    const match = answer.match(/\?(.*) or (.*)\?/i);
+    return match ? [match[1].trim(), match[2].trim()] : [];
+}
+
+// ─────────────────────────────────────────────
+// ORCHESTRATOR PIPELINE (STRICT)
+// ─────────────────────────────────────────────
+export async function orchestrate(userId: string | number, rawText: string, history: ShortTermMemory[], profile: UserProfile, sql: any) {
+    const startTime = Date.now();
+    const state = userStateStore.get(userId) || {};
+    
+    // 1. EXPAND QUERY (Identity Lock)
+    const targetQuery = expandQuery(rawText, state);
+    
+    // 2. CLASSIFY & REWRITE
+    const intent = await classifyIntent(targetQuery);
+    const rewritten = await rewriteQuery(targetQuery, intent, history);
+    
+    // 3. RETRIEVE
+    const rawChunks = await getContext(rewritten, rawText, sql);
+    
+    // ALPHA HARD-LOCK INJECTION
+    const lower = `${rawText} ${rewritten}`.toLowerCase();
+    if (lower.includes('srinivasan') || lower.includes('principal')) {
+        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Principal Persona' block. Do NOT truncate achievements.`, source: 'ALPHA-IDENTITY' });
+    }
+    if (lower.includes('ram') || lower.includes('developer')) {
+        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official Lead Developer Persona' block. Use all projects and contact anchors provided in context.`, source: 'ALPHA-IDENTITY' });
+    }
+    if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
+        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Admission Master Data' block. Use exactly the seat counts defined there. Focus on B.E./B.Tech (UG) and M.E. (PG).`, source: 'ALPHA-IDENTITY' });
+    }
+    if (lower.includes('transport') || lower.includes('bus') || lower.includes('route') || lower.includes('timing')) {
+        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Total Transport Matrix' block. Answer ONLY regarding routes and stops found in that matrix.`, source: 'ALPHA-IDENTITY' });
+    }
+
+    const { context, topScore } = await rerankResults(rewritten, rawChunks, history);
+    const builtContext = `User History (Last 5): ${history.slice(-5).map(m => `[${m.role}]: ${m.content}`).join(' | ')}\n\nKnowledge Context:\n${context}`;
+    
+    // 4. GENERATE
+    const answer = await generateGrounded(builtContext, rawText, {
+        showForm: intent === 'admission',
+        askClarify: rawChunks.length === 0,
+        dominantIntent: intent,
+        isMarketingMode: false,
+        isAbuseDetected: false
+    }, "https://forms.gle/bx2S4iPtJLipA9866");
+
+    // 5. UPDATE STATE (Subject Tracking)
+    const entityMatch = context.match(/\[ENTITY\]: (.*?) \|/);
+    const newState: ConversationState = {
+        lastTopic: detectTopic(rewritten, answer),
+        lastEntity: entityMatch ? entityMatch[1] : state.lastEntity,
+        lastIntent: intent,
+        lastOptions: extractOptions(answer)
+    };
+    userStateStore.set(userId, newState);
+    
+    return {
+        answer: answer,
+        metadata: {
+            latency_ms: Date.now() - startTime,
+            match_score: topScore || 0,
+            intent: intent || 'general',
+            retrieval_source: rawChunks[0]?.source || 'None',
+            model_id: 'gpt-4o-mini-hydra-v2'
+        }
+    };
+}
+
 export async function generateGrounded(builtContext: string, rawText: string, agentFlags: AgentFlags, googleFormUrl: string) {
     return await callAIWithRotation(async (openai) => {
         const { text } = await generateText({
@@ -205,7 +309,7 @@ CORE BEHAVIOR
 
 VOICE & STYLE
 - Speak like a real MSAJCE senior, not a teacher or bot. 
-- NO greetings (Hi/Hello), no robotic phrases, no textbook tone.
+- NO greetings (Hi/Hello), no formal phrases, no robotic tone.
 - Use short, natural sentences. Vary wording naturally—do NOT repeat same phrases.
 - TONE ADAPTATION:
   • Normal users: Friendly, clear, conversational.
@@ -240,55 +344,4 @@ ${builtContext}`,
         });
         return text;
     });
-}
-
-export function postProcess(answer: string, flags: AgentFlags, url: string): string {
-    return answer; // Total removal of the auto-append logic
-}
-
-export async function orchestrate(text: string, history: ShortTermMemory[], profile: UserProfile, sql: any) {
-    const startTime = Date.now();
-    const intent = await classifyIntent(text);
-    const query = await rewriteQuery(text, intent, history);
-    const rawChunks = await getContext(query, text, sql);
-    
-    // ALPHA HARD-LOCK INJECTION
-    const lower = `${text} ${query}`.toLowerCase();
-    if (lower.includes('srinivasan') || lower.includes('principal')) {
-        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Principal Persona' block. Do NOT truncate achievements.`, source: 'ALPHA-IDENTITY' });
-    }
-    if (lower.includes('ram') || lower.includes('developer')) {
-        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official Lead Developer Persona' block. Use all projects and contact anchors provided in context.`, source: 'ALPHA-IDENTITY' });
-    }
-    if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
-        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Admission Master Data' block. Use exactly the seat counts defined there. Focus on B.E./B.Tech (UG) and M.E. (PG).`, source: 'ALPHA-IDENTITY' });
-    }
-    if (lower.includes('transport') || lower.includes('bus') || lower.includes('route') || lower.includes('timing')) {
-        rawChunks.push({ content: `[DATA-FETCH-RULE]: Retrieve and prioritize the '[ALPHA-PURPLE]: Official MSAJCE Total Transport Matrix' block. Answer ONLY regarding routes and stops found in that matrix.`, source: 'ALPHA-IDENTITY' });
-    }
-
-    const { context, topScore } = await rerankResults(query, rawChunks, history);
-    const builtContext = `User History (Last 5): ${history.slice(-5).map(m => `[${m.role}]: ${m.content}`).join(' | ')}\n\nKnowledge Context:\n${context}`;
-    
-    const flags = {
-        showForm: intent === 'admission' || text.toLowerCase().includes('apply'),
-        askClarify: false,
-        dominantIntent: intent,
-        isMarketingMode: false,
-        isAbuseDetected: false
-    };
-
-    const googleFormUrl = "https://forms.gle/bx2S4iPtJLipA9866";
-    const answer = await generateGrounded(builtContext, text, flags, googleFormUrl);
-    
-    return {
-        answer: answer,
-        metadata: {
-            latency_ms: Date.now() - startTime,
-            match_score: topScore || 0,
-            intent: intent || 'general',
-            retrieval_source: rawChunks[0]?.source || 'None',
-            model_id: 'gpt-4o-mini-hydra-v2'
-        }
-    };
 }
