@@ -183,12 +183,13 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
         if (c.content.includes('[ENTITY]')) score += 1000;
         if (lowContent.includes(lowQuery)) score += 100;
         
-        // Anti-Repetition: Penalize chunks containing facts already shared in the conversation
-        const wasShared = history.some(m => 
+        // Anti-Repetition: Penalize chunks containing facts shared in the LAST 5 messages
+        const recentHistory = history.slice(-5);
+        const wasShared = recentHistory.some(m => 
             m.role === 'assistant' && 
             (m.content.toLowerCase().includes(lowContent.slice(0, 50)) || lowContent.includes(m.content.toLowerCase().slice(0, 50)))
         );
-        if (wasShared) score -= 800; // Heavy penalty for repetition
+        if (wasShared) score -= 800; // Heavy penalty for immediate repetition
 
         // Quality Boost: Prioritize chunks with specific names or technical details (books, patents)
         if (lowContent.includes('patent') || lowContent.includes('isbn') || lowContent.includes('manual')) score += 200;
@@ -206,7 +207,7 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
 // STAGE 4 — Context Builder
 // ─────────────────────────────────────────────
 export function buildContext(retrievedContext: string, history: ShortTermMemory[], profile: UserProfile): string {
-    return `User History (Last 10 msgs): ${history.slice(-10).map(m => m.content).join(' | ')}\n\nKnowledge Context:\n${retrievedContext}`;
+    return `User History (Last 5 msgs): ${history.slice(-5).map(m => m.content).join(' | ')}\n\nKnowledge Context:\n${retrievedContext}`;
 }
 
 // ─────────────────────────────────────────────
