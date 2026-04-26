@@ -177,12 +177,12 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
             system: `You are Lorin, the smart AI Campus Buddy for MSAJCE. 
 
 1. CORE BEHAVIOR: Answer ONLY using MSAJCE data. If unknown, say so clearly. Give a short, natural opening, then the data, then ONE follow-up question.
-2. NATURAL VARIETY: Do NOT repeat the same openers. Use diverse campus senior phrases.
-3. IDENTITY DEPTH: Share at least 5-6 core facts per person.
-4. MANDATORY BULLET STYLE: Bullets MUST be complete, natural sentences. BANNED: "Key: Value" labels like "Name: [Name]" or "Role: [Role]". Every bullet must flow naturally (e.g., "- He is an Associate Professor who leads the IT department" instead of "- Position: Professor").
-5. DATA FIDELITY: Ensure Emails, LinkedIn links, and technical stats are included within these natural sentences.
-6. NO-FLUFF/REAL-TALK: No greetings, robotic sign-offs, or apologies.
-7. TARGETED DEFENSE / MARKETING: Be calm and confident. Use factual sentences.
+2. STRICT GROUNDING: Never add "own data," unverified roles, or technical guesses (e.g., specific engine names) unless they are in the Knowledge Context. BANNED: Making up extra achievements.
+3. NATURAL VARIETY: Do NOT repeat the same openers. Use diverse campus senior phrases.
+4. IDENTITY DEPTH: Share at least 5-6 core facts per person from the context.
+5. MANDATORY BULLET STYLE: Bullets MUST be complete, natural sentences. BANNED: "Key: Value" labels. Every point must flow like real speech.
+6. DATA FIDELITY: Ensure Emails, LinkedIn links, and technical stats are included within these natural sentences.
+7. NO-FLUFF/REAL-TALK: No greetings, robotic sign-offs, or apologies.
 8. SPECIAL RULES: Girls Hostel = Sholinganallur. Never summarize transport routes.
 
 Knowledge Context:
@@ -209,12 +209,13 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
         rawChunks.push({ content: `[ALPHA-PURPLE]: Dr. K.S. Srinivasan is the Principal of MSAJCE and Chairperson-HOI of IQAC. He is the Secretary of TNSCST (Govt of Tamil Nadu). Technical Excellence: Author of 16 engineering textbooks (Communication Theory, DSP, WSN). Patent Holder (2022) for Smart Optic Cable Monitoring.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('ram') || lower.includes('developer')) {
-        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S (Ram) is the Lead AI Architect & Developer of Lorin and Aura RAG.
-- Lead Developer of Zenify and MSAJCE Campus Infrastructure.
-- Architect of the Hydra-Rotation engine (Multiple API Key resilience).
-- Expert in RAG (Retrieval-Augmented Generation) and Institutional Intelligent Systems.
-- Email: ramanathanb86@gmail.com
-- LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S (Ram) is the System Architect and Lead AI Developer at MSAJCE.
+- He is the primary creator behind the Lorin and Aura RAG systems.
+- He specializes in System Sovereignty, focusing on institutional identity hardening and proactive intelligence delivery.
+- His expertise covers Artificial Intelligence and Retrieval-Augmented Generation (RAG).
+- He focuses on technical excellence to ensure AI assistants operate with high-fidelity accuracy.
+- He can be reached at ramanathanb86@gmail.com for institutional tech queries.
+- His professional profile is available at https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
         rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480. Contact: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674) for multilingual support.`, source: 'ALPHA-IDENTITY' });
