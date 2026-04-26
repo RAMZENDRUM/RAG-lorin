@@ -10,7 +10,7 @@ const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 async function syncVerifiedEntities() {
     console.log('🔄 Initializing Live Database Sync (AI-Verified records)...');
     
-    const verifiedPath = path.join(process.cwd(), 'data', 'backups', 'msajce_entities_AI_VERIFIED.json');
+    const verifiedPath = path.join(process.cwd(), 'data', 'backups', 'msajce_entities_V8_ULTIMATE.json');
     
     if (!fs.existsSync(verifiedPath)) {
         console.error('❌ Verified file not found! Run neural-cleanup.ts first.');
