@@ -48,6 +48,7 @@ async function callAIWithRotation(fn: (openai: any) => Promise<any>, maxRetries:
 // TYPES & CONSTANTS
 // ─────────────────────────────────────────────
 export type Intent = 'admission' | 'faculty' | 'department' | 'hostel' | 'transport' | 'fee' | 'placement' | 'complaint' | 'general';
+const affirmations = /^(yes|interested|sure|info|more|ok|okay|yeah|yep|tell me|show me|want|elaborate)$/i;
 
 export interface AgentFlags {
     showForm: boolean;
@@ -90,7 +91,6 @@ export async function rewriteQuery(t: string, intent: Intent, history: ShortTerm
         return `${t} MSAJCE unique advantages labs research vs competitors Dr Srinivasan achievements`;
     }
 
-    const affirmations = /^(yes|interested|sure|info|more|ok|okay|yeah|yep|tell me|show me|want|elaborate)$/i;
     if ((t.split(' ').length < 4 || affirmations.test(t)) && history.length > 0) {
         return await callAIWithRotation(async (openai) => {
             const lastMsg = history[history.length - 1];
@@ -155,8 +155,14 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
         if (lowContent.includes(lowQuery)) score += 100;
         
         const recentHistory = history.slice(-5);
+        const isFollowUp = affirmations.test(query) || query.length < 5;
+        
         const wasShared = recentHistory.some(m => m.role === 'assistant' && lowContent.includes(m.content.toLowerCase().slice(0, 40)));
-        if (wasShared) score -= 1500; // Increased penalty to force NEW data
+        
+        if (wasShared) {
+            if (isFollowUp) score += 500; // BOOST if user wants more of the same topic
+            else score -= 1500; // PENALIZE only if user is moving to a fresh topic
+        }
         
         return { ...c, score };
     });
