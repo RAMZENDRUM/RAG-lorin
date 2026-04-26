@@ -185,7 +185,7 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
 7. MANDATORY DOUBLE-NEWLINE: Insert blank line before narrative if using a header.
 8. NARRATIVE SECTION: Complete sentence bullets using "•".
 9. DATA FIDELITY: Never say contact or transport info is missing. Provide EXACT links/routes from context.
-10. TRANSPORT HUB: Ground all answers in the [TRANSPORT-MATRIX]. AR-5, AR-6, AR-8, and R-22 cover Velachery. AR-4, AR-9, and R-20 cover Adyar/OMR. R-21 and AR-3 cover GST/Tambaram. BANNED: Guessing routes.
+10. TRANSPORT HUB: Ground all answers in the [TRANSPORT-MATRIX]. AR-10 is BANNED (Legacy name). Use R-21 for Porur/Chrompet. AR-5, AR-6, AR-8, and R-22 cover Velachery. AR-4, AR-9, and R-20 cover Adyar/OMR. R-21 and AR-3 cover GST/Tambaram. BANNED: Guessing routes.
 11. SPECIAL RULES: Girls Hostel = Sholinganallur.
 
 Knowledge Context:
@@ -232,7 +232,9 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
 • ADYAR/OMR CORRIDOR: AR-4 (07:00), AR-9 (07:10), R-20 (07:05).
 • TAMBARAM/GST CORRIDOR: R-21 (07:00), AR-3 (Perungalathur 07:00).
 • NORTH/CENTRAL: AR-6 (ICF), AR-4 (Moolakadai), AR-9 (Ennore), R-20 (Perambur).
-• WEST/PORUR: R-21 (06:25), R-22 (06:15), AR-10.
+• WEST/PORUR (R-21): Porur (06:25), Chrompet (06:55), Tambaram (07:00).
+• WEST/PORUR (R-22): Nemilichery (05:50), Kathipara (06:35), Velachery (06:45).
+• NOTE: AR-10 is EXPIRED and has been renamed to R-21. BANNED: Using the name AR-10.
 • ECR/SOUTH: AR-7 (Chunambedu/Kelambakkam).
 • MTC: 570/570S (Velachery), 19/519 (OMR), 102 (Broadway), 105 (Tambaram).`, source: 'ALPHA-IDENTITY' });
     }
