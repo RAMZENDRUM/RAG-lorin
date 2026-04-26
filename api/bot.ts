@@ -52,21 +52,6 @@ export default async function handler(req: any, res: any) {
 
         if (!rawText) return res.status(200).send('OK');
 
-        // Stage -1: Identity Injection Stage (Hard-Coded Alpha Profile)
-        const devKeywords = /ram|ramanathan|developer|creator|architect|architect|developed/i;
-        let alphaContext = "";
-        if (devKeywords.test(rawText)) {
-            alphaContext = `[ALPHA PROFILE]: 
-            Name: Ramanathan S
-            Role: Lead Architect at MSAJCE
-            Expertise: RAG System Development, Full-Stack Architecture
-            Projects: College Bus Tracking App, Smart Hostel Web App, Lorin RAG
-            LinkedIn: https://www.linkedin.com/in/ramanathan-s-76a0a02b1
-            Portfolio: https://ram-ai-portfolio.vercel.app
-            Email: ramanathanb86@gmail.com
-            Tone: Portray him as a visionary student-innovator leading AI projects at MSAJCE.\n\n`;
-        }
-
         // Stage 0: Neural Context & Quota Management
         const openai = getDynamicAIClient();
         const ADMIN_IDS = (process.env.ADMIN_IDS || "").split(",").map(id => id.trim()).filter(Boolean);
