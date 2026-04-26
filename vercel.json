@@ -1,14 +1,8 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/public/$1" }
-  ],
-  "crons": [
-    {
-      "path": "/api/cron/sunday-dispatch",
-      "schedule": "30 3 * * 0"
+  "functions": {
+    "api/bot.ts": {
+      "runtime": "@vercel/node@latest"
     }
-  ]
+  }
 }
