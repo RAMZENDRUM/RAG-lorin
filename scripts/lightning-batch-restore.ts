@@ -1,7 +1,9 @@
-import postgres from 'postgres';
-import fs from 'fs';
-import path from 'path';
-import dotenv from 'dotenv';
+// @ts-ignore
+import { default as postgres } from 'postgres';
+import * as fs from 'fs';
+import * as path from 'path';
+// @ts-ignore
+import * as dotenv from 'dotenv';
 dotenv.config();
 
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
@@ -23,7 +25,7 @@ async function lightningBatchRestore() {
         const rows = content.split('\n').filter(line => line.includes('|'));
 
         for (const row of rows) {
-            const parts = row.split('|').map(p => p.trim()).filter(p => p.length > 0);
+            const parts = row.split('|').map((p: any) => p.trim()).filter((p: any) => p.length > 0);
             if (parts.length >= 3) {
                 let name = parts[1];
                 let role = parts[2];
@@ -53,7 +55,7 @@ async function lightningBatchRestore() {
         }
     }
 
-    const entities = Array.from(uniqueMap.values());
+    const entities: any[] = Array.from(uniqueMap.values());
     console.log(`📡 Scan Complete. ${entities.length} verified human identities found.`);
 
     // 🏎️ STAGE 3: Lightning Batch Insert (Chunked)
@@ -62,6 +64,7 @@ async function lightningBatchRestore() {
 
     for (let i = 0; i < entities.length; i += chunkSize) {
         const chunk = entities.slice(i, i + chunkSize);
+        // @ts-ignore
         await sql`
             INSERT INTO msajce_entities ${sql(chunk, 'name', 'role', 'department', 'context')}
             ON CONFLICT (name) DO UPDATE 

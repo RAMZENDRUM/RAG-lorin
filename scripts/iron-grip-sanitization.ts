@@ -97,7 +97,7 @@ async function ironGripAudit() {
                 const { text } = await generateText({
                     model: openai.chat('gpt-4o-mini'),
                     system: STRICT_SYSTEM_PROMPT,
-                    prompt: `Data to extract from: ${JSON.stringify(batch.map(b => ({ name: b.name, role: b.role, dept: b.department })))}`
+                    prompt: `Data to extract from: ${JSON.stringify(batch.map((b: any) => ({ name: b.name, role: b.role, dept: b.department })))}`
                 });
 
                 const extracted = JSON.parse(text.match(/\[.*\]/s)?.[0] || '[]');

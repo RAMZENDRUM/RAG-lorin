@@ -31,7 +31,7 @@ async function precisionRestoration() {
         const rows = content.split('\n').filter(line => line.includes('|'));
 
         for (const row of rows) {
-            const parts = row.split('|').map(p => p.trim()).filter(p => p.length > 0);
+            const parts = row.split('|').map((p: any) => p.trim()).filter(p => p.length > 0);
             
             // Heuristic for Human Entries: 
             // 1. Must have at least 3 columns.

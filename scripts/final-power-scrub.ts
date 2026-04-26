@@ -32,7 +32,7 @@ async function finalPowerScrub() {
             .replace(/\./g, ' ')
             .split(/\s+/)
             .filter(t => t.length > 0)
-            .map(t => t.toLowerCase())
+            .map((t: any) => t.toLowerCase())
             .sort()
             .join('-');
         

@@ -23,7 +23,7 @@ async function restoreAllUniversalTruths() {
         const rows = content.split('\n').filter(line => line.includes('|') && /\d+/.test(line.split('|')[1] || ''));
 
         for (const row of rows) {
-            const parts = row.split('|').map(p => p.trim()).filter(p => p.length > 0);
+            const parts = row.split('|').map((p: any) => p.trim()).filter(p => p.length > 0);
             if (parts.length >= 4) {
                 const name = parts[1];
                 const role = parts[2].includes('.') ? (parts[3] || 'Personnel') : parts[2];

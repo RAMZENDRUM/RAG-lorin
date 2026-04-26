@@ -50,7 +50,7 @@ async function neuralCleanup() {
                 const { text } = await generateText({
                     model: openai.chat('gpt-4o-mini'),
                     system: `Identify REAL HUMAN personnel. Delete junk scraper fragments, dept labels, and generic text. Respond with ONLY indices to KEEP. Example: [0, 2, 5]`,
-                    prompt: JSON.stringify(batch.map(b => ({ name: b.name, role: b.role, dept: b.department })))
+                    prompt: JSON.stringify(batch.map((b: any) => ({ name: b.name, role: b.role, dept: b.department })))
                 });
 
                 const keepIndices = JSON.parse(text.match(/\[.*\]/s)?.[0] || '[]');

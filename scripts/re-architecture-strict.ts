@@ -69,7 +69,7 @@ async function strictReArchitecture() {
                     
                     Respond ONLY with a JSON array.
                     `,
-                    prompt: JSON.stringify(batch.map(b => ({ name: b.name, raw_role: b.role, raw_dept: b.department })))
+                    prompt: JSON.stringify(batch.map((b: any) => ({ name: b.name, raw_role: b.role, raw_dept: b.department })))
                 });
 
                 const reArchitected = JSON.parse(text.match(/\[.*\]/s)?.[0] || '[]');
