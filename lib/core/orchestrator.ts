@@ -218,7 +218,10 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
 • His professional portfolio is live at https://ram-ai-portfolio.vercel.app and his LinkedIn is https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
-        rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480. Contact: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674) for multilingual support.`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480.
+• Apply Online: https://enrollonline.co.in/Registration/Apply/MSAJCE
+• Official Enquiry Form: https://forms.gle/bx2S4iPtJLipA9866
+• Help Contacts: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674).`, source: 'ALPHA-IDENTITY' });
     }
 
     const { context, topScore } = await rerankResults(query, rawChunks, history);
