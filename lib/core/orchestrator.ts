@@ -203,7 +203,7 @@ export function postProcess(answer: string, flags: AgentFlags, url: string): str
 
 export async function orchestrate(text: string, history: ShortTermMemory[], profile: UserProfile, sql: any) {
     const startTime = Date.now();
-    const googleFormUrl = "https://forms.gle/msajce-enquiry";
+    const enrolmentUrl = "https://enrollonline.co.in/Registration/Apply/MSAJCE";
 
     const intent = await classifyIntent(text);
     const query = await rewriteQuery(text, intent, history);
@@ -232,8 +232,8 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
         isAbuseDetected: false
     };
 
-    const answer = await generateGrounded(builtContext, text, flags, googleFormUrl);
-    const finalAnswer = postProcess(answer, flags, googleFormUrl);
+    const answer = await generateGrounded(builtContext, text, flags, enrolmentUrl);
+    const finalAnswer = postProcess(answer, flags, enrolmentUrl);
 
     return {
         answer: finalAnswer,
