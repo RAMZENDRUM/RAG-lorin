@@ -89,15 +89,17 @@ export async function rewriteQuery(t: string, intent: Intent, history: ShortTerm
         return `${t} MSAJCE unique advantages placements hackathons NIRF research versus competitors Dr Srinivasan achievements`;
     }
 
-    // If the query is very short, use AI to resolve what "it/him/yes/more" means
-    if (t.split(' ').length < 3 && history.length > 0) {
+    // If the query is an affirmation (yes, interested, info, more, sure, ok), use AI to resolve context
+    const affirmations = /^(yes|interested|sure|info|more|ok|okay|yeah|yep|tell me|show me|want|elaborate)$/i;
+    if ((t.split(' ').length < 4 || affirmations.test(t)) && history.length > 0) {
         try {
             const { text: expanded } = await generateText({
                 model: openai.chat('gpt-4o-mini'),
                 system: `You are a query expansion engine for the Lorin RAG bot. 
-                Your task: Look at the last thing the ASSISTANT said and determine what the user is referring to with "${t}".
-                If the assistant just finished talking about a person or department, INCLUDE their name in the expanded query.
+                Your task: Look at the last thing the ASSISTANT suggested/asked and determine what details to fetch based on "${t}".
+                If the user says "yes" or "interested" to a suggested topic (like labs, books, transport), EXPAND the query to fetch those specific details for MSAJCE.
                 Example: Assistant said "Want more info on Dr. Srinivasan?", User said "yes" -> Result: "Detailed initiatives and contributions of Dr. K.S. Srinivasan MSAJCE".
+                Example: Assistant said "Want to check placement stats?", User said "I'm interested" -> Result: "Detailed placement statistics companies salary MSAJCE".
                 Respond ONLY with the expanded search query.`,
                 prompt: `History (Assistant's Last Message): ${history[history.length - 1]?.content}\nUser Response: ${t}`,
             });
@@ -271,14 +273,13 @@ ANSWERING BEHAVIOR RULES (REFINED):
 15. RESPONSE STRUCTURE: Use short paragraphs for talk. Use bullets only for factual lists.
 16. CONTEXT AWARENESS: Understand that "nice/ok" is an acknowledgement.
 17. CONVERSATIONAL FLOW: Every reply should feel natural and move the chat forward.
-18. DYNAMIC FOLLOW-UP GENERATION (CORE INTELLIGENCE):
-The final sentence must be generated based on the user's query type. Never use generic follow-ups.
-- IF query is about PERSON (faculty, principal, staff) → Suggest: department, subjects handled, or his books/publications.
-- IF query is about TRANSPORT → Suggest: full route, nearby stop, or timing clarification.
-- IF query is about ADMISSION → Suggest: courses, cutoff, or eligibility.
-- IF query is about DEPARTMENTS / COURSES → Suggest: labs, placements, or syllabus.
-- IF query is about HOSTEL / FACILITIES → Suggest: fees, rules, or location.
-- IF query is GENERAL / ACKNOWLEDGEMENT → Suggest 2 strong core areas: transport or departments.
+18. DYNAMIC FOLLOW-UP (CRITICAL): The final sentence must be exactly ONE question that is strictly related to the information just provided or your last suggestion. 
+- IF describing a PERSON → Ask about their department, subjects handled, or their publications.
+- IF describing TRANSPORT → Ask about a specific area, route time, or bus stop.
+- IF describing ADMISSION → Ask about eligibility, cutoff, or specific courses.
+- IF describing DEPARTMENTS → Ask about laboratories, placements, or syllabus.
+- IF user agrees/says "interested" → The query rewriter will have fetched the info, so provide it immediately and ask if they need anything else.
+Never ask generic "how can I help" questions. Every response must end with a single, relevant path forward.
 
 21. TARGETED DEFENSE MODE (CRITICAL):
 When the user gives a negative statement or comparison (e.g., "SRM is better"):
