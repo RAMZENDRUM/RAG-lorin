@@ -11,25 +11,35 @@ dotenv.config();
 // AI CONFIGURATION (Unified & Load-Balanced)
 // ─────────────────────────────────────────────
 export function getDynamicAIClient() {
-    const keys = [
+    // Priority 1: Direct OpenAI Key (Bypasses Vercel Gateway Issues)
+    const directKey = process.env.OPENAI_API_KEY;
+    
+    const vercelKeys = [
         process.env.VERCEL_AI_KEY,
         process.env.VERCEL_AI_KEY_2,
         process.env.VERCEL_AI_KEY_3,
         process.env.VERCEL_AI_KEY_4
     ].filter(Boolean);
-    
-    // Pick a random key or fallback to default
-    const key = keys.length > 0 
-        ? keys[Math.floor(Math.random() * keys.length)] 
-        : process.env.OPENAI_API_KEY;
 
-    // GATEWAY AUTO-ROUTING: If it's a Vercel key (vck_), it MUST use the gateway URL.
+    // EMERGENCY OVERRIDE: If we have a direct OpenAI key, use it directly to bypass Vercel's "Free Credit" lockout.
+    if (directKey && !directKey.startsWith('vck_')) {
+        return createOpenAI({ 
+            apiKey: directKey,
+            baseURL: 'https://api.openai.com/v1'
+        });
+    }
+    
+    // Fallback logic for Vercel keys if no direct key is available
+    const key = vercelKeys.length > 0 
+        ? vercelKeys[Math.floor(Math.random() * vercelKeys.length)] 
+        : directKey;
+
     const isVercelKey = key?.startsWith('vck_');
-    const gatewayUrl = "https://ai-gateway.vercel.sh/v1";
     
     return createOpenAI({ 
         apiKey: key,
-        baseURL: isVercelKey ? gatewayUrl : (process.env.VERCEL_AI_GATEWAY_URL || 'https://api.openai.com/v1')
+        // If it's a Vercel key, we are forced to use their gateway, but we try to avoid it.
+        baseURL: isVercelKey ? "https://ai-gateway.vercel.sh/v1" : 'https://api.openai.com/v1'
     });
 }
 
