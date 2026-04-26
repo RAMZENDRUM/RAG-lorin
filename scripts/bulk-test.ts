@@ -10,47 +10,67 @@ dotenv.config();
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 
 const testQuestions = [
-    { q: "Who is the Principal of MSAJCE?", state: true },
-    { q: "more about him", state: true }, // Continuation Test
-    { q: "What is the name of the CSI Student President?", state: true },
-    { q: "who is the secretary?", state: true }, // Context Test
-    { q: "List all the UG engineering programs offered.", state: false },
-    { q: "Can parents use the college bus to visit campus?", state: false },
-    { q: "Who is the Administrative Officer of the college?", state: false },
-    { q: "Tell me about the CSI Student Counselor.", state: false },
-    { q: "Which companies recruit from MSAJCE?", state: false },
-    { q: "Is there a hostel facility?", state: false },
-    { q: "Who is the developer of this Lorin bot?", state: false }
+    // Persona & Identity Probes
+    { q: "Who is the Principal of MSAJCE?", type: "Persona-Formatting" },
+    { q: "tell me about his research and awards", type: "Bulleted-Context" },
+    { q: "Who is the developer of this bot?", type: "Developer-Identity" },
+    { q: "how can I contact Ramanathan S?", type: "Contact-Anchor" },
+    
+    // Faculty & Staff (Supabase Entities)
+    { q: "Who is Dr. Weslin D?", type: "Entity-Formatting" },
+    { q: "Tell me about Ms. S. Usha from CSE.", type: "Depth-Check" },
+    { q: "Which professor handles CSI leadership?", type: "Role-Linkage" },
+    
+    // Admissions & Value (Strategy)
+    { q: "What are the UG courses available for this year?", type: "Admission-Data" },
+    { q: "Is MSAJCE better than VIT or SRM?", type: "Defense-Mode" },
+    { q: "how many seats in AI & Data Science?", type: "Precision-Data" },
+    
+    // Logistics & Safety (Parent Focus)
+    { q: "Tell me about the college bus routes.", type: "Transport-Matrix" },
+    { q: "Where is the girls hostel located?", type: "Hostel-Precision" },
+    { q: "Is the campus safe from ragging?", type: "Parent-Safety" },
+    
+    // Skill & Innovation
+    { q: "Does the college have a Cisco Academy?", type: "Tech-Center" },
+    { q: "Tell me about the 3D Printing lab.", type: "Facility-Detail" },
+    { q: "Is there an entrepreneurship cell?", type: "Innovation-Check" },
+    
+    // Interaction & Variety (Opener Check)
+    { q: "hello", type: "Opener-Check" },
+    { q: "what's the fee structure?", type: "Fee-Intent" },
+    { q: "can you list all clubs?", type: "Clubs-Societies" },
+    { q: "thanks for the help", type: "Sentiment-Check" }
 ];
 
 async function runAudit() {
-    console.log('🚀 STARTING LORIN STATE-AWARE INTELLIGENCE AUDIT...\n');
-    const dummyId = "AUDIT_USER_" + Date.now();
+    console.log('🚀 STARTING 20-POINT LORIN PERSONA & RESPONSE AUDIT...\n');
+    const dummyId = "AUDIT_PROBE_" + Date.now();
 
     for (let i = 0; i < testQuestions.length; i++) {
         const item = testQuestions[i];
-        console.log(`[TEST ${i + 1}] QUESTION: ${item.q}`);
+        console.log(`[TEST ${i + 1}] (${item.type}) QUESTION: ${item.q}`);
         
         try {
             const { answer, metadata } = await orchestrate(
                 dummyId,
                 item.q,
-                [], // Empty history for individual probes
+                [], // Fresh history for each probe
                 { 
                     user_id: dummyId, 
-                    name: 'AuditBot', 
+                    name: 'AuditProbe', 
                     interest: 'General', 
                     stage: 'prospect', 
                     last_seen: new Date(), 
                     created_at: new Date(), 
-                    tags: ['audit'] 
+                    tags: ['audit_v10'] 
                 },
                 sql
             );
 
-            console.log(`🤖 TONE: ${metadata.intent}`);
-            console.log(`📄 SOURCE: ${metadata.retrieval_source}`);
-            console.log(`✍️ RESPONSE: ${answer.substring(0, 500)}...`);
+            console.log(`🤖 OPENER: ${answer.split(/[.!?]/)[0]}...`);
+            console.log(`✍️ RESPONSE:\n${answer}`);
+            console.log(`📄 SOURCE: ${metadata.retrieval_source} | LATENCY: ${metadata.latency_ms}ms`);
             console.log('--------------------------------------------------\n');
             
             // Artificial delay to prevent rate limits
@@ -60,7 +80,7 @@ async function runAudit() {
         }
     }
     
-    console.log('🌟 AUDIT COMPLETE.');
+    console.log('🌟 20-POINT AUDIT COMPLETE.');
     await sql.end();
 }
 
