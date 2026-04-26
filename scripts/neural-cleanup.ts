@@ -37,7 +37,7 @@ async function neuralCleanup() {
     console.log(`📋 Total Entities to Audit: ${allEntities.length}`);
 
     const batchSize = 40;
-    const cleanedEntities = [];
+    const cleanedEntities: any[] = [];
 
     for (let i = 0; i < allEntities.length; i += batchSize) {
         const batch = allEntities.slice(i, i + batchSize);
@@ -54,7 +54,7 @@ async function neuralCleanup() {
                 });
 
                 const keepIndices = JSON.parse(text.match(/\[.*\]/s)?.[0] || '[]');
-                keepIndices.forEach(idx => {
+                keepIndices.forEach((idx: number) => {
                     if (batch[idx]) cleanedEntities.push(batch[idx]);
                 });
                 success = true;
@@ -67,7 +67,7 @@ async function neuralCleanup() {
 
         if (!success) {
             console.warn(`🛑 All keys limited for batch at index ${i}. Using pattern-matching safety net.`);
-            batch.forEach(b => {
+            batch.forEach((b: any) => {
                 if (b.name.includes(' ') && !/\d/.test(b.name) && b.name.length > 5) cleanedEntities.push(b);
             });
         }

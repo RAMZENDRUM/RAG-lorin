@@ -66,7 +66,7 @@ async function lightningBatchRestore() {
         const chunk = entities.slice(i, i + chunkSize);
         // @ts-ignore
         await sql`
-            INSERT INTO msajce_entities ${sql(chunk, 'name', 'role', 'department', 'context')}
+            INSERT INTO msajce_entities ${(sql as any)(chunk, 'name', 'role', 'department', 'context')}
             ON CONFLICT (name) DO UPDATE 
             SET role = EXCLUDED.role, department = EXCLUDED.department, context = EXCLUDED.context
         `;

@@ -84,7 +84,7 @@ async function ironGripAudit() {
     console.log(`📋 Auditing ${allEntities.length} raw records with strict validation...`);
 
     const batchSize = 30; // Smaller batches for higher extraction quality
-    const cleanedEntities = [];
+    const cleanedEntities: any[] = [];
 
     for (let i = 0; i < allEntities.length; i += batchSize) {
         const batch = allEntities.slice(i, i + batchSize);
@@ -101,7 +101,7 @@ async function ironGripAudit() {
                 });
 
                 const extracted = JSON.parse(text.match(/\[.*\]/s)?.[0] || '[]');
-                extracted.forEach(item => {
+                extracted.forEach((item: any) => {
                     if (item.name && item.name.length > 2) {
                         cleanedEntities.push({
                             name: item.name,

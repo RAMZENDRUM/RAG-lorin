@@ -36,8 +36,8 @@ async function nuclearDeduplicate() {
             .replace(/Dr\.|Mr\.|Mrs\.|Ms\.|Prof\./gi, '')
             .replace(/\./g, ' ')
             .split(/\s+/)
-            .filter(t => t.length > 0)
-            .map((t: any) => t.toLowerCase())
+            .filter((t: string) => t.length > 0)
+            .map((t: string) => t.toLowerCase())
             .sort()
             .join('-');
         

@@ -36,7 +36,15 @@ async function runAudit() {
                 dummyId,
                 item.q,
                 [], // Empty history for individual probes
-                { interest: 'General' },
+                { 
+                    user_id: dummyId, 
+                    name: 'AuditBot', 
+                    interest: 'General', 
+                    stage: 'prospect', 
+                    last_seen: new Date(), 
+                    created_at: new Date(), 
+                    tags: ['audit'] 
+                },
                 sql
             );
 
