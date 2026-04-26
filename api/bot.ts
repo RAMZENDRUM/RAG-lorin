@@ -99,16 +99,11 @@ export default async function handler(req: any, res: any) {
         }
 
         // Stage 1: Brain Execution
-        const intent = await classifyIntent(rawText, openai);
         const { answer, metadata } = await orchestrate(
             rawText,
-            intent,
             shortTerm,
             profile,
-            openai,
-            sql,
-            updateId,
-            alphaContext
+            sql
         );
 
         // Stage 6: Database Logging (Non-blocking)
