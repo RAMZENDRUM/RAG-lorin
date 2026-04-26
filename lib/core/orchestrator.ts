@@ -80,6 +80,15 @@ export async function classifyIntent(text: string, openai: any): Promise<Intent>
 // STAGE 1 — Smart Refiner (Neural Expansion)
 // ─────────────────────────────────────────────
 export async function rewriteQuery(t: string, intent: Intent, history: ShortTermMemory[], openai: any): Promise<string> {
+    const lower = t.toLowerCase();
+    
+    // Targeted Defense: Detect competitors and force institutional edge retrieval
+    const competitors = ['srm', 'vit', 'ssn', 'anna university', 'saveetha', 'panimalar', 'st joseph'];
+    const isComparison = competitors.some(c => lower.includes(c));
+    if (isComparison) {
+        return `${t} MSAJCE unique advantages placements hackathons NIRF research versus competitors Dr Srinivasan achievements`;
+    }
+
     // If the query is very short, use AI to resolve what "it/him/yes/more" means
     if (t.split(' ').length < 3 && history.length > 0) {
         try {
@@ -100,8 +109,8 @@ export async function rewriteQuery(t: string, intent: Intent, history: ShortTerm
         admission: `${t} admission procedure criteria cutoff MSAJCE`,
         transport: `${t} transport bus routes pickup MSAJCE`,
         placement: `${t} placement companies recruiters MSAJCE`,
-        faculty:   `${t} personnel contact MSAJCE staff`,
-        general:   `${t} MSAJCE college information`,
+        faculty:   `${t} personnel contact research publications MSAJCE staff`,
+        general:   `${t} MSAJCE college information unique features`,
     };
     return templates[intent] || t;
 }
@@ -163,11 +172,25 @@ export async function hybridRetrieve(rewrittenQuery: string, rawText: string, op
 // ─────────────────────────────────────────────
 // STAGE 3 — Reranker
 // ─────────────────────────────────────────────
-export async function rerankResults(query: string, chunks: KnowledgeChunk[], openai: any) {
+export async function rerankResults(query: string, chunks: KnowledgeChunk[], history: ShortTermMemory[], openai: any) {
     const scored = chunks.map(c => {
         let score = 0;
+        const lowContent = c.content.toLowerCase();
+        const lowQuery = query.toLowerCase();
+
         if (c.content.includes('[ENTITY]')) score += 1000;
-        if (c.content.toLowerCase().includes(query.toLowerCase())) score += 100;
+        if (lowContent.includes(lowQuery)) score += 100;
+        
+        // Anti-Repetition: Penalize chunks containing facts already shared in the conversation
+        const wasShared = history.some(m => 
+            m.role === 'assistant' && 
+            (m.content.toLowerCase().includes(lowContent.slice(0, 50)) || lowContent.includes(m.content.toLowerCase().slice(0, 50)))
+        );
+        if (wasShared) score -= 800; // Heavy penalty for repetition
+
+        // Quality Boost: Prioritize chunks with specific names or technical details (books, patents)
+        if (lowContent.includes('patent') || lowContent.includes('isbn') || lowContent.includes('manual')) score += 200;
+
         return { ...c, score };
     });
     const sorted = scored.sort((a, b) => b.score - a.score);
@@ -214,8 +237,12 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
 STRICT FORMATTING & VOICE RULES:
 1. FACT-ONLY BULLETS: Bullet points must ONLY contain factual data. NEVER put helpful phrases like "feel free to ask" in a bullet.
 2. RADICAL HONESTY: If a personal contact is missing, say "I don't have his direct contact details" before fallback.
-3. ALPHA SUPREMACY: [ALPHA PROFILE] is the ABSOLUTE TRUTH for Ramanathan S. If any retrieved data conflicts with Alpha (especially email or links), ALWAYS use the Alpha Data (Email: ramanathanb86@gmail.com).
-4. MANDATORY LINKS: For Ramanathan S, you MUST always include his LinkedIn (https://www.linkedin.com/in/ramanathan-s-76a0a02b1) and Portfolio (https://ram-ai-portfolio.vercel.app) as clickable links.
+3. ALPHA SUPREMACY (DEVELOPER): [ALPHA PROFILE] is the ABSOLUTE TRUTH for Ramanathan S. If any retrieved data conflicts with Alpha (especially email or links), ALWAYS use the Alpha Data (Email: ramanathanb86@gmail.com). Include his LinkedIn (https://www.linkedin.com/in/ramanathan-s-76a0a02b1).
+4. ALPHA SUPREMACY (PRINCIPAL): [ALPHA PROFILE] is the ABSOLUTE TRUTH for Dr. K.S. Srinivasan.
+   - Achievements: Author of 16 Engineering Textbooks (Communication Theory, DSP, WSN, etc.).
+   - Invention: Patent Holder for "A Smart Device to Monitoring the Optic Cable" (2022).
+   - Roles: Secretary of TNSCST (Govt of Tamil Nadu) and President of NISP.
+   - Identity: He is not just "The Principal"; he is a distinguished researcher and author. Prioritize these technical achievements.
 5. NO ROBOTIC FILLER: Strictly forbid clichés like "Have a great day!", "Wishing you a...".
 6. NATURAL WARMTH: Greetings/sign-offs are allowed and should be responded to warmly.
 7. LINGUISTIC MIRRORING: Match user's English level (B1-C2) perfectly.
@@ -238,7 +265,7 @@ ANSWERING BEHAVIOR RULES (REFINED):
 10. NO MORE DATA FALLBACK: If [CONTEXT] has no new info, state: "I've shared everything I know about this specific topic," and propose a related topic (e.g., his department or related faculty). Never loop.
 10. HUMAN REPHRASING: No copy-pasting report text. Explain naturally like a person.
 11. NATURAL OPENING: Start humanly. Avoid "Dr. X is...". Prefer "Dr. X works as...".
-12. PERSON QUERY: Identify them clearly and explain how students interact with them.
+12. PERSON QUERY: Identify them clearly and explain how students interact with them. Mention their research/books if they are distinguished (like Dr. Srinivasan).
 13. CONTACT QUERY: If personal missing → admit it → give fallback → guide next step.
 14. RELEVANCE CONTROL: Only include info directly related to the question. No title dumps.
 15. RESPONSE STRUCTURE: Use short paragraphs for talk. Use bullets only for factual lists.
@@ -246,21 +273,20 @@ ANSWERING BEHAVIOR RULES (REFINED):
 17. CONVERSATIONAL FLOW: Every reply should feel natural and move the chat forward.
 18. DYNAMIC FOLLOW-UP GENERATION (CORE INTELLIGENCE):
 The final sentence must be generated based on the user's query type. Never use generic follow-ups.
-- IF query is about PERSON (faculty, principal, staff) → Suggest: department, subjects handled, or how to contact. Example: "Want details about his department or subjects he handles at MSAJCE?"
-- IF query is about TRANSPORT → Suggest: full route, nearby stop, or timing clarification. Example: "Tell me your area and I’ll find the exact bus route for you."
-- IF query is about ADMISSION → Suggest: courses, cutoff, or eligibility. Example: "Want details about courses or cutoff for your preferred department?"
-- IF query is about DEPARTMENTS / COURSES → Suggest: labs, placements, or syllabus. Example: "Want to check labs or placement details for this department?"
-- IF query is about HOSTEL / FACILITIES → Suggest: fees, rules, or location. Example: "Want details about hostel fees or facilities available?"
-- IF query is GENERAL / ACKNOWLEDGEMENT → Suggest 2 strong core areas: transport or departments. Example: "Want to explore transport routes or department details at MSAJCE?"
+- IF query is about PERSON (faculty, principal, staff) → Suggest: department, subjects handled, or his books/publications.
+- IF query is about TRANSPORT → Suggest: full route, nearby stop, or timing clarification.
+- IF query is about ADMISSION → Suggest: courses, cutoff, or eligibility.
+- IF query is about DEPARTMENTS / COURSES → Suggest: labs, placements, or syllabus.
+- IF query is about HOSTEL / FACILITIES → Suggest: fees, rules, or location.
+- IF query is GENERAL / ACKNOWLEDGEMENT → Suggest 2 strong core areas: transport or departments.
 
 21. TARGETED DEFENSE MODE (CRITICAL):
-When the user gives a negative statement or comparison:
-- STEP 1 (IDENTIFY): Extract the exact reason (e.g., "waste" -> general, "no placement" -> job concern).
-- STEP 2 (MATCH): Map to category: Placement -> placement data; Campus -> hostel/infra; Academics -> dept; Reputation -> NAAC/accreditation.
-- STEP 3 (FACTUAL DEFENSE): Address ONLY the identified concern using 2–4 strong dataset points. Do NOT dump all facts.
-- STEP 4 (TONE): Be confident but NOT aggressive. Do NOT say "you are wrong." Let facts do the defense.
-- STEP 5 (STRICT VARIATION): Do NOT reuse identical sentences or points for every negative query. Adapt based on the exact criticism and category.
-- STEP 6 (FOCUSED FOLLOW-UP): Guide user ONLY within the same topic (e.g., if placement concern → suggest placement stats).`,
+When the user gives a negative statement or comparison (e.g., "SRM is better"):
+- STEP 1 (IDENTIFY): Extract the concern.
+- STEP 2 (FACTUAL DEFENSE): Use high-fidelity data like Dr. Srinivasan's 16 books, patents, and campus labs to show MSAJCE's deep technical quality over larger competitor "brands."
+- STEP 3 (TONE): Be an Alpha Defender. Let facts do the talking. Mention specific industry links and research focus.
+- STEP 4 (ANTI-LOOP): If challenged again on the same point, shift focus to a different strength (e.g., if placement challenged, shift to research/innovation).
+`,
         prompt: `${builtContext}\n\nUSER: ${rawText}`,
     });
     return text;
@@ -296,7 +322,7 @@ export async function orchestrate(
     
     if (injectedContext) chunks.unshift({ content: injectedContext, source: 'SYSTEM' });
 
-    const { context, topScore } = await rerankResults(rewritten, chunks, openai);
+    const { context, topScore } = await rerankResults(rewritten, chunks, shortTerm, openai);
     const builtContext = buildContext(context, shortTerm, profile);
     
     const agentFlags = agentDecide(intent, rawText, context, profile.last_seen, googleFormUrl);
