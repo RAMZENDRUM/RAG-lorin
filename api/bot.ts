@@ -19,7 +19,31 @@ export default async function handler(req: any, res: any) {
 
     try {
         const update = req.body;
-        if (!update || !update.message) return res.status(200).send('OK');
+        if (!update) return res.status(200).send('OK');
+
+        // Stage -2: Reaction Awareness (Feedback Loop)
+        if (update.message_reaction) {
+            const reaction = update.message_reaction;
+            const chatId = reaction.chat.id;
+            const isPositive = reaction.new_reaction.some((r: any) => r.emoji === '👍' || r.emoji === '🔥' || r.emoji === '❤️');
+            
+            const feedbackMsg = isPositive 
+                ? "Glad I could help! your feedback helps me learn faster. 🚀" 
+                : "Sorry about that! I'm still learning. feel free to tell me what I missed or use the enquiry form to help me improve.";
+                
+            const tgUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
+            await fetch(tgUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: chatId, text: feedbackMsg })
+            });
+
+            // Log reaction to DB (Forensics)
+            await sql`UPDATE audit_feedback SET reaction = ${isPositive ? 'LIKED' : 'DISLIKED'} WHERE user_id = ${chatId.toString()} ORDER BY created_at DESC LIMIT 1`;
+            return res.status(200).send('OK');
+        }
+
+        if (!update.message) return res.status(200).send('OK');
         
         const message = update.message;
         const userId = message.from.id.toString();
