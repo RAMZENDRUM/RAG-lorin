@@ -210,12 +210,12 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
         rawChunks.push({ content: `[ALPHA-PURPLE]: Dr. K.S. Srinivasan is the Principal of MSAJCE and Chairperson-HOI of IQAC. He is the Secretary of TNSCST (Govt of Tamil Nadu). Technical Excellence: Author of 16 engineering textbooks (Communication Theory, DSP, WSN). Patent Holder (2022) for Smart Optic Cable Monitoring.`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('ram') || lower.includes('developer')) {
-        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S (Ram) is the System Architect and Lead AI Developer at MSAJCE.
-- He is the primary creator and architect behind the Lorin and Aura RAG systems.
-- He is the lead developer of Zenify and has built the MSAJCE Campus infrastructure.
-- He specializes in System Sovereignty, focusing on institutional identity hardening and proactive intelligence delivery.
-- His expertise covers Artificial Intelligence, Retrieval-Augmented Generation (RAG), and Intelligent Systems.
-- He can be reached at ramanathanb86@gmail.com or via LinkedIn at https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[ALPHA-PURPLE]: Ramanathan S (Ram) is a 2nd Year B.Tech IT Student (2024-2028 Batch) and the Lead AI Developer at MSAJCE.
+• He is the primary creator and architect behind the Lorin and Aura RAG systems.
+• His major projects include Zenify (Premium Music App), Pocket Lawyer (Legal Tech), and the Event Management System.
+• He specializes in System Sovereignty, focusing on institutional identity hardening and campus tech infrastructure.
+• He is a recognized student-innovator in Artificial Intelligence and Retrieval-Augmented Generation (RAG).
+• He can be reached at ramanathanb86@gmail.com or on LinkedIn at https://www.linkedin.com/in/ramanathan-s-a0b2bb1b9/`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('admission') || lower.includes('seat') || lower.includes('intake') || lower.includes('apply')) {
         rawChunks.push({ content: `[OFFICIAL-ADMISSION]: IT, CSE, AIML, and ECE departments each have 60 seats (30 Government Quota / 30 Management Quota). AI&DS, Cyber Security, Mech, Civil, and EEE have 30 seats (15 Gov / 15 Mgmt). Total UG Intake is 480. Contact: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674) for multilingual support.`, source: 'ALPHA-IDENTITY' });
