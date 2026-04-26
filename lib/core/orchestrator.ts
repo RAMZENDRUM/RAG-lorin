@@ -185,7 +185,7 @@ export async function generateGrounded(builtContext: string, rawText: string, ag
 7. MANDATORY DOUBLE-NEWLINE: Insert blank line before narrative if using a header.
 8. NARRATIVE SECTION: Complete sentence bullets using "•".
 9. DATA FIDELITY: Never say contact or transport info is missing. Provide EXACT links/routes from context.
-10. TRANSPORT HUB: Ground all answers in [TRANSPORT-MATRIX]. AR-10 is BANNED (Use R-21). AR-4 DOES NOT go through Pallikaranai (Use AR-8 at 07:10). BANNED: Summarizing routes without via points.
+10. GLOBAL TRANSPORT HUB: You MUST only use the [GLOBAL-TRANSPORT-MATRIX] for bus queries. BANNED: Guessing or using outside knowledge of Chennai geography. If a stop/area is not explicitly listed in the matrix, state clearly that you don't have the verified timing for that specific spot yet.
 11. SPECIAL RULES: Girls Hostel = Sholinganallur.
 
 Knowledge Context:
@@ -227,18 +227,17 @@ export async function orchestrate(text: string, history: ShortTermMemory[], prof
 • Help Contacts: Dr. K.P. Santhosh Nathan (9840886992) or Dr. Vamsi Naga Mohan (9043358674).`, source: 'ALPHA-IDENTITY' });
     }
     if (lower.includes('transport') || lower.includes('bus') || lower.includes('route') || lower.includes('timing')) {
-        rawChunks.push({ content: `[TRANSPORT-MATRIX]:
-• VELACHERY CORRIDOR: AR-5/N-3 (Check Post 06:50), AR-6 (06:50), AR-8 (Kaiveli 06:55), R-22 (Bypass 06:45).
-• MEDAVAKKAM/PALLIKARANAI: AR-8 (Pallikaranai 07:10 / Medavakkam 07:20), R-21 (07:25), R-22 (07:20).
-• BANNED HALLUCINATION: AR-4 DOES NOT go through Pallikaranai. Only AR-8 services this area.
-• ADYAR/OMR CORRIDOR: AR-4 (07:00), AR-9 (07:10), R-20 (07:05).
-• TAMBARAM/GST CORRIDOR: R-21 (07:00), AR-3 (Perungalathur 07:00).
-• NORTH/CENTRAL: AR-6 (ICF), AR-4 (Moolakadai), AR-9 (Ennore), R-20 (Perambur).
-• WEST/PORUR (R-21): Porur (06:25), Chrompet (06:55), Tambaram (07:00).
-• WEST/PORUR (R-22): Nemilichery (05:50), Kathipara (06:35), Velachery (06:45).
-• NOTE: AR-10 is EXPIRED and has been renamed to R-21. BANNED: Using the name AR-10.
-• ECR/SOUTH: AR-7 (Chunambedu/Kelambakkam).
-• MTC: 570/570S (Velachery), 19/519 (OMR), 102 (Broadway), 105 (Tambaram).`, source: 'ALPHA-IDENTITY' });
+        rawChunks.push({ content: `[GLOBAL-TRANSPORT-MATRIX]:
+- AR-3 (Uthiramerur): Mahindra City (06:40), Guduvanchery (06:50), Perungalathur (07:00), Kelambakkam.
+- AR-4 (Moolakadai): Central (06:35), Parrys, Marina, Adyar (07:00), Thiruvanmiyur (07:05), Sholinganallur.
+- AR-5 / N-3 (MMDA): Anna Nagar, T. Nagar (06:40), Saidapet, Velachery Check Post (06:50), Baby Nagar (06:55), OMR.
+- AR-6 (ICF): MMDA, Anna Nagar, T. Nagar, Saidapet, Velachery Check Post (06:50), Baby Nagar, OMR.
+- AR-7 (Chunambedu): Kadapakkam, Thirukazukundram (07:00), Thirupporur, Kelambakkam.
+- AR-8 (Manjambakkam): CMBT (06:20), Vadapalani, Ashok Pillar, Aadampakkam, Kaiveli (06:55), Pallikaranai (07:10), Medavakkam (07:20), Sholinganallur.
+- AR-9 (Ennore): Broadway, Central (06:30), Royapettah, Adyar (07:10), Thiruvanmiyur, Sholinganallur.
+- R-20 (Moolakadai V2): Central, Parrys, Mylapore, Adyar (07:05), Thiruvanmiyur, Sholinganallur.
+- R-21 (Porur): Kundrathur, Pallavaram (06:45), Chrompet (06:55), Tambaram (07:00), Medavakkam (07:25), Thalambur. (Legacy: AR-10).
+- R-22 (Nemilichery): Poonamallee, Porur (06:15), Kathipara (06:35), Velachery Bypass (06:45), Kaiveli (07:00), Medavakkam (07:20).`, source: 'ALPHA-IDENTITY' });
     }
 
     const { context, topScore } = await rerankResults(query, rawChunks, history);
