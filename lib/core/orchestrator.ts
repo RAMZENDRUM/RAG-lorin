@@ -71,47 +71,8 @@ export interface KnowledgeChunk {
 }
 
 // ─────────────────────────────────────────────
-// STAGE 0 — Neural Intent Classifier (RELOADED)
+// STAGE 0 & 1 — AI Logic (Legacy wrappers removed)
 // ─────────────────────────────────────────────
-export async function classifyIntent(text: string): Promise<Intent> {
-    return await callAIWithRotation(async (openai) => {
-        const { text: intent } = await generateText({
-            model: openai.chat('gpt-4o-mini'),
-            system: `Classify the user intent: faculty, admission, department, fee, transport, hostel, placement, complaint, general. Respond with ONLY the word.`,
-            prompt: text,
-        });
-        const i = intent.toLowerCase().trim() as Intent;
-        const validIntents: Intent[] = ['admission', 'faculty', 'department', 'hostel', 'transport', 'fee', 'placement', 'complaint', 'general'];
-        return validIntents.includes(i) ? i : 'general';
-    });
-}
-
-// ─────────────────────────────────────────────
-// STAGE 1 — Smart Refiner (Neural Expansion)
-// ─────────────────────────────────────────────
-export async function rewriteQuery(t: string, intent: Intent, history: ShortTermMemory[]): Promise<string> {
-    const lower = t.toLowerCase();
-    const competitors = ['srm', 'vit', 'ssn', 'anna university', 'saveetha', 'panimalar', 'st joseph'];
-    
-    if (competitors.some(c => lower.includes(c))) {
-        return `${t} MSAJCE unique advantages labs research vs competitors Dr Srinivasan achievements`;
-    }
-
-    if ((t.split(' ').length < 4 || affirmations.test(t)) && history.length > 0) {
-        return await callAIWithRotation(async (openai) => {
-            const lastMsg = history[history.length - 1];
-            const { text: expanded } = await generateText({
-                model: openai.chat('gpt-4o-mini'),
-                system: `You are a query anchor. The user said "${t}" in response to "${lastMsg.content}". 
-                Generate a search query that combined their affirmation with the EXACT topic of that last message. 
-                Example: User says "yes" to "Want to know about Principal?", Query = "Dr. K.S. Srinivasan Principal details initiatives MSAJCE".`,
-                prompt: t,
-            });
-            return expanded;
-        });
-    }
-    return t;
-}
 
 // ─────────────────────────────────────────────
 // STAGE 2 — Hybrid Retrieval
@@ -122,10 +83,8 @@ export async function getContext(rewrittenQuery: string, rawText: string, sql: a
     const namesToSearch: string[] = [];
 
     try {
-        const words = rewrittenQuery.split(' ').filter(w => w.length > 3);
-        const coreName = words[0] || "";
         const results: any = await sql`
-            SELECT name, type, designation, department, degree, batch, organization, search_text FROM msajce_entities 
+            SELECT name, type, designation, department, search_text FROM msajce_entities 
             WHERE search_text % ${rewrittenQuery} OR name ILIKE ${'%' + rewrittenQuery + '%'}
             ORDER BY similarity(search_text, ${rewrittenQuery}) DESC LIMIT 5
         `;
@@ -170,18 +129,16 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
         const lowContent = c.content.toLowerCase();
         const lowQuery = query.toLowerCase();
 
-        // GLOBAL IDENTITY BOOST (Persona Sovereignty)
         if (c.content.includes('[ALPHA-PURPLE]') || c.content.includes('[ENTITY]')) score += 2000;
         if (lowContent.includes(lowQuery)) score += 100;
         
         const recentHistory = history.slice(-5);
         const isFollowUp = affirmations.test(query) || query.length < 5;
-        
         const wasShared = recentHistory.some(m => m.role === 'assistant' && lowContent.includes(m.content.toLowerCase().slice(0, 40)));
         
         if (wasShared) {
-            if (isFollowUp) score += 500; // BOOST if user wants more of the same topic
-            else score -= 1500; // PENALIZE only if user is moving to a fresh topic
+            if (isFollowUp) score += 500;
+            else score -= 1500;
         }
         
         return { ...c, score };
@@ -194,7 +151,7 @@ export async function rerankResults(query: string, chunks: KnowledgeChunk[], his
 }
 
 // ─────────────────────────────────────────────
-// CONVERSATION STATE MANAGER (Lightweight Sovereignty)
+// CONVERSATION STATE MANAGER
 // ─────────────────────────────────────────────
 interface ConversationState {
     lastTopic?: string;
@@ -235,18 +192,62 @@ function extractOptions(answer: string): string[] {
 }
 
 // ─────────────────────────────────────────────
-// ORCHESTRATOR PIPELINE (STRICT)
+// ORCHESTRATOR PIPELINE (STRICT & OPTIMIZED)
 // ─────────────────────────────────────────────
 export async function orchestrate(userId: string | number, rawText: string, history: ShortTermMemory[], profile: UserProfile, sql: any) {
     const startTime = Date.now();
     const state = userStateStore.get(userId) || {};
     
-    // 1. EXPAND QUERY (Identity Lock)
+    // 1. FAST-TRACK GREETINGS
+    const lowerRaw = rawText.toLowerCase().trim();
+    const isSimpleGreeting = /^(hi|hello|hey|yo|greetings|namaste)$/i.test(lowerRaw) && rawText.split(' ').length < 3;
+    
+    if (isSimpleGreeting) {
+        const answer = await generateGrounded(`User is greeting. Reply naturally like a senior.`, rawText, {
+            showForm: false,
+            askClarify: false,
+            dominantIntent: 'general',
+            isMarketingMode: false,
+            isAbuseDetected: false
+        }, "https://forms.gle/bx2S4iPtJLipA9866");
+        
+        return {
+            answer: answer,
+            metadata: {
+                latency_ms: Date.now() - startTime,
+                match_score: 0,
+                intent: 'general',
+                retrieval_source: 'Greeting-FastTrack',
+                model_id: 'gpt-4o-mini-hydra-v2'
+            }
+        };
+    }
+
+    // 2. EXPAND QUERY & ANALYZE (Parallel AI Call)
     const targetQuery = expandQuery(rawText, state);
     
-    // 2. CLASSIFY & REWRITE
-    const intent = await classifyIntent(targetQuery);
-    const rewritten = await rewriteQuery(targetQuery, intent, history);
+    const { intent, rewritten } = await callAIWithRotation(async (openai) => {
+        const lastMsg = history.length > 0 ? history[history.length - 1] : null;
+        const { text: analysis } = await generateText({
+            model: openai.chat('gpt-4o-mini'),
+            system: `Analyze the user query for MSAJCE. 
+            Respond in EXACTLY this format:
+            INTENT: [intent]
+            REWRITTEN: [expanded query]
+            
+            Valid Intents: admission, faculty, department, hostel, transport, fee, placement, complaint, general.
+            Expansion: If user says "yes" or follow-up, use context: "${lastMsg?.content || 'None'}".`,
+            prompt: targetQuery,
+        });
+        
+        const intentMatch = analysis.match(/INTENT: (.*)/i);
+        const rewrittenMatch = analysis.match(/REWRITTEN: (.*)/i);
+        
+        return {
+            intent: (intentMatch?.[1].toLowerCase().trim() || 'general') as Intent,
+            rewritten: rewrittenMatch?.[1].trim() || targetQuery
+        };
+    });
     
     // 3. RETRIEVE
     const rawChunks = await getContext(rewritten, rawText, sql);
@@ -295,7 +296,7 @@ export async function orchestrate(userId: string | number, rawText: string, hist
             match_score: topScore || 0,
             intent: intent || 'general',
             retrieval_source: rawChunks[0]?.source || 'None',
-            model_id: 'gpt-4o-mini-hydra-v2'
+            model_id: 'gpt-4o-mini-hydra-v2-optimized'
         }
     };
 }
