@@ -24,7 +24,8 @@ export function getDynamicAIClient(attempt: number = 0) {
         process.env.VERCEL_AI_KEY_4
     ].filter(Boolean);
     
-    const key = keys[attempt % keys.length];
+    // Attempt rotation
+    const key = keys[attempt % keys.length] || process.env.OPENAI_API_KEY;
     const isVercelKey = key?.startsWith('vck_');
     
     return createOpenAI({ 
@@ -34,14 +35,31 @@ export function getDynamicAIClient(attempt: number = 0) {
 }
 
 async function callAIWithRotation(fn: (openai: any) => Promise<any>, maxRetries: number = 3) {
-    for (let i = 0; i <= maxRetries; i++) {
+    const keysCount = [
+        process.env.OPENAI_API_KEY, 
+        process.env.VERCEL_AI_KEY,
+        process.env.VERCEL_AI_KEY_2,
+        process.env.VERCEL_AI_KEY_3,
+        process.env.VERCEL_AI_KEY_4
+    ].filter(Boolean).length;
+
+    const actualMaxRetries = Math.max(maxRetries, keysCount - 1);
+
+    for (let i = 0; i <= actualMaxRetries; i++) {
         const openai = getDynamicAIClient(i);
         try {
             return await fn(openai);
         } catch (error: any) {
-            const isRateLimit = error.statusCode === 429 || error.message?.includes('rate limit') || error.message?.includes('abus');
-            if (isRateLimit && i < maxRetries) {
-                console.warn(`🔄 AI KEY ROTATION: Stage ${i} failed (Rate Limit). Trying next key...`);
+            // ROTATION TRIGGERS: Rate Limit (429) OR Insufficient Funds (402)
+            const isRotateTrigger = 
+                error.statusCode === 429 || 
+                error.statusCode === 402 || 
+                error.message?.toLowerCase().includes('rate limit') || 
+                error.message?.toLowerCase().includes('insufficient funds') ||
+                error.message?.toLowerCase().includes('credits');
+
+            if (isRotateTrigger && i < actualMaxRetries) {
+                console.warn(`🔄 AI KEY ROTATION: Stage ${i} failed (${error.statusCode || 'Error'}). Trying next key in pool...`);
                 continue;
             }
             console.error(`❌ AI EXECUTION FAILED at Stage ${i}:`, error.message || error);
