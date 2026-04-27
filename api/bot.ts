@@ -18,12 +18,16 @@ export default async function handler(req: any, res: any) {
         return res.status(200).send('Lorin Intelligence Node is Online.');
     }
 
+    const update = req.body;
+    console.log(`📩 Incoming Update ID: ${update?.update_id || 'UNKNOWN'}`);
+    console.time('Full-Processing');
+
     try {
-        const update = req.body;
         if (!update) return res.status(200).send('OK');
 
         // Stage -2: Reaction Awareness (Feedback Loop)
         if (update.message_reaction) {
+            console.log('🎭 Reaction detected');
             const reaction = update.message_reaction;
             const chatId = reaction.chat.id;
             const isPositive = reaction.new_reaction.some((r: any) => r.emoji === '👍' || r.emoji === '🔥' || r.emoji === '❤️');
@@ -47,14 +51,18 @@ export default async function handler(req: any, res: any) {
         if (!update.message) return res.status(200).send('OK');
         
         const message = update.message;
-        const userId = message.from.id.toString();
+        const userId = message.from?.id?.toString();
         const rawText = message.text || "";
-        const updateId = update.update_id.toString();
+        
+        if (!userId || !rawText) {
+            console.warn('⚠️ Malformed Message: Missing userId or text');
+            return res.status(200).send('OK');
+        }
 
-        if (!rawText) return res.status(200).send('OK');
+        console.log(`👤 User: ${userId} | Query: "${rawText.substring(0, 50)}..."`);
 
         // Stage 0: Neural Context & Quota Management
-        const openai = getDynamicAIClient();
+        console.time('Quota-Check');
         const ADMIN_IDS = (process.env.ADMIN_IDS || "").split(",").map(id => id.trim()).filter(Boolean);
         const isDeveloper = ADMIN_IDS.includes(userId);
 
@@ -74,6 +82,7 @@ export default async function handler(req: any, res: any) {
             let newDayCount = dayDiff > 1 ? 1 : quota.day_count + 1;
 
             if (newMinCount > 5 || newDayCount > 30) {
+                console.warn(`🛑 Rate limit hit for ${userId}`);
                 const tgUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
                 await fetch(tgUrl, {
                     method: 'POST',
@@ -84,6 +93,7 @@ export default async function handler(req: any, res: any) {
                         parse_mode: 'Markdown'
                     })
                 });
+                console.timeEnd('Quota-Check');
                 return res.status(200).send('RATE_LIMITED');
             }
 
@@ -96,7 +106,10 @@ export default async function handler(req: any, res: any) {
                 WHERE user_id = ${userId}
             `;
         }
+        console.timeEnd('Quota-Check');
 
+        // Stage 1: Memory Load
+        console.time('Memory-Load');
         let shortTerm = [];
         let profile: any = { user_id: userId, name: null, last_seen: new Date() };
 
@@ -107,8 +120,10 @@ export default async function handler(req: any, res: any) {
         } catch (memErr) {
             console.warn('⚠️ Memory Load Failed:', memErr);
         }
+        console.timeEnd('Memory-Load');
 
-        // Stage 1: Brain Execution
+        // Stage 2: Brain Execution (Orchestration)
+        console.time('Brain-Orchestration');
         const { answer, metadata } = await orchestrate(
             userId,
             rawText,
@@ -116,8 +131,10 @@ export default async function handler(req: any, res: any) {
             profile,
             sql
         );
+        console.timeEnd('Brain-Orchestration');
 
-        // Stage 6: Database Logging (Non-blocking)
+        // Stage 3: Database Logging (Non-blocking)
+        console.time('DB-Audit-Sync');
         try {
             await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'user', ${rawText})`;
             await sql`INSERT INTO chat_history (user_id, role, content) VALUES (${userId}, 'assistant', ${answer})`;
@@ -135,10 +152,12 @@ export default async function handler(req: any, res: any) {
         } catch (dbErr) {
             console.warn('⚠️ DB Sync Failed:', dbErr);
         }
+        console.timeEnd('DB-Audit-Sync');
 
-        // Stage 7: Direct Telegram Dispatch
+        // Stage 4: Direct Telegram Dispatch
+        console.time('Telegram-Dispatch');
         const tgUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
-        await fetch(tgUrl, {
+        const dispatchResponse = await fetch(tgUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -147,11 +166,40 @@ export default async function handler(req: any, res: any) {
                 parse_mode: 'Markdown'
             })
         });
+        
+        if (!dispatchResponse.ok) {
+            const errText = await dispatchResponse.text();
+            console.error(`❌ Telegram Dispatch Failed: ${errText}`);
+            throw new Error(`Telegram API responded with ${dispatchResponse.status}`);
+        }
+        console.timeEnd('Telegram-Dispatch');
 
+        console.timeEnd('Full-Processing');
         return res.status(200).send('OK');
 
     } catch (err: any) {
+        console.timeEnd('Full-Processing');
         console.error('❌ CRITICAL ENGINE FAILURE:', err);
+        
+        // Notify User of Failure
+        try {
+            const userId = update.message?.from?.id;
+            if (userId) {
+                const tgUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
+                await fetch(tgUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: userId,
+                        text: "🚨 *Lorin System Update*\nI'm currently experiencing a high-latency spike or a neural connection issue. My team has been notified. Please try again in a few minutes!",
+                        parse_mode: 'Markdown'
+                    })
+                });
+            }
+        } catch (notifyErr) {
+            console.error('❌ Could not notify user of failure:', notifyErr);
+        }
+
         return res.status(200).send('ERROR_LOGGED');
     }
 }

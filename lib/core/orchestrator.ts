@@ -41,9 +41,10 @@ async function callAIWithRotation(fn: (openai: any) => Promise<any>, maxRetries:
         } catch (error: any) {
             const isRateLimit = error.statusCode === 429 || error.message?.includes('rate limit') || error.message?.includes('abus');
             if (isRateLimit && i < maxRetries) {
-                console.warn(`⚠️ Key Rotation Stage ${i}: Redirecting traffic...`);
+                console.warn(`🔄 AI KEY ROTATION: Stage ${i} failed (Rate Limit). Trying next key...`);
                 continue;
             }
+            console.error(`❌ AI EXECUTION FAILED at Stage ${i}:`, error.message || error);
             throw error;
         }
     }
